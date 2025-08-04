@@ -6,6 +6,8 @@ Download the installer
 
 Download the latest version of the skrypy installer and save in a temporary folder.
 
+`download skrypy install <https://github.com/montigno/skrypy/archive/refs/heads/main.zip>`__
+
 Install
 ------- 
 
@@ -23,7 +25,7 @@ Install
 
    .. tip::
 
-	**python3.12**: choose the version of Python (see requirements chapter). |br|
+	**python3.12**: choose the version of Python (see `requirements chapter <https://montigno.github.io/skrypy/html/installation/requirements.html>`__). |br|
 	**setup.py**: contains the installation code. |br|
 	**/home/user/Applications/skrypy_venv**: specify the installation path of your virtual environment. |br|
 
