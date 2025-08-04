@@ -23,14 +23,7 @@ exclude_patterns = []
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-#html_theme = 'sphinx_rtd_theme'
-html_theme = 'sphinxdoc'
+html_theme = 'sphinx_rtd_theme'
+#html_theme = 'sphinxdoc'
 html_static_path = ['_static']
 
-html_context = {
-    "display_github": True, # Integrate GitHub
-    "github_user": "montigno", # Username
-    "github_repo": "MyDoc", # Repo name
-    "github_version": "main", # Version
-    "conf_py_path": "/doc/", # Path in the checkout to the docs root
-}
