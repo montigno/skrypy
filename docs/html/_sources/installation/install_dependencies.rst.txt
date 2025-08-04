@@ -56,7 +56,7 @@ ________________________________________________________________
 ________________________________________________________________
 
 `Matlab engine <https://www.mathworks.com/help/matlab/matlab-engine-for-python.html>`__
--------------
+--------------
 
 #. For MATLAB < R2022b::
 
@@ -72,6 +72,32 @@ ________________________________________________________________
 	python3 -m pip install matlabengine==24.2.2
 	exit	
 
+________________________________________________________________
+
+`MRTrix3 <https://mrtrix.readthedocs.io/en/latest/installation/build_from_source.html>`__
+--------
+
+#. Required dependencies::
+
+	sudo apt-get install git g++ python libeigen3-dev zlib1g-dev libqt5opengl5-dev libqt5svg5-dev libgl1-mesa-dev libfftw3-dev libtiff5-dev libpng-dev
+
+#. Choose or create a directory where MRTrix3 will be installed (eg /home/user/Applications)::
+
+#. In this directory, type::
+
+	git clone https://github.com/MRtrix3/mrtrix3.git
+	cd mrtrix3
+	./configure
+	./build
+	./set_path
+	
+#. Close the terminal and start another one::
+
+	mrview
+
+   .. NOTE::
+
+      settings will be automatically generated in .bashrc
 ________________________________________________________________
 
 `RS2 <https://github.com/VitoLin21/Rodent-Skull-Stripping>`__
