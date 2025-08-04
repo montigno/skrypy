@@ -80,6 +80,12 @@ Table of Contents
 
    start/demo_1.rst
 
+.. toctree::
+   :maxdepth: 1
+   :caption: Blocks
+
+   blocks/create_blocks.rst
+
 .. # define a hard line break for HTML
 .. |br| raw:: html
 
