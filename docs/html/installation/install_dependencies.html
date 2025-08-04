@@ -54,6 +54,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#matlab-engine">Matlab engine</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#mrtrix3">MRTrix3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#rs2">RS2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#spm-requires-matlab">SPM (requires MATLAB)</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cluster.html">Cluster (HPC)</a></li>
@@ -207,6 +208,33 @@ export FSLDIR PATH
 <section id="rs2">
 <h2><a class="reference external" href="https://github.com/VitoLin21/Rodent-Skull-Stripping">RS2</a><a class="headerlink" href="#rs2" title="Link to this heading"></a></h2>
 <p>Download RS2 <a class="reference external" href="https://github.com/VitoLin21/Rodent-Skull-Stripping/archive/refs/heads/main.zip">here</a></p>
+</section>
+<hr class="docutils" />
+<section id="spm-requires-matlab">
+<h2><a class="reference external" href="https://www.fil.ion.ucl.ac.uk/spm/">SPM (requires MATLAB)</a><a class="headerlink" href="#spm-requires-matlab" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p>Download SPM12 <a class="reference external" href="https://www.fil.ion.ucl.ac.uk/spm/docs/installation/">here</a></p></li>
+<li><p>Uncompress the zip file and put the directory ‘SPM12’ in the ‘toolbox’ folder of your Matlab (eg /usr/local/MATLAB/R2024b/toolbox/)</p></li>
+<li><p>In terminal:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">MATLAB</span><span class="o">/</span><span class="n">R2024b</span><span class="o">/</span><span class="n">toolbox</span><span class="o">/</span><span class="n">local</span><span class="o">/</span>
+<span class="n">sudo</span> <span class="n">nano</span> <span class="n">pathdef</span><span class="o">.</span><span class="n">m</span>
+</pre></div>
+</div>
+</li>
+<li><p>find the line %%% BEGIN ENTRIES %%% and add to the line below: matlabroot,’/toolbox/spm12:’, …:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%%</span> <span class="n">BEGIN</span> <span class="n">ENTRIES</span> <span class="o">%%%</span>
+<span class="n">matlabroot</span><span class="p">,</span><span class="s1">&#39;/toolbox/spm12:&#39;</span><span class="p">,</span> <span class="o">...</span>
+</pre></div>
+</div>
+</li>
+<li><p>Save it</p></li>
+<li><p>Edit .bashrc:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#SPM12</span>
+<span class="n">export</span> <span class="n">SPM_PATH</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">MATLAB</span><span class="o">/</span><span class="n">R2024b</span><span class="o">/</span><span class="n">toolbox</span><span class="o">/</span><span class="n">spm12</span><span class="o">/</span>
+</pre></div>
+</div>
+</li>
+</ol>
 </section>
 </section>
 

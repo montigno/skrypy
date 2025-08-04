@@ -105,8 +105,36 @@ ________________________________________________________________
 
 Download RS2 `here <https://github.com/VitoLin21/Rodent-Skull-Stripping/archive/refs/heads/main.zip>`__
 
+________________________________________________________________
+
+`SPM (requires MATLAB) <https://www.fil.ion.ucl.ac.uk/spm/>`__
+----------------------
+
+#. Download SPM12 `here <https://www.fil.ion.ucl.ac.uk/spm/docs/installation/>`__
+
+#. Uncompress the zip file and put the directory 'SPM12' in the 'toolbox' folder of your Matlab (eg /usr/local/MATLAB/R2024b/toolbox/)
+
+#. In terminal::
+
+	cd /usr/local/MATLAB/R2024b/toolbox/local/
+	sudo nano pathdef.m
+
+#. find the line %%% BEGIN ENTRIES %%% and add to the line below: matlabroot,'/toolbox/spm12:', ...::
+
+	%%% BEGIN ENTRIES %%%
+	matlabroot,'/toolbox/spm12:', ...
+
+#. Save it
+
+#. Edit .bashrc::
+
+	#SPM12
+	export SPM_PATH=/usr/local/MATLAB/R2024b/toolbox/spm12/
+
+ 
 
 .. # define a hard line break for HTML
 .. |br| raw:: html
 
    <br />
+
