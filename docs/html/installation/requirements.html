@@ -44,7 +44,11 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Install</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Requirements</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Requirements</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#python">Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#miniconda">Miniconda</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="install_skrypy.html">How to install Skrypy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install_dependencies.html">How to install dependencies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cluster.html">Cluster (HPC)</a></li>
@@ -86,18 +90,48 @@
              
   <section id="requirements">
 <h1>Requirements<a class="headerlink" href="#requirements" title="Link to this heading"></a></h1>
+<section id="python">
+<h2>Python<a class="headerlink" href="#python" title="Link to this heading"></a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>First of all, you should carefully select the correct Python 3 version (3.6 to 3.12) to install the Skrypy virtual environment.</p>
 </div>
 <p>If you plan to use <a class="reference external" href="https://www.mathworks.com/help/matlab/matlab-engine-for-python.html">the Matlab engine</a>, you should check <a class="reference external" href="https://fr.mathworks.com/support/requirements/python-compatibility.html">the supported versions</a>. <br />
 Otherwise it is recommended to use at least Python3.12 version.</p>
-<p>If you don’t have Python3 or not the right version, you can try this method (eg you want to install python3.11):</p>
+<p>If you don’t have Python3 or not the right version, you can try this method:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="p">:</span><span class="n">deadsnakes</span><span class="o">/</span><span class="n">ppa</span>
 <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
-<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python3</span><span class="mf">.11</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python3</span><span class="o">.</span><span class="n">x</span> <span class="c1"># x the chosen version between 6 and 12</span>
 </pre></div>
 </div>
+</section>
+<section id="miniconda">
+<h2>Miniconda<a class="headerlink" href="#miniconda" title="Link to this heading"></a></h2>
+<p>Some dependencies require miniconda to be installed.</p>
+<ol class="arabic">
+<li><p>To install:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">Applications</span>
+<span class="n">mkdir</span> <span class="n">miniconda3</span>
+<span class="n">cd</span> <span class="n">miniconda3</span>
+<span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">repo</span><span class="o">.</span><span class="n">anaconda</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">miniconda</span><span class="o">/</span><span class="n">Miniconda3</span><span class="o">-</span><span class="n">latest</span><span class="o">-</span><span class="n">Linux</span><span class="o">-</span><span class="n">x86_64</span><span class="o">.</span><span class="n">sh</span>
+<span class="n">bash</span> <span class="n">Miniconda3</span><span class="o">-</span><span class="n">latest</span><span class="o">-</span><span class="n">Linux</span><span class="o">-</span><span class="n">x86_64</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+</li>
+<li><p>Close your terminal and reopen it</p></li>
+<li><p>To test:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="nb">list</span>
+<span class="n">conda</span> <span class="n">init</span> <span class="n">fish</span>
+</pre></div>
+</div>
+</li>
+<li><p>To update:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">update</span> <span class="n">conda</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
 </section>
 
 
