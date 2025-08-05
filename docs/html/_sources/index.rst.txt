@@ -3,8 +3,11 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to the Skrypy documentation!
-====================================
+Welcome to the Skrypy documentation! 
+==================================== 
+
+(documentation still in development)
+------------------------------------
 
 Skrypy offers a graphical programming approach that helps you visualize every aspect of your application and pipeline.
 
