@@ -38,7 +38,7 @@ Some dependencies require miniconda to be installed.
 
 	conda update conda
 
-#. To activate/deactivate conda::
+#. To activate conda::
 
 	conda activate
 
