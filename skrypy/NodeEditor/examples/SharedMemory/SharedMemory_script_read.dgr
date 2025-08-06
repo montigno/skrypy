@@ -1,0 +1,49 @@
+[diagram]
+link=[N1] node=[S1:myFile#Node#P1:Value]
+link=[N0] node=[S0:listReady#Node#P0:Value]
+link=[N2] node=[A0:#Node#S0:MemName1]
+link=[N3] node=[A1:#Node#S1:MemName2]
+probe=[P0] label=[Value] format=[list_int] RectF=[(516.52, 10.1, 70, 24)] 
+probe=[P1] label=[Value] format=[path] RectF=[(512.75, 270.62, 70, 24)] 
+constant=[A0] value=['adc'] format=[str] label=[MemName1] RectF=[(-259.0, -1.09, 45.0, 35.0)] 
+constant=[A1] value=['fgh'] format=[str] label=[MemName2] RectF=[(-251.67000000000002, 267.3, 44.0, 35.0)] 
+script=[S0] title=[Script_python] inputs=[['MemName1', 'in', 'str']] outputs=[['listReady', 'out', 'list_int']] code=[your code] RectF=[(-77.8, -80.91, 509.0, 201.0)]
+script=[S1] title=[Script_python] inputs=[['MemName2', 'in', 'str']] outputs=[['myFile', 'out', 'path']] code=[your code] RectF=[(-74.13, 184.8, 499.0, 200.0)]
+[source S0]
+["MemName1='adc'"]
+from multiprocessing import shared_memory
+import array
+
+shm_c = shared_memory.SharedMemory(MemName1)
+print('1:', shm_c)
+
+listReady =  array.array('b', shm_c.buf[:shm_c.size])
+
+shm_c.close()
+#print('3:', array.array('b', shm_b.buf[:5]))
+['S0:listReady']
+[/source S0]
+[source S1]
+["MemName2='fgh'"]
+from multiprocessing import shared_memory
+import array
+
+shm_d = shared_memory.SharedMemory(MemName2)
+print('2:', shm_d)
+
+myFile =  bytes(shm_d.buf[:shm_d.size]).decode()
+
+shm_d.close()
+#print('3:', array.array('b', shm_b.buf[:5]))
+['S1:myFile']
+[/source S1]
+
+[execution]
+[]
+['S0', 'S1', 'P0', 'P1']
+{'P0': ('list_int', 'Value', 'S0:listReady'), 'P1': ('path', 'Value', 'S1:myFile')}
+['S1:myFile', 'S0:listReady']
+{}
+[]
+[interlinks]
+[]
