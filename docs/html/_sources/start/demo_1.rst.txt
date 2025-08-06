@@ -37,7 +37,7 @@ Very simple example
 
    |pic1| |pic2| |pic3|
 
-#. you can see the demo in video `demo1.mp4 <demo1.mp4>`__ 
+#. you can see the demo in this video `demo1.mp4 <demo1.mp4>`__ 
 
 
 .. # define a hard line break for HTML
