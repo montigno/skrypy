@@ -10,8 +10,8 @@ A documentation is available here : [https://montigno.github.io/skrypy](https://
 
 <p></p>
 
-        06/08/2025: version 25.08.06b
-        - continuation of the documentation
+	06/08/2025: version 25.08.06b
+	- continuation of the documentation
 	- modified cluster configuration window 
 
 <p></p>
