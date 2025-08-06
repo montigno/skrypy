@@ -75,7 +75,6 @@ Table of Contents
    installation/install_dependencies.rst
    installation/cluster.rst
    installation/running_skrypy.rst
-   installation/running_skrypy_cluster.rst
 
 .. toctree::
    :maxdepth: 1
