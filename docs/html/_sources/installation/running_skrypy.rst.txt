@@ -12,6 +12,10 @@ This page explains how to launch Skrypy locally or on a cluster.
       :height: 20px
       :alt: (arrow)
 
+   .. |pic3| image:: ../ressources/order_processes.png
+      :width: 60%
+      :alt: (order processes)
+
 Local execution
 ---------------
 
@@ -46,9 +50,13 @@ Local execution
 	|pic1| |blank2| |pic2|
 
 3. Running multiple diagrams (CTRL+M)
-	:blue:`Allows you to launch all your open diagrams`
+	:blue:`Allows you to launch all your open diagrams.`
 
 	|pic1| |blank3| |pic2|
+
+        :blue:`A 'Order of processes' window opens, indicate the order of the diagrams to launch.`
+
+	|pic3|
 
 Execution on a cluster
 ----------------------
