@@ -11,13 +11,19 @@ Download the latest version of the skrypy installer and save in a temporary fold
 Install
 ------- 
 
+#. Open a terminal
+
 #. Go to the temporary folder where the installer is located::
 
 	cd /root/of/your/temporary/folder
 
 #. Unzip the installer::
 
-	unzip skrypy_install_xx.xx.xxb.zip
+	unzip skrypy-main.zip
+
+#. Go to the unziped folder::
+
+	cd skrypy-main
 
 #. Launch the install::
 
