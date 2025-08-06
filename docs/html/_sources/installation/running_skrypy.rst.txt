@@ -25,17 +25,30 @@ Local execution
       :width: 47%
       :alt: (blank)
 
-1. Standard mode
+.. |br| raw:: html
 
-|pic1| |blank1| |pic2|
+   <br />
 
-2. Multithreading mode
+.. raw:: html
 
-|pic1| |blank2| |pic2|
+    <style> .blue {color:#0000ff} </style>
 
-3. Running multiple diagrams
+.. role:: blue
 
-|pic1| |blank3| |pic2|
+1. Standard mode (CTRL+R)
+	:blue:`Allows to launch your current diagram sequentially (no multithreading)`
+
+	|pic1| |blank1| |pic2|
+
+2. Multithreading mode (CTRL+T)
+	:blue:`Allows to launch your current diagram in multithreading mode. Several different blocks will run in parallel, reducing processing time.`
+
+	|pic1| |blank2| |pic2|
+
+3. Running multiple diagrams (CTRL+M)
+	:blue:`Allows you to launch all your open diagrams`
+
+	|pic1| |blank3| |pic2|
 
 Execution on a cluster
 ----------------------
@@ -61,3 +74,8 @@ Execution on a cluster
 3. Running multiple diagrams
 
 |pic1| |blank6| |pic2|
+
+.. # define a hard line break for HTML
+.. |br| raw:: html
+
+   <br />
