@@ -89,7 +89,7 @@
   <section id="cluster-hpc">
 <h1>Cluster (HPC)<a class="headerlink" href="#cluster-hpc" title="Link to this heading"></a></h1>
 <p>The procedure for installing Skrypy and its dependencies on a cluster is the same as for a local installation.
-Check with the cluster administrator.</p>
+See with the cluster administrator.</p>
 <blockquote>
 <div></div></blockquote>
 <section id="clusters-configuration">
@@ -105,7 +105,7 @@ Check with the cluster administrator.</p>
 <ol class="arabic simple" start="3">
 <li><p>Fill in the fields</p></li>
 </ol>
-<ul>
+<ul class="simple">
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">Host</span> <span class="pre">name</span></code>: <a class="reference external" href="mailto:login&#37;&#52;&#48;clusterhost">login<span>&#64;</span>clusterhost</a></dt><dd></dd>
 </dl>
@@ -122,14 +122,15 @@ Check with the cluster administrator.</p>
 <dt><code class="docutils literal notranslate"><span class="pre">Max</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">cpus</span> <span class="pre">to</span> <span class="pre">use</span></code>: maximum number of CPUs to use for your multiprocessing mode treatments.</dt><dd></dd>
 </dl>
 </li>
-<li><dl>
-<dt><code class="docutils literal notranslate"><span class="pre">X11</span> <span class="pre">forwarding</span></code>: check this box if display returns (image or curves) are expected.</dt><dd><div class="admonition attention">
+<li><p><code class="docutils literal notranslate"><span class="pre">X11</span> <span class="pre">forwarding</span></code>: check this box if display returns (image or curves) are expected.</p></li>
+</ul>
+<blockquote>
+<div><div class="admonition attention">
 <p class="admonition-title">Attention</p>
 <p>Depending on the cluster’s graphics management capability, the result is not guaranteed.</p>
 </div>
-</dd>
-</dl>
-</li>
+</div></blockquote>
+<ul class="simple">
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">Pre-execution</span> <span class="pre">command</span></code>: this field allows you to enter shell-like instructions to be executed before your diagrams run. Often useful when you need to activate conda first for example.</dt><dd></dd>
 </dl>

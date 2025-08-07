@@ -2,7 +2,7 @@ Cluster (HPC)
 =============
 
 The procedure for installing Skrypy and its dependencies on a cluster is the same as for a local installation.
-Check with the cluster administrator.
+See with the cluster administrator.
 
    .. |pic1| image:: ../ressources/Skrypy_buttons.png
       :width: 100%
@@ -44,8 +44,8 @@ You can put several clusters in the list. |br|
 - ``Max number of cpus to use``: maximum number of CPUs to use for your multiprocessing mode treatments. 
    ..
 - ``X11 forwarding``: check this box if display returns (image or curves) are expected.
-   .. attention::
-	Depending on the cluster's graphics management capability, the result is not guaranteed.
+ .. attention::
+    Depending on the cluster's graphics management capability, the result is not guaranteed.
 - ``Pre-execution command``: this field allows you to enter shell-like instructions to be executed before your diagrams run. Often useful when you need to activate conda first for example. 
    ..
 
