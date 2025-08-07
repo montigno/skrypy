@@ -10,6 +10,11 @@ A documentation is available here : [https://montigno.github.io/skrypy](https://
 
 <p></p>
 
+	07/08/2025: version 25.08.07d
+	- * added in the new diagram name
+
+<p></p>
+
 	07/08/2025: version 25.08.07c
 	- bug fixed: running on cluster when shared memory is empty
 
