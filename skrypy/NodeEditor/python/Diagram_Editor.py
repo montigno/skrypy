@@ -6404,7 +6404,7 @@ class NodeEdit(QWidget):
         count = 0
         found = False
         while not found:
-            newName = "Diagram{}".format(str(count))
+            newName = "Diagram{}*".format(str(count))
             if newName not in listTitle and (newName+"*") not in listTitle:
                 found = True
             else:
