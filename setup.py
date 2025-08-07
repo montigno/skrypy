@@ -93,14 +93,14 @@ def install_linux(pyth, base_dir):
     os.system("echo 'cmd_sk{}=\"source ".format(ext_py) + os.path.join(base_dir, "bin", "activate") +
               "; cd " + os.path.join(base_dir, "skrypy") +
               "; " + pyth + " main.py; deactivate\"' >> ~/.bashrc")
-    os.system("echo 'cmd_sk{}_install=\"source ".format(ext_py) + os.path.join(base_dir, "bin", "activate") +
+    os.system("echo 'cmd_sk{}_packages=\"source ".format(ext_py) + os.path.join(base_dir, "bin", "activate") +
               "; cd " + os.path.join(base_dir, "skrypy") +
               "; " + pyth + " install_modules.py; deactivate\"' >> ~/.bashrc")
     os.system("echo 'cmd_sk{}_test=\"source ".format(ext_py) + os.path.join(base_dir, "bin", "activate") +
               "; cd " + os.path.join(base_dir, "skrypy") +
               "; " + pyth + " testunit.py; deactivate\"' >> ~/.bashrc")
     os.system("echo 'alias skrypy{}=$cmd_sk{}".format(ext_py, ext_py) + "'>> ~/.bashrc")
-    os.system("echo 'alias skrypy{}_install=$cmd_sk{}_install".format(ext_py, ext_py) + "'>> ~/.bashrc")
+    os.system("echo 'alias skrypy{}_packages=$cmd_sk{}_packages".format(ext_py, ext_py) + "'>> ~/.bashrc")
     os.system("echo 'alias skrypy{}_test=$cmd_sk{}_test".format(ext_py, ext_py) + " '>> ~/.bashrc")
     os.system("echo '\n' >> ~/.bashrc")
     print("{}.bashrc modified, tape source ~/.bashrc{}".format(ORANGE, RESET))

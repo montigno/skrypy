@@ -37,7 +37,7 @@ Install
 
    .. NOTE::
 
-	At the end of this step, 3 aliases are created in your OS's .bashrc file. |br|
+	At the end of this step, 3 aliases are created in your OS's .bashrc file (312 as Python version). |br|
 	**skrypy_312** to launch Skrypy. |br|
 	**skrypy_312_install** for installing Python packages. |br|
 	**skrypy_312_test** to test that skrypy is working properly. |br|
@@ -48,7 +48,7 @@ Install
 
 #. Install packages::
 
-	skrypy_312_install
+	skrypy_312_packages
 
    .. NOTE::
 
@@ -62,7 +62,7 @@ Test
 
 #. To test if Skrypy is working, type in the terminal::
 
-	skrypy_3122_test
+	skrypy_312_test
 
 
 .. # define a hard line break for HTML

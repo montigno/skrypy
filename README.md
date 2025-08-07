@@ -10,6 +10,12 @@ A documentation is available here : [https://montigno.github.io/skrypy](https://
 
 <p></p>
 
+	07/08/2025: version 25.08.07b
+	- setup.py: alias 'skrypy_install' renamed to 'skrypy_packages'
+	- documentation modified
+
+<p></p>
+
 	06/08/2025: version 25.08.06b
 	- continuation of the documentation
 	- modified cluster configuration window 
