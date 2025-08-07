@@ -6,7 +6,7 @@
 # for details.
 ##########################################################################
 '''
-Skrypy 25.08.07b   setup   Aug. 07 2025
+Skrypy 25.08.07c   setup   Aug. 07 2025
 
 SYNOPSIS
     Install Skrypy in a virtual python environment (administration rights required).
@@ -116,14 +116,14 @@ if __name__ == '__main__':
         print(__doc__)
         exit()
     elif len(sys.argv) == 2:
-    	if '--help' in sys.argv[1]:
-    	    print(__doc__)
-    	    exit()
-    	else:
+        if '--help' in sys.argv[1]:
+            print(__doc__)
+            exit()
+        else:
             base_dir = sys.argv[1]
     if os.path.exists(base_dir):
-    	print("this directory already exists ! Remove it or choose another name")
-    	exit()
+        print("this directory already exists ! Remove it or choose another name")
+        exit()
     os_current = platform.system()
     if os_current == 'Linux':
         install_linux(pyth_v, base_dir)
