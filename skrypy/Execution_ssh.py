@@ -157,5 +157,6 @@ class ThreadDiagram(QRunnable):
 
 if __name__ == '__main__':
     self_dir_path = os.path.dirname(os.path.realpath(__file__))
+    print('sys argv =', sys.argv)
     run_ssh = execution_ssh(sys.argv[1], sys.argv[2], sys.argv[3])
     os.chdir(os.path.expanduser('~'))
