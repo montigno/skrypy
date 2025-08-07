@@ -15,7 +15,8 @@ class execution_ssh():
     def __init__(self, files_dgr, n_cpu, mode, parent=None):
         files_dgr = files_dgr[1:-1].split(',')
         self.n_cpu = int(n_cpu)
-        self.loadSharedMemoryFromClient()
+        if os.environ.get("SHME_SKRYPY") is not None:
+            self.loadSharedMemoryFromClient()
         env_param_diagram = os.path.join(os.path.expanduser('~'), '.skrypy', 'env_parameters.dgr')
         files_dgr = [env_param_diagram] + files_dgr
         for dgr in files_dgr:
@@ -157,6 +158,5 @@ class ThreadDiagram(QRunnable):
 
 if __name__ == '__main__':
     self_dir_path = os.path.dirname(os.path.realpath(__file__))
-    print('sys argv =', sys.argv)
     run_ssh = execution_ssh(sys.argv[1], sys.argv[2], sys.argv[3])
     os.chdir(os.path.expanduser('~'))
