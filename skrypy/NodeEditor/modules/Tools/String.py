@@ -227,12 +227,7 @@ class string_to_path():
 
 class string_to_path_list():
     def __init__(self, inString=''):
-        from NodeEditor.api.defineTypeVariable import DefineTypeVariable
-        typ, val = DefineTypeVariable(inString).returntype()
-        if typ == 'listpath':
-            self.outval = val
-        else:
-            self.outval = None
+        self.outval = eval(inString)
 
     def outPath(self: 'list_path'):
         return self.outval

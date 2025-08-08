@@ -9026,7 +9026,12 @@ class ssh_diagram_execution():
                     #         shm.unlink()
                 except Exception as err:
                     print('Shared memory error:', err)
-        print(list_shm_to_transfert)
+        print('Shared memorie to transfert:', list_shm_to_transfert)
+        
+        # shared memory transfert ##########################
+        # yaml_file = os.path.join('/tmp', 'shme_to_transfer.yml')
+        # with open(yaml_file, 'w') as stream:
+        #     outYaml = yaml.dump(list_shm_to_transfert, stream)
 
         # diagram transfert ################################
         p1 = subprocess.Popen(['echo', host_password], shell=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE)

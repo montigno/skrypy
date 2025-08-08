@@ -23,6 +23,7 @@ class execution_ssh():
             self.execute_Diagram(dgr, mode)
 
     def loadSharedMemoryFromClient(self):
+        print('os.environ["SHME_SKRYPY"]=', os.environ["SHME_SKRYPY"])
         shme_client = ast.literal_eval(os.environ["SHME_SKRYPY"])
         file_shm_server = os.path.join(os.path.expanduser('~'), '.skrypy', 'list_shm.tmp')
         list_name = []

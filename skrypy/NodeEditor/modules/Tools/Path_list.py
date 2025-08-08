@@ -47,6 +47,15 @@ class path_list_to_array_dyn:
 ###############################################################################
 
 
+class path_list_to_str:
+    def __init__(self, list_path_in=['path']):
+        self.pathstr = str(list_path_in.copy())
+
+    def path_str(self: 'str'):
+        return self.pathstr
+
+###############################################################################
+
 class path_list_order:
     def __init__(self, list_path_in=['path'], reverse=False):
         self.out_list = sorted(list_path_in, reverse=reverse)
