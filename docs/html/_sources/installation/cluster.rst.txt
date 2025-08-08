@@ -35,7 +35,7 @@ You can put several clusters in the list. |br|
 
 3. Fill in the fields  
 
-- ``Host name``: login@clusterhost
+- ``Host name``: user\@hostname
    ..
 - ``Skrypy directory on this cluster``: specifies the path where Skrypy is installed on the cluster
    ..
