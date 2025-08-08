@@ -9020,23 +9020,32 @@ class ssh_diagram_execution():
                     shm = shared_memory.SharedMemory(ls.strip())
                     existing_shm = bytes(shm.buf[:shm.size]).decode()
                     shm.close()
-                    list_shm_to_transfert[ls] = existing_shm
+                    list_shm_to_transfert[ls.strip()] = existing_shm
                     # if 'cleanup' in options :
                     #     if options['cleanup']:
                     #         shm.unlink()
                 except Exception as err:
                     print('Shared memory error:', err)
         print('Shared memorie to transfert:', list_shm_to_transfert)
+
+        p1 = subprocess.Popen(['echo', host_password], shell=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         
         # shared memory transfert ##########################
-        # yaml_file = os.path.join('/tmp', 'shme_to_transfer.yml')
-        # with open(yaml_file, 'w') as stream:
-        #     outYaml = yaml.dump(list_shm_to_transfert, stream)
+        yaml_file = os.path.join('/tmp', 'shme_transfered.yml')
+        with open(yaml_file, 'w') as stream:
+            yaml.dump(list_shm_to_transfert, stream)
+            cmd = ['sshpass', '-p', host_password.strip(), 'scp', yaml_file.strip(), dest]
+            print(" ".join(cmd[3:]))
+            # p1 = subprocess.Popen(['echo',host_password], shell=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            p2 = subprocess.Popen(cmd, stdin=p1.stdout, stdout=subprocess.PIPE)
+            self.output = p2.stdout.read().decode()
+            p2.communicate()
+            p2.wait()
+            print('shared memory transfert done') 
 
         # diagram transfert ################################
-        p1 = subprocess.Popen(['echo', host_password], shell=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         for src_dgr in self.source:
-
+            
             cmd = ['sshpass', '-p', host_password.strip(), 'scp', src_dgr.strip(), dest]
             print(" ".join(cmd[3:]))
             # p1 = subprocess.Popen(['echo',host_password], shell=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -9056,7 +9065,7 @@ class ssh_diagram_execution():
             if bool(list_shm_to_transfert):
                 fssh.write("export SHME_SKRYPY=\"{}\"\n".format(str(list_shm_to_transfert)))
             fssh.write("cd skrypy\n")
-            fssh.write("python3 Execution_ssh.py {} {} {} {}\n".format(diagram, n_cpu, self.mode, opx))
+            fssh.write("python3 Execution_ssh.py {} {} {} {} {}\n".format(host_path, diagram, n_cpu, self.mode, opx))
             fssh.write("deactivate\n")
             fssh.write("echo\n")
             fssh.write("echo \"\033[1;34mFinished.. you can close this window\033[0m\"\n")

@@ -7,16 +7,18 @@ import os
 import ast
 import sys
 import gc
+import yaml
 from PyQt5.QtWidgets import QApplication
 
 
 class execution_ssh():
 
-    def __init__(self, files_dgr, n_cpu, mode, parent=None):
+    def __init__(self, workspace, files_dgr, n_cpu, mode, parent=None):
         files_dgr = files_dgr[1:-1].split(',')
         self.n_cpu = int(n_cpu)
-        if os.environ.get("SHME_SKRYPY") is not None:
-            self.loadSharedMemoryFromClient()
+        self.loadSharedMemoryFromYaml(workspace)
+        # if os.environ.get("SHME_SKRYPY") is not None:
+        #     self.loadSharedMemoryFromClient()
         env_param_diagram = os.path.join(os.path.expanduser('~'), '.skrypy', 'env_parameters.dgr')
         files_dgr = [env_param_diagram] + files_dgr
         for dgr in files_dgr:
@@ -28,6 +30,26 @@ class execution_ssh():
         file_shm_server = os.path.join(os.path.expanduser('~'), '.skrypy', 'list_shm.tmp')
         list_name = []
         for var_name, var_value in shme_client.items():
+            length_path = len(var_value)
+            shared_data = shared_memory.SharedMemory(var_name.strip(), create=True, size=length_path)
+            buffer = shared_data.buf
+            buffer[:length_path] = bytes(var_value.strip(), encoding='utf-8')
+            shared_data.close()
+            list_name.append(var_name.strip())
+        with open(file_shm_server, 'w') as f:
+            f.write(str(list_name))
+        with open(file_shm_server, 'r') as f:
+            print("list_shm_file:", f.read())
+            # print('shme_client:', shme_client)
+            
+    def loadSharedMemoryFromYaml(self, wrksp):
+        yaml_file_shme = os.path.join(wrksp, 'shme_transfered.yml')
+        with open(yaml_file_shme, 'r') as stream:
+            outYaml = yaml.load(stream, yaml.FullLoader)
+        print('outYaml', outYaml)
+        file_shm_server = os.path.join(os.path.expanduser('~'), '.skrypy', 'list_shm.tmp')
+        list_name = []
+        for var_name, var_value in outYaml.items():
             length_path = len(var_value)
             shared_data = shared_memory.SharedMemory(var_name.strip(), create=True, size=length_path)
             buffer = shared_data.buf
@@ -159,5 +181,5 @@ class ThreadDiagram(QRunnable):
 
 if __name__ == '__main__':
     self_dir_path = os.path.dirname(os.path.realpath(__file__))
-    run_ssh = execution_ssh(sys.argv[1], sys.argv[2], sys.argv[3])
+    run_ssh = execution_ssh(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
     os.chdir(os.path.expanduser('~'))
