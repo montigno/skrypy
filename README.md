@@ -10,6 +10,11 @@ A documentation is available here : [https://montigno.github.io/skrypy](https://
 
 <p></p>
 
+	08/08/2025: version 25.08.08b
+	- blocks librarie : RS2_predict_datamanagement added
+
+<p></p>
+
 	07/08/2025: version 25.08.07d
 	- * added in the new diagram name
 
