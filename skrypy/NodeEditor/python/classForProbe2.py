@@ -4,20 +4,38 @@ import numpy as np
 class printProbe():
     def __init__(self, unit, lab, format, label, val, console):
 
-        if 'int' in format:
-            col = '#0064FF'
-        elif 'float' in format:
-            col = '#C86400'
-        elif 'tuple' in format:
-            col = '#B4B4B4'
-        elif 'str' in format:
-            col = '#c800FA'
-        elif 'bool' in format:
-            col = '#32FA32'
-        elif 'path' in format:
-            col = '#FF6464'
-        elif 'dict' in format:
-            col = '#C8FA00'
+        col = ''
+
+        if console:
+            if 'int' in format:
+                col = '#0064FF'
+            elif 'float' in format:
+                col = '#C86400'
+            elif 'tuple' in format:
+                col = '#B4B4B4'
+            elif 'str' in format:
+                col = '#c800FA'
+            elif 'bool' in format:
+                col = '#32FA32'
+            elif 'path' in format:
+                col = '#FF6464'
+            elif 'dict' in format:
+                col = '#C8FA00'
+        else:
+            if 'int' in format:
+                col = '\x1b[38;2;0;100;255m'
+            elif 'float' in format:
+                col = '\x1b[38;2;200;100;0m'
+            elif 'tuple' in format:
+                col = '\x1b[38;2;200;180;180m'
+            elif 'str' in format:
+                col = '\x1b[38;2;200;0;250m'
+            elif 'bool' in format:
+                col = '\x1b[38;2;50;250;50m'
+            elif 'path' in format:
+                col = '\x1b[38;2;255;100;100m'
+            elif 'dict' in format:
+                col = '\x1b[38;2;200;250;0m'
 
         if label == 'Type':
             tmpval = val
@@ -75,3 +93,8 @@ class printProbe():
                             font-weight:400; \
                             color:{};\"> \
                             {} ({}) : {} = {} </span>".format(col, unit, lab, label, str(val)))
+        else:
+            self.return_for_ssh = [col, unit, lab, label, str(val)]
+
+    def getList(self):
+        return self.return_for_ssh

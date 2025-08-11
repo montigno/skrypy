@@ -48,7 +48,11 @@ class getDocString():
         modul = 'NodeEditor.modules.'+category
         imp = importlib.import_module(modul)
         importlib.reload(imp)
-        MyClass = getattr(imp, nameClass)
+        try:
+            MyClass = getattr(imp, nameClass)
+        except Exception as err:
+            print("this bloc doesn't exist or is moved")
+            return
 
         if 'Nipype' in category and 'Config_nipype' not in category:
             try:

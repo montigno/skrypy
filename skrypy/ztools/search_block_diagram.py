@@ -2,7 +2,7 @@ from os import listdir
 from os.path import isfile, join
 
 
-name_block = "box_dialog_file"
+name_block = "path_SharedMemory_create"
 
 # dir_diagrams = "/home/olivier/Documents/skrypy_dvt"
 # dir_diagrams = "/home/olivier/Documents/skrypy_projects/"

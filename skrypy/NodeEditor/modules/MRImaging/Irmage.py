@@ -693,7 +693,7 @@ class Linear_registration_multiple_images:
         cur_dir = os.path.dirname(output_moved_name)
         flts = fsl.FLIRT()
         self.list_out_files = []
-        images_apply_transformation = [x for x in images_apply_transformation if x!='path' and x]
+        images_apply_transformation = [x for x in images_apply_transformation if x != 'path' and x]
         i = 0
         for cur_path in images_apply_transformation:
             flts.inputs.in_file = cur_path

@@ -29,7 +29,7 @@ class execution2(QObject):
         super().__init__()
         self.must_stopped = False
         self.report_pip = Config().getDiagramReport()
-        SharedMemory().readList()
+        # SharedMemory().readList()
 
     def check_button(self, status):
         self.must_stopped = True
@@ -207,12 +207,6 @@ class execution2(QObject):
                 MyClass = getattr(module, classes)
                 enters = eval(listBlock[execution][2])
                 enters_name, enters_val, *rs = enters
-                if 'SharedMemory_create' in classes:
-                    shm = enters_val[0]
-                    if ':' in shm:
-                        shm = listDynamicValue[shm]
-                    SharedMemory.addElement(shm)
-                    print('shm', shm)
                 for id, vl in enumerate(enters_val):
                     if type(vl).__name__ == 'str':
                         try:
@@ -557,7 +551,7 @@ class execution2(QObject):
         if sema:
             sema.release()
 
-        SharedMemory().writeList()
+        # SharedMemory().writeList()
         # pro.kill()
         return listValueDynamicToReturn.copy()
 
@@ -691,29 +685,29 @@ class executionMacro:
         return self.listDynamicValueToReturn
 
 
-class SharedMemory():
-
-    elements = []
-
-    def __init__(self):
-        self.file_shm = os.path.join(os.path.expanduser('~'), '.skrypy', 'list_shm.tmp')
-
-    def readList(self):
-        if os.path.exists(self.file_shm):
-            with open(self.file_shm, 'r') as f:
-                self.elements = eval(f.read())
-        else:
-            self.writeList()
-
-    @staticmethod
-    def addElement(x):
-        SharedMemory.elements.append(x)
-
-    def writeList(self):
-        if self.elements:
-            self.elements = set(self.elements)
-        with open(self.file_shm, 'w') as f:
-            f.write(str(self.elements))
+# class SharedMemory():
+#
+#     elements = []
+#
+#     def __init__(self):
+#         self.file_shm = os.path.join(os.path.expanduser('~'), '.skrypy', 'list_shm.tmp')
+#
+#     def readList(self):
+#         if os.path.exists(self.file_shm):
+#             with open(self.file_shm, 'r') as f:
+#                 self.elements = eval(f.read())
+#         else:
+#             self.writeList()
+#
+#     @staticmethod
+#     def addElement(x):
+#         SharedMemory.elements.append(x)
+#
+#     def writeList(self):
+#         if self.elements:
+#             self.elements = set(self.elements)
+#         with open(self.file_shm, 'w') as f:
+#             f.write(str(self.elements))
 
 
 class ThreadClass(threading.Thread):

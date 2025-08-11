@@ -43,7 +43,6 @@ import time
 import webbrowser
 import yaml
 from random import randint
-from multiprocessing import shared_memory
 
 from . import Config, Plugin, AboutSoft
 from . import DefinitType, ReorderList, diagramInfo
@@ -8790,7 +8789,7 @@ class SharedMemoryManager():
 
     def __init__(self, empt):
         super(SharedMemoryManager, self).__init__()
-        self.file_shm = os.path.join(os.path.expanduser('~'), '.skrypy', 'list_shm.tmp')
+        self.file_shm = os.path.join(os.path.expanduser('~'), '.skrypy', 'list_shm.yml')
         if empt:
             box = QMessageBox().question(editor,
                                          "Shared Memory",
@@ -8798,39 +8797,36 @@ class SharedMemoryManager():
                                          QMessageBox.Yes | QMessageBox.No,
                                          QMessageBox.No)
             if box == QMessageBox.Yes:
-                self.readList(empt)
+                self.toempty()
         else:
-            self.readList(empt)
+            self.readList()
 
-    def readList(self, toEmpty):
+    def readList(self):
+        editor.shm.clear()
+        data = {}
+        if os.path.exists(self.file_shm):
+            with open(self.file_shm, 'r') as file_yml:
+                try:
+                    data = yaml.load(file_yml, Loader=yaml.SafeLoader)
+                except Exception as err:
+                    print('error reading shared memory:', err)
+                    os.remove(self.file_shm)
+                    return
+            if bool(data):
+                for ek, ev in data.items():
+                    editor.shm.append("<span style=\" \
+                                       font-family:'Monospace'; \
+                                       font-size:10pt; \
+                                       font-weight:400; \
+                                       color:orange;\"> \
+                                       {} = {} </span><br>".format(ek, ev))
+            else:
+                os.remove(self.file_shm)
+
+    def toempty(self):
         editor.shm.clear()
         if os.path.exists(self.file_shm):
-            with open(self.file_shm, 'r') as f:
-                elements = eval(f.read())
-            tmpelem = elements.copy()
-            for el in elements:
-                if toEmpty:
-                    try:
-                        tmpelem.remove(el)
-                        shm = shared_memory.SharedMemory(name=el)
-                        shm.close()
-                        shm.unlink()
-                    except Exception as err:
-                        pass
-                else:
-                    try:
-                        shm = shared_memory.SharedMemory(name=el)
-                        editor.shm.append("<span style=\" \
-                                font-family:'Monospace'; \
-                                font-size:10pt; \
-                                font-weight:400; \
-                                color:orange;\"> \
-                                {} = {} </span>".format(el, bytes(shm.buf[:shm.size]).decode()))
-                        shm.close()
-                    except Exception as err:
-                        tmpelem.remove(el)
-            with open(self.file_shm, 'w') as f:
-                f.write(str(tmpelem))
+            os.remove(self.file_shm)
 
 
 class ShowLegend:
@@ -9002,50 +8998,22 @@ class ssh_diagram_execution():
         for lst_dgr in self.source:
             diagram.append(os.path.join(host_path, os.path.basename(lst_dgr)))
 
-        # shared memory transfert ##########################
-
-        list_shm = os.path.join(os.path.expanduser("~"), '.skrypy', 'list_shm.tmp')
-        l_shm = []
-        list_shm_to_transfert = {}
-        if os.path.exists(list_shm):
-            f = open(list_shm)
-            content = f.read()
-            f.close()
-            content = content.replace('{', '')
-            content = content.replace('}', '')
-            content = content.replace("'", '')
-            l_shm = content.split(',')
-            for ls in l_shm:
-                try:
-                    shm = shared_memory.SharedMemory(ls.strip())
-                    existing_shm = bytes(shm.buf[:shm.size]).decode()
-                    shm.close()
-                    list_shm_to_transfert[ls.strip()] = existing_shm
-                    # if 'cleanup' in options :
-                    #     if options['cleanup']:
-                    #         shm.unlink()
-                except Exception as err:
-                    print('Shared memory error:', err)
-        print('Shared memorie to transfert:', list_shm_to_transfert)
-
         p1 = subprocess.Popen(['echo', host_password], shell=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        
+
         # shared memory transfert ##########################
-        yaml_file = os.path.join('/tmp', 'shme_transfered.yml')
-        with open(yaml_file, 'w') as stream:
-            yaml.dump(list_shm_to_transfert, stream)
-            cmd = ['sshpass', '-p', host_password.strip(), 'scp', yaml_file.strip(), dest]
+        yaml_file = os.path.join(os.path.expanduser("~"), '.skrypy', 'list_shm.yml')
+        if os.path.exists(yaml_file):
+            cmd = ['sshpass', '-p', host_password.strip(), 'scp', yaml_file, dest]
             print(" ".join(cmd[3:]))
             # p1 = subprocess.Popen(['echo',host_password], shell=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             p2 = subprocess.Popen(cmd, stdin=p1.stdout, stdout=subprocess.PIPE)
             self.output = p2.stdout.read().decode()
             p2.communicate()
             p2.wait()
-            print('shared memory transfert done') 
+            print('shared memory transfert done')
 
         # diagram transfert ################################
         for src_dgr in self.source:
-            
             cmd = ['sshpass', '-p', host_password.strip(), 'scp', src_dgr.strip(), dest]
             print(" ".join(cmd[3:]))
             # p1 = subprocess.Popen(['echo',host_password], shell=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -9062,8 +9030,6 @@ class ssh_diagram_execution():
             fssh.write(pre_exec+"\n")
             fssh.write("cd {}\n".format(host_skrypy_path))
             fssh.write("source bin/activate\n")
-            if bool(list_shm_to_transfert):
-                fssh.write("export SHME_SKRYPY=\"{}\"\n".format(str(list_shm_to_transfert)))
             fssh.write("cd skrypy\n")
             fssh.write("python3 Execution_ssh.py {} {} {} {} {}\n".format(host_path, diagram, n_cpu, self.mode, opx))
             fssh.write("deactivate\n")

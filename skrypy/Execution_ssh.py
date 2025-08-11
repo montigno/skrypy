@@ -1,14 +1,15 @@
-from PyQt5.QtCore import QRunnable
-
 from NodeEditor.ssh.Diagram_Execution_dep import execution2
 
-from multiprocessing import shared_memory
 import os
 import ast
 import sys
 import gc
 import yaml
+import atexit
+from shutil import copy2
+
 from PyQt5.QtWidgets import QApplication
+from PyQt5.QtCore import QRunnable
 
 
 class execution_ssh():
@@ -24,45 +25,15 @@ class execution_ssh():
         for dgr in files_dgr:
             self.execute_Diagram(dgr, mode)
 
-    def loadSharedMemoryFromClient(self):
-        print('os.environ["SHME_SKRYPY"]=', os.environ["SHME_SKRYPY"])
-        shme_client = ast.literal_eval(os.environ["SHME_SKRYPY"])
-        file_shm_server = os.path.join(os.path.expanduser('~'), '.skrypy', 'list_shm.tmp')
-        list_name = []
-        for var_name, var_value in shme_client.items():
-            length_path = len(var_value)
-            shared_data = shared_memory.SharedMemory(var_name.strip(), create=True, size=length_path)
-            buffer = shared_data.buf
-            buffer[:length_path] = bytes(var_value.strip(), encoding='utf-8')
-            shared_data.close()
-            list_name.append(var_name.strip())
-        with open(file_shm_server, 'w') as f:
-            f.write(str(list_name))
-        with open(file_shm_server, 'r') as f:
-            print("list_shm_file:", f.read())
-            # print('shme_client:', shme_client)
-            
     def loadSharedMemoryFromYaml(self, wrksp):
-        yaml_file_shme = os.path.join(wrksp, 'shme_transfered.yml')
-        with open(yaml_file_shme, 'r') as stream:
-            outYaml = yaml.load(stream, yaml.FullLoader)
-        print('outYaml', outYaml)
-        file_shm_server = os.path.join(os.path.expanduser('~'), '.skrypy', 'list_shm.tmp')
-        list_name = []
-        for var_name, var_value in outYaml.items():
-            length_path = len(var_value)
-            shared_data = shared_memory.SharedMemory(var_name.strip(), create=True, size=length_path)
-            buffer = shared_data.buf
-            buffer[:length_path] = bytes(var_value.strip(), encoding='utf-8')
-            shared_data.close()
-            list_name.append(var_name.strip())
-        with open(file_shm_server, 'w') as f:
-            f.write(str(list_name))
-        with open(file_shm_server, 'r') as f:
-            print("list_shm_file:", f.read())
-            # print('shme_client:', shme_client)
+        yaml_file_shme = os.path.join(wrksp, 'list_shm.yml')
+        if os.path.exists(yaml_file_shme):
+            dest = os.path.join(os.path.expanduser('~'), '.skrypy')
+            fd = copy2(yaml_file_shme, dest)
+            print('list shme copied !!', os.path.exists(fd))
 
     def execute_Diagram(self, file_dgr, mode):
+        SharedMemoryManager(False)
         gc.collect()
         title_dgr = os.path.basename(file_dgr)
 
@@ -96,8 +67,7 @@ class execution_ssh():
         #     mode = 'Sequential'
 
         if self.check_script_code(txt_code):
-            editor.editText("Warning: some scripts contain the terms 'QApplication' or 'syst.exit', remove them !",
-                            10, 600, 'ff0000', False, True)
+            print("Warning: some scripts contain the terms 'QApplication' or 'syst.exit', remove them !")
             return
 
         print(" {} execution: ".format(mode))
@@ -114,7 +84,6 @@ class execution_ssh():
             sr = self.runner.run()
         except Exception as err:
             print("\n\33[31mThis diagram contains errors : {}\33[0m".format(str(err)))
-        SharedMemoryManager(False)
         # self.runner.sysctrl.kill()
         # for proc in psutil.process_iter():
         #     print("pid:", proc.name())
@@ -132,36 +101,28 @@ class SharedMemoryManager():
 
     def __init__(self, empt):
         super(SharedMemoryManager, self).__init__()
-        self.file_shm = os.path.join(os.path.expanduser('~'), '.skrypy', 'list_shm.tmp')
+        self.file_shm = os.path.join(os.path.expanduser('~'), '.skrypy', 'list_shm.yml')
         if empt:
-            pass
+            self.toempty()
         else:
-            self.readList(empt)
+            self.readList()
 
-    def readList(self, toEmpty):
+    def readList(self):
+        data = {}
         if os.path.exists(self.file_shm):
-            with open(self.file_shm, 'r') as f:
-                elements = eval(f.read())
-            tmpelem = elements.copy()
-            for el in elements:
-                if toEmpty:
-                    try:
-                        tmpelem.remove(el)
-                        shm = shared_memory.SharedMemory(name=el)
-                        shm.close()
-                        shm.unlink()
-                    except Exception as err:
-                        pass
-                else:
-                    try:
-                        shm = shared_memory.SharedMemory(name=el)
-                        print("Shared Memory : {} = {}".format(el, bytes(shm.buf[:shm.size]).decode()))
-                        shm.close()
-                    except Exception as err:
-                        print("Shared Memory error :", err)
-                        tmpelem.remove(el)
-            with open(self.file_shm, 'w') as f:
-                f.write(str(tmpelem))
+            with open(self.file_shm, 'r') as file_yml:
+                try:
+                    data = yaml.load(file_yml, Loader=yaml.SafeLoader)
+                except Exception as err:
+                    print("error to read data from list_shm.yml:", err)
+                    os.remove(self.file_shm)
+                    return
+            if not bool(data):
+                os.remove(self.file_shm)
+
+    def toempty(self):
+        if os.path.exists(self.file_shm):
+            os.remove(self.file_shm)
 
 
 class ThreadDiagram(QRunnable):
@@ -183,3 +144,4 @@ if __name__ == '__main__':
     self_dir_path = os.path.dirname(os.path.realpath(__file__))
     run_ssh = execution_ssh(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
     os.chdir(os.path.expanduser('~'))
+    #  atexit.register(SharedMemoryManager(True))

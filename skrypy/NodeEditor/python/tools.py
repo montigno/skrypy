@@ -125,9 +125,11 @@ class set_dph():
     def __init__(self, msg):
         pass
 
+
 class get_dph():
     def __init__(self, msg):
-        pass        
+        pass
+
 
 class eval_type():
     def __init__(self, value, format):

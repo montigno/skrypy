@@ -1,15 +1,15 @@
 [diagram]
-link=[N1] node=[A1:#Node#S0:MemName1]
-link=[N0] node=[A0:#Node#S0:myList]
-link=[N2] node=[A2:#Node#S0:myFile]
 link=[N3] node=[A3:#Node#S0:MemName2]
-constant=[A1] value=['adc'] format=[str] label=[MemoryName1] RectF=[(-458.51, 52.78, 45.0, 35.0)] 
-cluster=[A0] value=[(0, [22, 33, 41, 65], 256)] format=[list_int] label=[myList] RectF=[(-779.4200000000001, -68.44, 423.0, 33.0)] 
-constant=[A2] value=['/home/olivier/img_n4bias.nii'] format=[path] label=[myFile] RectF=[(-588.69, 206.79, 187.0, 35.0)] 
+link=[N2] node=[A2:#Node#S0:myFile]
+link=[N0] node=[A0:#Node#S0:myList]
+link=[N1] node=[A1:#Node#S0:MemName1]
 constant=[A3] value=['fgh'] format=[str] label=[MemName2] RectF=[(-446.83, 282.05, 44.0, 35.0)] 
+constant=[A2] value=['/home/olivier/img_n4bias.nii'] format=[path] label=[myFile] RectF=[(-558.87, 189.12, 187.0, 35.0)] 
+cluster=[A0] value=[(0, [22, 33, 41, 65], 256)] format=[list_int] label=[myList] RectF=[(-779.4200000000001, -68.44, 423.0, 33.0)] 
+constant=[A1] value=['adc'] format=[str] label=[MemoryName1] RectF=[(-458.51, 52.78, 45.0, 35.0)] 
 script=[S0] title=[Script_python] inputs=[['myList', 'in', 'list_int'], ['MemName1', 'in', 'str'], ['myFile', 'in', 'path'], ['MemName2', 'in', 'str']] outputs=[] code=[your code] RectF=[(-234.0, -133.4, 517.0, 555.0)]
 [source S0]
-["MemName2='fgh'", "myFile='/home/olivier/img_n4bias.nii'", 'myList=[22, 33, 41, 65]', "MemName1='adc'"]
+["MemName1='adc'", 'myList=[22, 33, 41, 65]', "myFile='/home/olivier/img_n4bias.nii'", "MemName2='fgh'"]
 from multiprocessing import shared_memory
 
 len_data1 = len(myList)

@@ -93,8 +93,8 @@ class BrukerInformationParser():
         endIndex = startIndex + 1
         while ( not '##$' in fileNameLines[ endIndex ] and \
                 not '$$' in fileNameLines[ endIndex ]  ):
-          lines.append(fileNameLines[endIndex][: -1])
-          endIndex += 1
+            lines.append(fileNameLines[endIndex][: -1])
+            endIndex += 1
         return lines
 
     def __getMatrix(self, fileNameLines, fieldName):

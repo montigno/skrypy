@@ -24,7 +24,6 @@ import sys
 import tempfile
 import time
 from dirsync import sync
-from multiprocessing import shared_memory
 
 
 class Project_Irmage(QMainWindow):
@@ -146,20 +145,12 @@ class Manag_cpu():
 
 class ClearSharedMemory():
     def __init__(self):
-        self.file_shm = os.path.join(os.path.expanduser('~'), '.skrypy', 'list_shm.tmp')
+        self.file_shm = os.path.join(os.path.expanduser('~'), '.skrypy', 'list_shm.yml')
         self.clearMemory()
 
     def clearMemory(self):
         if os.path.exists(self.file_shm):
-            with open(self.file_shm, 'r') as f:
-                elements = eval(f.read())
-            for el in elements:
-                try:
-                    shm = shared_memory.SharedMemory(name=el)
-                    shm.close()
-                    shm.unlink()
-                except Exception as err:
-                    pass
+            os.remove(self.file_shm)
 
 
 if __name__ == '__main__':

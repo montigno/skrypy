@@ -15,6 +15,8 @@ import re
 import threading
 import time
 
+from NodeEditor.python.classForProbe2 import printProbe
+
 
 class execution2():
 
@@ -22,7 +24,6 @@ class execution2():
         super().__init__()
         self.n_cpu = n_cpu
         self.must_stopped = False
-        SharedMemory().readList()
 
     def check_button(self, status):
         self.must_stopped = True
@@ -181,12 +182,6 @@ class execution2():
                 MyClass = getattr(module, classes)
                 enters = eval(listBlock[execution][2])
                 enters_name, enters_val, *rs = enters
-                if 'SharedMemory_create' in classes:
-                    shm = enters_val[0]
-                    if ':' in shm:
-                        shm = listDynamicValue[shm]
-                    SharedMemory.addElement(shm)
-                    print('shm', shm)
                 for id, vl in enumerate(enters_val):
                     if type(vl).__name__ == 'str':
                         try:
@@ -228,29 +223,19 @@ class execution2():
                         valToPrint = listDynamicValue[vl]
                     except Exception as e:
                         valToPrint = 'unknown'
-
-                    format = listBlock[execution][0]
-                    col=''
-                    if 'int' in format:
-                        col = '\x1b[38;2;0;100;255m'
-                    elif 'float' in format:
-                        col = '\x1b[38;2;200;100;0m'
-                    elif 'tuple' in format:
-                        col = '\x1b[38;2;200;180;180m'
-                    elif 'str' in format:
-                        col = '\x1b[38;2;200;0;250m'
-                    elif 'bool' in format:
-                        col = '\x1b[38;2;50;250;50m'
-                    elif 'path' in format:
-                        col = '\x1b[38;2;255;100;100m'
-                    elif 'dict' in format:
-                        col = '\x1b[38;2;200;250;0m'
+                    list_info = printProbe(execution,
+                               vl,
+                               listBlock[execution][0],
+                               listBlock[execution][1],
+                               valToPrint,
+                               False)
+                    col, execution, vl, label, val = list_info.getList()
                         
                     print('{}{} ({}) : {} = {}\033[0m'.format(col,
                                                        execution,
                                                        vl,
-                                                       listBlock[execution][1],
-                                                       valToPrint))
+                                                       label,
+                                                       val))
                     print()
                     try:
                         if vl in listOut:
@@ -516,7 +501,6 @@ class execution2():
         if sema:
             sema.release()
 
-        SharedMemory().writeList()
         # pro.kill()
         return listValueDynamicToReturn.copy()
 
@@ -595,31 +579,6 @@ class executionMacro:
 
     def getOutValues(self):
         return self.listDynamicValueToReturn
-
-
-class SharedMemory():
-
-    elements = []
-
-    def __init__(self):
-        self.file_shm = os.path.join(os.path.expanduser('~'), '.skrypy', 'list_shm.tmp')
-
-    def readList(self):
-        if os.path.exists(self.file_shm):
-            with open(self.file_shm, 'r') as f:
-                self.elements = eval(f.read())
-        else:
-            self.writeList()
-
-    @staticmethod
-    def addElement(x):
-        SharedMemory.elements.append(x)
-
-    def writeList(self):
-        if self.elements:
-            self.elements = set(self.elements)
-        with open(self.file_shm, 'w') as f:
-            f.write(str(self.elements))
 
 
 class ThreadClass(threading.Thread):

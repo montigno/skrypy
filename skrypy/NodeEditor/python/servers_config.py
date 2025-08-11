@@ -9,7 +9,6 @@ from . import set_dph
 from . import get_dph
 
 
-
 class servers_window(QDialog):
     def __init__(self, parent=None):
         super(servers_window, self).__init__(parent)
@@ -51,7 +50,7 @@ class servers_window(QDialog):
         self.area_name = QLineEdit()
         hbox2.addWidget(host_name)
         hbox2.addWidget(self.area_name)
-        
+
         hbox2a = QHBoxLayout()
         labwd = QLabel("Password :")
         self.wd_field = QLineEdit()
