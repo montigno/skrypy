@@ -34,5 +34,5 @@ from NodeEditor.python.systemInfo import diagramInfo
 from NodeEditor.python.titleScript import changeTitle
 from NodeEditor.python.tools import DefinitType, ReorderList
 from NodeEditor.python.tools import GetValueInBrackets, SetValueInBrackets
-from NodeEditor.python.tools import set_dph, get_dph, set_hn, get_hn
+from NodeEditor.python.tools import set_dph, get_dph
 from NodeEditor.python.servers_config import servers_window

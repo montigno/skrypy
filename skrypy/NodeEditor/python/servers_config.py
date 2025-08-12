@@ -27,6 +27,8 @@ class servers_window(QDialog):
             self.mainWindow(dicts)
 
     def mainWindow(self, list_config):
+        
+        print('list_config:',list_config)
 
         self.list_config = list_config
 
@@ -140,8 +142,9 @@ class servers_window(QDialog):
         self.use_x11_bool.setChecked(bool(self.list_config[current_server]['X11_forwarding']))
         self.exec_cmd.setText(self.list_config[current_server]['pre_execution_command'])
         try:
-            tmppd = self.list_config[current_server]['fd_command']
-            tmppd = get_dph(tmppd).get_ushn()
+            tmpA = self.list_config[current_server]['fd_command']
+            tmpB = self.list_config[current_server]['fk_command']
+            tmppd = get_dph(tmpA, tmpB).get_ushn()
         except Exception as err:
             print('error to open cluster config:', err)
             tmppd = ''
@@ -163,14 +166,17 @@ class servers_window(QDialog):
         self.close()
 
     def save(self):
-        tmppd = set_dph(self.wd_field.text()).get_shn()
+        tmp = set_dph(self.wd_field.text())
+        tmppd = tmp.get_shn()
+        tmppk = tmp.get_fk()
+        
         self.list_config[self.server_name.currentText()] = {'host_name': self.area_name.text(),
                                                             'skrypy_server_directory': self.skry_dir.text(),
                                                             'server_workspace_directory': self.wrkspace_dir.text(),
                                                             'cpu_number': self.cpu_to_use.text(),
                                                             'X11_forwarding': self.use_x11_bool.isChecked(),
                                                             'pre_execution_command': self.exec_cmd.toPlainText(),
-                                                            'fd_command': tmppd}
+                                                            'fd_command': tmppd, 'fk_command': tmppk}
         with open(self.server_yml, 'w', encoding='utf8') as stream:
             yaml.dump(self.list_config, stream, default_flow_style=False)
 
@@ -212,14 +218,16 @@ class servers_window(QDialog):
         # dial.name_line.setText(dial.name_line.text())
         res = dial.exec_()
         if res:
-            tmppd = set_dph(self.wd_field.text()).get_shn()
+            tmp = set_dph(self.wd_field.text())
+            tmppd = tmp.get_shn()
+            tmppk = tmp.get_fk()
             self.list_config[dial.name_line.text()] = {'host_name': self.area_name.text(),
                                                        'skrypy_server_directory': self.skry_dir.text(),
                                                        'server_workspace_directory': self.wrkspace_dir.text(),
                                                        'cpu_number': self.cpu_to_use.text(),
                                                        'X11_forwarding': self.use_x11_bool.isChecked(),
                                                        'pre_execution_command': self.exec_cmd.toPlainText(),
-                                                       'fd_command': tmppd}
+                                                       'fd_command': tmppd, 'fk_command': tmppk}
             with open(self.server_yml, 'w', encoding='utf8') as stream:
                 yaml.dump(self.list_config, stream, default_flow_style=False)
 
