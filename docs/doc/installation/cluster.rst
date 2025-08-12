@@ -37,6 +37,8 @@ You can put several clusters in the list. |br|
 
 - ``Host name``: user\@hostname
     ..
+- ``Password``: your password to access the cluster.
+    ..
 - ``Skrypy directory on this cluster``: specifies the path where Skrypy is installed on the cluster
     ..
 - ``Workspace on this cluster``: specifies the workspace on the cluster. This allows you to transfer your diagrams to be run on the cluster and can also (optional) be used to transfer your data to be processed.

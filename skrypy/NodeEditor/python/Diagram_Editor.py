@@ -5441,6 +5441,7 @@ class Menu(QMenuBar):
         self.menuPack = self.addMenu('Configuration')
         self.menuPack.addAction('Packages manager')
         self.menuPack.addAction('Environment Diagram')
+        self.menuPack.addAction('Clusters configuration')
         self.menuPack.triggered[QAction].connect(self.btnPressed)
 
         self.menuPlug = self.addMenu('Plugins')
@@ -6076,6 +6077,10 @@ class Menu(QMenuBar):
 
         elif tmpActText == 'Environment Diagram':
             Start_environment(True)
+            
+        elif tmpActText == 'Clusters configuration':
+            c = servers_window('config')
+            c.exec_()
 
         elif os.path.splitext(tmpActText)[1] == '.dgr':
             if not os.path.exists(tmpActText):
@@ -8961,7 +8966,7 @@ class ssh_diagram_execution():
     def __init__(self, source, mode):
         self.source = source
         self.mode = mode
-        c = servers_window()
+        c = servers_window('exec')
         c.exec_()
 
         if c.get_params():
@@ -8978,9 +8983,9 @@ class ssh_diagram_execution():
             return self.pwd
 
     def execution_ssh(self, param_ssh):
-        host_password = self.passwd_dialog(param_ssh[0]).passwd()
-        if host_password == 'None':
-            return
+        # host_password = self.passwd_dialog(param_ssh[0]).passwd()
+        # if host_password == 'None':
+        #     return
 
         diagram = []
         host_name = param_ssh[0]
@@ -8993,6 +8998,12 @@ class ssh_diagram_execution():
         else:
             opx = ''
         pre_exec = param_ssh[5]
+        host_password = param_ssh[6]
+        if not host_password:
+            host_password = self.passwd_dialog(param_ssh[0]).passwd()
+            if host_password == 'None':
+                return
+
         dest = "{}:{}".format(host_name, host_path)
 
         for lst_dgr in self.source:

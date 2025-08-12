@@ -6,7 +6,7 @@
 # for details.
 ##########################################################################
 '''
-Skrypy 25.08.11b   setup   Aug. 11 2025
+Skrypy 25.08.12b   setup   Aug. 12 2025
 
 SYNOPSIS
     Install Skrypy in a virtual python environment (administration rights required).

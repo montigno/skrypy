@@ -47,6 +47,15 @@ Some dependencies require miniconda to be installed.
 	conda deactivate
 
 
+SSHPass
+-------
+
+SSHPass is an utility which allows to provide the ssh password non-interactivly::
+
+	sudo apt install sshpass
+
+
+
 .. # define a hard line break for HTML
 .. |br| raw:: html
 

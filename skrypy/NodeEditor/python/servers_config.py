@@ -1,17 +1,19 @@
-from PyQt5.QtWidgets import QComboBox, QDialog, QVBoxLayout, QHBoxLayout, QLabel, \
-    QLineEdit, QTextEdit, QPushButton, QDialogButtonBox, QCheckBox
-from PyQt5.QtCore import Qt
-
 import os
 import yaml
+
 from . import Config
 from . import set_dph
 from . import get_dph
 
+from PyQt5.QtWidgets import QComboBox, QDialog, QVBoxLayout, QHBoxLayout, QLabel, \
+    QLineEdit, QTextEdit, QPushButton, QDialogButtonBox, QCheckBox
+from PyQt5.QtCore import Qt
+
 
 class servers_window(QDialog):
-    def __init__(self, parent=None):
+    def __init__(self, config, parent=None):
         super(servers_window, self).__init__(parent)
+        self.config = config
         self.server_yml = Config().getServersList()
         self.getServersInfo()
 
@@ -98,6 +100,9 @@ class servers_window(QDialog):
         hbox8.addWidget(buttonSaveAs)
         hbox8.addWidget(self.buttonDelete)
 
+        if self.config == 'config':
+            buttonGo.setEnabled(False)
+
         buttonGo.clicked.connect(self.go)
         buttonCancel.clicked.connect(self.CANCEL)
         self.buttonSave.clicked.connect(self.save)
@@ -106,7 +111,7 @@ class servers_window(QDialog):
 
         vbox.addLayout(hbox1)
         vbox.addLayout(hbox2)
-        # vbox.addLayout(hbox2a)
+        vbox.addLayout(hbox2a)
         vbox.addLayout(hbox3)
         vbox.addLayout(hbox4)
         vbox.addLayout(hbox5)
@@ -134,6 +139,14 @@ class servers_window(QDialog):
         self.cpu_to_use.setText(str(self.list_config[current_server]['cpu_number']))
         self.use_x11_bool.setChecked(bool(self.list_config[current_server]['X11_forwarding']))
         self.exec_cmd.setText(self.list_config[current_server]['pre_execution_command'])
+        try:
+            tmppd = self.list_config[current_server]['fd_command']
+            tmppd = get_dph(tmppd).get_ushn()
+        except Exception as err:
+            print('error to open cluster config:', err)
+            tmppd = ''
+        self.wd_field.setText(tmppd)
+        
 
     def go(self):
         self.server_param = [self.area_name.text(),
@@ -141,7 +154,8 @@ class servers_window(QDialog):
                              self.wrkspace_dir.text(),
                              self.cpu_to_use.text(),
                              self.use_x11_bool.isChecked(),
-                             self.exec_cmd.toPlainText()]
+                             self.exec_cmd.toPlainText(),
+                             self.wd_field.text()]
         self.close()
 
     def CANCEL(self):
@@ -149,12 +163,14 @@ class servers_window(QDialog):
         self.close()
 
     def save(self):
+        tmppd = set_dph(self.wd_field.text()).get_shn()
         self.list_config[self.server_name.currentText()] = {'host_name': self.area_name.text(),
                                                             'skrypy_server_directory': self.skry_dir.text(),
                                                             'server_workspace_directory': self.wrkspace_dir.text(),
                                                             'cpu_number': self.cpu_to_use.text(),
                                                             'X11_forwarding': self.use_x11_bool.isChecked(),
-                                                            'pre_execution_command': self.exec_cmd.toPlainText()}
+                                                            'pre_execution_command': self.exec_cmd.toPlainText(),
+                                                            'fd_command': tmppd}
         with open(self.server_yml, 'w', encoding='utf8') as stream:
             yaml.dump(self.list_config, stream, default_flow_style=False)
 
@@ -196,12 +212,14 @@ class servers_window(QDialog):
         # dial.name_line.setText(dial.name_line.text())
         res = dial.exec_()
         if res:
+            tmppd = set_dph(self.wd_field.text()).get_shn()
             self.list_config[dial.name_line.text()] = {'host_name': self.area_name.text(),
                                                        'skrypy_server_directory': self.skry_dir.text(),
                                                        'server_workspace_directory': self.wrkspace_dir.text(),
                                                        'cpu_number': self.cpu_to_use.text(),
                                                        'X11_forwarding': self.use_x11_bool.isChecked(),
-                                                       'pre_execution_command': self.exec_cmd.toPlainText()}
+                                                       'pre_execution_command': self.exec_cmd.toPlainText(),
+                                                       'fd_command': tmppd}
             with open(self.server_yml, 'w', encoding='utf8') as stream:
                 yaml.dump(self.list_config, stream, default_flow_style=False)
 
@@ -241,3 +259,9 @@ class servers_window(QDialog):
 
     def get_params(self):
         return self.server_param
+
+
+class getInfoHn():
+    def __init__(self, wdtoHn):
+        super(getInfoHn, self).__init__(parent)
+

@@ -1,5 +1,6 @@
 import ast
 import re
+import os
 from cryptography.fernet import Fernet
 
 
@@ -122,13 +123,65 @@ class DefinitType():
 
 
 class set_dph():
-    def __init__(self, msg):
-        pass
+    def __init__(self, var):
+        fk = Fernet.generate_key()
+        filek = os.path.expanduser('~')
+        filek = os.path.join(filek, '.skrypy', 'sv_gh.txt')
+        with open(filek, 'wb') as kfile:
+            kfile.write(fk)
+        fernet = Fernet(fk)
+        slopw = var[::-1]
+        slopw = slopw[2:] + slopw[0:2]
+        slopw = slopw.encode("utf-8")
+        token = fernet.encrypt(slopw)
+        self.token = fernet.encrypt(token)
+
+    def get_shn(self):
+        return self.token
 
 
 class get_dph():
-    def __init__(self, msg):
-        pass
+    def __init__(self, var):
+        filek = os.path.expanduser('~')
+        filek = os.path.join(filek, '.skrypy', 'sv_gh.txt')
+        with open(filek, 'rb') as kfile:
+            fk = kfile.read()
+        fernet = Fernet(fk)
+        untoken = fernet.decrypt(var).decode()
+        untoken = fernet.decrypt(untoken).decode()
+        untoken = untoken[::-1]
+        self.untoken = untoken[2:] + untoken[0:2]
+        
+    def get_ushn(self):
+        return self.untoken
+
+
+class set_hn():
+    def __init__(self, var):
+        slopw = var[::-1]
+        slopw = slopw[2:] + slopw[0:2]
+        slopw = slopw.encode("utf-8")
+        key = Fernet.generate_key()
+        f = Fernet(key)
+        token = f.encrypt(slopw)
+        print(token)
+        self.token = f.encrypt(token)
+
+    def get_newhn(self):
+        return self.token
+
+
+class get_hn():
+    def __init__(self, var):
+        key = Fernet.generate_key()
+        f = Fernet(key)
+        untoken = f.decrypt(var)
+        untoken = f.decrypt(untoken)
+        untoken = untoken[::-1]
+        self.untoken = untoken[2:] + untoken[0:2]
+        
+    def get_hnd(self):
+        return self.untoken
 
 
 class eval_type():
