@@ -11,9 +11,10 @@ from PyQt5.QtCore import Qt
 
 
 class servers_window(QDialog):
-    def __init__(self, config, parent=None):
+    def __init__(self, config, clust, parent=None):
         super(servers_window, self).__init__(parent)
         self.config = config
+        self.clust = clust
         self.server_yml = Config().getServersList()
         self.getServersInfo()
 
@@ -21,10 +22,29 @@ class servers_window(QDialog):
 
         self.server_param = []
         dicts = {}
-
+        
         with open(self.server_yml, 'r', encoding='utf8') as stream:
             dicts = yaml.load(stream, yaml.FullLoader)
-            self.mainWindow(dicts)
+            if not self.clust:
+                self.mainWindow(dicts)
+            else:
+                self.getClusterParam(dicts[self.clust])
+                
+    def getClusterParam(self, clust):
+        try:
+            tmpA = clust['fd_command']
+            tmpB = clust['fk_command']
+            tmppd = get_dph(tmpA, tmpB).get_ushn()
+        except Exception as err:
+            print('error to open cluster config:', err)
+            tmppd = ''
+        self.server_param = [clust['host_name'],
+                             clust['skrypy_server_directory'],
+                             clust['server_workspace_directory'],
+                             str(clust['cpu_number']),
+                             bool(clust['X11_forwarding']),
+                             clust['pre_execution_command'],
+                             tmppd]
 
     def mainWindow(self, list_config):
 

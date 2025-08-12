@@ -47,7 +47,8 @@ from random import randint
 from . import Config, Plugin, AboutSoft
 from . import DefinitType, ReorderList, diagramInfo
 from . import GetValueInBrackets, SetValueInBrackets
-from . import PythonHighlighter, multiple_execution
+from . import PythonHighlighter
+from . import multiple_execution, multiple_execution_altern
 from . import analyze2, execution2, servers_window
 from . import buildLibrary, SubWindow
 from . import changeLabel, changeTitle, chOptions
@@ -5417,6 +5418,8 @@ class Menu(QMenuBar):
                                                    'in Threading mode on cluster HPC')
         runmultipipessh = self.menuPipe.addAction('Run multiple Diagrams on cluster HPC')
         self.menuPipe.addSeparator()
+        runmultipipealt = self.menuPipe.addAction('Run multiple Diagrams alternately')
+        self.menuPipe.addSeparator()
         listItm = self.menuPipe.addAction('See List Items')
         listItm.setShortcut('Ctrl+I')
         listLib = self.menuPipe.addAction('See List Libraries')
@@ -5807,7 +5810,7 @@ class Menu(QMenuBar):
                         self.showdialog("the diagram is not saved.\nSave and relaunch.")
                         return
                     print("threading", currentTitle)
-                    ssh_diagram_execution([editor.infopathDgr.text()], 'Multi-threading')
+                    ssh_diagram_execution([editor.infopathDgr.text()], 'Multi-threading', None)
                 else:
                     editor.editText(" > You can't run Diagram with connectors",
                                     10, 600, 'cc0000', False, True)
@@ -5845,6 +5848,43 @@ class Menu(QMenuBar):
                             return
                 print('source_dgr:', source_dgr)
                 ssh_diagram_execution(source_dgr, 'Multi-threading')
+
+        elif tmpActText == 'Run multiple Diagrams alternately':
+            if not all(os.path.exists(s) for s in editor.pathDiagram):
+                self.showdialog("Some diagrams are not saved.\nSave and relaunch.")
+                return
+            list_dgr = []
+            list_dgr_tit = {}
+            for lstWind in editor.mdi.subWindowList():
+                titleTab = lstWind.windowTitle()
+                if not titleTab.endswith('.mod'):
+                    list_dgr.append(titleTab)
+                    list_dgr_tit[titleTab] = lstWind
+            c = multiple_execution_altern(list_dgr)
+            c.exec()
+            order_dgr = []
+            source_dgr = []
+            if c.getNewValues():
+                for lstdg in c.getNewValues()[0:-2]:
+                    print('lstdg', lstdg)
+                    if lstdg[0] != 'None':
+                        if '*' in lstdg[0]:
+                            self.showdialog("Some diagram(s) have been modified.\nSave and relaunch.")
+                            return
+                        editor.mdi.setActiveSubWindow(list_dgr_tit[lstdg[0]])
+                        if not editor.listConnects[editor.currentTab]:
+                            # Diagram_excution(lstdg[0], lstdg[1])
+                            source_dgr.append(([s for s in editor.pathDiagram if lstdg[0] == os.path.basename(s)][0], lstdg[1], lstdg[2]))
+                        else:
+                            editor.editText("{} :<br>You can't run Diagram with connectors".format(title_dgr),
+                                            10, 600, 'cc0000', False, True)
+                            return
+                print('source_dgr:', source_dgr)
+                for src in source_dgr:
+                    if src[2] == 'local':
+                        Diagram_excution(src[0], lstdg[1])
+                    else:
+                        ssh_diagram_execution([src[0]], 'Multi-threading', src[2])
         # elif tmpActText == 'Show grid':
         #     showGrid = self.show_grid_action.isChecked()
         #     editor.diagramView[editor.currentTab].update()
@@ -6079,7 +6119,7 @@ class Menu(QMenuBar):
             Start_environment(True)
 
         elif tmpActText == 'Clusters configuration':
-            c = servers_window('config')
+            c = servers_window('config', None)
             c.exec_()
 
         elif os.path.splitext(tmpActText)[1] == '.dgr':
@@ -8963,11 +9003,14 @@ class Slide(QGraphicsPolygonItem):
 
 class ssh_diagram_execution():
 
-    def __init__(self, source, mode):
+    def __init__(self, source, mode, cluster):
         self.source = source
         self.mode = mode
-        c = servers_window('exec')
-        c.exec_()
+        if not cluster:
+            c = servers_window('exec', None)
+            c.exec_()
+        else:
+            c = servers_window('exec', cluster)
 
         if c.get_params():
             self.execution_ssh(c.get_params())
@@ -9045,12 +9088,30 @@ class ssh_diagram_execution():
             fssh.write("python3 Execution_ssh.py {} {} {} {} {}\n".format(host_path, diagram, n_cpu, self.mode, opx))
             fssh.write("deactivate\n")
             fssh.write("echo\n")
-            fssh.write("echo \"\033[1;34mFinished.. you can close this window\033[0m\"\n")
-            fssh.write("echo \n")
+            # fssh.write("echo \"\033[1;34mFinished.. you can close this window\033[0m\"\n")
+            # fssh.write("echo \n")
             fssh.write("exit\n")
-        os.system(f"gnome-terminal --title=\"" + param_ssh[0] + "\" -e 'bash -c \"sshpass -p " + host_password.strip() + " ssh " + opx +
-                  " " + host_name + " < ~/.skrypy/ssh_command.sh; bash\"'")
+        
+        # sd = os.system(f"gnome-terminal --title=\"" + param_ssh[0] + "\" --wait -- bash -c \"sshpass -p " + host_password.strip() + " ssh " + opx +
+        #           " " + host_name + " < ~/.skrypy/ssh_command.sh; bash\"")
 
+        password = host_password.strip()
+        file_cmd = os.path.expanduser("~")
+        file_cmd = os.path.join(file_cmd, ".skrypy", "ssh_command.sh")
+        if opx:
+            opt = opx + 'q'
+        else:
+            opt = '-q'
+        with open(file_cmd) as process_stdin:
+            p = subprocess.Popen(["sshpass", "-p", password, "ssh", opt, host_name, "--", "bash", "-s"],
+                    stdin=process_stdin, stdout=subprocess.PIPE)
+            out, err = p.communicate()
+            print(out.decode())
+        col = '\x1b[38;2;50;250;50m'
+        # print("execution on {} finished".format(host_name))
+        print('{}execution on {} finished\033[0m'.format(col,host_name))
+        for lst_dgr in self.source:
+            print('{}{}\033[0m'.format(col,os.path.basename(lst_dgr)))
 
 class SubWindowManager(QMdiSubWindow):
 
@@ -9356,6 +9417,7 @@ class ToolBar(QToolBar):
                              ('Run multiple Diagrams', 'run_multiple.png', '(Ctrl+M)'), ('separator',),
                              ('Run this Diagram on cluster HPC', 'run_ssh.png', ''), ('Run this Diagram in Threading mode on cluster HPC', 'run_thread_ssh.png', ''),
                              ('Run multiple Diagrams on cluster HPC', 'run_multiple_ssh.png', ''), ('separator',),
+                            ('Run multiple Diagrams alternately', 'run_multiple_altern.png', ''), ('separator',),
                              ('Show/hide Tools', 'tools.png', ''), ('Show/hide Console', 'console.png', ''), ('Show/hide Progress', 'Items.png', ''), ('separator',),
                              ('Cascade', 'windowsCascade.png', '(Ctrl+F)'), ('Tiled', 'windowsTile.png', '(Ctrl+G)'), ('Fit to window', 'fitWindow.png', '(f)')]
 

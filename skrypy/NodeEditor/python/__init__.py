@@ -26,6 +26,7 @@ from NodeEditor.python.limits_constants import setLimits
 from NodeEditor.python.loadModules import getlistModules
 from NodeEditor.python.loadSubModules import getlistSubModules
 from NodeEditor.python.multiExecution import multiple_execution
+from NodeEditor.python.multiExecution_altern import multiple_execution_altern
 from NodeEditor.python.packages_manager import manage_pck
 from NodeEditor.python.plugins import Plugin
 from NodeEditor.python.sourceBlock import seeCode, getDocString

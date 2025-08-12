@@ -90,20 +90,25 @@ class scp_transfert_multifiles():
             print("connection abandoned")
             self.out_pt, self.output = 'path', ''
         else:
+            self.out_pt = []
             if direction == 'host_to_local':
+                dest = local_path
                 if isinstance(host_path, list):
                     source = host_path
+                    for src in source:
+                        self.out_pt.append(os.path.join(local_path, os.path.basename(src))) 
                 else:
                     source = [host_path]
-                dest = local_path
-                self.out_pt = os.path.join(local_path, os.path.basename(host_path))
+                    self.out_pt = os.path.join(local_path, os.path.basename(host_path))
             else:
+                dest = "{}:{}".format(host_name, host_path)
                 if isinstance(local_path, list):
                     source = local_path
+                    for src in source:
+                        self.out_pt.append(os.path.join(host_path, os.path.basename(src))) 
                 else:
                     source = [local_path]
-                dest = "{}:{}".format(host_name, host_path)
-                self.out_pt = os.path.join(host_path, os.path.basename(local_path))
+                    self.out_pt = os.path.join(host_path, os.path.basename(local_path))
             p1 = Popen(['echo', host_password], stdout=PIPE, stderr=PIPE)
             for src in source:
                 if data_type == 'directory':

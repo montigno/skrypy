@@ -9,18 +9,23 @@
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QDialog, QVBoxLayout, QHBoxLayout, QLabel, QComboBox, \
     QButtonGroup, QCheckBox, QPushButton, QLineEdit
+
 import time
+import os
+import yaml
 
 
-class multiple_execution(QDialog):
+class multiple_execution_altern(QDialog):
     def __init__(self, listDiagram, parent=None):
-        super(multiple_execution, self).__init__(parent)
+        super(multiple_execution_altern, self).__init__(parent)
         self.setWindowTitle('Order of processes')
         self.setWindowFlags(self.windowFlags() & Qt.WindowCloseButtonHint)
         self.listVal = []
         self.adjustSize()
         vbox = QVBoxLayout(self)
         self.zonecombo = []
+        list_clust = ['local']
+        list_clust.extend(self.get_clusters_list())
         for i, lst in enumerate(listDiagram):
             lab = QLabel('Diagram '+str(i))
             comb = QComboBox(self)
@@ -28,11 +33,15 @@ class multiple_execution(QDialog):
             comb.addItem('None')
             comb.setCurrentIndex(i)
             checkb = QCheckBox('threading mode')
-            self.zonecombo.append((comb, checkb))
+            clust = QComboBox(self)
+            clust.addItems(list_clust)
+            clust.setCurrentIndex(0)
+            self.zonecombo.append((comb, checkb, clust))
             hbox = QHBoxLayout()
             hbox.addWidget(lab)
             hbox.addWidget(comb)
             hbox.addWidget(checkb)
+            hbox.addWidget(clust)
             vbox.addLayout(hbox)
         self.a = QCheckBox('run sequentially')
         self.a.setChecked(True)
@@ -59,14 +68,25 @@ class multiple_execution(QDialog):
 
     def GO(self):
         for lst_comb in self.zonecombo:
-            self.listVal.append((lst_comb[0].currentText(), lst_comb[1].isChecked()))
+            self.listVal.append((lst_comb[0].currentText(), lst_comb[1].isChecked(), lst_comb[2].currentText()))
         self.listVal.append(self.a.isChecked())
         self.listVal.append(self.b.isChecked())
         self.close()
 
     def info_mu(self):
         self.a.setChecked(True)
-        
+
+    def get_clusters_list(self):
+        lst_clust = []
+        clust_file = os.path.expanduser('~')
+        clust_file = os.path.join(clust_file, '.skrypy', 'list_servers.yml')
+        if os.path.exists(clust_file):
+            with open(clust_file, 'r') as stream:
+                lst_clust = yaml.load(stream, yaml.FullLoader)
+                lst_clust = list(lst_clust.keys())
+                lst_clust.remove('template')
+        return lst_clust
+
     def onTimeout(self):
         self.info.setText('')
 
