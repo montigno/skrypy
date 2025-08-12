@@ -27,8 +27,6 @@ class servers_window(QDialog):
             self.mainWindow(dicts)
 
     def mainWindow(self, list_config):
-        
-        print('list_config:',list_config)
 
         self.list_config = list_config
 
