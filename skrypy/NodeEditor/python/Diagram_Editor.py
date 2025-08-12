@@ -6077,7 +6077,7 @@ class Menu(QMenuBar):
 
         elif tmpActText == 'Environment Diagram':
             Start_environment(True)
-            
+
         elif tmpActText == 'Clusters configuration':
             c = servers_window('config')
             c.exec_()

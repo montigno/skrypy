@@ -147,7 +147,6 @@ class servers_window(QDialog):
             print('error to open cluster config:', err)
             tmppd = ''
         self.wd_field.setText(tmppd)
-        
 
     def go(self):
         self.server_param = [self.area_name.text(),
@@ -167,7 +166,7 @@ class servers_window(QDialog):
         tmp = set_dph(self.wd_field.text())
         tmppd = tmp.get_shn()
         tmppk = tmp.get_fk()
-        
+
         self.list_config[self.server_name.currentText()] = {'host_name': self.area_name.text(),
                                                             'skrypy_server_directory': self.skry_dir.text(),
                                                             'server_workspace_directory': self.wrkspace_dir.text(),
@@ -270,4 +269,3 @@ class servers_window(QDialog):
 class getInfoHn():
     def __init__(self, wdtoHn):
         super(getInfoHn, self).__init__(parent)
-

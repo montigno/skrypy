@@ -23,8 +23,9 @@ class Config():
                                  'cpu_number': '4',
                                  'X11_forwarding': False,
                                  'pre_execution_command': 'conda activate foo',
-                                 'df_command': 'gAAAAABomfVsuECkx1dbi_lZeOl19vgQnUWrN-IoXt6Nw_P3oitfXkYNeqB_ycpTdbeBtsyyFnBouFXF4fVUev8zKUuFWI2HwgEKDZb63GE0YxWHnPw9gQEpsrIkS4MlwwEmdRt6-fzvvGUhrgvIgeJjwYQFMHuMBWFX8PmaWT51nGM74Pi5CqCAt1Ps6_KuUCAStWA-yJKZnc1_xN8zPPPC378m0Q3Slg=='
-                                }}
+                                 'df_command': '',
+                                 'dk_command': ''
+                                 }}
 
     def __init__(self):
         dir_path = os.path.dirname(os.path.realpath(__file__))
