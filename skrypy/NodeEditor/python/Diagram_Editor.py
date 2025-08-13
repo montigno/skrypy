@@ -5874,6 +5874,7 @@ class Menu(QMenuBar):
                             self.showdialog("Some diagram(s) have been modified.\nSave and relaunch.")
                             return
                         editor.mdi.setActiveSubWindow(list_dgr_tit[lstdg[0]])
+                        print('lstdg', lstdg[0])
                         if not editor.listConnects[editor.currentTab]:
                             # Diagram_excution(lstdg[0], lstdg[1])
                             source_dgr.append(([s for s in editor.pathDiagram if lstdg[0] == os.path.basename(s)][0], lstdg[1], lstdg[2]))
@@ -5884,8 +5885,9 @@ class Menu(QMenuBar):
                 print('source_dgr:', source_dgr)
                 for src in source_dgr:
                     if src[2] == 'local':
-                        editor.mdi.setActiveSubWindow(list_dgr_tit[src[0]])
-                        Diagram_excution(src[0], src[1])
+                        diagr = os.path.basename(src[0])
+                        editor.mdi.setActiveSubWindow(list_dgr_tit[diagr])
+                        Diagram_excution(diagr, src[1])
                     else:
                         ssh_diagram_execution([src[0]], 'Multi-threading', src[2])
         # elif tmpActText == 'Show grid':

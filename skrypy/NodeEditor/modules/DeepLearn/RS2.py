@@ -52,6 +52,7 @@ class RS2_predict_datamanagement():
         for cur_file in list_files:
             if cur_file.endswith('.nii'):
                 with open(cur_file, 'rb') as f_in:
+                    print('Processing in progress for {}'.format(cur_file))
                     tmp = os.path.basename(cur_file)
                     lsfield = tmp.split('.')
                     name = ('.').join(tmp.split('.')[:-1])
