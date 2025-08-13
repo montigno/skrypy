@@ -5400,6 +5400,8 @@ class Menu(QMenuBar):
         casd.setShortcut('Ctrl+F')
         til = self.menuEdit.addAction('Tiled')
         til.setShortcut('Ctrl+G')
+        maxd = self.menuEdit.addAction('Maximized')
+        maxd.setShortcut('Ctrl+H')
         self.menuEdit.triggered[QAction].connect(self.btnPressed)
         self.menuPipe = self.addMenu('Diagram')
         anaPipe = self.menuPipe.addAction('Analyze this Diagram')
@@ -6067,6 +6069,10 @@ class Menu(QMenuBar):
             for lstWid in editor.mdi.subWindowList():
                 editor.mdi.setActiveSubWindow(lstWid)
                 self.btnPressed(QAction("Fit to window"))
+                
+        elif tmpActText == 'Maximized':
+            for lstWid in editor.mdi.subWindowList():
+                lstWid.showMaximized()
 
         elif tmpActText == 'Undo':
             if len(editor.mdi.subWindowList()) >= 1:
@@ -6616,17 +6622,17 @@ class NodeEdit(QWidget):
         return self.libBlocks
 
     def getSubWindowCurrentTitle(self):
-        if len(editor.mdi.subWindowList()) == 1:
-            currentTitle = editor.mdi.subWindowList()[0].windowTitle()
+        if len(self.mdi.subWindowList()) == 1:
+            currentTitle = self.mdi.subWindowList()[0].windowTitle()
         else:
-            currentTitle = editor.mdi.currentSubWindow().windowTitle()
+            currentTitle = self.mdi.currentSubWindow().windowTitle()
         return currentTitle
 
     def setSubWindowCurrentTitle(self, title):
-        if len(editor.mdi.subWindowList()) > 1:
-            editor.mdi.currentSubWindow().setWindowTitle(title)
+        if len(self.mdi.subWindowList()) > 1:
+            self.mdi.currentSubWindow().setWindowTitle(title)
         else:
-            editor.mdi.subWindowList()[0].setWindowTitle(title)
+            self.mdi.subWindowList()[0].setWindowTitle(title)
 
     def setlib(self, lib):
         self.libBlocks = lib.copy()
@@ -9440,9 +9446,10 @@ class ToolBar(QToolBar):
                              ('Run multiple Diagrams', 'run_multiple.png', '(Ctrl+M)'), ('separator',),
                              ('Run this Diagram on cluster HPC', 'run_ssh.png', ''), ('Run this Diagram in Threading mode on cluster HPC', 'run_thread_ssh.png', ''),
                              ('Run multiple Diagrams on cluster HPC', 'run_multiple_ssh.png', ''), ('separator',),
-                            ('Run multiple Diagrams alternately', 'run_multiple_altern.png', ''), ('separator',),
+                             ('Run multiple Diagrams alternately', 'run_multiple_altern.png', ''), ('separator',),
                              ('Show/hide Tools', 'tools.png', ''), ('Show/hide Console', 'console.png', ''), ('Show/hide Progress', 'Items.png', ''), ('separator',),
-                             ('Cascade', 'windowsCascade.png', '(Ctrl+F)'), ('Tiled', 'windowsTile.png', '(Ctrl+G)'), ('Fit to window', 'fitWindow.png', '(f)')]
+                             ('Cascade', 'windowsCascade.png', '(Ctrl+F)'), ('Tiled', 'windowsTile.png', '(Ctrl+G)'), ('Maximized', 'windowsMax.png', '(Ctrl+H)'),
+                             ('separator',), ('Fit to window', 'fitWindow.png', '(f)')]
 
         for list_menu in list_toolbar_menu:
             if list_menu[0] == 'separator':
