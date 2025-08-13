@@ -5874,7 +5874,6 @@ class Menu(QMenuBar):
                             self.showdialog("Some diagram(s) have been modified.\nSave and relaunch.")
                             return
                         editor.mdi.setActiveSubWindow(list_dgr_tit[lstdg[0]])
-                        print('lstdg', lstdg[0])
                         if not editor.listConnects[editor.currentTab]:
                             # Diagram_excution(lstdg[0], lstdg[1])
                             source_dgr.append(([s for s in editor.pathDiagram if lstdg[0] == os.path.basename(s)][0], lstdg[1], lstdg[2]))
@@ -5882,13 +5881,14 @@ class Menu(QMenuBar):
                             editor.editText("{} :<br>You can't run Diagram with connectors".format(title_dgr),
                                             10, 600, 'cc0000', False, True)
                             return
-                print('source_dgr:', source_dgr)
                 for src in source_dgr:
                     if src[2] == 'local':
                         diagr = os.path.basename(src[0])
                         editor.mdi.setActiveSubWindow(list_dgr_tit[diagr])
                         Diagram_excution(diagr, src[1])
                     else:
+                        col = '\x1b[38;2;0;100;255m'
+                        print("\n{} Excution on {} in progress ... \033[0m".format(col, src[2]))
                         ssh_diagram_execution([src[0]], 'Multi-threading', src[2])
         # elif tmpActText == 'Show grid':
         #     showGrid = self.show_grid_action.isChecked()
