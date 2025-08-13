@@ -59,8 +59,9 @@ class execution_ssh():
                     move = False
 
         txt_code = file_head + file_end
+        col = col = '\x1b[38;2;0;100;255m'
         print('\n' * 2)
-        print("execution: {}".format(title_dgr))
+        print("{}execution: {}\n\033[0m".format(col, title_dgr))
         # if mode_th:
         #     mode = 'Multi-threading'
         # else:
@@ -70,9 +71,7 @@ class execution_ssh():
             print("Warning: some scripts contain the terms 'QApplication' or 'syst.exit', remove them !")
             return
 
-        print(" {} execution: ".format(mode))
-        print("     > started")
-        print("     > in progress ...")
+        print("> started in {} mode".format(mode))
 
         args = (txt_code, {}, '')
 
