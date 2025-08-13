@@ -5796,7 +5796,7 @@ class Menu(QMenuBar):
                         self.showdialog("the diagram is not saved.\nSave and relaunch.")
                         return
                     print("run", currentTitle)
-                    ssh_diagram_execution([editor.infopathDgr.text()], 'Sequential')
+                    ssh_diagram_execution([editor.infopathDgr.text()], 'Sequential', None)
                 else:
                     editor.editText(" > You can't run Diagram with connectors",
                                     10, 600, 'cc0000', False, True)
