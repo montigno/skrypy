@@ -13,9 +13,9 @@ import time
 
 
 class multiple_execution(QDialog):
-    def __init__(self, listDiagram, parent=None):
+    def __init__(self, listDiagram, machine, parent=None):
         super(multiple_execution, self).__init__(parent)
-        self.setWindowTitle('Order of processes')
+        self.setWindowTitle('Order of processes - ' + machine)
         self.setWindowFlags(self.windowFlags() & Qt.WindowCloseButtonHint)
         self.listVal = []
         self.adjustSize()

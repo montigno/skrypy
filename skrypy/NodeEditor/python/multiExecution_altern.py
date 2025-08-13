@@ -18,7 +18,7 @@ import yaml
 class multiple_execution_altern(QDialog):
     def __init__(self, listDiagram, parent=None):
         super(multiple_execution_altern, self).__init__(parent)
-        self.setWindowTitle('Order of processes')
+        self.setWindowTitle('Order of processes - alternation')
         self.setWindowFlags(self.windowFlags() & Qt.WindowCloseButtonHint)
         self.listVal = []
         self.adjustSize()

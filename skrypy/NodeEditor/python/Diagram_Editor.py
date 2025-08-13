@@ -5777,7 +5777,7 @@ class Menu(QMenuBar):
                 if not titleTab.endswith('.mod'):
                     list_dgr.append(titleTab)
                     list_dgr_tit[titleTab] = lstWind
-            c = multiple_execution(list_dgr)
+            c = multiple_execution(list_dgr, 'local')
             c.exec_()
             order_dgr = []
             mdi_count = len(editor.mdi.subWindowList())
@@ -5829,7 +5829,7 @@ class Menu(QMenuBar):
                 if not titleTab.endswith('.mod'):
                     list_dgr.append(titleTab)
                     list_dgr_tit[titleTab] = lstWind
-            c = multiple_execution(list_dgr)
+            c = multiple_execution(list_dgr, 'cluster')
             c.exec_()
             order_dgr = []
             source_dgr = []
