@@ -40,6 +40,8 @@ class SharedMemory_create():
             shared_data[memoryName] = data
         with open(file_shme, 'w') as file_yml:
             yaml.dump(shared_data, file_yml)
+            while not os.path.exists(file_shme):
+                time.sleep(1)
 
 ##############################################################################
 
