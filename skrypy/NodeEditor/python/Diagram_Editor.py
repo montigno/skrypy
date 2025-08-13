@@ -9117,7 +9117,7 @@ class ssh_diagram_execution():
         # print("execution on {} finished".format(host_name))
         print('{}execution on {} finished\033[0m'.format(col,host_name))
         for lst_dgr in self.source:
-            print('{}{}\033[0m'.format(col,os.path.basename(lst_dgr)))
+            print('    - {}{}\033[0m'.format(col,os.path.basename(lst_dgr)))
 
         # download shared memory from cluster ###################################
         source = "{}:{}".format(host_name, '~/.skrypy/list_shm.yml')
