@@ -5884,7 +5884,7 @@ class Menu(QMenuBar):
                 print('source_dgr:', source_dgr)
                 for src in source_dgr:
                     if src[2] == 'local':
-                        Diagram_excution(src[0], lstdg[1])
+                        Diagram_excution(src[0], src[1])
                     else:
                         ssh_diagram_execution([src[0]], 'Multi-threading', src[2])
         # elif tmpActText == 'Show grid':
