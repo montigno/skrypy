@@ -51,6 +51,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Running Skrypy</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#local-execution">Local execution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#execution-on-a-cluster">Execution on a cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#alternative-execution">Alternative execution</a></li>
 </ul>
 </li>
 </ul>
@@ -96,45 +97,84 @@
 <h2>Local execution<a class="headerlink" href="#local-execution" title="Link to this heading"></a></h2>
 <blockquote>
 <div></div></blockquote>
-<style> .blue {color:#0000ff} </style><ol class="arabic">
-<li><dl>
+<style> .blue {color:#0000ff} </style><ol class="arabic simple">
+<li><dl class="simple">
 <dt>Standard mode (CTRL+R)</dt><dd><p><span class="blue">Allows to launch your current diagram sequentially (no multithreading)</span></p>
-<p><a class="reference internal" href="../_images/Skrypy_buttons.png"><img alt="(skrypy buttons)" src="../_images/Skrypy_buttons.png" style="width: 100%;" /></a> <a class="reference internal" href="../_images/blank.png"><img alt="(blank)" src="../_images/blank.png" style="width: 39%;" /></a> <a class="reference internal" href="../_images/arrow.png"><img alt="(arrow)" src="../_images/arrow.png" style="width: 20px; height: 20px;" /></a></p>
-</dd>
-</dl>
-</li>
-<li><dl>
-<dt>Multithreading mode (CTRL+T)</dt><dd><p><span class="blue">Allows to launch your current diagram in multithreading mode. Several different blocks will run in parallel, reducing processing time.</span></p>
-<p><a class="reference internal" href="../_images/Skrypy_buttons.png"><img alt="(skrypy buttons)" src="../_images/Skrypy_buttons.png" style="width: 100%;" /></a> <a class="reference internal" href="../_images/blank.png"><img alt="(blank)" src="../_images/blank.png" style="width: 43%;" /></a> <a class="reference internal" href="../_images/arrow.png"><img alt="(arrow)" src="../_images/arrow.png" style="width: 20px; height: 20px;" /></a></p>
-</dd>
-</dl>
-</li>
-<li><dl>
-<dt>Running multiple diagrams (CTRL+M)</dt><dd><p><span class="blue">Allows you to launch all your open diagrams.</span></p>
-<p><a class="reference internal" href="../_images/Skrypy_buttons.png"><img alt="(skrypy buttons)" src="../_images/Skrypy_buttons.png" style="width: 100%;" /></a> <a class="reference internal" href="../_images/blank.png"><img alt="(blank)" src="../_images/blank.png" style="width: 47%;" /></a> <a class="reference internal" href="../_images/arrow.png"><img alt="(arrow)" src="../_images/arrow.png" style="width: 20px; height: 20px;" /></a></p>
-<p><span class="blue">A ‘Order of processes’ window opens, indicate the order of the diagrams to launch.</span></p>
-<p><a class="reference internal" href="../_images/order_processes.png"><img alt="(order processes)" src="../_images/order_processes.png" style="width: 60%;" /></a></p>
 </dd>
 </dl>
 </li>
 </ol>
+<p><a class="reference internal" href="../_images/Skrypy_buttons.png"><img alt="(skrypy buttons)" src="../_images/Skrypy_buttons.png" style="width: 100%;" /></a> <a class="reference internal" href="../_images/blank.png"><img alt="(blank)" src="../_images/blank.png" style="width: 35%;" /></a> <a class="reference internal" href="../_images/arrow.png"><img alt="(arrow)" src="../_images/arrow.png" style="width: 20px; height: 20px;" /></a> <br /></p>
+<ol class="arabic simple" start="2">
+<li><dl class="simple">
+<dt>Multithreading mode (CTRL+T)</dt><dd><p><span class="blue">Allows to launch your current diagram in multithreading mode. Several different blocks will run in parallel, reducing processing time.</span></p>
+</dd>
+</dl>
+</li>
+</ol>
+<p><a class="reference internal" href="../_images/Skrypy_buttons.png"><img alt="(skrypy buttons)" src="../_images/Skrypy_buttons.png" style="width: 100%;" /></a> <a class="reference internal" href="../_images/blank.png"><img alt="(blank)" src="../_images/blank.png" style="width: 38%;" /></a> <a class="reference internal" href="../_images/arrow.png"><img alt="(arrow)" src="../_images/arrow.png" style="width: 20px; height: 20px;" /></a></p>
+<ol class="arabic simple" start="3">
+<li><dl class="simple">
+<dt>Running multiple diagrams (CTRL+M)</dt><dd><p><span class="blue">Allows you to launch all your open diagrams on your PC.</span></p>
+</dd>
+</dl>
+</li>
+</ol>
+<dl class="simple">
+<dt><a class="reference internal" href="../_images/Skrypy_buttons.png"><img alt="(skrypy buttons)" src="../_images/Skrypy_buttons.png" style="width: 100%;" /></a> <a class="reference internal" href="../_images/blank.png"><img alt="(blank)" src="../_images/blank.png" style="width: 42%;" /></a> <a class="reference internal" href="../_images/arrow.png"><img alt="(arrow)" src="../_images/arrow.png" style="width: 20px; height: 20px;" /></a></dt><dd><p><span class="blue">A ‘Order of processes - local’ window opens, indicate the order of the diagrams to launch.</span></p>
+</dd>
+</dl>
+<p><a class="reference internal" href="../_images/order_processes.png"><img alt="(order processes)" src="../_images/order_processes.png" style="width: 60%;" /></a></p>
 </section>
 <section id="execution-on-a-cluster">
 <h2>Execution on a cluster<a class="headerlink" href="#execution-on-a-cluster" title="Link to this heading"></a></h2>
 <blockquote>
 <div></div></blockquote>
 <ol class="arabic simple">
-<li><p>Standard mode</p></li>
+<li><dl class="simple">
+<dt>Standard mode</dt><dd><p><span class="blue">Allows to launch your current diagram sequentially (no multithreading) on a cluster (a window will open to choose the cluster)</span></p>
+</dd>
+</dl>
+</li>
 </ol>
-<p><a class="reference internal" href="../_images/Skrypy_buttons.png"><img alt="(skrypy buttons)" src="../_images/Skrypy_buttons.png" style="width: 100%;" /></a> <a class="reference internal" href="../_images/blank.png"><img alt="(blank)" src="../_images/blank.png" style="width: 52%;" /></a> <a class="reference internal" href="../_images/arrow.png"><img alt="(arrow)" src="../_images/arrow.png" style="width: 20px; height: 20px;" /></a></p>
+<p><a class="reference internal" href="../_images/Skrypy_buttons.png"><img alt="(skrypy buttons)" src="../_images/Skrypy_buttons.png" style="width: 100%;" /></a> <a class="reference internal" href="../_images/blank.png"><img alt="(blank)" src="../_images/blank.png" style="width: 46%;" /></a> <a class="reference internal" href="../_images/arrow.png"><img alt="(arrow)" src="../_images/arrow.png" style="width: 20px; height: 20px;" /></a></p>
 <ol class="arabic simple" start="2">
-<li><p>Multithreading mode</p></li>
+<li><dl class="simple">
+<dt>Multithreading mode</dt><dd><p><span class="blue">Allows to launch your current diagram in multithreading mode on a cluster. Several different blocks will run in parallel, reducing processing time (a window will open to choose the cluster)</span></p>
+</dd>
+</dl>
+</li>
 </ol>
-<p><a class="reference internal" href="../_images/Skrypy_buttons.png"><img alt="(skrypy buttons)" src="../_images/Skrypy_buttons.png" style="width: 100%;" /></a> <a class="reference internal" href="../_images/blank.png"><img alt="(blank)" src="../_images/blank.png" style="width: 56%;" /></a> <a class="reference internal" href="../_images/arrow.png"><img alt="(arrow)" src="../_images/arrow.png" style="width: 20px; height: 20px;" /></a></p>
+<p><a class="reference internal" href="../_images/Skrypy_buttons.png"><img alt="(skrypy buttons)" src="../_images/Skrypy_buttons.png" style="width: 100%;" /></a> <a class="reference internal" href="../_images/blank.png"><img alt="(blank)" src="../_images/blank.png" style="width: 50%;" /></a> <a class="reference internal" href="../_images/arrow.png"><img alt="(arrow)" src="../_images/arrow.png" style="width: 20px; height: 20px;" /></a></p>
 <ol class="arabic simple" start="3">
-<li><p>Running multiple diagrams</p></li>
+<li><dl class="simple">
+<dt>Running multiple diagrams</dt><dd><p><span class="blue">Allows you to launch all your open diagrams on a cluster (a window will open to choose the cluster).</span></p>
+</dd>
+</dl>
+</li>
 </ol>
-<p><a class="reference internal" href="../_images/Skrypy_buttons.png"><img alt="(skrypy buttons)" src="../_images/Skrypy_buttons.png" style="width: 100%;" /></a> <a class="reference internal" href="../_images/blank.png"><img alt="(blank)" src="../_images/blank.png" style="width: 60%;" /></a> <a class="reference internal" href="../_images/arrow.png"><img alt="(arrow)" src="../_images/arrow.png" style="width: 20px; height: 20px;" /></a></p>
+<dl class="simple">
+<dt><a class="reference internal" href="../_images/Skrypy_buttons.png"><img alt="(skrypy buttons)" src="../_images/Skrypy_buttons.png" style="width: 100%;" /></a> <a class="reference internal" href="../_images/blank.png"><img alt="(blank)" src="../_images/blank.png" style="width: 54%;" /></a> <a class="reference internal" href="../_images/arrow.png"><img alt="(arrow)" src="../_images/arrow.png" style="width: 20px; height: 20px;" /></a></dt><dd><p><span class="blue">A ‘Order of processes - cluster’ window opens, indicate the order of the diagrams to launch.</span></p>
+</dd>
+</dl>
+<p><a class="reference internal" href="../_images/order_processes_clust.png"><img alt="(order processes cluster)" src="../_images/order_processes_clust.png" style="width: 60%;" /></a></p>
+</section>
+<section id="alternative-execution">
+<h2>Alternative execution<a class="headerlink" href="#alternative-execution" title="Link to this heading"></a></h2>
+<blockquote>
+<div></div></blockquote>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt>Running multiple diagrams</dt><dd><p><span class="blue">Allows to launch all your open diagrams in an alternative local-cluster way.</span></p>
+</dd>
+</dl>
+</li>
+</ol>
+<dl class="simple">
+<dt><a class="reference internal" href="../_images/Skrypy_buttons.png"><img alt="(skrypy buttons)" src="../_images/Skrypy_buttons.png" style="width: 100%;" /></a> <a class="reference internal" href="../_images/blank.png"><img alt="(blank)" src="../_images/blank.png" style="width: 58%;" /></a> <a class="reference internal" href="../_images/arrow.png"><img alt="(arrow)" src="../_images/arrow.png" style="width: 20px; height: 20px;" /></a></dt><dd><p><span class="blue">A ‘Order of processes - alternation’ window opens, indicate the order of the diagrams to launch and the processors to use.</span></p>
+</dd>
+</dl>
+<p><a class="reference internal" href="../_images/order_processes_alt.png"><img alt="(order processes altern)" src="../_images/order_processes_alt.png" style="width: 60%;" /></a></p>
 </section>
 </section>
 
