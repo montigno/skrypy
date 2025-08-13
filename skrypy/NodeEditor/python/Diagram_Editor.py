@@ -5847,7 +5847,7 @@ class Menu(QMenuBar):
                                             10, 600, 'cc0000', False, True)
                             return
                 print('source_dgr:', source_dgr)
-                ssh_diagram_execution(source_dgr, 'Multi-threading')
+                ssh_diagram_execution(source_dgr, 'Multi-threading', None)
 
         elif tmpActText == 'Run multiple Diagrams alternately':
             if not all(os.path.exists(s) for s in editor.pathDiagram):
@@ -9091,7 +9091,7 @@ class ssh_diagram_execution():
             # fssh.write("echo \"\033[1;34mFinished.. you can close this window\033[0m\"\n")
             # fssh.write("echo \n")
             fssh.write("exit\n")
-        
+
         # sd = os.system(f"gnome-terminal --title=\"" + param_ssh[0] + "\" --wait -- bash -c \"sshpass -p " + host_password.strip() + " ssh " + opx +
         #           " " + host_name + " < ~/.skrypy/ssh_command.sh; bash\"")
 
@@ -9112,6 +9112,22 @@ class ssh_diagram_execution():
         print('{}execution on {} finished\033[0m'.format(col,host_name))
         for lst_dgr in self.source:
             print('{}{}\033[0m'.format(col,os.path.basename(lst_dgr)))
+
+        # download shared memory from cluster ###################################
+        source = "{}:{}".format(host_name, '~/.skrypy/list_shm.yml')
+        dest = os.path.expanduser("~")
+        dest = os.path.join(dest, ".skrypy")
+        cmd = ['sshpass', '-p', host_password.strip(), 'scp', source.strip(), dest.strip()]
+        print(" ".join(cmd[3:]))
+        p4 = subprocess.Popen(cmd, stdin=p1.stdout, stdout=subprocess.PIPE)
+        # self.output = p4.stdout.read().decode()
+        p4.communicate()
+        p4.wait()
+        if p4.returncode == 0:
+            print('download shared memory done')
+        else:
+            print('download shared memory error !!, code ' + str(p4.returncode))
+        SharedMemoryManager(False)
 
 class SubWindowManager(QMdiSubWindow):
 

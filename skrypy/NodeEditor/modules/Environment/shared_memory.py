@@ -1,17 +1,15 @@
 class list_SharedMemory():
     def __init__(self):
         import os
+        import yaml
 
-        list_path = os.path.join(os.path.expanduser("~"), '.skrypy', 'list_shm.tmp')
+        file_shme = os.path.expanduser("~")
+        file_shme = os.path.join(file_shme, '.skrypy', 'list_shm.yml')
         self.l_shm = []
-        if os.path.exists(list_path):
-            f = open(list_path)
-            content = f.read()
-            f.close()
-            content = content.replace('{', '')
-            content = content.replace('}', '')
-            content = content.replace("'", '')
-            self.l_shm = content.split(',')
+        if os.path.exists(file_shme):
+            with open(file_shme, 'r') as file_yml:
+                data = yaml.load(file_yml, Loader=yaml.SafeLoader)
+                self.l_shm = list(data.keys())
 
     def list_shm(self: 'list_str'):
         return self.l_shm

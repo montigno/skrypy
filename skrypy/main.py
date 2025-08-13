@@ -15,7 +15,7 @@ from Config import Config
 from NodeEditor.python.Diagram_Editor import NodeEdit
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QWidget, QApplication, QVBoxLayout, \
-      QLineEdit, QMainWindow, QMessageBox
+      QLineEdit, QMainWindow, QMessageBox, QCheckBox
 
 import os
 import shutil
@@ -72,20 +72,42 @@ class Project_Irmage(QMainWindow):
             d = os.path.join(os.path.expanduser('~'), '.skrypy', os.path.basename(str(tmp)))
             shutil.copytree(self.tmp_dir, d, symlinks=False, ignore=None)
             os.remove(tmp)
-
+            
     def closeEvent(self, event):
-        box = QMessageBox.question(self,
-                                   "Exit skrypy...",
-                                   "Are you sure ?\n(your projects are saved ?) ",
-                                   QMessageBox.Yes | QMessageBox.No,
-                                   QMessageBox.No)
+        msg = QMessageBox()
+        msg.setWindowTitle("Exit skrypy...")
+        msg.setText("Have you saved your projects ?)" )
+        msg.setIcon(QMessageBox.Question)
+         
+        msg.setStandardButtons(QMessageBox.Yes|QMessageBox.No)
+        msg.setDefaultButton(QMessageBox.No)
+        cb = QCheckBox("Clear shared memory")
+        msg.setCheckBox(cb)
         event.ignore()
-
-        if box == QMessageBox.Yes:
-            ClearSharedMemory()
+        # msg.setDetailedText("Extra details.....")
+        # msg.setInformativeText("This is some extra informative text")
+        x = msg.exec_()
+        
+        if x == QMessageBox.Yes:
+            if cb.isChecked():
+                ClearSharedMemory()
             Synchronize_submod_tree(self.self_dir_path)
             self.sysctrl.kill()
             event.accept()
+
+    # def closeEvent(self, event):
+    #     box = QMessageBox.question(self,
+    #                                "Exit skrypy...",
+    #                                "Are you sure ?\n(your projects are saved ?) ",
+    #                                QMessageBox.Yes | QMessageBox.No,
+    #                                QMessageBox.No)
+    #     event.ignore()
+    #
+    #     if box == QMessageBox.Yes:
+    #         ClearSharedMemory()
+    #         Synchronize_submod_tree(self.self_dir_path)
+    #         self.sysctrl.kill()
+    #         event.accept()
 
     def __del__(self):
         try:
