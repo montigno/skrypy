@@ -9047,8 +9047,6 @@ class ssh_diagram_execution():
             if host_password == 'None':
                 return
 
-        dest = "{}:{}".format(host_name, host_path)
-
         for lst_dgr in self.source:
             diagram.append(os.path.join(host_path, os.path.basename(lst_dgr)))
 
@@ -9056,6 +9054,7 @@ class ssh_diagram_execution():
 
         # shared memory transfert ##########################
         yaml_file = os.path.join(os.path.expanduser("~"), '.skrypy', 'list_shm.yml')
+        dest = "{}:{}".format(host_name, '~/.skrypy/')
         if os.path.exists(yaml_file):
             cmd = ['sshpass', '-p', host_password.strip(), 'scp', yaml_file, dest]
             print(" ".join(cmd[3:]))
@@ -9067,14 +9066,15 @@ class ssh_diagram_execution():
             print('shared memory transfert done')
 
         # diagram transfert ################################
+        dest = "{}:{}".format(host_name, host_path)
         for src_dgr in self.source:
             cmd = ['sshpass', '-p', host_password.strip(), 'scp', src_dgr.strip(), dest]
             print(" ".join(cmd[3:]))
             # p1 = subprocess.Popen(['echo',host_password], shell=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            p2 = subprocess.Popen(cmd, stdin=p1.stdout, stdout=subprocess.PIPE)
-            self.output = p2.stdout.read().decode()
-            p2.communicate()
-            p2.wait()
+            p3 = subprocess.Popen(cmd, stdin=p1.stdout, stdout=subprocess.PIPE)
+            self.output = p3.stdout.read().decode()
+            p3.communicate()
+            p3.wait()
             print('diagram transfert done')
 
         # diagram execution on server #####################
@@ -9103,9 +9103,9 @@ class ssh_diagram_execution():
         else:
             opt = '-q'
         with open(file_cmd) as process_stdin:
-            p = subprocess.Popen(["sshpass", "-p", password, "ssh", opt, host_name, "--", "bash", "-s"],
+            p4 = subprocess.Popen(["sshpass", "-p", password, "ssh", opt, host_name, "--", "bash", "-s"],
                     stdin=process_stdin, stdout=subprocess.PIPE)
-            out, err = p.communicate()
+            out, err = p4.communicate()
             print(out.decode())
         col = '\x1b[38;2;50;250;50m'
         # print("execution on {} finished".format(host_name))
@@ -9119,15 +9119,22 @@ class ssh_diagram_execution():
         dest = os.path.join(dest, ".skrypy")
         cmd = ['sshpass', '-p', host_password.strip(), 'scp', source.strip(), dest.strip()]
         print(" ".join(cmd[3:]))
-        p4 = subprocess.Popen(cmd, stdin=p1.stdout, stdout=subprocess.PIPE)
-        # self.output = p4.stdout.read().decode()
-        p4.communicate()
-        p4.wait()
+        p5 = subprocess.Popen(cmd, stdin=p1.stdout, stdout=subprocess.PIPE)
+        # self.output = p5.stdout.read().decode()
+        p5.communicate()
+        p5.wait()
         if p4.returncode == 0:
             print('download shared memory done')
         else:
             print('download shared memory error !!, code ' + str(p4.returncode))
+        
+        # remove list_shme.yaml from cluster #######################################
+        cmd = ['sshpass', '-p', host_password.strip(), 'ssh', host_name, "rm ~/.skrypy/list_shm.yml"]
+        p6 = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+        
+        # display new list
         SharedMemoryManager(False)
+
 
 class SubWindowManager(QMdiSubWindow):
 
