@@ -49,7 +49,7 @@ class RS2_predict_datamanagement():
         import gzip
         import os
         
-        tmp_folder = os.path.join(list_files, 'tmp_rss')
+        tmp_folder = os.path.join(output_folder, 'tmp_rss')
         os.mkdir(tmp_folder)
 
         for cur_file in list_files:
