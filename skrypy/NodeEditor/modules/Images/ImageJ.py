@@ -1,12 +1,24 @@
 class openImageJ():
-    def __init__(self, file='path'):
+    def __init__(self, files=['path']):
         from subprocess import Popen
         import os
-        if file == 'path':
-            file = ''
-        script_macro = "run(\"Brightness/Contrast...\");"\
-                       "run(\"Enhance Contrast\", \"saturated=0.35\");"
-        p = Popen(['ImageJ', file, '-eval', script_macro], shell=False)
+        
+        if not isinstance(files, list):
+            if files == 'path':
+                files = ['']
+            else:
+                files = [files]
+        list_files = '|||'.join(files)
+        script_macro = "run(\"Brightness/Contrast...\");"
+        script_macro1 = "arg=" + "\"" + list_files + "\"" + ";"\
+                        "list=split(arg,\"|||\");"\
+                        "for (i=0;i<list.length;i++) {"\
+                        "open(list[i]);\n"\
+                        "getDimensions(width, height, channels, slices, frames);\n"\
+                        "setSlice(slices/2);\n"\
+                        "run(\"Enhance Contrast\", \"saturated=0.35\");"\
+                        "};"
+        proc = Popen(['ImageJ', '-eval', script_macro1 + script_macro])
 
 ##############################################################################
 
