@@ -5835,7 +5835,6 @@ class Menu(QMenuBar):
             source_dgr = []
             if c.getNewValues():
                 for lstdg in c.getNewValues()[0:-2]:
-                    print('lstdg', lstdg)
                     if lstdg[0] != 'None':
                         if '*' in lstdg[0]:
                             self.showdialog("Some diagram(s) have been modified.\nSave and relaunch.")
@@ -5848,7 +5847,6 @@ class Menu(QMenuBar):
                             editor.editText("{} :<br>You can't run Diagram with connectors".format(title_dgr),
                                             10, 600, 'cc0000', False, True)
                             return
-                print('source_dgr:', source_dgr)
                 ssh_diagram_execution(source_dgr, 'Multi-threading', None)
 
         elif tmpActText == 'Run multiple Diagrams alternately':
@@ -5868,7 +5866,6 @@ class Menu(QMenuBar):
             source_dgr = []
             if c.getNewValues():
                 for lstdg in c.getNewValues()[0:-2]:
-                    print('lstdg', lstdg)
                     if lstdg[0] != 'None':
                         if '*' in lstdg[0]:
                             self.showdialog("Some diagram(s) have been modified.\nSave and relaunch.")

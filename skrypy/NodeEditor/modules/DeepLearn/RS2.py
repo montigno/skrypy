@@ -82,7 +82,7 @@ class RS2_predict_datamanagement():
             if 'done with ' in ln_txt:
                 self.out_list.append("{}/{}{}".format(output_folder, ln_txt[10:], "_0000.nii.gz"))
                 # self.out_list.append(ln_txt[10:] + "_0000.nii.gz")
-        os.remove(tmp_folder)
+        shutil.rmtree(tmp_folder)
 
     def output_files(self: 'list_path'):
         return self.out_list
