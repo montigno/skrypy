@@ -11,6 +11,11 @@ A documentation is available here : [https://montigno.github.io/skrypy](https://
 
 <p></p>
 
+	14/08/2025: version 25.08.14b
+	- shared memory: improved management
+
+<p></p>
+
 	13/08/2025: version 25.08.13b
 	- shared memory: improved management
 

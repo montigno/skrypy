@@ -95,20 +95,6 @@ class Project_Irmage(QMainWindow):
             self.sysctrl.kill()
             event.accept()
 
-    # def closeEvent(self, event):
-    #     box = QMessageBox.question(self,
-    #                                "Exit skrypy...",
-    #                                "Are you sure ?\n(your projects are saved ?) ",
-    #                                QMessageBox.Yes | QMessageBox.No,
-    #                                QMessageBox.No)
-    #     event.ignore()
-    #
-    #     if box == QMessageBox.Yes:
-    #         ClearSharedMemory()
-    #         Synchronize_submod_tree(self.self_dir_path)
-    #         self.sysctrl.kill()
-    #         event.accept()
-
     def __del__(self):
         try:
             shutil.rmtree(self.tmp_dir)

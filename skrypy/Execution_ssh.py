@@ -1,12 +1,9 @@
 from NodeEditor.ssh.Diagram_Execution_dep import execution2
 
 import os
-import ast
 import sys
 import gc
 import yaml
-import atexit
-from shutil import copy2
 
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtCore import QRunnable
@@ -17,20 +14,10 @@ class execution_ssh():
     def __init__(self, workspace, files_dgr, n_cpu, mode, parent=None):
         files_dgr = files_dgr[1:-1].split(',')
         self.n_cpu = int(n_cpu)
-        self.loadSharedMemoryFromYaml(workspace)
-        # if os.environ.get("SHME_SKRYPY") is not None:
-        #     self.loadSharedMemoryFromClient()
         env_param_diagram = os.path.join(os.path.expanduser('~'), '.skrypy', 'env_parameters.dgr')
         files_dgr = [env_param_diagram] + files_dgr
         for dgr in files_dgr:
             self.execute_Diagram(dgr, mode)
-
-    def loadSharedMemoryFromYaml(self, wrksp):
-        yaml_file_shme = os.path.join(wrksp, 'list_shm.yml')
-        if os.path.exists(yaml_file_shme):
-            dest = os.path.join(os.path.expanduser('~'), '.skrypy')
-            fd = copy2(yaml_file_shme, dest)
-            print('list shme copied !!', os.path.exists(fd))
 
     def execute_Diagram(self, file_dgr, mode):
         SharedMemoryManager(False)
@@ -143,4 +130,3 @@ if __name__ == '__main__':
     self_dir_path = os.path.dirname(os.path.realpath(__file__))
     run_ssh = execution_ssh(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
     os.chdir(os.path.expanduser('~'))
-    #  atexit.register(SharedMemoryManager(True))
