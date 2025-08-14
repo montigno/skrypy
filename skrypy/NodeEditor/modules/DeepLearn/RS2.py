@@ -48,7 +48,7 @@ class RS2_predict_datamanagement():
         import shutil
         import gzip
         import os
-        
+
         list_tmp_files = []
         for cur_file in list_files:
             if cur_file.endswith('.nii'):
@@ -60,7 +60,7 @@ class RS2_predict_datamanagement():
                     ext = tmp.split('.')[-1]
                     new_name_file = os.path.join(tmp_folder, name + '_0000.nii')
                     with gzip.open(new_name_file + '.gz', 'wb') as f_out:
-                        list_tmp_files.append(f_out)
+                        list_tmp_files.append(f_out.name)
                         shutil.copyfileobj(f_in, f_out)
 
         lso = ["RS2_predict", "-i", tmp_folder, '-o', output_folder, '-m', pretrained_model_path]
