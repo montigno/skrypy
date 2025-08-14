@@ -48,7 +48,8 @@ class RS2_predict_datamanagement():
         import shutil
         import gzip
         import os
-
+        
+        list_tmp_files = []
         for cur_file in list_files:
             if cur_file.endswith('.nii'):
                 with open(cur_file, 'rb') as f_in:
@@ -59,6 +60,7 @@ class RS2_predict_datamanagement():
                     ext = tmp.split('.')[-1]
                     new_name_file = os.path.join(tmp_folder, name + '_0000.nii')
                     with gzip.open(new_name_file + '.gz', 'wb') as f_out:
+                        list_tmp_files.append(f_out)
                         shutil.copyfileobj(f_in, f_out)
 
         lso = ["RS2_predict", "-i", tmp_folder, '-o', output_folder, '-m', pretrained_model_path]
@@ -79,6 +81,12 @@ class RS2_predict_datamanagement():
             if 'done with ' in ln_txt:
                 self.out_list.append("{}/{}{}".format(output_folder, ln_txt[10:], "_0000.nii.gz"))
                 # self.out_list.append(ln_txt[10:] + "_0000.nii.gz")
+        for file_name in list_tmp_files:
+            try:
+                os.remove(file_name)
+                print(f'Deleted: {file_name}')
+            except FileNotFoundError:
+                print(f'File not found: {file_name}')
 
     def output_files(self: 'list_path'):
         return self.out_list
