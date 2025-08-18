@@ -50,7 +50,8 @@ class RS2_predict_datamanagement():
         import os
         
         tmp_folder = os.path.join(output_folder, 'tmp_rss')
-        os.mkdir(tmp_folder)
+        if not os.path.exists(tmp_folder):
+            os.makedirs(tmp_folder)
 
         for cur_file in list_files:
             if cur_file.endswith('.nii'):
