@@ -22,6 +22,22 @@ class path_exists():
 ###############################################################################
 
 
+class path_get_fileName():
+    def __init__(self, path_in='path'):
+        import os
+        
+        self.filename = None
+        try:
+            self.filename = os.ath.basename(path_in)
+        except Exception as err:
+            print("error with path:", err)
+
+    def file_name(self: 'str'):
+        return self.filename
+
+###############################################################################
+
+
 class path_separate():
     def __init__(self, path_in="path"):
         import os
