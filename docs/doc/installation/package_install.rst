@@ -20,11 +20,11 @@ When installing Skrypy, some packages have already been installed. To install ot
       :width: 100%
       :alt: (skrypy buttons)
 
-1. Launch skrypy
-2. Go to `Configuration -> Packages manager`
+ a. Launch skrypy
+ b. Go to `Configuration -> Packages manager`
 
 |pic1|
 	
-3. A window opens:
+ c. A window opens:
 
 |pic2|
