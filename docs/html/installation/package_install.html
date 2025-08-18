@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Beginner Skrypy tutorial &mdash; Skrypy Documentation  documentation</title>
+  <title>How to install Python packages &mdash; Skrypy Documentation  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
@@ -19,8 +19,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="How to create a block" href="../blocks/create_blocks.html" />
-    <link rel="prev" title="Running Skrypy" href="../installation/running_skrypy.html" /> 
+    <link rel="next" title="How to install dependencies" href="install_dependencies.html" />
+    <link rel="prev" title="How to install Skrypy" href="install_skrypy.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,20 +43,17 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Install</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../installation/requirements.html">Requirements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installation/install_skrypy.html">How to install Skrypy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installation/package_install.html">How to install Python packages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installation/install_dependencies.html">How to install dependencies</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installation/cluster.html">Cluster (HPC)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installation/running_skrypy.html">Running Skrypy</a></li>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install_skrypy.html">How to install Skrypy</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How to install Python packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install_dependencies.html">How to install dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cluster.html">Cluster (HPC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running_skrypy.html">Running Skrypy</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Beginner Skrypy tutorial</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#very-simple-example">Very simple example</a></li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../start/demo_1.html">Beginner Skrypy tutorial</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Blocks</span></p>
 <ul>
@@ -77,9 +74,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Beginner Skrypy tutorial</li>
+      <li class="breadcrumb-item active">How to install Python packages</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/start/demo_1.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/installation/package_install.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -87,38 +84,37 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="beginner-skrypy-tutorial">
-<h1>Beginner Skrypy tutorial<a class="headerlink" href="#beginner-skrypy-tutorial" title="Link to this heading"></a></h1>
-<p>This page shows how to use Skype for beginners</p>
-<section id="very-simple-example">
-<h2>Very simple example<a class="headerlink" href="#very-simple-example" title="Link to this heading"></a></h2>
-<blockquote>
-<div></div></blockquote>
+  <section id="how-to-install-python-packages">
+<h1>How to install Python packages<a class="headerlink" href="#how-to-install-python-packages" title="Link to this heading"></a></h1>
+<p>When installing Skrypy, some packages have already been installed. To install other packages or to change version, there are 2 methods:</p>
 <ol class="arabic">
-<li><p>Launch skrypy:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">skrypy_312</span>
+<li><p>On terminal:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">skrypy_root</span><span class="o">/</span><span class="n">skrypy_venv_312</span>
+<span class="n">source</span> <span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
+<span class="n">pip3</span> <span class="n">install</span> <span class="o">&lt;</span><span class="n">your</span> <span class="n">package</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 </li>
-<li><p>In the blocks library, go to ‘FileIO’ and ‘Tools’, drag and drop ‘box_dialog_file’. <br />
-Go to ‘Structures’ and ‘Probes’, drag and drop ‘Value’. <br />
-Make the connection as below.</p>
-<p><a class="reference internal" href="../_images/example1.png"><img alt="(example 1)" src="../_images/example1.png" style="width: 60%;" /></a></p>
+<li><p>In Skrypy:</p>
 </li>
-<li><p>Run the pipeline</p>
-<p><a class="reference internal" href="../_images/Skrypy_buttons.png"><img alt="(skrypy buttons)" src="../_images/Skrypy_buttons.png" style="width: 100%;" /></a> <a class="reference internal" href="../_images/blank.png"><img alt="(blank)" src="../_images/blank.png" style="width: 38%;" /></a> <a class="reference internal" href="../_images/arrow.png"><img alt="(arrow)" src="../_images/arrow.png" style="width: 20px; height: 20px;" /></a></p>
-</li>
-<li><p>you can see the demo in this video <a class="reference external" href="demo1.mp4">demo1.mp4</a></p></li>
 </ol>
-</section>
+<ol class="arabic simple">
+<li><p>Launch skrypy</p></li>
+<li><p>Go to <cite>Configuration -&gt; Packages manager</cite></p></li>
+</ol>
+<p><a class="reference internal" href="../_images/menu_config_package.png"><img alt="(skrypy buttons)" src="../_images/menu_config_package.png" style="width: 60%;" /></a></p>
+<ol class="arabic simple" start="3">
+<li><p>A window opens:</p></li>
+</ol>
+<p><a class="reference internal" href="../_images/package_config.png"><img alt="(skrypy buttons)" src="../_images/package_config.png" style="width: 100%;" /></a></p>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../installation/running_skrypy.html" class="btn btn-neutral float-left" title="Running Skrypy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../blocks/create_blocks.html" class="btn btn-neutral float-right" title="How to create a block" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="install_skrypy.html" class="btn btn-neutral float-left" title="How to install Skrypy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="install_dependencies.html" class="btn btn-neutral float-right" title="How to install dependencies" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

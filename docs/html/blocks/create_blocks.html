@@ -45,6 +45,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation/requirements.html">Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/install_skrypy.html">How to install Skrypy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/package_install.html">How to install Python packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/install_dependencies.html">How to install dependencies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/cluster.html">Cluster (HPC)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/running_skrypy.html">Running Skrypy</a></li>
@@ -56,7 +57,8 @@
 <p class="caption" role="heading"><span class="caption-text">Blocks</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">How to create a block</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#explanation">Explanation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-source-codes">The source codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-options">The options</a></li>
 </ul>
 </li>
 </ul>
@@ -88,14 +90,24 @@
   <section id="how-to-create-a-block">
 <h1>How to create a block<a class="headerlink" href="#how-to-create-a-block" title="Link to this heading"></a></h1>
 <p>This page explains how to create a new block in the library.</p>
-<section id="explanation">
-<h2>Explanation<a class="headerlink" href="#explanation" title="Link to this heading"></a></h2>
-<p>All blocks in the library are written in Python and are located in the ‘root_of_skrypy_venv/skrypy/NodeEditor/modules’ folder. <br />
-A block corresponds to a Python class (in its conventional form). <br /></p>
-<a class="reference internal image-reference" href="../_images/block_explain1.jpg"><img alt="(block explain 1)" src="../_images/block_explain1.jpg" style="width: 800px;" />
-</a>
-<a class="reference internal image-reference" href="../_images/block_explain2.jpg"><img alt="(block explain 2)" src="../_images/block_explain2.jpg" style="width: 800px;" />
-</a>
+<blockquote>
+<div></div></blockquote>
+<section id="the-source-codes">
+<h2>The source codes<a class="headerlink" href="#the-source-codes" title="Link to this heading"></a></h2>
+<p>All blocks in the library are written in Python and are located in the ‘root_of_skrypy_venv/skrypy/NodeEditor/modules’ folder. <br /></p>
+<p><a class="reference internal" href="../_images/explorer_modules.png"><img alt="(skrypy buttons)" src="../_images/explorer_modules.png" style="width: 30%;" /></a> ‘ ‘ <a class="reference internal" href="../_images/Blocks_library_sum.png"><img alt="(arrow)" src="../_images/Blocks_library_sum.png" style="width: 30%;" /></a></p>
+<p><a class="reference internal" href="../_images/explorer_modules_pcnn.png"><img alt="(order processes)" src="../_images/explorer_modules_pcnn.png" style="width: 30%;" /></a> ‘ ‘ <a class="reference internal" href="../_images/Blocks_library_spat.png"><img alt="(order processes cluster)" src="../_images/Blocks_library_spat.png" style="width: 30%;" /></a> ‘ ‘ <a class="reference internal" href="../_images/Blocks_library_pcnn.png"><img alt="(order processes cluster)" src="../_images/Blocks_library_pcnn.png" style="width: 30%;" /></a></p>
+<p>If you open a .py file, you find a list of classes. <br />
+A block corresponds to a simple Python class. <br /></p>
+<p><a class="reference internal" href="../_images/block_explain1.jpg"><img alt="(skrypy buttons)" src="../_images/block_explain1.jpg" style="width: 60%;" /></a>
+<a class="reference internal" href="../_images/block_explain2.jpg"><img alt="(arrow)" src="../_images/block_explain2.jpg" style="width: 60%;" /></a></p>
+</section>
+<section id="the-options">
+<h2>The options<a class="headerlink" href="#the-options" title="Link to this heading"></a></h2>
+<p>Options are stored in joint yaml files</p>
+<p><a class="reference internal" href="../_images/explorer_modules_pcnn_options.png"><img alt="(arrow)" src="../_images/explorer_modules_pcnn_options.png" style="width: 30%;" /></a></p>
+<p>If you open the .yaml file, you find a list of options with default values. <br />
+Options are managed in blocks.</p>
 </section>
 </section>
 

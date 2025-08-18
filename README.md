@@ -8,16 +8,12 @@ A documentation is available here : [https://montigno.github.io/skrypy](https://
 
 # Release history
 
-
 <p></p>
 
-	14/08/2025: version 25.08.14b
-	- shared memory: improved management
-
-<p></p>
-
-	13/08/2025: version 25.08.13b
-	- shared memory: improved management
+	18/08/2025: version 25.08.18b
+	- blocks librarie : RS2_predict_datamanagement simplified
+						  openImageJ is now compatible with the 'file list' format
+	- continuation of the html documentation
 
 <p></p>
 
@@ -53,7 +49,7 @@ A documentation is available here : [https://montigno.github.io/skrypy](https://
 <p></p>
 
 	06/08/2025: version 25.08.06b
-	- continuation of the documentation
+	- continuation of the html documentation
 	- modified cluster configuration window 
 
 <p></p>

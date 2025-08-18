@@ -27,7 +27,7 @@ Its installation is done in a virtual environment (virtualenv).
 .. image:: ./ressources/Skrypy_interface.png
    :width: 800
    :alt: (skrypy interface)
-|
+
 Features
 ========
 
