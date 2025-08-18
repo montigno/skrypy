@@ -50,17 +50,20 @@ Local execution
 
 1. Standard mode (CTRL+R)
 	:blue:`Allows to launch your current diagram sequentially (no multithreading)`
-|pic1| |blank1| |pic2| |br|
 
+|pic1| |blank1| |pic2| |br|
 
 2. Multithreading mode (CTRL+T)
 	:blue:`Allows to launch your current diagram in multithreading mode. Several different blocks will run in parallel, reducing processing time.`
+
 |pic1| |blank2| |pic2|
 
 3. Running multiple diagrams (CTRL+M)
 	:blue:`Allows you to launch all your open diagrams on your PC.`
+
 |pic1| |blank3| |pic2|
         :blue:`A 'Order of processes - local' window opens, indicate the order of the diagrams to launch.`
+
 |pic3|
 
 Execution on a cluster
@@ -78,16 +81,20 @@ Execution on a cluster
 
 1. Standard mode
         :blue:`Allows to launch your current diagram sequentially (no multithreading) on a cluster (a window will open to choose the cluster)`
+
 |pic1| |blank4| |pic2|
 
 2. Multithreading mode
         :blue:`Allows to launch your current diagram in multithreading mode on a cluster. Several different blocks will run in parallel, reducing processing time (a window will open to choose the cluster)`
+
 |pic1| |blank5| |pic2|
 
 3. Running multiple diagrams
 	:blue:`Allows you to launch all your open diagrams on a cluster (a window will open to choose the cluster).`
+
 |pic1| |blank6| |pic2|
 	:blue:`A 'Order of processes - cluster' window opens, indicate the order of the diagrams to launch.`
+
 |pic4|
 
 Alternative execution
@@ -99,11 +106,12 @@ Alternative execution
 
 1. Running multiple diagrams
 	:blue:`Allows to launch all your open diagrams in an alternative local-cluster way.`
+
 |pic1| |blank7| |pic2|
 	:blue:`A 'Order of processes - alternation' window opens, indicate the order of the diagrams to launch and the processors to use.`
+
 |pic5|
 
 .. # define a hard line break for HTML
-.. |br| raw:: html
-
+   .. |br| raw:: html
    <br />

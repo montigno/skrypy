@@ -2,7 +2,7 @@ How to install Skrypy
 =====================
 
 Download the installer
----------------------
+----------------------
 
 Download the latest version of the skrypy installer and save in a temporary folder.
 

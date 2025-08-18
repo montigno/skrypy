@@ -2,7 +2,7 @@ How to install dependencies
 ===========================
 
 `ANTs <https://github.com/ANTsX/ANTs>`__
-----
+----------------------------------------
 
 #. Download from the `site <https://github.com/ANTsX/ANTs/releases>`__ (choose according to your OS version)
 
@@ -13,10 +13,11 @@ How to install dependencies
 	#ANTs
 	export PATH=/home/user/Applications/ants-2.5.0/bin:$PATH
 	export ANTSPATH=/home/user/Applications/ants-2.5.0/bin
+
 ________________________________________________________________
 
 `AFNI <https://afni.nimh.nih.gov/>`__
-----
+-------------------------------------
 
 #. See `install <https://afni.nimh.nih.gov/pub/dist/doc/htmldoc/background_install/install_instructs/index.html>`__
 
@@ -27,7 +28,7 @@ ________________________________________________________________
 ________________________________________________________________
 
 `FSL <https://fsl.fmrib.ox.ac.uk/fsl/docs/#/>`__
-----
+------------------------------------------------
 
 #. See `install <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FslInstallation>`__
 
@@ -42,7 +43,7 @@ ________________________________________________________________
 ________________________________________________________________
 
 `ImageJ <https://imagej.net/ij/>`__
--------
+-----------------------------------
 
 #. Download ImageJ `here <https://imagej.net/ij/download.html>`__ 
 
@@ -56,7 +57,7 @@ ________________________________________________________________
 ________________________________________________________________
 
 `Matlab engine <https://www.mathworks.com/help/matlab/matlab-engine-for-python.html>`__
---------------
+---------------------------------------------------------------------------------------
 
 #. For MATLAB < R2022b::
 
@@ -75,13 +76,13 @@ ________________________________________________________________
 ________________________________________________________________
 
 `MRTrix3 <https://mrtrix.readthedocs.io/en/latest/installation/build_from_source.html>`__
---------
+-----------------------------------------------------------------------------------------
 
 #. Required dependencies::
 
 	sudo apt-get install git g++ python libeigen3-dev zlib1g-dev libqt5opengl5-dev libqt5svg5-dev libgl1-mesa-dev libfftw3-dev libtiff5-dev libpng-dev
 
-#. Choose or create a directory where MRTrix3 will be installed (eg /home/user/Applications)::
+#. Choose or create a directory where MRTrix3 will be installed (eg /home/user/Applications):
 
 #. In this directory, type::
 
@@ -98,17 +99,18 @@ ________________________________________________________________
    .. NOTE::
 
       settings will be automatically generated in .bashrc
+
 ________________________________________________________________
 
 `RS2 <https://github.com/VitoLin21/Rodent-Skull-Stripping>`__
-----
+-------------------------------------------------------------
 
 Download RS2 `here <https://github.com/VitoLin21/Rodent-Skull-Stripping/archive/refs/heads/main.zip>`__
 
 ________________________________________________________________
 
 `SPM (requires MATLAB) <https://www.fil.ion.ucl.ac.uk/spm/>`__
-----------------------
+--------------------------------------------------------------
 
 #. Download SPM12 `here <https://www.fil.ion.ucl.ac.uk/spm/docs/installation/>`__
 

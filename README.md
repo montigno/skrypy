@@ -12,7 +12,7 @@ A documentation is available here : [https://montigno.github.io/skrypy](https://
 
 	18/08/2025: version 25.08.18b
 	- blocks librarie : RS2_predict_datamanagement simplified
-						  openImageJ is now compatible with the 'file list' format
+		                openImageJ is now compatible with the 'file list' format
 	- continuation of the html documentation
 
 <p></p>

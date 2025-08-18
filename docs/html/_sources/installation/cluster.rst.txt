@@ -38,8 +38,10 @@ You can put several clusters in the list. |br|
     ..
 - ``X11 forwarding``: check this box if display returns (image or curves) are expected.
     ..
+ 
  .. attention::
     Depending on the cluster's graphics management capability, the result is not guaranteed.
+
 - ``Pre-execution command``: this field allows you to enter shell-like instructions to be executed before your diagrams run. Often useful when you need to activate conda first for example. 
     ..
 
