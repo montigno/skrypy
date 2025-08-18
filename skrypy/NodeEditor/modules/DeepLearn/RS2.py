@@ -48,7 +48,7 @@ class RS2_predict_datamanagement():
         import shutil
         import gzip
         import os
-        
+
         tmp_folder = os.path.join(output_folder, 'tmp_rss')
         if not os.path.exists(tmp_folder):
             os.makedirs(tmp_folder)

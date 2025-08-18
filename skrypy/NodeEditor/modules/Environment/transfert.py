@@ -97,7 +97,7 @@ class scp_transfert_multifiles():
                     source = []
                     for src in host_path:
                         source.append("{}:{}".format(host_name, src))
-                        self.out_pt.append(os.path.join(local_path, os.path.basename(src))) 
+                        self.out_pt.append(os.path.join(local_path, os.path.basename(src)))
                 else:
                     source = ["{}:{}".format(host_name, host_path)]
                     self.out_pt = os.path.join(local_path, os.path.basename(host_path))
@@ -106,7 +106,7 @@ class scp_transfert_multifiles():
                 if isinstance(local_path, list):
                     source = local_path
                     for src in source:
-                        self.out_pt.append(os.path.join(host_path, os.path.basename(src))) 
+                        self.out_pt.append(os.path.join(host_path, os.path.basename(src)))
                 else:
                     source = [local_path]
                     self.out_pt = os.path.join(host_path, os.path.basename(local_path))

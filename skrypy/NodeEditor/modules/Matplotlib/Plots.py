@@ -2,7 +2,7 @@ class matplotlib_plot():
     def __init__(self, y_data=[0.0], x=[0.0], **options):
         import matplotlib.pyplot as plt
         from PyQt5.QtWidgets import QApplication
-        
+
         app = QApplication.instance()
         if app is not None:
             plt.ion()

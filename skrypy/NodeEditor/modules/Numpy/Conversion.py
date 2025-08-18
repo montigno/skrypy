@@ -41,7 +41,7 @@ class numpy_array_bool_to_array_int():
     def out_ndarray(self: 'array_int'):
         return self.output
 
-##############################################################################    
+##############################################################################
 
 
 class numpy_array_float_to_ndarray():
@@ -127,12 +127,12 @@ class numpy_flatten():
 
     Args:
         array_in: (array of float) Input array
-        order: (string) 
-            [C-contiguous, F-contiguous, A-contiguous; optional]         
+        order: (string)
+            [C-contiguous, F-contiguous, A-contiguous; optional]
              C-contiguous order in memory(last index varies the fastest)
              C order means that operating row-rise on the array will be slightly quicker
              FORTRAN-contiguous order in memory (first index varies the fastest).
-             F order means that column-wise operations will be faster. 
+             F order means that column-wise operations will be faster.
              ‘A’ means to read / write the elements in Fortran-like index order if,
              array is Fortran contiguous in memory, C-like order otherwise
 

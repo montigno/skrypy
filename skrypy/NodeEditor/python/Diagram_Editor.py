@@ -6069,7 +6069,7 @@ class Menu(QMenuBar):
             for lstWid in editor.mdi.subWindowList():
                 editor.mdi.setActiveSubWindow(lstWid)
                 self.btnPressed(QAction("Fit to window"))
-                
+
         elif tmpActText == 'Maximized':
             for lstWid in editor.mdi.subWindowList():
                 lstWid.showMaximized()
@@ -9110,14 +9110,14 @@ class ssh_diagram_execution():
             opt = '-q'
         with open(file_cmd) as process_stdin:
             p4 = subprocess.Popen(["sshpass", "-p", password, "ssh", opt, host_name, "--", "bash", "-s"],
-                    stdin=process_stdin, stdout=subprocess.PIPE)
+                                  stdin=process_stdin, stdout=subprocess.PIPE)
             out, err = p4.communicate()
             print(out.decode())
         col = '\x1b[38;2;50;250;50m'
         # print("execution on {} finished".format(host_name))
-        print('{}execution on {} finished\033[0m'.format(col,host_name))
+        print('{}execution on {} finished\033[0m'.format(col, host_name))
         for lst_dgr in self.source:
-            print('    - {}{}\033[0m'.format(col,os.path.basename(lst_dgr)))
+            print('    - {}{}\033[0m'.format(col, os.path.basename(lst_dgr)))
 
         # download shared memory from cluster ###################################
         source = "{}:{}".format(host_name, '~/.skrypy/list_shm.yml')
@@ -9133,11 +9133,11 @@ class ssh_diagram_execution():
             print('download shared memory done')
         else:
             print('download shared memory error !!, code ' + str(p4.returncode))
-        
+
         # remove list_shme.yaml from cluster #######################################
         cmd = ['sshpass', '-p', host_password.strip(), 'ssh', host_name, "rm ~/.skrypy/list_shm.yml"]
         p6 = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
-        
+
         # display new list
         SharedMemoryManager(False)
 

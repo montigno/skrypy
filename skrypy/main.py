@@ -72,14 +72,14 @@ class Project_Irmage(QMainWindow):
             d = os.path.join(os.path.expanduser('~'), '.skrypy', os.path.basename(str(tmp)))
             shutil.copytree(self.tmp_dir, d, symlinks=False, ignore=None)
             os.remove(tmp)
-            
+
     def closeEvent(self, event):
         msg = QMessageBox()
         msg.setWindowTitle("Exit skrypy...")
-        msg.setText("Have you saved your projects ?)" )
+        msg.setText("Have you saved your projects ?)")
         msg.setIcon(QMessageBox.Question)
-         
-        msg.setStandardButtons(QMessageBox.Yes|QMessageBox.No)
+
+        msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
         msg.setDefaultButton(QMessageBox.No)
         cb = QCheckBox("Clear shared memory")
         msg.setCheckBox(cb)
@@ -87,7 +87,7 @@ class Project_Irmage(QMainWindow):
         # msg.setDetailedText("Extra details.....")
         # msg.setInformativeText("This is some extra informative text")
         x = msg.exec_()
-        
+
         if x == QMessageBox.Yes:
             if cb.isChecked():
                 ClearSharedMemory()

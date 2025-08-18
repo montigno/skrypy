@@ -22,14 +22,14 @@ class servers_window(QDialog):
 
         self.server_param = []
         dicts = {}
-        
+
         with open(self.server_yml, 'r', encoding='utf8') as stream:
             dicts = yaml.load(stream, yaml.FullLoader)
             if not self.clust:
                 self.mainWindow(dicts)
             else:
                 self.getClusterParam(dicts[self.clust])
-                
+
     def getClusterParam(self, clust):
         try:
             tmpA = clust['fd_command']

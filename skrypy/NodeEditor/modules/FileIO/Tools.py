@@ -149,7 +149,7 @@ class box_dialog_directory:
 class copy_file():
     """
     copy the content of source file to destination file or directory.
-    
+
     Args:
         src_file: (path) source file
         dest_file: (path) destination file or directory
@@ -159,7 +159,7 @@ class copy_file():
 
     Note:
         GUI: no
-    """    
+    """
 
     def __init__(self, src_file='path', dest_file='path'):
         from shutil import copy2

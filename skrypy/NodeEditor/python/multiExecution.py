@@ -66,7 +66,7 @@ class multiple_execution(QDialog):
 
     def info_mu(self):
         self.a.setChecked(True)
-        
+
     def onTimeout(self):
         self.info.setText('')
 

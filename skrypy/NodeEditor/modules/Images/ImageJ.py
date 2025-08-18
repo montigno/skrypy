@@ -2,7 +2,7 @@ class openImageJ():
     def __init__(self, files=['path']):
         from subprocess import Popen
         import os
-        
+
         if not isinstance(files, list):
             if files == 'path':
                 files = ['']
