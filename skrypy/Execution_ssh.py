@@ -49,6 +49,8 @@ class execution_ssh():
                     os.environ['PATH'] += os.pathsep + venv
                 else:
                     os.environ[kenv] = venv
+            print("Environment variables:")
+            print(os.environ)
 
     def execute_Diagram(self, file_dgr, mode):
         SharedMemoryManager(False)
