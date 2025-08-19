@@ -14,10 +14,41 @@ class execution_ssh():
     def __init__(self, workspace, files_dgr, n_cpu, mode, parent=None):
         files_dgr = files_dgr[1:-1].split(',')
         self.n_cpu = int(n_cpu)
-        env_param_diagram = os.path.join(os.path.expanduser('~'), '.skrypy', 'env_parameters.dgr')
-        files_dgr = [env_param_diagram] + files_dgr
+        self.Start_environment()
         for dgr in files_dgr:
             self.execute_Diagram(dgr, mode)
+            
+    def Start_environment():
+        env_file = os.path.join(os.path.expanduser('~'), '.skrypy', 'env_parameters.txt')
+        list_env = {'PATH': ''}
+    
+        if os.path.exists(env_file):
+            with open(env_file, 'r') as stream:
+                for line in stream:
+                    line_str = line.rstrip()
+                    if line_str:
+                        if '#' not in line and ('export' in line or 'sh ' in line):
+                            if 'export PATH=' in line:
+                                line_mod = line.replace('export', '').replace('$PATH:', '').replace('PATH=', '').strip()
+                                list_env['PATH'] += os.pathsep + line_mod
+                            elif 'sh ' in line[0:3]:
+                                line_mod = line[2:].strip()
+                                list_env['sh'] = line_mod
+                            elif '=' in line:
+                                line_mode = line.split('=')
+                                line_mode[0] = line_mode[0].replace('export', '').strip()
+                                list_env[line_mode[0]] = line_mode[1]
+    
+            for kenv, venv in list_env.items():
+                if kenv == 'sh':
+                    try:
+                        os.popen('sh ' + venv)
+                    except Exception as err:
+                        print(err)
+                elif kenv == 'PATH':
+                    os.environ['PATH'] += os.pathsep + venv
+                else:
+                    os.environ[kenv] = venv
 
     def execute_Diagram(self, file_dgr, mode):
         SharedMemoryManager(False)
