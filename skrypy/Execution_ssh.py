@@ -18,7 +18,7 @@ class execution_ssh():
         for dgr in files_dgr:
             self.execute_Diagram(dgr, mode)
             
-    def Start_environment():
+    def Start_environment(self):
         env_file = os.path.join(os.path.expanduser('~'), '.skrypy', 'env_parameters.txt')
         list_env = {'PATH': ''}
     
