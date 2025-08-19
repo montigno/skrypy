@@ -6407,6 +6407,7 @@ class NodeEdit(QWidget):
 
         self.menub.btnPressed(QAction('load_previous_diagram'))
         Start_environment()
+        SharedMemoryManager()
 
     def addSubWindow(self, title):
         i = len(self.mdi.subWindowList())
