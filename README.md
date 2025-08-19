@@ -10,6 +10,11 @@ A documentation is available here : [https://montigno.github.io/skrypy](https://
 
 <p></p>
 
+	19/08/2025: version 25.08.19b
+	- Environment variables : diagram replaced by text
+
+<p></p>
+
 	18/08/2025: version 25.08.18b
 	- blocks librarie : RS2_predict_datamanagement simplified
 		                openImageJ is now compatible with the 'file list' format
