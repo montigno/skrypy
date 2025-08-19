@@ -28,7 +28,7 @@ class path_get_fileName():
         
         self.filename = None
         try:
-            self.filename = os.ath.basename(path_in)
+            self.filename = os.path.basename(path_in)
         except Exception as err:
             print("error with path:", err)
 

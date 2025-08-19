@@ -6122,7 +6122,7 @@ class Menu(QMenuBar):
             self.pack_manager()
 
         elif tmpActText == 'Environment Diagram':
-            Start_environment(True)
+            Start_environment()
 
         elif tmpActText == 'Clusters configuration':
             c = servers_window('config', None)
@@ -6406,7 +6406,7 @@ class NodeEdit(QWidget):
         self.startSelection = None
 
         self.menub.btnPressed(QAction('load_previous_diagram'))
-        Start_environment(False)
+        Start_environment()
 
     def addSubWindow(self, title):
         i = len(self.mdi.subWindowList())
@@ -9167,49 +9167,82 @@ class SubWindowManager(QMdiSubWindow):
 
 
 class Start_environment():
+    env_file = os.path.join(os.path.expanduser('~'), '.skrypy', 'env_parameters.txt')
+    list_env = {'PATH': ''}
 
-    global editor
+    if os.path.exists(env_file):
+        with open(env_file, 'r') as stream:
+            for line in stream:
+                line_str = line.rstrip()
+                if line_str:
+                    if '#' not in line and ('export' in line or 'sh ' in line):
+                        if 'export PATH=' in line:
+                            line_mod = line.replace('export', '').replace('$PATH:', '').replace('PATH=', '').strip()
+                            list_env['PATH'] += os.pathsep + line_mod
+                        elif 'sh ' in line[0:3]:
+                            line_mod = line[2:].strip()
+                            list_env['sh'] = line_mod
+                        elif '=' in line:
+                            line_mode = line.split('=')
+                            line_mode[0] = line_mode[0].replace('export', '').strip()
+                            list_env[line_mode[0]] = line_mode[1]
 
-    def __init__(self, openDiag, parent=None):
-        env_diagr = Config().getEnvDiagram()
-        title_dgr = 'env_parameters.dgr'
-        if openDiag:
-            editor.addSubWindow(os.path.basename(env_diagr))
-            editor.pathDiagram[editor.currentTab] = env_diagr
-            editor.infopathDgr.setText(env_diagr)
-            f = open(env_diagr, 'r', encoding='utf8')
-            txt = f.readlines()
-            f.close()
-            LoadDiagram(txt)
-            editor.diagramView[editor.currentTab]\
-                  .fitInView(editor.diagramScene[editor.currentTab].
-                             sceneRect(),
-                             Qt.KeepAspectRatio)
-            editor.diagramView[editor.currentTab].scale(0.8, 0.8)
-            editor.diagramView[editor.currentTab].scene().clearSelection()
-            file = editor.pathDiagram[editor.currentTab]
-            fileNameonly = os.path.basename(file)
-            editor.mdi.currentSubWindow().setWindowTitle(fileNameonly)
-            # editor.currentpathwork = file
-            editor.infopathDgr.setText(file)
-        else:
-            with open(env_diagr, 'r', encoding='utf8') as f:
-                txt_raw = f.read()
+        for kenv, venv in list_env.items():
+            if kenv == 'sh':
+                try:
+                    os.popen('sh ' + venv)
+                except Exception as err:
+                    print(err)
+            elif kenv == 'PATH':
+                os.environ['PATH'] += os.pathsep + venv
+            else:
+                os.environ[kenv] = venv
+        
 
-            editor.editText(title_dgr, 14, 600, 'ff6f00', False, False)
-            txt = analyze2(txt_raw, [False, False]).get_analyze(editor.textEdit)
-            editor.editText('Diagram started', 10, 600, '0000CC', False, False)
-            editor.editText('Diagram running ...', 10, 600, '0000CC', False, False)
-
-            args = (txt, {}, editor.textEdit, True, '', editor.console)
-            self.runner = ThreadDiagram(title_dgr, args, editor)
-            try:
-                self.runner.run()
-            except Exception as err:
-                editor.editText('This diagram contains errors : ' + str(err), 10, 600, 'ff0000', False, True)
-            self.runner.winBar.close()
-            SharedMemoryManager(False)
-            # self.runner.sysctrl.kill()
+# class Start_environment():
+#
+#     global editor
+#
+#     def __init__(self, openDiag, parent=None):
+#         env_diagr = Config().getEnvDiagram()
+#         title_dgr = 'env_parameters.dgr'
+#         if openDiag:
+#             editor.addSubWindow(os.path.basename(env_diagr))
+#             editor.pathDiagram[editor.currentTab] = env_diagr
+#             editor.infopathDgr.setText(env_diagr)
+#             f = open(env_diagr, 'r', encoding='utf8')
+#             txt = f.readlines()
+#             f.close()
+#             LoadDiagram(txt)
+#             editor.diagramView[editor.currentTab]\
+#                   .fitInView(editor.diagramScene[editor.currentTab].
+#                              sceneRect(),
+#                              Qt.KeepAspectRatio)
+#             editor.diagramView[editor.currentTab].scale(0.8, 0.8)
+#             editor.diagramView[editor.currentTab].scene().clearSelection()
+#             file = editor.pathDiagram[editor.currentTab]
+#             fileNameonly = os.path.basename(file)
+#             editor.mdi.currentSubWindow().setWindowTitle(fileNameonly)
+#             # editor.currentpathwork = file
+#             editor.infopathDgr.setText(file)
+#         else:
+#             with open(env_diagr, 'r', encoding='utf8') as f:
+#                 txt_raw = f.read()
+#
+#             editor.editText(title_dgr, 14, 600, 'ff6f00', False, False)
+#             txt = analyze2(txt_raw, [False, False]).get_analyze(editor.textEdit)
+#             editor.editText('Diagram started', 10, 600, '0000CC', False, False)
+#             editor.editText('Diagram running ...', 10, 600, '0000CC', False, False)
+#
+#             args = (txt, {}, editor.textEdit, True, '', editor.console)
+#             self.runner = ThreadDiagram(title_dgr, args, editor)
+#             try:
+#                 self.runner.run()
+#             except Exception as err:
+#                 editor.editText('This diagram contains errors : ' + str(err), 10, 600, 'ff0000', False, True)
+#             self.runner.winBar.close()
+#             SharedMemoryManager(False)
+#             # self.runner.sysctrl.kill()
 
 
 class StopExecution(QGraphicsPolygonItem):

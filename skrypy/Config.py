@@ -34,7 +34,7 @@ class Config():
         self.path_home = os.path.expanduser('~')
         self.config_path_user = os.path.join(self.path_home, '.skrypy', 'config_user.yml')
         self.config_user = self.loadConfigUser()
-        self.env_param_path = os.path.join(self.path_home, '.skrypy', 'env_parameters.dgr')
+        self.env_param_path = os.path.join(self.path_home, '.skrypy', 'env_parameters.txt')
         self.loadEnvDiagram()
         self.servers_list = os.path.join(self.path_home, '.skrypy', 'list_servers.yml')
         self.loadServerFile()

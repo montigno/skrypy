@@ -22,6 +22,7 @@ class SharedMemory_create():
         import os
         import yaml
 
+        memoryName = memoryName.strip()
         shared_data = {}
         file_shme = os.path.expanduser("~")
         file_shme = os.path.join(file_shme, '.skrypy', 'list_shm.yml')
@@ -51,6 +52,7 @@ class SharedMemory_read():
         import os
         import yaml
 
+        memoryName = memoryName.strip()
         self.data = None
         file_shme = os.path.expanduser("~")
         file_shme = os.path.join(file_shme, '.skrypy', 'list_shm.yml')
