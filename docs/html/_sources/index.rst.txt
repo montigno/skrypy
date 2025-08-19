@@ -88,6 +88,12 @@ Table of Contents
 
    blocks/create_blocks.rst
 
+.. toctree::
+   :maxdepth: 1
+   :caption: Reference
+
+   reference/preinstalled_packages_list.rst
+
 .. # define a hard line break for HTML
 .. |br| raw:: html
 

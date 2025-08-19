@@ -1,5 +1,5 @@
-How to install dependencies
-===========================
+How to install and configure dependencies
+=========================================
 
 Environment variables
 ---------------------
@@ -18,8 +18,8 @@ Environment variables
 #. Edit env_parameters.txt and add::
 	
 	#ANTs
-	export PATH=/home/user/Applications/ants-2.5.0/bin:$PATH
-	export ANTSPATH=/home/user/Applications/ants-2.5.0/bin
+	export PATH=ants_root/ants-2.5.0/bin:$PATH
+	export ANTSPATH=ants_root/ants-2.5.0/bin
 
 ________________________________________________________________
 
@@ -41,11 +41,9 @@ ________________________________________________________________
 
 #. Edit env_parameters.txt and add::
 
-	# FSL Setup
-	FSLDIR=~/Applications/fsl
-	PATH=${FSLDIR}/share/fsl/bin:${PATH}
-	export FSLDIR PATH
-	. ${FSLDIR}/etc/fslconf/fsl.sh
+	#FSL
+	export PATH=fsl_root/fsl/bin
+	sh fsl_root/fsl/etc/fslconf/fsl.sh
 
 ________________________________________________________________
 
@@ -59,23 +57,37 @@ ________________________________________________________________
 #. Edit env_parameters.txt and add::
 
 	#ImageJ
-	export PATH=/home/user/Applications/ImageJ/
+	export PATH=imagej_root/ImageJ/
 
 ________________________________________________________________
+
+`Matlab <https://www.mathworks.com/products/matlab.html>`__
+-----------------------------------------------------------
+
+#. Edit env_parameters.txt and add::
+
+	export PATH=matlabroot/MATLAB/R2024b/bin
+	export MATLABCMD=matlabroot/MATLAB/R2024b/bin/glnxa64/MATLAB
+	export MATLABPATH=/home/username/MATLAB/ *
+
+	* directory where your pathdef.m (user-specific) is located 
+
+________________________________________________________________
+
 
 `Matlab engine <https://www.mathworks.com/help/matlab/matlab-engine-for-python.html>`__
 ---------------------------------------------------------------------------------------
 
 #. For MATLAB < R2022b::
 
-	source root/skrypy_venv/bin/activate
+	source skrypy_root/skrypy_venv/bin/activate
 	cd matlabroot/MATLAB/R2021a/extern/engines/python
 	python3 setup.py build --build-base ~/Applications/skrypy_venv/build install
 	exit
 
 #. For MATLAB >= R2022b::
 
-        source root/skrypy_venv/bin/activate
+        source skrypy_root/skrypy_venv/bin/activate
 	export LD_LIBRARY_PATH=<matlabroot>/MATLAB/R2024b/bin/glnxa64/
 	python3 -m pip install matlabengine==24.2.2
 	exit	
@@ -125,7 +137,7 @@ ________________________________________________________________
 
 #. In terminal::
 
-	cd /usr/local/MATLAB/R2024b/toolbox/local/
+	cd matlab_root/MATLAB/R2024b/toolbox/local/
 	sudo nano pathdef.m
 
 #. find the line %%% BEGIN ENTRIES %%% and add to the line below: matlabroot,'/toolbox/spm12:', ...::
@@ -138,7 +150,7 @@ ________________________________________________________________
 #. Edit env_parameters.txt and add::
 
 	#SPM12
-	export SPM_PATH=/usr/local/MATLAB/R2024b/toolbox/spm12/
+	export SPM_PATH=matlab_root/MATLAB/R2024b/toolbox/spm12/
 
  
 

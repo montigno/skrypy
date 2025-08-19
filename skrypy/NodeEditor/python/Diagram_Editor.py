@@ -9168,7 +9168,7 @@ class SubWindowManager(QMdiSubWindow):
 
 
 class Start_environment():
-    
+
     env_file = os.path.join(os.path.expanduser('~'), '.skrypy', 'env_parameters.txt')
     list_env = {'PATH': ''}
 
