@@ -5445,7 +5445,7 @@ class Menu(QMenuBar):
 
         self.menuPack = self.addMenu('Configuration')
         self.menuPack.addAction('Packages manager')
-        self.menuPack.addAction('Environment Diagram')
+        self.menuPack.addAction('Reload environment variables')
         self.menuPack.addAction('Clusters configuration')
         self.menuPack.triggered[QAction].connect(self.btnPressed)
 
@@ -6121,7 +6121,7 @@ class Menu(QMenuBar):
         elif tmpActText == 'Packages manager':
             self.pack_manager()
 
-        elif tmpActText == 'Environment Diagram':
+        elif tmpActText == 'Reload environment variables':
             Start_environment()
 
         elif tmpActText == 'Clusters configuration':
@@ -9168,6 +9168,7 @@ class SubWindowManager(QMdiSubWindow):
 
 
 class Start_environment():
+    
     env_file = os.path.join(os.path.expanduser('~'), '.skrypy', 'env_parameters.txt')
     list_env = {'PATH': ''}
 
@@ -9198,52 +9199,6 @@ class Start_environment():
                 os.environ['PATH'] += os.pathsep + venv
             else:
                 os.environ[kenv] = venv
-        
-
-# class Start_environment():
-#
-#     global editor
-#
-#     def __init__(self, openDiag, parent=None):
-#         env_diagr = Config().getEnvDiagram()
-#         title_dgr = 'env_parameters.dgr'
-#         if openDiag:
-#             editor.addSubWindow(os.path.basename(env_diagr))
-#             editor.pathDiagram[editor.currentTab] = env_diagr
-#             editor.infopathDgr.setText(env_diagr)
-#             f = open(env_diagr, 'r', encoding='utf8')
-#             txt = f.readlines()
-#             f.close()
-#             LoadDiagram(txt)
-#             editor.diagramView[editor.currentTab]\
-#                   .fitInView(editor.diagramScene[editor.currentTab].
-#                              sceneRect(),
-#                              Qt.KeepAspectRatio)
-#             editor.diagramView[editor.currentTab].scale(0.8, 0.8)
-#             editor.diagramView[editor.currentTab].scene().clearSelection()
-#             file = editor.pathDiagram[editor.currentTab]
-#             fileNameonly = os.path.basename(file)
-#             editor.mdi.currentSubWindow().setWindowTitle(fileNameonly)
-#             # editor.currentpathwork = file
-#             editor.infopathDgr.setText(file)
-#         else:
-#             with open(env_diagr, 'r', encoding='utf8') as f:
-#                 txt_raw = f.read()
-#
-#             editor.editText(title_dgr, 14, 600, 'ff6f00', False, False)
-#             txt = analyze2(txt_raw, [False, False]).get_analyze(editor.textEdit)
-#             editor.editText('Diagram started', 10, 600, '0000CC', False, False)
-#             editor.editText('Diagram running ...', 10, 600, '0000CC', False, False)
-#
-#             args = (txt, {}, editor.textEdit, True, '', editor.console)
-#             self.runner = ThreadDiagram(title_dgr, args, editor)
-#             try:
-#                 self.runner.run()
-#             except Exception as err:
-#                 editor.editText('This diagram contains errors : ' + str(err), 10, 600, 'ff0000', False, True)
-#             self.runner.winBar.close()
-#             SharedMemoryManager(False)
-#             # self.runner.sysctrl.kill()
 
 
 class StopExecution(QGraphicsPolygonItem):

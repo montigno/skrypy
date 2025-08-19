@@ -1,6 +1,13 @@
 How to install dependencies
 ===========================
 
+Environment variables
+---------------------
+.. important::
+   Skrypy needs to point programs to specific versions of dependencies. |br|
+   The .bashrc file is in principle sufficient, but it has been found that when processing on a cluster, it does not always load. |br|
+   The best solution is to edit the file 'env_parameters.txt' which is located in /home/username/.skrypy/
+
 `ANTs <https://github.com/ANTsX/ANTs>`__
 ----------------------------------------
 
@@ -8,7 +15,7 @@ How to install dependencies
 
 #. Decompress in a folder (e.g /home/user/Applications/)
 
-#. Edit .bashrc::
+#. Edit env_parameters.txt and add::
 	
 	#ANTs
 	export PATH=/home/user/Applications/ants-2.5.0/bin:$PATH
@@ -32,7 +39,7 @@ ________________________________________________________________
 
 #. See `install <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FslInstallation>`__
 
-#. Edit .bashrc::
+#. Edit env_parameters.txt and add::
 
 	# FSL Setup
 	FSLDIR=~/Applications/fsl
@@ -49,7 +56,7 @@ ________________________________________________________________
 
 #. Unzip and put in a directory (eg /home/user/Applications)
 
-#. Edit .bashrc::
+#. Edit env_parameters.txt and add::
 
 	#ImageJ
 	export PATH=/home/user/Applications/ImageJ/
@@ -128,7 +135,7 @@ ________________________________________________________________
 
 #. Save it
 
-#. Edit .bashrc::
+#. Edit env_parameters.txt and add::
 
 	#SPM12
 	export SPM_PATH=/usr/local/MATLAB/R2024b/toolbox/spm12/

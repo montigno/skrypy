@@ -48,6 +48,7 @@
 <li class="toctree-l1"><a class="reference internal" href="install_skrypy.html">How to install Skrypy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="package_install.html">How to install Python packages</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">How to install dependencies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#environment-variables">Environment variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ants">ANTs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#afni">AFNI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#fsl">FSL</a></li>
@@ -96,12 +97,21 @@
              
   <section id="how-to-install-dependencies">
 <h1>How to install dependencies<a class="headerlink" href="#how-to-install-dependencies" title="Link to this heading"></a></h1>
+<section id="environment-variables">
+<h2>Environment variables<a class="headerlink" href="#environment-variables" title="Link to this heading"></a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Skrypy needs to point programs to specific versions of dependencies. <br />
+The .bashrc file is in principle sufficient, but it has been found that when processing on a cluster, it does not always load. <br />
+The best solution is to edit the file ‘env_parameters.txt’ which is located in /home/username/.skrypy/</p>
+</div>
+</section>
 <section id="ants">
 <h2><a class="reference external" href="https://github.com/ANTsX/ANTs">ANTs</a><a class="headerlink" href="#ants" title="Link to this heading"></a></h2>
 <ol class="arabic">
 <li><p>Download from the <a class="reference external" href="https://github.com/ANTsX/ANTs/releases">site</a> (choose according to your OS version)</p></li>
 <li><p>Decompress in a folder (e.g /home/user/Applications/)</p></li>
-<li><p>Edit .bashrc:</p>
+<li><p>Edit env_parameters.txt and add:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#ANTs
 export PATH=/home/user/Applications/ants-2.5.0/bin:$PATH
 export ANTSPATH=/home/user/Applications/ants-2.5.0/bin
@@ -127,7 +137,7 @@ export ANTSPATH=/home/user/Applications/ants-2.5.0/bin
 <h2><a class="reference external" href="https://fsl.fmrib.ox.ac.uk/fsl/docs/#/">FSL</a><a class="headerlink" href="#fsl" title="Link to this heading"></a></h2>
 <ol class="arabic">
 <li><p>See <a class="reference external" href="https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FslInstallation">install</a></p></li>
-<li><p>Edit .bashrc:</p>
+<li><p>Edit env_parameters.txt and add:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span># FSL Setup
 FSLDIR=~/Applications/fsl
 PATH=${FSLDIR}/share/fsl/bin:${PATH}
@@ -144,7 +154,7 @@ export FSLDIR PATH
 <ol class="arabic">
 <li><p>Download ImageJ <a class="reference external" href="https://imagej.net/ij/download.html">here</a></p></li>
 <li><p>Unzip and put in a directory (eg /home/user/Applications)</p></li>
-<li><p>Edit .bashrc:</p>
+<li><p>Edit env_parameters.txt and add:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#ImageJ</span>
 <span class="n">export</span> <span class="n">PATH</span><span class="o">=/</span><span class="n">home</span><span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">Applications</span><span class="o">/</span><span class="n">ImageJ</span><span class="o">/</span>
 </pre></div>
@@ -228,7 +238,7 @@ export FSLDIR PATH
 </div>
 </li>
 <li><p>Save it</p></li>
-<li><p>Edit .bashrc:</p>
+<li><p>Edit env_parameters.txt and add:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#SPM12</span>
 <span class="n">export</span> <span class="n">SPM_PATH</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">MATLAB</span><span class="o">/</span><span class="n">R2024b</span><span class="o">/</span><span class="n">toolbox</span><span class="o">/</span><span class="n">spm12</span><span class="o">/</span>
 </pre></div>
