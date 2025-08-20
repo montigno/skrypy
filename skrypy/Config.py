@@ -23,8 +23,8 @@ class Config():
                                  'cpu_number': '4',
                                  'X11_forwarding': False,
                                  'pre_execution_command': 'conda activate foo',
-                                 'df_command': '',
-                                 'dk_command': ''
+                                 'fd_command': '',
+                                 'fk_command': ''
                                  }}
 
     def __init__(self):

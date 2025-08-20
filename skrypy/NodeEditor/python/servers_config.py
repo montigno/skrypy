@@ -128,7 +128,7 @@ class servers_window(QDialog):
         self.buttonSave = QPushButton('Save', self)
         buttonSaveAs = QPushButton('Save As ...', self)
         self.buttonDelete = QPushButton('Delete from list', self)
-        buttonTest = QPushButton('Test', self)
+        self.buttonTest = QPushButton('Test', self)
 
         hbox8 = QHBoxLayout()
         hbox8.addWidget(buttonGo)
@@ -136,7 +136,7 @@ class servers_window(QDialog):
         hbox8.addWidget(self.buttonSave)
         hbox8.addWidget(buttonSaveAs)
         hbox8.addWidget(self.buttonDelete)
-        hbox8.addWidget(buttonTest)
+        hbox8.addWidget(self.buttonTest)
 
         if self.config == 'config':
             buttonGo.setEnabled(False)
@@ -146,7 +146,7 @@ class servers_window(QDialog):
         self.buttonSave.clicked.connect(self.save)
         buttonSaveAs.clicked.connect(self.saveas)
         self.buttonDelete.clicked.connect(lambda: self.deleteServer(self.server_name.currentText()))
-        buttonTest.clicked.connect(self.test_cluster)
+        self.buttonTest.clicked.connect(self.test_cluster)
         
         self.info1 = QLabel()
         self.info2 = QLabel()
@@ -178,9 +178,11 @@ class servers_window(QDialog):
         if self.server_name.currentText() == 'template':
             self.buttonDelete.setEnabled(False)
             self.buttonSave.setEnabled(False)
+            self.buttonTest.setEnabled(False)
         else:
             self.buttonDelete.setEnabled(True)
             self.buttonSave.setEnabled(True)
+            self.buttonTest.setEnabled(True)
 
         self.area_name.setText(self.list_config[current_server]['host_name'])
         self.skry_dir.setText(self.list_config[current_server]['skrypy_server_directory'])
@@ -196,6 +198,9 @@ class servers_window(QDialog):
             print('error to open cluster config:', err)
             tmppd = ''
         self.wd_field.setText(tmppd)
+        self.info1.setText("")
+        self.info2.setText("")
+        self.info3.setText("")
         self.setWindowTitle('Clusters configuration')
 
     def go(self):
