@@ -292,7 +292,8 @@ class servers_window(QDialog):
             
     def test_cluster(self):
         host_name = self.area_name.text()
-        host_name = host_name[host_name.index('@')+1:]
+        if '@' in hostname:
+            host_name = host_name[host_name.index('@')+1:]
         try:
             subprocess.check_output(["ping", "-c", "1", host_name])
             msg = '{} connection ok'.format(host_name)
