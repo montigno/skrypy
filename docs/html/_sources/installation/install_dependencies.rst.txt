@@ -1,12 +1,12 @@
-How to install and configure dependencies
-=========================================
+How to install dependencies
+===========================
 
 Environment variables
 ---------------------
 .. important::
    Skrypy needs to point programs to specific versions of dependencies. |br|
    The .bashrc file is in principle sufficient, but it has been found that when processing on a cluster, it does not always load. |br|
-   The best solution is to edit the file 'env_parameters.txt' which is located in /home/username/.skrypy/
+   The best solution is to edit the file **'env_parameters.txt'** which is located in /home/username/.skrypy/.
 
 `ANTs <https://github.com/ANTsX/ANTs>`__
 ----------------------------------------
@@ -15,7 +15,7 @@ Environment variables
 
 #. Decompress in a folder (e.g /home/user/Applications/)
 
-#. Edit env_parameters.txt and add::
+#. Edit **'env_parameters.txt'** and add::
 	
 	#ANTs
 	export PATH=ants_root/ants-2.5.0/bin:$PATH
@@ -39,7 +39,7 @@ ________________________________________________________________
 
 #. See `install <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FslInstallation>`__
 
-#. Edit env_parameters.txt and add::
+#. Edit **'env_parameters.txt'** and add::
 
 	#FSL
 	export PATH=fsl_root/fsl/bin
@@ -54,7 +54,7 @@ ________________________________________________________________
 
 #. Unzip and put in a directory (eg /home/user/Applications)
 
-#. Edit env_parameters.txt and add::
+#. Edit **'env_parameters.txt'** and add::
 
 	#ImageJ
 	export PATH=imagej_root/ImageJ/
@@ -64,7 +64,7 @@ ________________________________________________________________
 `Matlab <https://www.mathworks.com/products/matlab.html>`__
 -----------------------------------------------------------
 
-#. Edit env_parameters.txt and add::
+#. Edit **'env_parameters.txt'** and add::
 
 	export PATH=matlabroot/MATLAB/R2024b/bin
 	export MATLABCMD=matlabroot/MATLAB/R2024b/bin/glnxa64/MATLAB
@@ -147,7 +147,7 @@ ________________________________________________________________
 
 #. Save it
 
-#. Edit env_parameters.txt and add::
+#. Edit **'env_parameters.txt'** and add::
 
 	#SPM12
 	export SPM_PATH=matlab_root/MATLAB/R2024b/toolbox/spm12/

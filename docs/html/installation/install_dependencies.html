@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>How to install and configure dependencies &mdash; Skrypy Documentation  documentation</title>
+  <title>How to install dependencies &mdash; Skrypy Documentation  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/style.css?v=b42915cc" />
@@ -48,7 +48,7 @@
 <li class="toctree-l1"><a class="reference internal" href="requirements.html">Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install_skrypy.html">How to install Skrypy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="package_install.html">How to install Python packages</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">How to install and configure dependencies</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How to install dependencies</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#environment-variables">Environment variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ants">ANTs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#afni">AFNI</a></li>
@@ -91,7 +91,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">How to install and configure dependencies</li>
+      <li class="breadcrumb-item active">How to install dependencies</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/installation/install_dependencies.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -101,15 +101,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="how-to-install-and-configure-dependencies">
-<h1>How to install and configure dependencies<a class="headerlink" href="#how-to-install-and-configure-dependencies" title="Link to this heading"></a></h1>
+  <section id="how-to-install-dependencies">
+<h1>How to install dependencies<a class="headerlink" href="#how-to-install-dependencies" title="Link to this heading"></a></h1>
 <section id="environment-variables">
 <h2>Environment variables<a class="headerlink" href="#environment-variables" title="Link to this heading"></a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Skrypy needs to point programs to specific versions of dependencies. <br />
 The .bashrc file is in principle sufficient, but it has been found that when processing on a cluster, it does not always load. <br />
-The best solution is to edit the file ‘env_parameters.txt’ which is located in /home/username/.skrypy/</p>
+The best solution is to edit the file <strong>‘env_parameters.txt’</strong> which is located in /home/username/.skrypy/.</p>
 </div>
 </section>
 <section id="ants">
@@ -117,7 +117,7 @@ The best solution is to edit the file ‘env_parameters.txt’ which is located 
 <ol class="arabic">
 <li><p>Download from the <a class="reference external" href="https://github.com/ANTsX/ANTs/releases">site</a> (choose according to your OS version)</p></li>
 <li><p>Decompress in a folder (e.g /home/user/Applications/)</p></li>
-<li><p>Edit env_parameters.txt and add:</p>
+<li><p>Edit <strong>‘env_parameters.txt’</strong> and add:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#ANTs
 export PATH=ants_root/ants-2.5.0/bin:$PATH
 export ANTSPATH=ants_root/ants-2.5.0/bin
@@ -143,7 +143,7 @@ export ANTSPATH=ants_root/ants-2.5.0/bin
 <h2><a class="reference external" href="https://fsl.fmrib.ox.ac.uk/fsl/docs/#/">FSL</a><a class="headerlink" href="#fsl" title="Link to this heading"></a></h2>
 <ol class="arabic">
 <li><p>See <a class="reference external" href="https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FslInstallation">install</a></p></li>
-<li><p>Edit env_parameters.txt and add:</p>
+<li><p>Edit <strong>‘env_parameters.txt’</strong> and add:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#FSL</span>
 <span class="n">export</span> <span class="n">PATH</span><span class="o">=</span><span class="n">fsl_root</span><span class="o">/</span><span class="n">fsl</span><span class="o">/</span><span class="nb">bin</span>
 <span class="n">sh</span> <span class="n">fsl_root</span><span class="o">/</span><span class="n">fsl</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">fslconf</span><span class="o">/</span><span class="n">fsl</span><span class="o">.</span><span class="n">sh</span>
@@ -158,7 +158,7 @@ export ANTSPATH=ants_root/ants-2.5.0/bin
 <ol class="arabic">
 <li><p>Download ImageJ <a class="reference external" href="https://imagej.net/ij/download.html">here</a></p></li>
 <li><p>Unzip and put in a directory (eg /home/user/Applications)</p></li>
-<li><p>Edit env_parameters.txt and add:</p>
+<li><p>Edit <strong>‘env_parameters.txt’</strong> and add:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#ImageJ</span>
 <span class="n">export</span> <span class="n">PATH</span><span class="o">=</span><span class="n">imagej_root</span><span class="o">/</span><span class="n">ImageJ</span><span class="o">/</span>
 </pre></div>
@@ -170,7 +170,7 @@ export ANTSPATH=ants_root/ants-2.5.0/bin
 <section id="matlab">
 <h2><a class="reference external" href="https://www.mathworks.com/products/matlab.html">Matlab</a><a class="headerlink" href="#matlab" title="Link to this heading"></a></h2>
 <ol class="arabic">
-<li><p>Edit env_parameters.txt and add:</p>
+<li><p>Edit <strong>‘env_parameters.txt’</strong> and add:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">PATH</span><span class="o">=</span><span class="n">matlabroot</span><span class="o">/</span><span class="n">MATLAB</span><span class="o">/</span><span class="n">R2024b</span><span class="o">/</span><span class="nb">bin</span>
 <span class="n">export</span> <span class="n">MATLABCMD</span><span class="o">=</span><span class="n">matlabroot</span><span class="o">/</span><span class="n">MATLAB</span><span class="o">/</span><span class="n">R2024b</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">glnxa64</span><span class="o">/</span><span class="n">MATLAB</span>
 <span class="n">export</span> <span class="n">MATLABPATH</span><span class="o">=/</span><span class="n">home</span><span class="o">/</span><span class="n">username</span><span class="o">/</span><span class="n">MATLAB</span><span class="o">/</span> <span class="o">*</span>
@@ -257,7 +257,7 @@ export ANTSPATH=ants_root/ants-2.5.0/bin
 </div>
 </li>
 <li><p>Save it</p></li>
-<li><p>Edit env_parameters.txt and add:</p>
+<li><p>Edit <strong>‘env_parameters.txt’</strong> and add:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#SPM12</span>
 <span class="n">export</span> <span class="n">SPM_PATH</span><span class="o">=</span><span class="n">matlab_root</span><span class="o">/</span><span class="n">MATLAB</span><span class="o">/</span><span class="n">R2024b</span><span class="o">/</span><span class="n">toolbox</span><span class="o">/</span><span class="n">spm12</span><span class="o">/</span>
 </pre></div>
