@@ -1,6 +1,7 @@
 import os
 import yaml
 import subprocess
+import inspect
 
 from . import Config
 from . import set_dph
@@ -19,6 +20,9 @@ class servers_window(QDialog):
         self.clust = clust
         self.server_yml = Config().getServersList()
         self.getServersInfo()
+            
+    def field_changed(self):
+        self.setWindowTitle('Clusters configuration*')
 
     def getServersInfo(self):
 
@@ -52,12 +56,14 @@ class servers_window(QDialog):
 
         self.list_config = list_config
 
-        self.setWindowTitle('Clusters configuration')
-        self.setWindowFlags(self.windowFlags() &
-                            Qt.WindowCloseButtonHint)
+        # self.setWindowTitle('Clusters configuration')
+        # self.setWindowFlags(self.windowFlags() &
+        #                     Qt.WindowCloseButtonHint)
+        self.setWindowFlags(Qt.Window | Qt.WindowTitleHint | Qt.CustomizeWindowHint)
+
         self.setMinimumWidth(600)
 
-        vbox = QVBoxLayout(self)
+        self.vbox = QVBoxLayout(self)
 
         hbox1 = QHBoxLayout()
         label = QLabel("Cluster Name :")
@@ -72,12 +78,14 @@ class servers_window(QDialog):
         hbox2 = QHBoxLayout()
         host_name = QLabel("Host name :")
         self.area_name = QLineEdit()
+        self.area_name.textChanged.connect(self.field_changed)
         hbox2.addWidget(host_name)
         hbox2.addWidget(self.area_name)
 
         hbox2a = QHBoxLayout()
         labwd = QLabel("Password :")
         self.wd_field = QLineEdit()
+        self.wd_field.textChanged.connect(self.field_changed)
         self.wd_field.setEchoMode(QLineEdit.Password)
         hbox2a.addWidget(labwd)
         hbox2a.addWidget(self.wd_field)
@@ -85,28 +93,33 @@ class servers_window(QDialog):
         hbox3 = QHBoxLayout()
         skrypy_dir = QLabel("Skrypy directory on this cluster :")
         self.skry_dir = QLineEdit()
+        self.skry_dir.textChanged.connect(self.field_changed)
         hbox3.addWidget(skrypy_dir)
         hbox3.addWidget(self.skry_dir)
 
         hbox4 = QHBoxLayout()
         wrk_space = QLabel("Workspace directory on this cluster :")
         self.wrkspace_dir = QLineEdit()
+        self.wrkspace_dir.textChanged.connect(self.field_changed)
         hbox4.addWidget(wrk_space)
         hbox4.addWidget(self.wrkspace_dir)
 
         hbox5 = QHBoxLayout()
         cpu_nbr = QLabel("Mx number of cpus to use :")
         self.cpu_to_use = QLineEdit()
+        self.cpu_to_use.textChanged.connect(self.field_changed)
         hbox5.addWidget(cpu_nbr)
         hbox5.addWidget(self.cpu_to_use)
 
         hbox6 = QHBoxLayout()
         self.use_x11_bool = QCheckBox("X11 forwarding")
+        self.use_x11_bool.stateChanged.connect(self.field_changed)
         hbox6.addWidget(self.use_x11_bool)
 
         vbox7 = QVBoxLayout()
         pre_exec = QLabel("Pre-execution command :")
         self.exec_cmd = QTextEdit()
+        self.exec_cmd.textChanged.connect(self.field_changed)
         vbox7.addWidget(pre_exec)
         vbox7.addWidget(self.exec_cmd)
 
@@ -116,6 +129,7 @@ class servers_window(QDialog):
         buttonSaveAs = QPushButton('Save As ...', self)
         self.buttonDelete = QPushButton('Delete from list', self)
         buttonTest = QPushButton('Test', self)
+
         hbox8 = QHBoxLayout()
         hbox8.addWidget(buttonGo)
         hbox8.addWidget(buttonCancel)
@@ -134,22 +148,29 @@ class servers_window(QDialog):
         self.buttonDelete.clicked.connect(lambda: self.deleteServer(self.server_name.currentText()))
         buttonTest.clicked.connect(self.test_cluster)
         
-        self.info = QLabel()
+        self.info1 = QLabel()
+        self.info2 = QLabel()
+        self.info3 = QLabel()
 
-        vbox.addLayout(hbox1)
-        vbox.addLayout(hbox2)
-        vbox.addLayout(hbox2a)
-        vbox.addLayout(hbox3)
-        vbox.addLayout(hbox4)
-        vbox.addLayout(hbox5)
-        vbox.addLayout(hbox6)
-        vbox.addLayout(vbox7)
-        vbox.addLayout(hbox8)
-        vbox.addWidget(self.info)
 
-        self.setLayout(vbox)
+        self.vbox.addLayout(hbox1)
+        self.vbox.addLayout(hbox2)
+        self.vbox.addLayout(hbox2a)
+        self.vbox.addLayout(hbox3)
+        self.vbox.addLayout(hbox4)
+        self.vbox.addLayout(hbox5)
+        self.vbox.addLayout(hbox6)
+        self.vbox.addLayout(vbox7)
+        self.vbox.addLayout(hbox8)
+        self.vbox.addWidget(self.info1)
+        self.vbox.addWidget(self.info2)
+        self.vbox.addWidget(self.info3)
+
+
+        self.setLayout(self.vbox)
 
         self.actionCombobox()
+        self.setWindowTitle('Clusters configuration')
 
     def actionCombobox(self):
         current_server = self.server_name.currentText()
@@ -204,6 +225,7 @@ class servers_window(QDialog):
                                                             'fd_command': tmppd, 'fk_command': tmppk}
         with open(self.server_yml, 'w', encoding='utf8') as stream:
             yaml.dump(self.list_config, stream, default_flow_style=False)
+        self.setWindowTitle('Clusters configuration')
 
     class _NewServerName(QDialog):
 
@@ -260,6 +282,8 @@ class servers_window(QDialog):
             # self.server_name.update()
             index = self.server_name.findText(dial.name_line.text(), Qt.MatchFixedString)
             self.server_name.setCurrentIndex(index)
+            self.setWindowTitle('Clusters configuration')
+
 
     class _ConfirmationDialog(QDialog):
 
@@ -289,26 +313,52 @@ class servers_window(QDialog):
                 yaml.dump(self.list_config, stream, default_flow_style=False)
             index = self.server_name.findText(currentServer, Qt.MatchFixedString)
             self.server_name.removeItem(index)
-            
+
     def test_cluster(self):
+
         host_name = self.area_name.text()
-        if '@' in hostname:
+        if '@' in host_name:
             host_name = host_name[host_name.index('@')+1:]
+
         try:
             subprocess.check_output(["ping", "-c", "1", host_name])
             msg = '{} connection ok'.format(host_name)
-            self.info.setText("<span style=\" \
-                              font-size:10pt; \
-                              color:#007700;\" >"
-                              + msg
-                              + "</span>")             
+            msg = self.styleGoodMessage(msg)             
         except subprocess.CalledProcessError:
             msg = '{} no connection'.format(host_name)
-            self.info.setText("<span style=\" \
+            msg = self.styleErrorMessage(msg)
+        self.info1.setText(msg)
+
+        stdout, stderr = subprocess.Popen(['sshpass', '-p', self.wd_field.text(), 'ssh', self.area_name.text().strip(),
+                                'test -e ' + self.skry_dir.text().strip() + '; echo $?'], stdout=subprocess.PIPE).communicate()
+        if not bool(int(stdout[:-1])):
+            msg = self.styleGoodMessage('Skrypy directory exists')
+        else:
+            msg = self.styleErrorMessage('Skrypy directory doesn\'t exist !')
+        self.info2.setText(msg)
+        
+        stdout, stderr = subprocess.Popen(['sshpass', '-p', self.wd_field.text(), 'ssh', self.area_name.text().strip(),
+                                'test -e ' + self.wrkspace_dir.text().strip() + '; echo $?'], stdout=subprocess.PIPE).communicate()
+        if not bool(int(stdout[:-1])):
+            msg = self.styleGoodMessage('Workspace directory exists')
+        else:
+            msg = self.styleErrorMessage('Workspace directory doesn\'t exist !')
+        self.info3.setText(msg)
+            
+            
+    def styleErrorMessage(self, msg):
+        style = "<span style=\" \
                               font-size:10pt; \
-                              color:#cc0000;\" >"
-                              + msg
-                              + "</span>")
+                              color:#cc0000;\" >" \
+                              + msg + "</span>"
+        return style
+    
+    def styleGoodMessage(self, msg):
+        style = "<span style=\" \
+                              font-size:10pt; \
+                              color:#007700;\" >" \
+                              + msg + "</span>"
+        return style
 
     def get_params(self):
         return self.server_param
