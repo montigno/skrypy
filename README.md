@@ -10,8 +10,14 @@ A documentation is available here : [https://montigno.github.io/skrypy](https://
 
 <p></p>
 
+	20/08/2025: version 25.08.20b
+	- config.yml : remove niwidgets 
+
+<p></p>
+
 	19/08/2025: version 25.08.19b
 	- Environment variables : diagram replaced by text
+	- Configuration menu : 'environment diagram' replaced by 'Reload environment variables'
 
 <p></p>
 

@@ -15,7 +15,7 @@ Very simple example
       :alt: (skrypy buttons)
 
    .. |pic2|  image:: ../ressources/blank.png
-      :width: 38%
+      :width: 36%
       :alt: (blank)
 
    .. |pic3| image:: ../ressources/arrow.png

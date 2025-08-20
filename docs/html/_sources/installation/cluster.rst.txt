@@ -8,20 +8,20 @@ Clusters configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
    .. |pic1| image:: ../ressources/menu_config_clusters.png
-      :width: 60%
+      :width: 50%
       :alt: (skrypy buttons)
 
    .. |pic2| image:: ../ressources/cluster_config.png
-      :width: 80%
+      :width: 60%
       :alt: (cluster config)
 
 You can put several clusters in the list. |br|
 (Configuration to be done on your PC, not on the cluster)
 
-1. Go to the `Configuration -> Clusters configuration` menu:
+1. Go to the `Configuration -> Clusters configuration` menu:|br|
 |pic1|
 
-2. A window opens:
+2. A window opens:|br|
 |pic2|
 
 3. Fill in the fields  
@@ -45,12 +45,12 @@ You can put several clusters in the list. |br|
 - ``Pre-execution command``: this field allows you to enter shell-like instructions to be executed before your diagrams run. Often useful when you need to activate conda first for example. 
     ..
 
-.. # define a hard line break for HTML
-.. |br| raw:: html
-
-   <br />
-
 4. Registration 
 
    ``Save As ...`` for a new cluster name  or ``Save`` for modification
     ..
+
+.. # define a hard line break for HTML
+.. |br| raw:: html
+
+   <br />

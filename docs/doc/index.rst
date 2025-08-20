@@ -74,12 +74,12 @@ Table of Contents
    installation/package_install.rst
    installation/install_dependencies.rst
    installation/cluster.rst
-   installation/running_skrypy.rst
 
 .. toctree::
    :maxdepth: 1
    :caption: Getting started
 
+   start/running_skrypy.rst
    start/demo_1.rst
 
 .. toctree::

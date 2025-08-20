@@ -6122,7 +6122,7 @@ class Menu(QMenuBar):
             self.pack_manager()
 
         elif tmpActText == 'Reload environment variables':
-            Start_environment()
+            Start_environment(True)
 
         elif tmpActText == 'Clusters configuration':
             c = servers_window('config', None)
@@ -6406,7 +6406,7 @@ class NodeEdit(QWidget):
         self.startSelection = None
 
         self.menub.btnPressed(QAction('load_previous_diagram'))
-        Start_environment()
+        Start_environment(False)
         SharedMemoryManager(False)
 
     def addSubWindow(self, title):
@@ -8840,7 +8840,6 @@ class searchInitialValueSubMod:
 class SharedMemoryManager():
 
     def __init__(self, empt):
-        super(SharedMemoryManager, self).__init__()
         self.file_shm = os.path.join(os.path.expanduser('~'), '.skrypy', 'list_shm.yml')
         if empt:
             box = QMessageBox().question(editor,
@@ -9169,37 +9168,42 @@ class SubWindowManager(QMdiSubWindow):
 
 class Start_environment():
 
-    env_file = os.path.join(os.path.expanduser('~'), '.skrypy', 'env_parameters.txt')
-    list_env = {'PATH': ''}
-
-    if os.path.exists(env_file):
-        with open(env_file, 'r') as stream:
-            for line in stream:
-                line_str = line.rstrip()
-                if line_str:
-                    if '#' not in line and ('export' in line or 'sh ' in line):
-                        if 'export PATH=' in line:
-                            line_mod = line.replace('export', '').replace('$PATH:', '').replace('PATH=', '').strip()
-                            list_env['PATH'] += os.pathsep + line_mod
-                        elif 'sh ' in line[0:3]:
-                            line_mod = line[2:].strip()
-                            list_env['sh'] = line_mod
-                        elif '=' in line:
-                            line_mode = line.split('=')
-                            line_mode[0] = line_mode[0].replace('export', '').strip()
-                            list_env[line_mode[0]] = line_mode[1]
-
-        for kenv, venv in list_env.items():
-            if kenv == 'sh':
-                try:
-                    os.popen('sh ' + venv)
-                except Exception as err:
-                    print(err)
-            elif kenv == 'PATH':
-                os.environ['PATH'] += os.pathsep + venv
-            else:
-                os.environ[kenv] = venv
-
+    def __init__(self, showing=False, parent=None):
+        env_file = os.path.join(os.path.expanduser('~'), '.skrypy', 'env_parameters.txt')
+        list_env = {'PATH': ''}
+        if showing:
+            print("{}\nEnvironment variables reloaded:".format('\x1b[38;2;50;250;50m'))
+        if os.path.exists(env_file):
+            with open(env_file, 'r') as stream:
+                for line in stream:
+                    line_str = line.rstrip()
+                    if line_str:
+                        if '#' not in line and ('export' in line or 'sh ' in line):
+                            if 'export PATH=' in line:
+                                line_mod = line.replace('export', '').replace('$PATH:', '').replace('PATH=', '').strip()
+                                list_env['PATH'] += os.pathsep + line_mod
+                            elif 'sh ' in line[0:3]:
+                                line_mod = line[2:].strip()
+                                list_env['sh'] = line_mod
+                            elif '=' in line:
+                                line_mode = line.split('=')
+                                line_mode[0] = line_mode[0].replace('export', '').strip()
+                                list_env[line_mode[0]] = line_mode[1]
+    
+            for kenv, venv in list_env.items():
+                if kenv == 'sh':
+                    try:
+                        os.popen('sh ' + venv)
+                    except Exception as err:
+                        print(err)
+                elif kenv == 'PATH':
+                    os.environ['PATH'] += os.pathsep + venv
+                else:
+                    os.environ[kenv] = venv
+                if showing:
+                    print(kenv, venv.strip())
+        if showing:
+            print("\x1b[0m")
 
 class StopExecution(QGraphicsPolygonItem):
 

@@ -26,7 +26,6 @@ packages:
   nipy: nipy
   nipype: nipype
   nitime: nitime
-  niwidgets: niwidgets
   niworkflows: niworkflows
   nose: nose
   numba: numba
@@ -50,10 +49,10 @@ packages:
   simpleITK: simpleITK
   sip: sip
   sympy: sympy
-  tensorflow: tensorflow==2.8.0
+  tensorflow: tensorflow==2.19.0
   tkinter: tk
   torchvision: torchvision
   traits: traits
   transformers: transformers
   vedo: vedo
-version: 25.08.19b
+version: 25.08.20b

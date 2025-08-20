@@ -13,11 +13,11 @@ When installing Skrypy, some packages have already been installed. To install ot
 #. In Skrypy:
 
    .. |pic1| image:: ../ressources/menu_config_package.png
-      :width: 60%
+      :width: 50%
       :alt: (skrypy buttons)
 
    .. |pic2| image:: ../ressources/package_config.png
-      :width: 100%
+      :width: 80%
       :alt: (skrypy buttons)
 
  a. Launch skrypy

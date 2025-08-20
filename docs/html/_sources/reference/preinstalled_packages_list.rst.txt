@@ -2,63 +2,65 @@
 List of pre-installed Python packages
 #####################################
 
-.. csv-table:: Frozen Delights!
+ .. csv-table:: Frozen Delights!
    :header: "Package", "Version", "Description"
-   :widths: 15, 10, 30
+   :widths: 12, 8, 40
 
-   antspyx, Vx.x, comment
-   astropy, Vx.x, comment
-   attrs, Vx.x, comment
-   pybids, Vx.x, comment
-   blosc2, Vx.x, comment
-   cuda-python, Vx.x, comment
-   Cython, Vx.x, comment
-   cryptography, Vx.x, comment
-   dcmstack, Vx.x, comment
-   dirsync, Vx.x, comment
-   einops, Vx.x, comment
-   gdown, Vx.x, comment
-   GPUtil, Vx.x, comment
-   h5py, Vx.x, comment
-   keras==2.8.0, Vx.x, comment
-   list-imports, Vx.x, comment
-   lmdb, Vx.x, comment
-   lmfit, Vx.x, comment
-   matplotlib==3.7.4, Vx.x, comment
-   mlflow, Vx.x, comment
-   mss, Vx.x, comment
-   nibabel, Vx.x, comment
-   nilearn, Vx.x, comment
-   nipy, Vx.x, comment
-   nipype, Vx.x, comment
-   nitime, Vx.x, comment
-   niwidgets, Vx.x, comment
-   niworkflows, Vx.x, comment
-   nose, Vx.x, comment
-   numba, Vx.x, comment
-   numpy, Vx.x, comment
-   opencv-python, Vx.x, comment
-   pandas, Vx.x, comment
-   prompt_toolkit, Vx.x, comment
-   psutil, Vx.x, comment
-   pynrrd, Vx.x, comment
-   PyQt5==5.15.7, Vx.x, comment
-   PyQt5-sip==12.15.0, Vx.x, comment
-   pytest, Vx.x, comment
-   pytorch-ignite, Vx.x, comment
-   pyvista, Vx.x, comment
-   pyvistaqt, Vx.x, comment
-   ray, Vx.x, comment
-   read_roi, Vx.x, comment
-   scikit-image, Vx.x, comment
-   scikit-learn, Vx.x, comment
-   scipy, Vx.x, comment
-   simpleITK, Vx.x, comment
-   sip, Vx.x, comment
-   sympy, Vx.x, comment
-   tensorflow==2.8.0, Vx.x, comment
-   tk, Vx.x, comment
-   torchvision, Vx.x, comment
-   traits, Vx.x, comment
-   transformers, Vx.x, comment
-   vedo, Vx.x, comment
+   "antspyx", 0.6.1, "A fast medical imaging analysis library in Python with algorithms for registration, segmentation, and more."
+   "astropy", 7.1.0, "Astronomy and astrophysics core library"
+   "attrs", 25.3.0, "Classes Without Boilerplate"
+   "pybids", 0.19.0, "bids: interface with datasets conforming to BIDS"
+   "blosc2", 3.6.1, "A fast & compressed ndarray library with a flexible compute engine."
+   "cuda-python", 13.0.0, "CUDA Python: Performance meets Productivity"
+   "Cython", 3.1.2, "The Cython compiler for writing C extensions in the Python language."
+   "cryptography", 45.0.6, "cryptography is a package which provides cryptographic recipes and primitives to Python developers."
+   "dcmstack", 0.9.0, "Stack DICOM images into volumes and convert to Nifti"
+   "dirsync", 2.2.6, "Advanced directory tree synchronisation tool"
+   "einops", 0.8.1, "A new flavour of deep learning operations"
+   "gdown", 5.2.0, "Google Drive Public File/Folder Downloader"
+   "GPUtil", 1.4.0, "GPUtil is a Python module for getting the GPU status from NVIDA GPUs using nvidia-smi."
+   "h5py", 3.14.0, "Read and write HDF5 files from Python"
+   "keras", 2.8.0, "Deep learning for humans."
+   "list-imports", 2020.7.2, ""
+   "lmdb", 1.7.3, "Universal Python binding for the LMDB 'Lightning' Database"
+   "lmfit", 1.3.4, "Least-Squares Minimization with Bounds and Constraints"
+   "matplotlib", 3.7.4, "Python plotting package"
+   "mlflow", 3.2.0, "MLflow is an open source platform for the complete machine learning lifecycle"
+   "mss", 10.0.0, "An ultra fast cross-platform multiple screenshots module in pure python using ctypes."
+   "nibabel", 5.3.2, "Access a multitude of neuroimaging data formats"
+   "nilearn", 0.12.0, "Statistical learning for neuroimaging in Python"
+   "nipy", 0.6.1, "A python package for analysis of neuroimaging data"
+   "nipype", 1.10.0, "Neuroimaging in Python: Pipelines and Interfaces"
+   "nitime", 0.11, "Nitime: timeseries analysis for neuroscience data"
+   "niworkflows", 1.13.5, "NeuroImaging Workflows provides processing tools for magnetic resonance images of the brain."
+   "nose", 1.3.7, "nose extends unittest to make testing easier"
+   "numba", 0.61.2, "compiling Python code using LLVM"
+   "numpy", 1.26.4, "Fundamental package for array computing in Python"
+   "opencv-python", 4.12.0.88, "Wrapper package for OpenCV python bindings."
+   "pandas", 2.3.1, "Powerful data structures for data analysis, time series, and statistics"
+   "prompt_toolkit", 3.0.51, "Library for building powerful interactive command lines in Python"
+   "psutil", 7.0.0, "Cross-platform lib for process and system monitoring in Python.  NOTE: the syntax of this script MUST be kept compatible with Python 2.7."
+   "pynrrd", 1.1.3, "Pure python module for reading and writing NRRD files."
+   "PyQt5", 5.15.11, "Python bindings for the Qt cross platform application toolkit"
+   "PyQt5-sip", 12.17.0, "The sip module support for PyQt5"
+   "pytest", 8.4.1, "pytest: simple powerful testing with Python"
+   "pytorch-ignite", 0.5.2, "A lightweight library to help with training neural networks in PyTorch."
+   "pyvista", 0.46.0, "Easier Pythonic interface to VTK"
+   "pyvistaqt", 0.11.3, "pyvista qt plotter"
+   "ray", 2.48.0, "Ray provides a simple, universal API for building distributed applications."
+   "read_roi", 1.6.0, "Read ROI files .zip or .roi generated with ImageJ."
+   "scikit-image", 0.25.2, "Image processing in Python"
+   "scikit-learn", 1.7.1, "A set of python modules for machine learning and data mining"
+   "scipy", 1.15.3, "Fundamental algorithms for scientific computing in Python"
+   "simpleITK", 2.5.2, "SimpleITK is a simplified interface to the Insight Toolkit (ITK) for image registration and segmentation"
+   "sip", 6.12.0, "A Python bindings generator for C/C++ libraries"
+   "sympy", 1.14.0, "Computer algebra system (CAS) in Python"
+   "tensorflow", unknow, "no comment"
+   "tk", 0.1.0, "TensorKit is a deep learning helper between Python and C++."
+   "torchvision", 0.23.0, "image and video datasets and models for torch deep learning"
+   "traits", 7.0.2, "Observable typed attributes for Python classes"
+   "transformers", 4.55.0, "State-of-the-art Machine Learning for JAX, PyTorch and TensorFlow"
+   "vedo", 2025.5.4, "A python module for scientific visualization, analysis of 3D objects and point clouds."
+
+
+

@@ -8,7 +8,7 @@ This page explains how to create a new block in the library.
       :alt: (skrypy buttons)
 
    .. |pic2| image:: ../ressources/Blocks_library_sum.png
-      :width: 30%
+      :width: 20%
       :alt: (arrow)
 
    .. |pic3| image:: ../ressources/explorer_modules_pcnn.png
@@ -16,11 +16,11 @@ This page explains how to create a new block in the library.
       :alt: (order processes)
 
    .. |pic4| image:: ../ressources/Blocks_library_spat.png
-      :width: 30%
+      :width: 20%
       :alt: (order processes cluster)
 
    .. |pic5| image:: ../ressources/Blocks_library_pcnn.png
-      :width: 30%
+      :width: 20%
       :alt: (order processes cluster)
 
    .. |pic6| image:: ../ressources/block_explain1.jpg
@@ -58,7 +58,7 @@ Options are stored in joint yaml files
 |pic8|
 
 If you open the .yaml file, you find a list of options with default values. |br|
-Options are managed in blocks.
+Options are managed in the block source codes.
 
 .. # define a hard line break for HTML
 .. |br| raw:: html
