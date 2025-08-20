@@ -54,7 +54,7 @@ You can put several clusters in the list. |br|
 
 5. Test
 
-   ``Test``: allows you to perform connection tests, and checks if the paths exist.|br|
+   ``Test``: allows you to perform connection tests, and checks if the paths exist.
    |pic3|
 
 .. # define a hard line break for HTML
