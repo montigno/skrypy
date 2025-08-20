@@ -198,9 +198,9 @@ class servers_window(QDialog):
             print('error to open cluster config:', err)
             tmppd = ''
         self.wd_field.setText(tmppd)
-        self.info1.setText("")
-        self.info2.setText("")
-        self.info3.setText("")
+        self.info1.clear()
+        self.info2.clear()
+        self.info3.clear()
         self.setWindowTitle('Clusters configuration')
 
     def go(self):
@@ -321,6 +321,10 @@ class servers_window(QDialog):
             self.server_name.removeItem(index)
 
     def test_cluster(self):
+        
+        self.info1.clear()
+        self.info2.clear()
+        self.info3.clear()
 
         host_name = self.area_name.text()
         if '@' in host_name:
@@ -337,11 +341,16 @@ class servers_window(QDialog):
 
         stdout, stderr = subprocess.Popen(['sshpass', '-p', self.wd_field.text(), 'ssh', self.area_name.text().strip(),
                                 'test -e ' + self.skry_dir.text().strip() + '; echo $?'], stdout=subprocess.PIPE).communicate()
-        if not bool(int(stdout[:-1])):
-            msg = self.styleGoodMessage('Skrypy directory exists')
-        else:
-            msg = self.styleErrorMessage('Skrypy directory doesn\'t exist !')
-        self.info2.setText(msg)
+        try:
+            if not bool(int(stdout[:-1])):
+                msg = self.styleGoodMessage('Skrypy directory exists')
+            else:
+                msg = self.styleErrorMessage('Skrypy directory doesn\'t exist !')
+            self.info2.setText(msg)
+        except Exception as err:
+            msg = self.styleErrorMessage('your password doesn\'t look good !')
+            self.info2.setText(msg)
+            return
         
         stdout, stderr = subprocess.Popen(['sshpass', '-p', self.wd_field.text(), 'ssh', self.area_name.text().strip(),
                                 'test -e ' + self.wrkspace_dir.text().strip() + '; echo $?'], stdout=subprocess.PIPE).communicate()
