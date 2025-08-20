@@ -5878,14 +5878,15 @@ class Menu(QMenuBar):
                             editor.editText("{} :<br>You can't run Diagram with connectors".format(title_dgr),
                                             10, 600, 'cc0000', False, True)
                             return
+                col = '\x1b[38;2;0;100;255m'
                 for src in source_dgr:
+                    diagr = os.path.basename(src[0])
                     if src[2] == 'local':
-                        diagr = os.path.basename(src[0])
                         editor.mdi.setActiveSubWindow(list_dgr_tit[diagr])
+                        print("\n{} Excution {} local in progress ... \033[0m".format(col, diagr))
                         Diagram_excution(diagr, src[1])
                     else:
-                        col = '\x1b[38;2;0;100;255m'
-                        print("\n{} Excution on {} in progress ... \033[0m".format(col, src[2]))
+                        print("\n{} Excution {} on {} in progress ... \033[0m".format(col, diagr, src[2]))
                         ssh_diagram_execution([src[0]], 'Multi-threading', src[2])
         # elif tmpActText == 'Show grid':
         #     showGrid = self.show_grid_action.isChecked()
