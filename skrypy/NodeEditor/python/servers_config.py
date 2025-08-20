@@ -333,11 +333,13 @@ class servers_window(QDialog):
         try:
             subprocess.check_output(["ping", "-c", "1", host_name])
             msg = '{} connection ok'.format(host_name)
-            msg = self.styleGoodMessage(msg)             
+            msg = self.styleGoodMessage(msg)
+            self.info1.setText(msg)
         except subprocess.CalledProcessError:
             msg = '{} no connection'.format(host_name)
             msg = self.styleErrorMessage(msg)
-        self.info1.setText(msg)
+            self.info1.setText(msg)
+            return
 
         stdout, stderr = subprocess.Popen(['sshpass', '-p', self.wd_field.text(), 'ssh', self.area_name.text().strip(),
                                 'test -e ' + self.skry_dir.text().strip() + '; echo $?'], stdout=subprocess.PIPE).communicate()
