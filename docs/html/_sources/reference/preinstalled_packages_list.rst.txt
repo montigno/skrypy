@@ -20,7 +20,7 @@ List of pre-installed Python packages
    "gdown", 5.2.0, "Google Drive Public File/Folder Downloader"
    "GPUtil", 1.4.0, "GPUtil is a Python module for getting the GPU status from NVIDA GPUs using nvidia-smi."
    "h5py", 3.14.0, "Read and write HDF5 files from Python"
-   "keras", 2.8.0, "Deep learning for humans."
+   "keras", 3.11.2, "Multi-backend Keras"
    "list-imports", 2020.7.2, ""
    "lmdb", 1.7.3, "Universal Python binding for the LMDB 'Lightning' Database"
    "lmfit", 1.3.4, "Least-Squares Minimization with Bounds and Constraints"
@@ -55,12 +55,13 @@ List of pre-installed Python packages
    "simpleITK", 2.5.2, "SimpleITK is a simplified interface to the Insight Toolkit (ITK) for image registration and segmentation"
    "sip", 6.12.0, "A Python bindings generator for C/C++ libraries"
    "sympy", 1.14.0, "Computer algebra system (CAS) in Python"
-   "tensorflow", unknow, "no comment"
+   "tensorflow", 2.19.0, "TensorFlow is an open source machine learning framework for everyone."
    "tk", 0.1.0, "TensorKit is a deep learning helper between Python and C++."
    "torchvision", 0.23.0, "image and video datasets and models for torch deep learning"
    "traits", 7.0.2, "Observable typed attributes for Python classes"
    "transformers", 4.55.0, "State-of-the-art Machine Learning for JAX, PyTorch and TensorFlow"
    "vedo", 2025.5.4, "A python module for scientific visualization, analysis of 3D objects and point clouds."
+
 
 
 
