@@ -15,6 +15,10 @@ Clusters configuration
       :width: 60%
       :alt: (cluster config)
 
+   .. |pic3| image:: ../ressources/cluster_config_test.png
+      :width: 60%
+      :alt: (cluster config)
+
 You can put several clusters in the list. |br|
 (Configuration to be done on your PC, not on the cluster)
 
@@ -27,28 +31,31 @@ You can put several clusters in the list. |br|
 3. Fill in the fields  
 
 - ``Host name``: user\@hostname
-    ..
+
 - ``Password``: your password to access the cluster.
-    ..
+
 - ``Skrypy directory on this cluster``: specifies the path where Skrypy is installed on the cluster
-    ..
+
 - ``Workspace on this cluster``: specifies the workspace on the cluster. This allows you to transfer your diagrams to be run on the cluster and can also (optional) be used to transfer your data to be processed.
-    ..
+
 - ``Max number of cpus to use``: maximum number of CPUs to use for your multiprocessing mode treatments. 
-    ..
+
 - ``X11 forwarding``: check this box if display returns (image or curves) are expected.
-    ..
+
  
  .. attention::
     Depending on the cluster's graphics management capability, the result is not guaranteed.
 
 - ``Pre-execution command``: this field allows you to enter shell-like instructions to be executed before your diagrams run. Often useful when you need to activate conda first for example. 
-    ..
 
 4. Registration 
 
    ``Save As ...`` for a new cluster name  or ``Save`` for modification
-    ..
+
+5. Test
+
+   ``Test``: allows you to perform connection tests, and checks if the paths exist.|br|
+   |pic3|
 
 .. # define a hard line break for HTML
 .. |br| raw:: html

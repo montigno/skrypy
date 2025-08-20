@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -14,9 +14,9 @@
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
-      <script src="../_static/doctools.js?v=888ff710"></script>
-      <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -102,9 +102,9 @@
            <div itemprop="articleBody">
              
   <section id="how-to-install-and-configure-dependencies">
-<h1>How to install and configure dependencies<a class="headerlink" href="#how-to-install-and-configure-dependencies" title="Permalink to this heading"></a></h1>
+<h1>How to install and configure dependencies<a class="headerlink" href="#how-to-install-and-configure-dependencies" title="Link to this heading"></a></h1>
 <section id="environment-variables">
-<h2>Environment variables<a class="headerlink" href="#environment-variables" title="Permalink to this heading"></a></h2>
+<h2>Environment variables<a class="headerlink" href="#environment-variables" title="Link to this heading"></a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Skrypy needs to point programs to specific versions of dependencies. <br />
@@ -113,7 +113,7 @@ The best solution is to edit the file ‘env_parameters.txt’ which is located 
 </div>
 </section>
 <section id="ants">
-<h2><a class="reference external" href="https://github.com/ANTsX/ANTs">ANTs</a><a class="headerlink" href="#ants" title="Permalink to this heading"></a></h2>
+<h2><a class="reference external" href="https://github.com/ANTsX/ANTs">ANTs</a><a class="headerlink" href="#ants" title="Link to this heading"></a></h2>
 <ol class="arabic">
 <li><p>Download from the <a class="reference external" href="https://github.com/ANTsX/ANTs/releases">site</a> (choose according to your OS version)</p></li>
 <li><p>Decompress in a folder (e.g /home/user/Applications/)</p></li>
@@ -128,7 +128,7 @@ export ANTSPATH=ants_root/ants-2.5.0/bin
 </section>
 <hr class="docutils" />
 <section id="afni">
-<h2><a class="reference external" href="https://afni.nimh.nih.gov/">AFNI</a><a class="headerlink" href="#afni" title="Permalink to this heading"></a></h2>
+<h2><a class="reference external" href="https://afni.nimh.nih.gov/">AFNI</a><a class="headerlink" href="#afni" title="Link to this heading"></a></h2>
 <ol class="arabic">
 <li><p>See <a class="reference external" href="https://afni.nimh.nih.gov/pub/dist/doc/htmldoc/background_install/install_instructs/index.html">install</a></p>
 <div class="admonition note">
@@ -140,7 +140,7 @@ export ANTSPATH=ants_root/ants-2.5.0/bin
 </section>
 <hr class="docutils" />
 <section id="fsl">
-<h2><a class="reference external" href="https://fsl.fmrib.ox.ac.uk/fsl/docs/#/">FSL</a><a class="headerlink" href="#fsl" title="Permalink to this heading"></a></h2>
+<h2><a class="reference external" href="https://fsl.fmrib.ox.ac.uk/fsl/docs/#/">FSL</a><a class="headerlink" href="#fsl" title="Link to this heading"></a></h2>
 <ol class="arabic">
 <li><p>See <a class="reference external" href="https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FslInstallation">install</a></p></li>
 <li><p>Edit env_parameters.txt and add:</p>
@@ -154,7 +154,7 @@ export ANTSPATH=ants_root/ants-2.5.0/bin
 </section>
 <hr class="docutils" />
 <section id="imagej">
-<h2><a class="reference external" href="https://imagej.net/ij/">ImageJ</a><a class="headerlink" href="#imagej" title="Permalink to this heading"></a></h2>
+<h2><a class="reference external" href="https://imagej.net/ij/">ImageJ</a><a class="headerlink" href="#imagej" title="Link to this heading"></a></h2>
 <ol class="arabic">
 <li><p>Download ImageJ <a class="reference external" href="https://imagej.net/ij/download.html">here</a></p></li>
 <li><p>Unzip and put in a directory (eg /home/user/Applications)</p></li>
@@ -168,7 +168,7 @@ export ANTSPATH=ants_root/ants-2.5.0/bin
 </section>
 <hr class="docutils" />
 <section id="matlab">
-<h2><a class="reference external" href="https://www.mathworks.com/products/matlab.html">Matlab</a><a class="headerlink" href="#matlab" title="Permalink to this heading"></a></h2>
+<h2><a class="reference external" href="https://www.mathworks.com/products/matlab.html">Matlab</a><a class="headerlink" href="#matlab" title="Link to this heading"></a></h2>
 <ol class="arabic">
 <li><p>Edit env_parameters.txt and add:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">PATH</span><span class="o">=</span><span class="n">matlabroot</span><span class="o">/</span><span class="n">MATLAB</span><span class="o">/</span><span class="n">R2024b</span><span class="o">/</span><span class="nb">bin</span>
@@ -183,7 +183,7 @@ export ANTSPATH=ants_root/ants-2.5.0/bin
 </section>
 <hr class="docutils" />
 <section id="matlab-engine">
-<h2><a class="reference external" href="https://www.mathworks.com/help/matlab/matlab-engine-for-python.html">Matlab engine</a><a class="headerlink" href="#matlab-engine" title="Permalink to this heading"></a></h2>
+<h2><a class="reference external" href="https://www.mathworks.com/help/matlab/matlab-engine-for-python.html">Matlab engine</a><a class="headerlink" href="#matlab-engine" title="Link to this heading"></a></h2>
 <ol class="arabic">
 <li><p>For MATLAB &lt; R2022b:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="n">skrypy_root</span><span class="o">/</span><span class="n">skrypy_venv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
@@ -205,7 +205,7 @@ export ANTSPATH=ants_root/ants-2.5.0/bin
 </section>
 <hr class="docutils" />
 <section id="mrtrix3">
-<h2><a class="reference external" href="https://mrtrix.readthedocs.io/en/latest/installation/build_from_source.html">MRTrix3</a><a class="headerlink" href="#mrtrix3" title="Permalink to this heading"></a></h2>
+<h2><a class="reference external" href="https://mrtrix.readthedocs.io/en/latest/installation/build_from_source.html">MRTrix3</a><a class="headerlink" href="#mrtrix3" title="Link to this heading"></a></h2>
 <ol class="arabic">
 <li><p>Required dependencies:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">git</span> <span class="n">g</span><span class="o">++</span> <span class="n">python</span> <span class="n">libeigen3</span><span class="o">-</span><span class="n">dev</span> <span class="n">zlib1g</span><span class="o">-</span><span class="n">dev</span> <span class="n">libqt5opengl5</span><span class="o">-</span><span class="n">dev</span> <span class="n">libqt5svg5</span><span class="o">-</span><span class="n">dev</span> <span class="n">libgl1</span><span class="o">-</span><span class="n">mesa</span><span class="o">-</span><span class="n">dev</span> <span class="n">libfftw3</span><span class="o">-</span><span class="n">dev</span> <span class="n">libtiff5</span><span class="o">-</span><span class="n">dev</span> <span class="n">libpng</span><span class="o">-</span><span class="n">dev</span>
@@ -235,12 +235,12 @@ export ANTSPATH=ants_root/ants-2.5.0/bin
 </section>
 <hr class="docutils" />
 <section id="rs2">
-<h2><a class="reference external" href="https://github.com/VitoLin21/Rodent-Skull-Stripping">RS2</a><a class="headerlink" href="#rs2" title="Permalink to this heading"></a></h2>
+<h2><a class="reference external" href="https://github.com/VitoLin21/Rodent-Skull-Stripping">RS2</a><a class="headerlink" href="#rs2" title="Link to this heading"></a></h2>
 <p>Download RS2 <a class="reference external" href="https://github.com/VitoLin21/Rodent-Skull-Stripping/archive/refs/heads/main.zip">here</a></p>
 </section>
 <hr class="docutils" />
 <section id="spm-requires-matlab">
-<h2><a class="reference external" href="https://www.fil.ion.ucl.ac.uk/spm/">SPM (requires MATLAB)</a><a class="headerlink" href="#spm-requires-matlab" title="Permalink to this heading"></a></h2>
+<h2><a class="reference external" href="https://www.fil.ion.ucl.ac.uk/spm/">SPM (requires MATLAB)</a><a class="headerlink" href="#spm-requires-matlab" title="Link to this heading"></a></h2>
 <ol class="arabic">
 <li><p>Download SPM12 <a class="reference external" href="https://www.fil.ion.ucl.ac.uk/spm/docs/installation/">here</a></p></li>
 <li><p>Uncompress the zip file and put the directory ‘SPM12’ in the ‘toolbox’ folder of your Matlab (eg /usr/local/MATLAB/R2024b/toolbox/)</p></li>
