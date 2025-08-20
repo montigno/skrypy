@@ -196,6 +196,7 @@ class servers_window(QDialog):
             print('error to open cluster config:', err)
             tmppd = ''
         self.wd_field.setText(tmppd)
+        self.setWindowTitle('Clusters configuration')
 
     def go(self):
         self.server_param = [self.area_name.text(),
