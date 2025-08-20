@@ -55,13 +55,19 @@ class multiple_execution_altern(QDialog):
 
         buttonGo = QPushButton('Go!', self)
         buttonCancel = QPushButton('Cancel', self)
+        # buttonSaveProj = QPushButton('Save project', self)
+        # buttonOpenProj = QPushButton('Open project', self)
         hboxbutton = QHBoxLayout()
         hboxbutton.addWidget(buttonGo)
         hboxbutton.addWidget(buttonCancel)
+        # hboxbutton.addWidget(buttonSaveProj)
+        # hboxbutton.addWidget(buttonOpenProj)
         vbox.addLayout(hboxbutton)
 
         buttonGo.clicked.connect(self.GO)
         buttonCancel.clicked.connect(self.CANCEL)
+        # buttonSaveProj.clicked.connect(self.SaveProj)
+        # buttonOpenProj.clicked.connect(self.OpenProj)
 
     def CANCEL(self):
         self.close()

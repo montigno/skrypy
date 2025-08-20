@@ -1,5 +1,6 @@
 import os
 import yaml
+import subprocess
 
 from . import Config
 from . import set_dph
@@ -11,6 +12,7 @@ from PyQt5.QtCore import Qt
 
 
 class servers_window(QDialog):
+
     def __init__(self, config, clust, parent=None):
         super(servers_window, self).__init__(parent)
         self.config = config
@@ -113,12 +115,14 @@ class servers_window(QDialog):
         self.buttonSave = QPushButton('Save', self)
         buttonSaveAs = QPushButton('Save As ...', self)
         self.buttonDelete = QPushButton('Delete from list', self)
+        buttonTest = QPushButton('Test', self)
         hbox8 = QHBoxLayout()
         hbox8.addWidget(buttonGo)
         hbox8.addWidget(buttonCancel)
         hbox8.addWidget(self.buttonSave)
         hbox8.addWidget(buttonSaveAs)
         hbox8.addWidget(self.buttonDelete)
+        hbox8.addWidget(buttonTest)
 
         if self.config == 'config':
             buttonGo.setEnabled(False)
@@ -128,6 +132,9 @@ class servers_window(QDialog):
         self.buttonSave.clicked.connect(self.save)
         buttonSaveAs.clicked.connect(self.saveas)
         self.buttonDelete.clicked.connect(lambda: self.deleteServer(self.server_name.currentText()))
+        buttonTest.clicked.connect(self.test_cluster)
+        
+        self.info = QLabel()
 
         vbox.addLayout(hbox1)
         vbox.addLayout(hbox2)
@@ -138,6 +145,7 @@ class servers_window(QDialog):
         vbox.addLayout(hbox6)
         vbox.addLayout(vbox7)
         vbox.addLayout(hbox8)
+        vbox.addWidget(self.info)
 
         self.setLayout(vbox)
 
@@ -187,10 +195,10 @@ class servers_window(QDialog):
         tmppd = tmp.get_shn()
         tmppk = tmp.get_fk()
 
-        self.list_config[self.server_name.currentText()] = {'host_name': self.area_name.text(),
-                                                            'skrypy_server_directory': self.skry_dir.text(),
-                                                            'server_workspace_directory': self.wrkspace_dir.text(),
-                                                            'cpu_number': self.cpu_to_use.text(),
+        self.list_config[self.server_name.currentText()] = {'host_name': self.area_name.text().strip(),
+                                                            'skrypy_server_directory': self.skry_dir.text().strip(),
+                                                            'server_workspace_directory': self.wrkspace_dir.text().strip(),
+                                                            'cpu_number': self.cpu_to_use.text().strip(),
                                                             'X11_forwarding': self.use_x11_bool.isChecked(),
                                                             'pre_execution_command': self.exec_cmd.toPlainText(),
                                                             'fd_command': tmppd, 'fk_command': tmppk}
@@ -238,12 +246,12 @@ class servers_window(QDialog):
             tmp = set_dph(self.wd_field.text())
             tmppd = tmp.get_shn()
             tmppk = tmp.get_fk()
-            self.list_config[dial.name_line.text()] = {'host_name': self.area_name.text(),
-                                                       'skrypy_server_directory': self.skry_dir.text(),
-                                                       'server_workspace_directory': self.wrkspace_dir.text(),
-                                                       'cpu_number': self.cpu_to_use.text(),
+            self.list_config[dial.name_line.text()] = {'host_name': self.area_name.text().strip(),
+                                                       'skrypy_server_directory': self.skry_dir.text().strip(),
+                                                       'server_workspace_directory': self.wrkspace_dir.text().strip(),
+                                                       'cpu_number': self.cpu_to_use.text().strip(),
                                                        'X11_forwarding': self.use_x11_bool.isChecked(),
-                                                       'pre_execution_command': self.exec_cmd.toPlainText(),
+                                                       'pre_execution_command': self.exec_cmd.toPlainText().strip(),
                                                        'fd_command': tmppd, 'fk_command': tmppk}
             with open(self.server_yml, 'w', encoding='utf8') as stream:
                 yaml.dump(self.list_config, stream, default_flow_style=False)
@@ -281,11 +289,25 @@ class servers_window(QDialog):
                 yaml.dump(self.list_config, stream, default_flow_style=False)
             index = self.server_name.findText(currentServer, Qt.MatchFixedString)
             self.server_name.removeItem(index)
+            
+    def test_cluster(self):
+        host_name = self.area_name.text()
+        host_name = host_name[host_name.index('@')+1:]
+        try:
+            subprocess.check_output(["ping", "-c", "1", host_name])
+            msg = '{} connection ok'.format(host_name)
+            self.info.setText("<span style=\" \
+                              font-size:10pt; \
+                              color:#007700;\" >"
+                              + msg
+                              + "</span>")             
+        except subprocess.CalledProcessError:
+            msg = '{} no connection'.format(host_name)
+            self.info.setText("<span style=\" \
+                              font-size:10pt; \
+                              color:#cc0000;\" >"
+                              + msg
+                              + "</span>")
 
     def get_params(self):
         return self.server_param
-
-
-class getInfoHn():
-    def __init__(self, wdtoHn):
-        super(getInfoHn, self).__init__(parent)
