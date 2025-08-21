@@ -9105,10 +9105,11 @@ class ssh_diagram_execution():
         password = host_password.strip()
         file_cmd = os.path.expanduser("~")
         file_cmd = os.path.join(file_cmd, ".skrypy", "ssh_command.sh")
-        if opx:
-            opt = opx + 'q'
-        else:
-            opt = '-q'
+        # if opx:
+        #     opt = opx + 'q'
+        # else:
+        #     opt = '-q'
+        opt = opx
         with open(file_cmd) as process_stdin:
             cmd = ["sshpass", "-p", password, "ssh", opt, host_name, "--", "bash", "-s"]
             print(" ".join(cmd[3:]))
