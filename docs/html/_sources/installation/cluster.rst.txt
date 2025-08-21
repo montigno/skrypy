@@ -47,7 +47,7 @@ You can put several clusters in the list. |br|
     Depending on the cluster's graphics management capability, the result is not guaranteed.
 
 - ``Pre-execution command``: this field allows you to enter shell-like instructions to be executed before your diagrams run. |br|
-                             The example in the figure allows you to enable conda RSS. You should clearly specify the conda source of the cluster.
+                             The example in the figure allows you to activate a conda RSS environment. You should clearly specify the conda source of the cluster.
 
 4. Registration 
 
