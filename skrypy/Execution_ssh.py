@@ -43,15 +43,15 @@ class execution_ssh():
             for kenv, venv in list_env.items():
                 if kenv == 'sh':
                     try:
-                        os.popen('sh ' + venv)
+                        os.popen('sh ' + venv.replace('\n', ''))
                     except Exception as err:
                         print(err)
                 elif kenv == 'PATH':
-                    os.environ['PATH'] += os.pathsep + venv
+                    os.environ['PATH'] += os.pathsep + venv.replace('\n', '')
                 else:
-                    os.environ[kenv] = venv
+                    os.environ[kenv] = venv.replace('\n', '')
             if 'CONDASOURCE' in list_env.keys():
-                path_conda = list_env['CONDASOURCE'].replace('\n', '')
+                path_conda = list_env['CONDASOURCE']
                 # subprocess.Popen("source {}".format(list_env['CONDASOURCE']).strip(), shell=True, executable="/bin/bash")
                 subprocess.check_output("source {}".format(path_conda), shell=True, executable="/bin/bash")
             print("Environment variables:")
