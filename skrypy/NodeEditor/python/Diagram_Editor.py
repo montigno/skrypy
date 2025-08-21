@@ -9099,43 +9099,43 @@ class ssh_diagram_execution():
             # fssh.write("echo \n")
             fssh.write("exit\n")
 
-        # sd = os.system(f"gnome-terminal --title=\"" + param_ssh[0] + "\" --wait -- bash -c \"sshpass -p " + host_password.strip() + " ssh " + opx +
-        #           " " + host_name + " < ~/.skrypy/ssh_command.sh; bash\"")
+        sd = os.system(f"gnome-terminal --title=\"" + param_ssh[0] + "\" --wait -- bash -c \"sshpass -p " + host_password.strip() + " ssh " + opx +
+                  " " + host_name + " < ~/.skrypy/ssh_command.sh; bash\"")
 
-        password = host_password.strip()
-        file_cmd = os.path.expanduser("~")
-        file_cmd = os.path.join(file_cmd, ".skrypy", "ssh_command.sh")
-        # if opx:
-        #     opt = opx + 'q'
+        # password = host_password.strip()
+        # file_cmd = os.path.expanduser("~")
+        # file_cmd = os.path.join(file_cmd, ".skrypy", "ssh_command.sh")
+        # # if opx:
+        # #     opt = opx + 'q'
+        # # else:
+        # #     opt = '-q'
+        # opt = opx
+        # with open(file_cmd) as process_stdin:
+        #     cmd = ["sshpass", "-p", password, "ssh", opt, host_name, "--", "bash", "-s"]
+        #     print(" ".join(cmd[3:]))
+        #     p4 = subprocess.Popen(cmd, stdin=process_stdin, stdout=subprocess.PIPE)
+        #     out, err = p4.communicate()
+        #     print(out.decode())
+        # col = '\x1b[38;2;50;250;50m'
+        # # print("execution on {} finished".format(host_name))
+        # print('{}execution on {} finished\033[0m'.format(col, host_name))
+        # for lst_dgr in self.source:
+        #     print('    - {}{}\033[0m'.format(col, os.path.basename(lst_dgr)))
+        #
+        # # download shared memory from cluster ###################################
+        # source = "{}:{}".format(host_name, '~/.skrypy/list_shm.yml')
+        # dest = os.path.expanduser("~")
+        # dest = os.path.join(dest, ".skrypy")
+        # cmd = ['sshpass', '-p', host_password.strip(), 'scp', source.strip(), dest.strip()]
+        # print(" ".join(cmd[3:]))
+        # p5 = subprocess.Popen(cmd, stdin=p1.stdout, stdout=subprocess.PIPE)
+        # # self.output = p5.stdout.read().decode()
+        # p5.communicate()
+        # p5.wait()
+        # if p4.returncode == 0:
+        #     print('download shared memory done')
         # else:
-        #     opt = '-q'
-        opt = opx
-        with open(file_cmd) as process_stdin:
-            cmd = ["sshpass", "-p", password, "ssh", opt, host_name, "--", "bash", "-s"]
-            print(" ".join(cmd[3:]))
-            p4 = subprocess.Popen(cmd, stdin=process_stdin, stdout=subprocess.PIPE)
-            out, err = p4.communicate()
-            print(out.decode())
-        col = '\x1b[38;2;50;250;50m'
-        # print("execution on {} finished".format(host_name))
-        print('{}execution on {} finished\033[0m'.format(col, host_name))
-        for lst_dgr in self.source:
-            print('    - {}{}\033[0m'.format(col, os.path.basename(lst_dgr)))
-
-        # download shared memory from cluster ###################################
-        source = "{}:{}".format(host_name, '~/.skrypy/list_shm.yml')
-        dest = os.path.expanduser("~")
-        dest = os.path.join(dest, ".skrypy")
-        cmd = ['sshpass', '-p', host_password.strip(), 'scp', source.strip(), dest.strip()]
-        print(" ".join(cmd[3:]))
-        p5 = subprocess.Popen(cmd, stdin=p1.stdout, stdout=subprocess.PIPE)
-        # self.output = p5.stdout.read().decode()
-        p5.communicate()
-        p5.wait()
-        if p4.returncode == 0:
-            print('download shared memory done')
-        else:
-            print('download shared memory error !!, code ' + str(p4.returncode))
+        #     print('download shared memory error !!, code ' + str(p4.returncode))
 
         # remove list_shme.yaml from cluster #######################################
         cmd = ['sshpass', '-p', host_password.strip(), 'ssh', host_name, "rm ~/.skrypy/list_shm.yml"]
