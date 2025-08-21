@@ -51,11 +51,10 @@ class execution_ssh():
                 else:
                     os.environ[kenv] = venv.replace('\n', '')
             
-            if 'CONDASOURCE' in list_env.keys():
-                print('CONDASOURCE found')
-                path_src_conda = list_env['CONDASOURCE']
-                subprocess.check_output("source {};".format(path_src_conda),   shell=True,
-                      executable="/bin/bash")
+            # if 'CONDASOURCE' in list_env.keys():
+            #     print('CONDASOURCE found')
+            #     path_src_conda = list_env['CONDASOURCE']
+            #     subprocess.check_output("source {}".format(path_src_conda), shell=True, executable="/bin/bash")
             
             print("Environment variables:")
             print(os.environ)

@@ -9054,6 +9054,14 @@ class ssh_diagram_execution():
             if host_password == 'None':
                 return
 
+        # search conda source in the cluster
+        if 'conda' in pre_exec:
+            conda_path = self.searchSourceConda(host_name, host_password)
+            if conda_path:
+                pre_exec = 'source {}\n'.format(conda_path) + pre_exec
+            else:
+                print("Conda source path not found on cluster !!")
+        
         for lst_dgr in self.source:
             diagram.append(os.path.join(host_path, os.path.basename(lst_dgr)))
 
@@ -9142,6 +9150,21 @@ class ssh_diagram_execution():
 
         # display new list
         SharedMemoryManager(False)
+        
+    def searchSourceConda(self, nhst, phst):
+        conda_path = None
+        
+        stdout, stderr = subprocess.Popen(['sshpass', '-p', 'Arganta/2', 'ssh', 'omonti@gin-e05-kobra', 'test -e ~/.skrypy/env_parameters.txt; echo $?'], stdout=subprocess.PIPE).communicate()
+        if not bool(int(stdout[:-1])):
+            stdout, stderr = subprocess.Popen(['sshpass', '-p', 'Arganta/2', 'ssh', 'omonti@gin-e05-kobra', 'cat ~/.skrypy/env_parameters.txt'], stdout=subprocess.PIPE).communicate()
+            textin = stdout.decode()
+            ind = textin.find('CONDASOURCE')
+            if ind != -1:
+                conda_path = textin[ind:]
+                conda_path = conda_path[12:conda_path.index('\n')]
+                print(conda_path)
+            
+        return conda_path
 
 
 class SubWindowManager(QMdiSubWindow):
