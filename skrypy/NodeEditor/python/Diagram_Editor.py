@@ -6473,6 +6473,7 @@ class NodeEdit(QWidget):
             currentsubWind = self.mdi.activeSubWindow()
             self.currentTab = currentsubWind.windowNumber
             if self.autofit:
+                print('autofit')
                 editor.diagramScene[editor.currentTab].fitwindow(0.8)
             try:
                 self.infopathDgr.setText(self.pathDiagram[self.currentTab])
@@ -9458,6 +9459,7 @@ class ToolBar(QToolBar):
         self.mainLayout = QGridLayout()
         self.check_box1 = QCheckBox("Auto fit")
         self.check_box1.setChecked(False)
+        editor.autofit = False
     #     self.check_box2 = QCheckBox("Tiled")
     #     self.check_box3 = QCheckBox("Maximize")
         self.check_box1.stateChanged.connect(self.uncheck)
