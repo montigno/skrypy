@@ -9110,8 +9110,9 @@ class ssh_diagram_execution():
         else:
             opt = '-q'
         with open(file_cmd) as process_stdin:
-            p4 = subprocess.Popen(["sshpass", "-p", password, "ssh", opt, host_name, "--", "bash", "-s"],
-                                  stdin=process_stdin, stdout=subprocess.PIPE)
+            cmd = ["sshpass", "-p", password, "ssh", opt, host_name, "--", "bash", "-s"]
+            print(" ".join(cmd[3:]))
+            p4 = subprocess.Popen(cmd, stdin=process_stdin, stdout=subprocess.PIPE)
             out, err = p4.communicate()
             print(out.decode())
         col = '\x1b[38;2;50;250;50m'

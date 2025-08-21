@@ -28,9 +28,10 @@ ________________________________________________________________
 
 #. See `install <https://afni.nimh.nih.gov/pub/dist/doc/htmldoc/background_install/install_instructs/index.html>`__
 
-   .. NOTE::
+#. Edit **'env_parameters.txt'** and add::
 
-      settings will be automatically generated in .bashrc
+	#fsl
+	export PATH=$PATH:/home/olivier/abin
 
 ________________________________________________________________
 
