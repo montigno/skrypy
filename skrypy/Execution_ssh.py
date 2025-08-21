@@ -4,6 +4,7 @@ import os
 import sys
 import gc
 import yaml
+import subprocess
 
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtCore import QRunnable
