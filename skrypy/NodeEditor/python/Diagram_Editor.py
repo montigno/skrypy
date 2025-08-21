@@ -9162,8 +9162,7 @@ class ssh_diagram_execution():
             if ind != -1:
                 conda_path = textin[ind:]
                 conda_path = conda_path[12:conda_path.index('\n')]
-                print(conda_path)
-            
+                print("Conda found on the cluster:", conda_path)
         return conda_path
 
 

@@ -58,7 +58,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../start/running_skrypy.html">Running Skrypy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../start/demo_1.html">Beginner Skrypy tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../start/shared_memory.html">Shared memory for direct access across processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../start/shared_memory.html">Shared memory for inter-process</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Blocks</span></p>
 <ul>
@@ -125,7 +125,11 @@ See with the cluster administrator.</p>
 </div>
 </div></blockquote>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Pre-execution</span> <span class="pre">command</span></code>: this field allows you to enter shell-like instructions to be executed before your diagrams run. Often useful when you need to activate conda first for example.</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">Pre-execution</span> <span class="pre">command</span></code>: this field allows you to enter shell-like instructions to be executed before your diagrams run. <br /></dt><dd><p>The example in the figure allows you to enable conda RSS. You should clearly specify the conda source of the cluster.</p>
+</dd>
+</dl>
+</li>
 </ul>
 <ol class="arabic" start="4">
 <li><p>Registration</p>

@@ -1,5 +1,5 @@
-Shared memory for direct access across processes
-================================================
+Shared memory for inter-process
+===============================
 
 Skrypy provides a way to use shared memory, allowing different processes to access the same block of memory to ensure the exchange of parameters between them and avoid data redundancies.
 The use of shared memory between processes is done both within the same machine and between client-cluster.

@@ -67,7 +67,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../start/running_skrypy.html">Running Skrypy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../start/demo_1.html">Beginner Skrypy tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../start/shared_memory.html">Shared memory for direct access across processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../start/shared_memory.html">Shared memory for inter-process</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Blocks</span></p>
 <ul>
@@ -110,7 +110,8 @@
 <p class="admonition-title">Important</p>
 <p>Skrypy needs to point programs to specific versions of dependencies. <br />
 The .bashrc file is in principle sufficient, but it has been found that when processing on a cluster, it does not always load. <br />
-The best solution is to edit the file <strong>‘env_parameters.txt’</strong> which is located in /home/username/.skrypy/.</p>
+The best solution is to edit the file <strong>‘env_parameters.txt’</strong> which is located in /home/username/.skrypy/. <br />
+Skrypy takes care of concatenating the ‘PATH’ variable.</p>
 </div>
 </section>
 <section id="ants">
@@ -228,9 +229,12 @@ export PATH=$PATH:/home/olivier/abin
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mrview</span>
 </pre></div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>settings will be automatically generated in .bashrc</p>
+</li>
+<li><p>Edit <strong>‘env_parameters.txt’</strong> and add:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># MRtrix3
+export PATH=mrtrix_root/mrtrix3/bin:$PATH
+export PATH=mrtrix_root/mrtrix3/mrdegibbs3D/bin
+</pre></div>
 </div>
 </li>
 </ol>

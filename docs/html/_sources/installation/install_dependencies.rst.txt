@@ -6,7 +6,8 @@ Environment variables
 .. important::
    Skrypy needs to point programs to specific versions of dependencies. |br|
    The .bashrc file is in principle sufficient, but it has been found that when processing on a cluster, it does not always load. |br|
-   The best solution is to edit the file **'env_parameters.txt'** which is located in /home/username/.skrypy/.
+   The best solution is to edit the file **'env_parameters.txt'** which is located in /home/username/.skrypy/. |br|
+   Skrypy takes care of concatenating the 'PATH' variable.
 
 `ANTs <https://github.com/ANTsX/ANTs>`__
 ----------------------------------------
@@ -116,9 +117,11 @@ ________________________________________________________________
 
 	mrview
 
-   .. NOTE::
+#. Edit **'env_parameters.txt'** and add::
 
-      settings will be automatically generated in .bashrc
+	# MRtrix3
+	export PATH=mrtrix_root/mrtrix3/bin:$PATH
+	export PATH=mrtrix_root/mrtrix3/mrdegibbs3D/bin
 
 ________________________________________________________________
 
