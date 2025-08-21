@@ -28,9 +28,10 @@ How to use
 
    <br />
 
-This requires only two tools: |br|
+This requires only 2 blocks: **SharedMemory_create** and **Shared_read** |br|
+They are found in the library **Environment** then **shared_memory** |br|
+
 |pic1| |pic2| |br|
-The 2 blocks are found in the library **Environment** then **shared_memory**
 
 After running the 2 diagrams, the results are displayed on the console
 |pic3| |br| |br|
