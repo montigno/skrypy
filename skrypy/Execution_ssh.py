@@ -38,7 +38,7 @@ class execution_ssh():
                                 line_mode = line.split('=')
                                 line_mode[0] = line_mode[0].replace('export', '').strip()
                                 list_env[line_mode[0]] = line_mode[1]
-    
+            
             for kenv, venv in list_env.items():
                 if kenv == 'sh':
                     try:
@@ -49,6 +49,8 @@ class execution_ssh():
                     os.environ['PATH'] += os.pathsep + venv
                 else:
                     os.environ[kenv] = venv
+            if 'CONDAPATH' in list_env.keys():
+                Popen("source {}".format(list_env['CONDAPATH']), shell=True, executable="/bin/bash")
             print("Environment variables:")
             print(os.environ)
 
