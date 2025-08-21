@@ -9154,9 +9154,9 @@ class ssh_diagram_execution():
     def searchSourceConda(self, nhst, phst):
         conda_path = None
         
-        stdout, stderr = subprocess.Popen(['sshpass', '-p', 'Arganta/2', 'ssh', 'omonti@gin-e05-kobra', 'test -e ~/.skrypy/env_parameters.txt; echo $?'], stdout=subprocess.PIPE).communicate()
+        stdout, stderr = subprocess.Popen(['sshpass', '-p', phst, 'ssh', nhst, 'test -e ~/.skrypy/env_parameters.txt; echo $?'], stdout=subprocess.PIPE).communicate()
         if not bool(int(stdout[:-1])):
-            stdout, stderr = subprocess.Popen(['sshpass', '-p', 'Arganta/2', 'ssh', 'omonti@gin-e05-kobra', 'cat ~/.skrypy/env_parameters.txt'], stdout=subprocess.PIPE).communicate()
+            stdout, stderr = subprocess.Popen(['sshpass', '-p', phst, 'ssh', nhst, 'cat ~/.skrypy/env_parameters.txt'], stdout=subprocess.PIPE).communicate()
             textin = stdout.decode()
             ind = textin.find('CONDASOURCE')
             if ind != -1:
