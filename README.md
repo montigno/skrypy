@@ -10,6 +10,11 @@ A documentation is available here : [https://montigno.github.io/skrypy](https://
 
 <p></p>
 
+	21/08/2025: version 25.08.21b
+	- continuation of the html documentation
+
+<p></p>
+
 	20/08/2025: version 25.08.20b
 	- config.yml : remove niwidgets 
 

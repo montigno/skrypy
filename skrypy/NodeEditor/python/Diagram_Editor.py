@@ -5883,7 +5883,7 @@ class Menu(QMenuBar):
                     diagr = os.path.basename(src[0])
                     if src[2] == 'local':
                         editor.mdi.setActiveSubWindow(list_dgr_tit[diagr])
-                        print("\n{} Excution {} local in progress ... \033[0m".format(col, diagr))
+                        print("\n{} Excution {} (local) in progress ... \033[0m".format(col, diagr))
                         Diagram_excution(diagr, src[1])
                     else:
                         print("\n{} Excution {} on {} in progress ... \033[0m".format(col, diagr, src[2]))

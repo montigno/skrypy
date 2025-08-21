@@ -18,7 +18,7 @@ In particular, it allows you to:
 - interact with other software tools (Deep learning, Nipype, MRTrix, ANTs, FSL, Matlab engine and others of your choice)
 - manage environment variables (without touching your OS configuration file such as .bashrc)
 - execute routine tasks
-- execute several different pipelines (shared memory tools allow parameters to be exchanged)
+- execute several different pipelines (shared memory tools allow parameters to be exchanged, even between client-cluster)
 - execute your pipelines locally or on a cluster (HPC), for deep learning for example
 
 It is developed in Python and uses the PyQt5 framework. |br|
@@ -81,6 +81,7 @@ Table of Contents
 
    start/running_skrypy.rst
    start/demo_1.rst
+   start/shared_memory.rst
 
 .. toctree::
    :maxdepth: 1

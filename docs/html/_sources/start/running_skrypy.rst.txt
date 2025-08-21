@@ -112,6 +112,4 @@ Alternative execution
 
 |pic5|
 
-.. # define a hard line break for HTML
-   .. |br| raw:: html
-   <br />
+  
