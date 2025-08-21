@@ -79,9 +79,9 @@ class execution_ssh():
                     move = False
 
         txt_code = file_head + file_end
-        col = col = '\x1b[38;2;0;100;255m'
-        print('\n' * 2)
-        print("{}execution: {}\033[0m".format(col, title_dgr))
+        # col = col = '\x1b[38;2;0;100;255m'
+        # print('\n' * 2)
+        # print("{}execution: {}\033[0m".format(col, title_dgr))
         # if mode_th:
         #     mode = 'Multi-threading'
         # else:

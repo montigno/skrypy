@@ -6473,7 +6473,6 @@ class NodeEdit(QWidget):
             currentsubWind = self.mdi.activeSubWindow()
             self.currentTab = currentsubWind.windowNumber
             if self.autofit:
-                print('autofit')
                 editor.diagramScene[editor.currentTab].fitwindow(0.8)
             try:
                 self.infopathDgr.setText(self.pathDiagram[self.currentTab])
