@@ -6134,7 +6134,7 @@ class Menu(QMenuBar):
                 try:
                     tmpActText = os.path.join(self.Dictexamples[tmpActText], tmpActText)
                 except Exception as err:
-                    pass
+                    return
 
             if tmpActText in editor.pathDiagram:
                 editor.editText("{} is already open".format(tmpActText),
