@@ -6131,8 +6131,10 @@ class Menu(QMenuBar):
 
         elif os.path.splitext(tmpActText)[1] == '.dgr':
             if not os.path.exists(tmpActText):
-                tmpActText = os.path.join(self.Dictexamples[tmpActText],
-                                          tmpActText)
+                try:
+                    tmpActText = os.path.join(self.Dictexamples[tmpActText], tmpActText)
+                except Exception as err:
+                    pass
 
             if tmpActText in editor.pathDiagram:
                 editor.editText("{} is already open".format(tmpActText),
