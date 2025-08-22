@@ -8,7 +8,7 @@ from . import set_dph
 from . import get_dph
 
 from PyQt5.QtWidgets import QComboBox, QDialog, QVBoxLayout, QHBoxLayout, QLabel, \
-    QLineEdit, QTextEdit, QPushButton, QDialogButtonBox, QCheckBox
+    QLineEdit, QTextEdit, QPushButton, QDialogButtonBox, QCheckBox, QMessageBox
 from PyQt5.QtCore import Qt
 
 
@@ -124,7 +124,7 @@ class servers_window(QDialog):
         vbox7.addWidget(self.exec_cmd)
 
         buttonGo = QPushButton('Go', self)
-        buttonCancel = QPushButton('Cancel', self)
+        buttonQuit = QPushButton('Quit', self)
         self.buttonSave = QPushButton('Save', self)
         buttonSaveAs = QPushButton('Save As ...', self)
         self.buttonDelete = QPushButton('Delete from list', self)
@@ -132,7 +132,7 @@ class servers_window(QDialog):
 
         hbox8 = QHBoxLayout()
         hbox8.addWidget(buttonGo)
-        hbox8.addWidget(buttonCancel)
+        hbox8.addWidget(buttonQuit)
         hbox8.addWidget(self.buttonSave)
         hbox8.addWidget(buttonSaveAs)
         hbox8.addWidget(self.buttonDelete)
@@ -142,7 +142,7 @@ class servers_window(QDialog):
             buttonGo.setEnabled(False)
 
         buttonGo.clicked.connect(self.go)
-        buttonCancel.clicked.connect(self.CANCEL)
+        buttonQuit.clicked.connect(self.QUIT)
         self.buttonSave.clicked.connect(self.save)
         buttonSaveAs.clicked.connect(self.saveas)
         self.buttonDelete.clicked.connect(lambda: self.deleteServer(self.server_name.currentText()))
@@ -213,7 +213,18 @@ class servers_window(QDialog):
                              self.wd_field.text()]
         self.close()
 
-    def CANCEL(self):
+    def QUIT(self):
+        if "*" in self.windowTitle():
+            msg = QMessageBox()
+            msg.setWindowTitle("Config modified...")
+            msg.setText("Save the modifications ?)")
+            msg.setIcon(QMessageBox.Question)
+            msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+            msg.setDefaultButton(QMessageBox.Yes)
+            x = msg.exec_()
+            if x == QMessageBox.Yes:
+                self.save()
+                # event.accept()
         self.server_param = []
         self.close()
 
