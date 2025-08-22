@@ -8,6 +8,13 @@ A documentation is available here : [https://montigno.github.io/skrypy](https://
 
 # Release history
 
+
+<p></p>
+
+	22/08/2025: version 25.08.22b
+	- start environment : some bugs fixed
+	- continuation of the html documentation
+
 <p></p>
 
 	21/08/2025: version 25.08.21b
