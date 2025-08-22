@@ -9194,7 +9194,7 @@ class Start_environment():
 
     def __init__(self, showing=False, parent=None):
         env_file = os.path.join(os.path.expanduser('~'), '.skrypy', 'env_parameters.txt')
-        list_env = {'PATH': ''}
+        list_env = {}
         if showing:
             print("{}\nEnvironment variables reloaded:".format('\x1b[38;2;50;250;50m'))
         if os.path.exists(env_file):
@@ -9205,7 +9205,10 @@ class Start_environment():
                         if '#' not in line and ('export' in line or 'sh ' in line):
                             if 'export PATH=' in line:
                                 line_mod = line.replace('export', '').replace('$PATH:', '').replace('PATH=', '').strip()
-                                list_env['PATH'] += os.pathsep + line_mod
+                                if 'PATH' not in list_env.keys():
+                                    list_env['PATH'] = line_mod
+                                else:
+                                    list_env['PATH'] += os.pathsep + line_mod
                             elif 'sh ' in line[0:3]:
                                 line_mod = line[2:].strip()
                                 list_env['sh'] = line_mod

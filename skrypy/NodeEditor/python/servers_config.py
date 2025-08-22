@@ -350,7 +350,7 @@ class servers_window(QDialog):
                 msg = self.styleErrorMessage('Skrypy directory doesn\'t exist !')
             self.info2.setText(msg)
         except Exception as err:
-            msg = self.styleErrorMessage('your password doesn\'t look good !')
+            msg = self.styleErrorMessage('your password doesn\'t look good ! (try on a terminal if this problem persists)')
             self.info2.setText(msg)
             return
         

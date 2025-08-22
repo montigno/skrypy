@@ -15,7 +15,12 @@ class openImageJ():
                         "for (i=0;i<list.length;i++) {"\
                         "open(list[i]);\n"\
                         "getDimensions(width, height, channels, slices, frames);\n"\
-                        "setSlice(slices/2);\n"\
+                        "if (slices != 1)\n"\
+                        "    Stack.setSlice(slices/2);\n"\
+                        "else if (frames != 1)\n"\
+                        "    Stack.setFrame(frames/2);\n"\
+                        "else if (channels != 1)\n"\
+                        "    Stack.setChannel(channels/2);\n"\
                         "run(\"Enhance Contrast\", \"saturated=0.35\");"\
                         "};"
         proc = Popen(['ImageJ', '-eval', script_macro1 + script_macro])
