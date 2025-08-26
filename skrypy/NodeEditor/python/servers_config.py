@@ -342,11 +342,12 @@ class servers_window(QDialog):
             host_name = host_name[host_name.index('@')+1:]
 
         try:
-            subprocess.check_output(["ping", "-c", "1", host_name])
+            subprocess.check_output(["ping", "-t", "2", "-c", "1", host_name])
             msg = '{} connection ok'.format(host_name)
             msg = self.styleGoodMessage(msg)
             self.info1.setText(msg)
-        except subprocess.CalledProcessError:
+        except subprocess.CalledProcessError as err:
+            print(err)
             msg = '{} no connection'.format(host_name)
             msg = self.styleErrorMessage(msg)
             self.info1.setText(msg)

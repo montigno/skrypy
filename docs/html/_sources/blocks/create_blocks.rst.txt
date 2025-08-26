@@ -50,6 +50,50 @@ A block corresponds to a simple Python class. |br|
 |pic6|
 |pic7|
 
+
+.. # define a hard line break for HTML
+.. |br| raw:: html
+
+   <br />
+
+
+Function parameters
+-------------------
+
+You must define default values ​​for parameters in the function definition::
+
+	def __init__(self, a=[0], b=1.55, c="title", img="path"):
+	The term 'path' is used to specify that it is a file or directory path, and also represents a null value.
+
+Function return types
+---------------------
+
+For function returns, it is necessary to add annotations and specify the type::
+
+	def out_result(self:"array_float")
+	    return self.result
+
+Here is the list of types::
+
+	def out_result(self: "int")
+	def out_result(self: "float")
+        def out_result(self: "str")
+        def out_result(self: "bool")
+        def out_result(self: "path")
+        def out_result(self: "dict")
+        def out_result(self: "tuple")
+        def out_result(self: "list_int")
+        def out_result(self: "list_float")
+        def out_result(self: "list_str")
+        def out_result(self: "list_bool")
+        def out_result(self: "list_path")
+        def out_result(self: "array_int")
+        def out_result(self: "array_float")
+        def out_result(self: "array_str")
+        def out_result(self: "array_bool")
+        def out_result(self: "array_path")
+
+
 The options
 -----------
 
@@ -58,9 +102,8 @@ Options are stored in joint yaml files
 |pic8|
 
 If you open the .yaml file, you find a list of options with default values. |br|
-Options are managed in the block source codes.
+Options are managed in the block source codes::
 
-.. # define a hard line break for HTML
-.. |br| raw:: html
-
-   <br />
+	class myfunction():
+	    def __init__(self, a=[0], b=1.55, **options):
+		

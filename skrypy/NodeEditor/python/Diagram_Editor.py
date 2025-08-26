@@ -6070,6 +6070,7 @@ class Menu(QMenuBar):
             for lstWid in editor.mdi.subWindowList():
                 editor.mdi.setActiveSubWindow(lstWid)
                 self.btnPressed(QAction("Fit to window"))
+            editor.mdi.WindowOrder(3)
 
         elif tmpActText == 'Maximized':
             for lstWid in editor.mdi.subWindowList():
