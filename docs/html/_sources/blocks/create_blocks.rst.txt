@@ -102,6 +102,8 @@ Options are stored in joint yaml files
 |pic8|
 
 If you open the .yaml file, you find a list of options with default values. |br|
+You can also add comments (except for Nipype modules, in which case the comments are taken directly from the help()). |br|
+
 Options are managed in the block source codes::
 
 	class myfunction():

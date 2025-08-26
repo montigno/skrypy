@@ -152,7 +152,8 @@ A block corresponds to a simple Python class. <br /></p>
 <p>Options are stored in joint yaml files</p>
 <p><a class="reference internal" href="../_images/explorer_modules_pcnn_options.png"><img alt="(arrow)" src="../_images/explorer_modules_pcnn_options.png" style="width: 30%;" /></a></p>
 <p>If you open the .yaml file, you find a list of options with default values. <br />
-Options are managed in the block source codes:</p>
+You can also add comments (except for Nipype modules, in which case the comments are taken directly from the help()). <br /></p>
+<p>Options are managed in the block source codes:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">myfunction</span><span class="p">():</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">b</span><span class="o">=</span><span class="mf">1.55</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">):</span>
 </pre></div>
