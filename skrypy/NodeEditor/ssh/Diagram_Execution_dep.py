@@ -21,7 +21,6 @@ from NodeEditor.python.classForProbe2 import printProbe
 class execution2():
 
     def __init__(self, n_cpu, parent=None):
-        super().__init__()
         self.n_cpu = n_cpu
         self.must_stopped = False
 
@@ -34,8 +33,8 @@ class execution2():
 
     @classmethod
     def methodForMultiprocessing(cls, *args):
-        execution2(execution2(), 8).must_stopped = False
-        return execution2(execution2(), 8).go_execution(execution2(), *args)
+        execution2.must_stopped = False
+        return execution2.go_execution(execution2(), *args)
 
     def go_execution(self, diagram, listDynamicValue, sema):
 
