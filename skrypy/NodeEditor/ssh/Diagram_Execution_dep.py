@@ -21,7 +21,7 @@ from NodeEditor.python.classForProbe2 import printProbe
 class execution2():
 
     def __init__(self, n_cpu, parent=None):
-        super().__init__()
+        # super().__init__()
         self.n_cpu = n_cpu
         self.must_stopped = False
 
@@ -33,9 +33,9 @@ class execution2():
                        else x for x in re.split(r'(\d+)', string)])
 
     @classmethod
-    def methodForMultiprocessing(cls, *args):
+    def methodForMultiprocessing(cls, n_cpu, *args):
         execution2.must_stopped = False
-        return execution2.go_execution(execution2(), *args)
+        return execution2.go_execution(execution2(n_cpu), *args)
 
     def go_execution(self, diagram, listDynamicValue, sema):
 
@@ -332,7 +332,7 @@ class execution2():
                             else:
                                 listDynamicValue[tmp_k].append(lst_v)
                 elif 'm' in execution:
-                    super().__init__(self.n_cpu)
+                    # super().__init__()
                     process = []
                     sema = Semaphore(self.n_cpu)
                     pool = Pool(processes=self.n_cpu)
@@ -351,7 +351,7 @@ class execution2():
                         for ele in lengthEnter:
                             for keyDyn, valDyn in Dyn_Enters.items():
                                 listDynamicValueSub[keyDyn] = valDyn[ele]
-                            list_args.append((txt + diagram, listDynamicValueSub.copy(), ''))
+                            list_args.append((self.n_cpu, txt + diagram, listDynamicValueSub.copy(), ''))
                         with pool:
                             result = pool.starmap(execution2.methodForMultiprocessing, list_args)
                         i = 0

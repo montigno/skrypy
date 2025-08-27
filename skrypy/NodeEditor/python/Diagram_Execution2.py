@@ -26,7 +26,7 @@ class execution2(QObject):
     update_progress = pyqtSignal(int, str)
 
     def __init__(self, parent=None):
-        super().__init__()
+        # super().__init__()
         self.must_stopped = False
         self.report_pip = Config().getDiagramReport()
         # SharedMemory().readList()
@@ -365,7 +365,7 @@ class execution2(QObject):
                             else:
                                 listDynamicValue[tmp_k].append(lst_v)
                 elif 'm' in execution:
-                    super().__init__()
+                    # super().__init__()
                     process = []
                     n_cpu = Config().getCpuCount()
                     sema = Semaphore(n_cpu)
