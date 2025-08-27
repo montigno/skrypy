@@ -351,6 +351,18 @@ class analyze2:
 
                     # print('tmpIt :', tmpIt, tmpNeedIter)
 
+                    # check interlinks bloc #############
+                    tmpIttmp = tmpIt.copy()
+                    print('tmpIttmp', tmpIttmp)
+                    for it in tmpIt:
+                        if it in self.interlinks_node.keys():
+                            for lsbl in self.interlinks_node[it]:
+                                if lsbl in tmpIt:
+                                    tasks_list.append(lsbl)
+                                    tmpIttmp.remove(lsbl)
+                    tmpIt = tmpIttmp
+                    #####################################
+
                     if len(tmpIt) > 1 and thrd[1]:
                         tasks_list.append("ThreadOn")
                         tasks_list.extend(tmpIt)

@@ -35,7 +35,7 @@ class execution2():
     @classmethod
     def methodForMultiprocessing(cls, *args):
         execution2.must_stopped = False
-        return execution2.go_execution(execution2, *args)
+        return execution2.go_execution(execution2(), *args)
 
     def go_execution(self, diagram, listDynamicValue, sema):
 
