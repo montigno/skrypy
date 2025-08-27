@@ -11,6 +11,13 @@ A documentation is available here : [https://montigno.github.io/skrypy](https://
 
 <p></p>
 
+	25/08/2027: version 25.08.27b
+	- bug fixed : multiprocessing pool starmap
+					analyze of diagram with interlinks 
+					
+
+<p></p>
+
 	25/08/2025: version 25.08.25b
 	- clusters config : improved test 
 	- continuation of the html documentation

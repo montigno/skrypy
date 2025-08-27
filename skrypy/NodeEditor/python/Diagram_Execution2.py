@@ -42,7 +42,7 @@ class execution2(QObject):
     def methodForMultiprocessing(cls, *args):
         execution2.must_stopped = False
         execution2.report_pip = Config().getDiagramReport()
-        return execution2.go_execution(execution2, *args)
+        return execution2.go_execution(execution2(), *args)
 
     def go_execution(self, diagram, listDynamicValue, textEditor, progressBar, sema, console):
 
@@ -387,7 +387,9 @@ class execution2(QObject):
                                 listDynamicValueSub[keyDyn] = valDyn[ele]
                             list_args.append((txt + diagram, listDynamicValueSub.copy(), '', False, '', None))
                         with pool:
+                            print('start pool')
                             result = pool.starmap(execution2.methodForMultiprocessing, list_args)
+                            print('end pool')
                         i = 0
                         for res in result:
                             for lst_k, lst_v in res.items():

@@ -107,7 +107,7 @@ class execution_ssh():
         # current_dir_path = os.path.dirname(os.path.realpath(__file__))
         # source_disp = os.path.join(current_dir_path, 'tasks_progress.py')
         # subprocess.Popen([sys.executable, source_disp, 'start diagram'])
-        self.runner = ThreadDiagram(title_dgr, args, self.n_cpu)
+        self.runner = ThreadDiagram(title_dgr, self.n_cpu, args)
         try:
             sr = self.runner.run()
         except Exception as err:
@@ -155,7 +155,7 @@ class SharedMemoryManager():
 
 class ThreadDiagram(QRunnable):
 
-    def __init__(self, name, args, n_cpu, parent=None):
+    def __init__(self, name, n_cpu, args, parent=None):
         super(ThreadDiagram, self).__init__()
         self.name = name
         self.args = args
