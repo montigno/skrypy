@@ -21,7 +21,7 @@ from NodeEditor.python.classForProbe2 import printProbe
 class execution2():
 
     def __init__(self, n_cpu, parent=None):
-        # super().__init__()
+        super().__init__()
         self.n_cpu = n_cpu
         self.must_stopped = False
 
@@ -332,7 +332,7 @@ class execution2():
                             else:
                                 listDynamicValue[tmp_k].append(lst_v)
                 elif 'm' in execution:
-                    # super().__init__()
+                    super().__init__()
                     process = []
                     sema = Semaphore(self.n_cpu)
                     pool = Pool(processes=self.n_cpu)
