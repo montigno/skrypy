@@ -9058,7 +9058,9 @@ class ssh_diagram_execution():
             host_password = self.passwd_dialog(param_ssh[0]).passwd()
             if host_password == 'None':
                 return
-
+        if not self.cluster:
+            self.cluster = param_ssh[7]
+            
         # search conda source in the cluster
         if 'conda' in pre_exec:
             conda_path = self.searchSourceConda(host_name, host_password)

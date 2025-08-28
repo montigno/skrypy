@@ -50,7 +50,8 @@ class servers_window(QDialog):
                              str(clust['cpu_number']),
                              bool(clust['X11_forwarding']),
                              clust['pre_execution_command'],
-                             tmppd]
+                             tmppd,
+                             self.clust]
 
     def mainWindow(self, list_config):
 
@@ -210,7 +211,8 @@ class servers_window(QDialog):
                              self.cpu_to_use.text(),
                              self.use_x11_bool.isChecked(),
                              self.exec_cmd.toPlainText(),
-                             self.wd_field.text()]
+                             self.wd_field.text(),
+                             self.server_name.currentText()]
         self.close()
 
     def QUIT(self):
