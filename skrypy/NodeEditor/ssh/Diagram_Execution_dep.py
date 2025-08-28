@@ -314,7 +314,8 @@ class execution2():
                     try:
                         listDynamicValueSub[lstOut] = listDynamicValue[lstOut]
                     except Exception as err:
-                        print('{}{}err\033[0m'.format(error_color, err))
+                        pass
+                        # print('{}{}err\033[0m'.format(error_color, err))
 
                 if 'm' not in execution and 't' not in execution:
                     for ind in lengthEnter:

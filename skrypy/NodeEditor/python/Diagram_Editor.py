@@ -9105,7 +9105,7 @@ class ssh_diagram_execution():
             fssh.write("cd {}\n".format(host_skrypy_path))
             fssh.write("source bin/activate\n")
             fssh.write("cd skrypy\n")
-            fssh.write("python3 Execution_ssh.py {} {} {} {} {}\n".format(host_path, diagram, n_cpu, self.mode, opx, self.cluster))
+            fssh.write("python3 Execution_ssh.py {} {} {} {} {} {}\n".format(host_path, diagram, n_cpu, self.mode, opx, self.cluster))
             fssh.write("deactivate\n")
             fssh.write("echo\n")
             # fssh.write("echo \"\033[1;34mFinished.. you can close this window\033[0m\"\n")
