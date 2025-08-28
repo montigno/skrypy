@@ -12,11 +12,13 @@ from PyQt5.QtCore import QRunnable
 
 class execution_ssh():
 
-    def __init__(self, workspace, files_dgr, n_cpu, mode, parent=None):
+    def __init__(self, workspace, files_dgr, n_cpu, mode, cluster, parent=None):
         files_dgr = files_dgr[1:-1].split(',')
         self.n_cpu = int(n_cpu)
         self.Start_environment()
+        col = '\x1b[38;2;0;100;255m'
         for dgr in files_dgr:
+            print("\n{} Excution {} ({}) in progress ... \033[0m".format(col, dgr, cluster))
             self.execute_Diagram(dgr, mode)
             
     def Start_environment(self):
@@ -170,5 +172,5 @@ class ThreadDiagram(QRunnable):
 
 if __name__ == '__main__':
     self_dir_path = os.path.dirname(os.path.realpath(__file__))
-    run_ssh = execution_ssh(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
+    run_ssh = execution_ssh(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4], sys.arg[5])
     os.chdir(os.path.expanduser('~'))

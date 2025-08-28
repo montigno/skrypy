@@ -11,10 +11,14 @@ A documentation is available here : [https://montigno.github.io/skrypy](https://
 
 <p></p>
 
-	25/08/2027: version 25.08.27b
+	28/08/2025: version 25.08.28b
+	- library : block 'path_array_flatten' added
+
+<p></p>
+
+	27/08/2025: version 25.08.27b
 	- bug fixed : multiprocessing pool starmap
 					analyze of diagram with interlinks 
-					
 
 <p></p>
 

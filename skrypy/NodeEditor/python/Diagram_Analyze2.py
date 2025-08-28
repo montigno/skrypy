@@ -135,7 +135,7 @@ class analyze2:
         self.assign_variables()
         connects = self.connection_inputs_ouputs(ConnectIn, ConnectOut)
         self.interlinks, self.interlinks_node = self.get_inter_link()
-        print('self.interlinks_node', self.interlinks, self.interlinks_node)
+        # print('self.interlinks_node', self.interlinks, self.interlinks_node)
         self.textExecution += connects[0] + '\n'
         taks_ord = self.tasks_order(self.listNd, listIt, listBlInLoop, self.mode, "main: ")
         self.textExecution += str(taks_ord[0]) + '\n'
@@ -353,7 +353,6 @@ class analyze2:
 
                     # check interlinks bloc #############
                     tmpIttmp = tmpIt.copy()
-                    print('tmpIttmp', tmpIttmp)
                     for it in tmpIt:
                         if it in self.interlinks_node.keys():
                             for lsbl in self.interlinks_node[it]:

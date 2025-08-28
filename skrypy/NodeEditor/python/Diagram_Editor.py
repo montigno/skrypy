@@ -2755,6 +2755,8 @@ class Diagram_excution():
         # subprocess.Popen([sys.executable, source_disp, 'start diagram'])
         self.runner = ThreadDiagram(title_dgr, args, editor)
         try:
+            col = '\x1b[38;2;255;100;0m'
+            print("\n{} Execution {} (local) in progress ... \033[0m".format(col, title_dgr))
             sr = self.runner.run()
         except Exception as err:
             editor.editText("This diagram contains errors : {}".format(str(err)),
@@ -5751,7 +5753,6 @@ class Menu(QMenuBar):
             if len(editor.mdi.subWindowList()) >= 1:
                 if not editor.listConnects[editor.currentTab]:
                     currentTitle = editor.getSubWindowCurrentTitle()
-                    print("run", currentTitle)
                     Diagram_excution(currentTitle, False)
                 else:
                     editor.editText(" > You can't run Diagram with connectors",
@@ -5762,7 +5763,6 @@ class Menu(QMenuBar):
             if len(editor.mdi.subWindowList()) >= 1:
                 if not editor.listConnects[editor.currentTab]:
                     currentTitle = editor.getSubWindowCurrentTitle()
-                    print("threading", currentTitle)
                     Diagram_excution(currentTitle, True)
                 else:
                     editor.editText(" > You can't run Diagram with connectors",
@@ -5847,6 +5847,7 @@ class Menu(QMenuBar):
                             editor.editText("{} :<br>You can't run Diagram with connectors".format(title_dgr),
                                             10, 600, 'cc0000', False, True)
                             return
+
                 ssh_diagram_execution(source_dgr, 'Multi-threading', None)
 
         elif tmpActText == 'Run multiple Diagrams alternately':
@@ -5878,15 +5879,13 @@ class Menu(QMenuBar):
                             editor.editText("{} :<br>You can't run Diagram with connectors".format(title_dgr),
                                             10, 600, 'cc0000', False, True)
                             return
-                col = '\x1b[38;2;0;100;255m'
+                col = '\x1b[38;2;0;255;0m'
                 for src in source_dgr:
                     diagr = os.path.basename(src[0])
                     if src[2] == 'local':
                         editor.mdi.setActiveSubWindow(list_dgr_tit[diagr])
-                        print("\n{} Excution {} (local) in progress ... \033[0m".format(col, diagr))
                         Diagram_excution(diagr, src[1])
                     else:
-                        print("\n{} Excution {} on {} in progress ... \033[0m".format(col, diagr, src[2]))
                         ssh_diagram_execution([src[0]], 'Multi-threading', src[2])
         # elif tmpActText == 'Show grid':
         #     showGrid = self.show_grid_action.isChecked()
@@ -9016,6 +9015,7 @@ class ssh_diagram_execution():
     def __init__(self, source, mode, cluster):
         self.source = source
         self.mode = mode
+        self.cluster = cluster
         if not cluster:
             c = servers_window('exec', None)
             c.exec_()
@@ -9039,6 +9039,8 @@ class ssh_diagram_execution():
         # host_password = self.passwd_dialog(param_ssh[0]).passwd()
         # if host_password == 'None':
         #     return
+
+        col = '\x1b[38;2;0;100;255m'
 
         diagram = []
         host_name = param_ssh[0]
@@ -9103,7 +9105,7 @@ class ssh_diagram_execution():
             fssh.write("cd {}\n".format(host_skrypy_path))
             fssh.write("source bin/activate\n")
             fssh.write("cd skrypy\n")
-            fssh.write("python3 Execution_ssh.py {} {} {} {} {}\n".format(host_path, diagram, n_cpu, self.mode, opx))
+            fssh.write("python3 Execution_ssh.py {} {} {} {} {}\n".format(host_path, diagram, n_cpu, self.mode, opx, self.cluster))
             fssh.write("deactivate\n")
             fssh.write("echo\n")
             # fssh.write("echo \"\033[1;34mFinished.. you can close this window\033[0m\"\n")
