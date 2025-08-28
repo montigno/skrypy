@@ -152,6 +152,7 @@ class servers_window(QDialog):
         self.info1 = QLabel()
         self.info2 = QLabel()
         self.info3 = QLabel()
+        self.memory_info = QTextEdit()
 
 
         self.vbox.addLayout(hbox1)
@@ -166,6 +167,7 @@ class servers_window(QDialog):
         self.vbox.addWidget(self.info1)
         self.vbox.addWidget(self.info2)
         self.vbox.addWidget(self.info3)
+        self.vbox.addWidget(self.memory_info)
 
 
         self.setLayout(self.vbox)
@@ -375,8 +377,13 @@ class servers_window(QDialog):
         else:
             msg = self.styleErrorMessage('Workspace directory doesn\'t exist !')
         self.info3.setText(msg)
-            
-            
+
+        stdout, stderr = subprocess.Popen(['sshpass', '-p', self.wd_field.text(), 'ssh', self.area_name.text().strip(),
+                                'nvidia-smi --query-gpu=memory.used --format=csv'], stdout=subprocess.PIPE).communicate()
+        msg = "GPU {} :\n".format(self.server_name.currentText())
+        msg += stdout.decode('UTF-8')
+        self.memory_info.setText(msg)
+
     def styleErrorMessage(self, msg):
         style = "<span style=\" \
                               font-size:10pt; \
