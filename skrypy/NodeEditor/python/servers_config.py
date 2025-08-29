@@ -2,6 +2,7 @@ import os
 import yaml
 import subprocess
 import inspect
+from threading import Timer
 
 from . import Config
 from . import set_dph
@@ -352,9 +353,21 @@ class servers_window(QDialog):
         if '@' in host_name:
             host_name = host_name[host_name.index('@')+1:]
 
-        stdout, stderr = subprocess.Popen(['sshpass', '-p', self.wd_field.text(), 'ssh', self.area_name.text().strip(),
-                                'test -e ' + self.skry_dir.text().strip() + '; echo $?'], stdout=subprocess.PIPE, shell=False).communicate()
-
+        proc = subprocess.Popen(['sshpass', '-p', self.wd_field.text(), 'ssh', 
+                                           self.area_name.text().strip(),
+                                           'test -e ' + self.skry_dir.text().strip() + '; echo $?'], 
+                                           stdout=subprocess.PIPE, shell=False)
+        timer = Timer(2, proc.kill)
+        try:
+            timer.start()
+            stdout, stderr = proc.communicate()
+        except:
+            msg = '{} connection problem'.format(host_name)
+            msg = self.styleErrorMessage(msg)
+            self.info1.setText(msg)
+            return
+        finally:
+            timer.cancel()
         if stdout.decode('UTF-8'):
             msg = '{} connection ok'.format(host_name)
             msg = self.styleGoodMessage(msg)
