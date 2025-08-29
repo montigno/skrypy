@@ -382,8 +382,16 @@ class servers_window(QDialog):
 
         stdout, stderr = subprocess.Popen(['sshpass', '-p', self.wd_field.text(), 'ssh', self.area_name.text().strip(),
                                 'nvidia-smi --query-gpu=memory.used --format=csv'], stdout=subprocess.PIPE).communicate()
-        msg = "GPU {} : ".format(self.server_name.currentText())
+        msg = "GPU {}:\n".format(self.server_name.currentText())
         msg += stdout.decode('UTF-8')
+        # self.memory_info.setText(msg)
+        
+        stdout, stderr = subprocess.Popen(['sshpass', '-p', self.wd_field.text(), 'ssh', self.area_name.text().strip(),
+                                'free -m --human'], stdout=subprocess.PIPE).communicate()
+        msg += "\nRAM {}:\n".format(self.server_name.currentText())
+        msg += stdout.decode('UTF-8')
+        self.memory_info.setText(msg)
+        
         self.memory_info.setText(msg)
 
     def styleErrorMessage(self, msg):
