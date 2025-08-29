@@ -11,6 +11,11 @@ A documentation is available here : [https://montigno.github.io/skrypy](https://
 
 <p></p>
 
+	29/08/2025: version 25.08.29b
+	- clusters config : improved test 
+
+<p></p>
+
 	28/08/2025: version 25.08.28b
 	- library : block 'path_array_flatten' added
 

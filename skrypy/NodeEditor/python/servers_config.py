@@ -153,6 +153,7 @@ class servers_window(QDialog):
         self.info2 = QLabel()
         self.info3 = QLabel()
         self.memory_info = QTextEdit()
+        self.memory_info.setStyleSheet("background: rgba(100,100,100,20%)")
 
 
         self.vbox.addLayout(hbox1)
@@ -204,6 +205,7 @@ class servers_window(QDialog):
         self.info1.clear()
         self.info2.clear()
         self.info3.clear()
+        self.memory_info.clear()
         self.setWindowTitle('Clusters configuration')
 
     def go(self):
@@ -335,41 +337,41 @@ class servers_window(QDialog):
             index = self.server_name.findText(currentServer, Qt.MatchFixedString)
             self.server_name.removeItem(index)
 
-    def test_cluster(self):
-        
+    def clear_infos(self):
         self.info1.clear()
         self.info2.clear()
         self.info3.clear()
+        self.memory_info.clear()
+        self.info1.repaint()
+    
+    def test_cluster(self):
+
+        self.clear_infos()
 
         host_name = self.area_name.text()
         if '@' in host_name:
             host_name = host_name[host_name.index('@')+1:]
 
-        try:
-            subprocess.check_output(["ping", "-t", "2", "-c", "1", host_name])
+        stdout, stderr = subprocess.Popen(['sshpass', '-p', self.wd_field.text(), 'ssh', self.area_name.text().strip(),
+                                'test -e ' + self.skry_dir.text().strip() + '; echo $?'], stdout=subprocess.PIPE, shell=False).communicate()
+
+        if stdout.decode('UTF-8'):
             msg = '{} connection ok'.format(host_name)
             msg = self.styleGoodMessage(msg)
             self.info1.setText(msg)
-        except subprocess.CalledProcessError as err:
-            print(err)
-            msg = '{} no connection'.format(host_name)
-            msg = self.styleErrorMessage(msg)
-            self.info1.setText(msg)
-            return
-
-        stdout, stderr = subprocess.Popen(['sshpass', '-p', self.wd_field.text(), 'ssh', self.area_name.text().strip(),
-                                'test -e ' + self.skry_dir.text().strip() + '; echo $?'], stdout=subprocess.PIPE).communicate()
-        try:
             if not bool(int(stdout[:-1])):
                 msg = self.styleGoodMessage('Skrypy directory exists')
             else:
                 msg = self.styleErrorMessage('Skrypy directory doesn\'t exist !')
             self.info2.setText(msg)
-        except Exception as err:
-            msg = self.styleErrorMessage('your password doesn\'t look good ! (try on a terminal if this problem persists)')
+        else:
+            msg = '{} connection problem'.format(host_name)
+            msg = self.styleErrorMessage(msg)
+            self.info1.setText(msg)
+            msg = self.styleErrorMessage('problem with login or password or network  (try on a terminal if this problem persists)')
             self.info2.setText(msg)
             return
-        
+
         stdout, stderr = subprocess.Popen(['sshpass', '-p', self.wd_field.text(), 'ssh', self.area_name.text().strip(),
                                 'test -e ' + self.wrkspace_dir.text().strip() + '; echo $?'], stdout=subprocess.PIPE).communicate()
         if not bool(int(stdout[:-1])):
@@ -380,7 +382,7 @@ class servers_window(QDialog):
 
         stdout, stderr = subprocess.Popen(['sshpass', '-p', self.wd_field.text(), 'ssh', self.area_name.text().strip(),
                                 'nvidia-smi --query-gpu=memory.used --format=csv'], stdout=subprocess.PIPE).communicate()
-        msg = "GPU {} :\n".format(self.server_name.currentText())
+        msg = "GPU {} : ".format(self.server_name.currentText())
         msg += stdout.decode('UTF-8')
         self.memory_info.setText(msg)
 
