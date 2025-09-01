@@ -43,6 +43,7 @@ import time
 import webbrowser
 import yaml
 from random import randint
+from threading import Timer
 
 from . import Config, Plugin, AboutSoft
 from . import DefinitType, ReorderList, diagramInfo
@@ -9061,6 +9062,25 @@ class ssh_diagram_execution():
         if not self.cluster:
             self.cluster = param_ssh[7]
             
+        # check if cluster can be connected
+        proc = subprocess.Popen(['sshpass', '-p', host_password, 'ssh', 
+                                           host_name], 
+                                           stdout=subprocess.PIPE, shell=False)
+        timer = Timer(2, proc.kill)
+        col = '\x1b[38;2;255;0;0m'
+        try:
+            timer.start()
+            stdout, stderr = proc.communicate()
+            print("stdout, stderr:", stdout, stderr)
+            if not stdout.decode('UTF-8'):
+                print('{}Connection problem with {}\x1b[0m'.format(col, host_name))
+                return
+        except:
+            print('{}Connection problem with {}\x1b[0m'.format(col, host_name))
+            return
+        finally:
+            timer.cancel()
+
         # search conda source in the cluster
         if 'conda' in pre_exec:
             conda_path = self.searchSourceConda(host_name, host_password)

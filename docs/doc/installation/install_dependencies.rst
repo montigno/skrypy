@@ -19,7 +19,7 @@ Environment variables
 #. Edit **'env_parameters.txt'** and add::
 	
 	#ANTs
-	export PATH=ants_root/ants-2.5.0/bin:$PATH
+	export PATH=ants_root/ants-2.5.0/bin
 	export ANTSPATH=ants_root/ants-2.5.0/bin
 
 ________________________________________________________________
@@ -32,7 +32,7 @@ ________________________________________________________________
 #. Edit **'env_parameters.txt'** and add::
 
 	#fsl
-	export PATH=$PATH:/home/olivier/abin
+	export PATH=afni_root/abin
 
 ________________________________________________________________
 
@@ -120,7 +120,7 @@ ________________________________________________________________
 #. Edit **'env_parameters.txt'** and add::
 
 	# MRtrix3
-	export PATH=mrtrix_root/mrtrix3/bin:$PATH
+	export PATH=mrtrix_root/mrtrix3/bin
 	export PATH=mrtrix_root/mrtrix3/mrdegibbs3D/bin
 
 ________________________________________________________________

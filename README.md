@@ -8,6 +8,10 @@ A documentation is available here : [https://montigno.github.io/skrypy](https://
 
 # Release history
 
+<p></p>
+
+	01/09/2025: version 25.09.01b
+	- Bug fixed : running on a cluster when the network is non-existent
 
 <p></p>
 
