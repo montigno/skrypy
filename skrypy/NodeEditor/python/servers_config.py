@@ -21,7 +21,7 @@ class servers_window(QDialog):
         self.clust = clust
         self.server_yml = Config().getServersList()
         self.getServersInfo()
-            
+
     def field_changed(self):
         self.setWindowTitle('Clusters configuration*')
 
@@ -149,13 +149,12 @@ class servers_window(QDialog):
         buttonSaveAs.clicked.connect(self.saveas)
         self.buttonDelete.clicked.connect(lambda: self.deleteServer(self.server_name.currentText()))
         self.buttonTest.clicked.connect(self.test_cluster)
-        
+
         self.info1 = QLabel()
         self.info2 = QLabel()
         self.info3 = QLabel()
         self.memory_info = QTextEdit()
         self.memory_info.setStyleSheet("background: rgba(100,100,100,20%)")
-
 
         self.vbox.addLayout(hbox1)
         self.vbox.addLayout(hbox2)
@@ -170,7 +169,6 @@ class servers_window(QDialog):
         self.vbox.addWidget(self.info2)
         self.vbox.addWidget(self.info3)
         self.vbox.addWidget(self.memory_info)
-
 
         self.setLayout(self.vbox)
 
@@ -308,7 +306,6 @@ class servers_window(QDialog):
             self.server_name.setCurrentIndex(index)
             self.setWindowTitle('Clusters configuration')
 
-
     class _ConfirmationDialog(QDialog):
 
         def __init__(self, cur_serv, parent=None):
@@ -344,39 +341,65 @@ class servers_window(QDialog):
         self.info3.clear()
         self.memory_info.clear()
         self.info1.repaint()
-    
+
     def test_cluster(self):
 
         self.clear_infos()
 
+        host = self.area_name.text()
         host_name = self.area_name.text()
+
         if '@' in host_name:
             host_name = host_name[host_name.index('@')+1:]
+        else:
+            msg = 'the host has not user name'
+            msg = self.styleErrorMessage(msg)
+            self.info1.setText(msg)
+            return
 
-        proc = subprocess.Popen(['sshpass', '-p', self.wd_field.text(), 'ssh', 
-                                           self.area_name.text().strip(),
-                                           'test -e ' + self.skry_dir.text().strip() + '; echo $?'], 
-                                           stdout=subprocess.PIPE, shell=False)
+        # host_name_m = host_name.split()
+        # if len(host_name) == 2:
+        
+        cmd_base = ['sshpass', '-p', self.wd_field.text(), 'ssh']
+        hnm = host.split()
+        if len(hnm) == 2:
+            cmd_base.extend(['-o', 'ProxyCommand={}'.format('sshpass -p {} ssh -W %h:%p {}'.format(self.wd_field.text(), hnm[0].strip())), hnm[1].strip()])
+        else:
+            cmd_base.append(host)
+
+        # connection test
+        cmd_comp = cmd_base.copy()
+        cmd_comp.append('test -e {}; echo $?'.format(self.skry_dir.text().strip()))
+        cmd_comp.append('&&')
+        cmd_comp.append('test -e {}; echo $?'.format(self.wrkspace_dir.text().strip()))
+        proc = subprocess.Popen(cmd_comp, stdout=subprocess.PIPE, shell=False)
         timer = Timer(2, proc.kill)
         try:
             timer.start()
             stdout, stderr = proc.communicate()
-        except:
+        except Exception as err:
             msg = '{} connection problem'.format(host_name)
             msg = self.styleErrorMessage(msg)
             self.info1.setText(msg)
             return
         finally:
             timer.cancel()
+        # print('stdout', stdout, stderr)
         if stdout.decode('UTF-8'):
+            answs = stdout.decode('UTF-8').split('\n')
             msg = '{} connection ok'.format(host_name)
             msg = self.styleGoodMessage(msg)
             self.info1.setText(msg)
-            if not bool(int(stdout[:-1])):
+            if not bool(int(answs[0])):
                 msg = self.styleGoodMessage('Skrypy directory exists')
             else:
                 msg = self.styleErrorMessage('Skrypy directory doesn\'t exist !')
             self.info2.setText(msg)
+            if not bool(int(answs[1])):
+                msg = self.styleGoodMessage('Workspace directory exists')
+            else:
+                msg = self.styleErrorMessage('Workspace directory doesn\'t exist !')
+            self.info3.setText(msg)
         else:
             msg = '{} connection problem'.format(host_name)
             msg = self.styleErrorMessage(msg)
@@ -385,26 +408,12 @@ class servers_window(QDialog):
             self.info2.setText(msg)
             return
 
-        stdout, stderr = subprocess.Popen(['sshpass', '-p', self.wd_field.text(), 'ssh', self.area_name.text().strip(),
-                                'test -e ' + self.wrkspace_dir.text().strip() + '; echo $?'], stdout=subprocess.PIPE).communicate()
-        if not bool(int(stdout[:-1])):
-            msg = self.styleGoodMessage('Workspace directory exists')
-        else:
-            msg = self.styleErrorMessage('Workspace directory doesn\'t exist !')
-        self.info3.setText(msg)
-
-        stdout, stderr = subprocess.Popen(['sshpass', '-p', self.wd_field.text(), 'ssh', self.area_name.text().strip(),
-                                'nvidia-smi --query-gpu=memory.used --format=csv'], stdout=subprocess.PIPE).communicate()
-        msg = "GPU {}:\n".format(self.server_name.currentText())
+        cmd_comp = cmd_base.copy()
+        cmd_comp.append('echo "GPU:"; nvidia-smi --query-gpu=memory.used --format=csv && echo "RAM:"; free -m --human')
+        stdout, stderr = subprocess.Popen(cmd_comp, stdout=subprocess.PIPE).communicate()
+        msg = self.server_name.currentText() + '\n'
         msg += stdout.decode('UTF-8')
         # self.memory_info.setText(msg)
-        
-        stdout, stderr = subprocess.Popen(['sshpass', '-p', self.wd_field.text(), 'ssh', self.area_name.text().strip(),
-                                'free -m --human'], stdout=subprocess.PIPE).communicate()
-        msg += "\nRAM {}:\n".format(self.server_name.currentText())
-        msg += stdout.decode('UTF-8')
-        self.memory_info.setText(msg)
-        
         self.memory_info.setText(msg)
 
     def styleErrorMessage(self, msg):
@@ -413,7 +422,7 @@ class servers_window(QDialog):
                               color:#cc0000;\" >" \
                               + msg + "</span>"
         return style
-    
+
     def styleGoodMessage(self, msg):
         style = "<span style=\" \
                               font-size:10pt; \

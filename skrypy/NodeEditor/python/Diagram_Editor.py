@@ -657,17 +657,18 @@ class BlockCreate(QGraphicsRectItem):
             sizefont = "6"
         if 'link_web' in txt:
             tmp = txt[txt.index('link_web:')+9:]
-            if 'Nipype' in self.category and 'Config_nipype' not in self.category:
+            if 'http' in tmp:
+                try:
+                    self.link += tmp[0:tmp.index('\n')].strip()
+                except Exception as err:
+                    self.link += tmp.strip()
+            elif 'Nipype' in self.category and 'Config_nipype' not in self.category:
                 self.link = 'https://nipype.readthedocs.io/en/latest/api/generated/'
                 modul = self.category.replace('_', '.').lower()
                 modul += '.html#'
                 clss = self.name[self.name.index('_') + 1:].lower()
                 self.link += modul + clss
-            else:
-                try:
-                    self.link += tmp[0:tmp.index('\n')].strip()
-                except Exception as err:
-                    self.link += tmp.strip()
+
         txt = txt.replace('<', '&lt;')
         txt = txt.replace('>', '&gt;')
         txt_html = "<pre><p style=\"background-color: #ffffff;\">"
@@ -4785,7 +4786,7 @@ class Imagebox(QGraphicsRectItem):
 
 
 class ItemColor(Enum):
-    BACKGROUND = QColor(30, 30, 30, 255)
+    BACKGROUND = QColor(40, 40, 40, 100)
     PROCESS_TOP = QColor(120, 120, 120, 255)
     PROCESS_BOT = QColor(80, 80, 80, 255)
     FRAME_PROCESS = QColor(140, 140, 140, 200)
@@ -5452,6 +5453,10 @@ class Menu(QMenuBar):
         self.menuPack.addAction('Clusters configuration')
         self.menuPack.triggered[QAction].connect(self.btnPressed)
 
+        # self.menuProj = self.addMenu('Projects')
+        # self.menuProj.addAction('Open project')
+        # self.menuProj.addAction('Save project')
+
         self.menuPlug = self.addMenu('Plugins')
         for key_pl, val_pl in editor.listPlugins.items():
             self.menuPlug.addAction(key_pl)
@@ -5560,6 +5565,9 @@ class Menu(QMenuBar):
             editor.addSubWindow('')
             self.btnPressed(QAction('Tiled'))
             editor.infopathDgr.setText('')
+
+    def save_project(self):
+        pass
 
     def btnPressed(self, act):
         tmpActText = act.text()
@@ -6123,6 +6131,9 @@ class Menu(QMenuBar):
         elif tmpActText == 'Packages manager':
             self.pack_manager()
 
+        elif tmpActText == 'Save project':
+            self.save_project()
+
         elif tmpActText == 'Reload environment variables':
             Start_environment(True)
 
@@ -6174,8 +6185,8 @@ class Menu(QMenuBar):
         dlg.setText(msg)
         button = dlg.exec()
 
-        if button == QMessageBox.Ok:
-            print("OK!")
+        # if button == QMessageBox.Ok:
+        #     print("OK!")
 
 
 class NodeEdit(QWidget):
@@ -9014,6 +9025,7 @@ class Slide(QGraphicsPolygonItem):
 class ssh_diagram_execution():
 
     def __init__(self, source, mode, cluster):
+        editor.console.clear()
         self.source = source
         self.mode = mode
         self.cluster = cluster
@@ -9061,47 +9073,63 @@ class ssh_diagram_execution():
                 return
         if not self.cluster:
             self.cluster = param_ssh[7]
-            
+
+        host = host_name
+        hnm = host.split()
+
+        cmd_base = ['sshpass', '-p', host_password, 'ssh']
+        if len(hnm) == 2:
+            cmd_base.extend(['-o', 'ProxyCommand={}'.format('sshpass -p {} ssh -W %h:%p {}'.format(host_password, hnm[0].strip())), hnm[1]])
+        else:
+            cmd_base.append(host)
+
         # check if cluster can be connected
-        proc = subprocess.Popen(['sshpass', '-p', host_password, 'ssh', 
-                                           host_name], 
-                                           stdout=subprocess.PIPE, shell=False)
+        proc = subprocess.Popen(cmd_base, stdout=subprocess.PIPE, shell=False)
         timer = Timer(2, proc.kill)
         col = '\x1b[38;2;255;0;0m'
         try:
             timer.start()
             stdout, stderr = proc.communicate()
-            print("stdout, stderr:", stdout, stderr)
             if not stdout.decode('UTF-8'):
                 print('{}Connection problem with {}\x1b[0m'.format(col, host_name))
                 return
-        except:
+        except Exception as err:
             print('{}Connection problem with {}\x1b[0m'.format(col, host_name))
             return
         finally:
             timer.cancel()
 
         # search conda source in the cluster
-        if 'conda' in pre_exec:
-            conda_path = self.searchSourceConda(host_name, host_password)
-            if conda_path:
-                pre_exec = 'source {}\n'.format(conda_path) + pre_exec
-            else:
-                print("Conda source path not found on cluster !!")
-        
+        # if 'conda' in pre_exec:
+        #     conda_path = self.searchSourceConda(host_name, host_password)
+        #     if conda_path:
+        #         pre_exec = 'source {}\n'.format(conda_path) + pre_exec
+        #     else:
+        #         print("Conda source path not found on cluster !!")
+
         for lst_dgr in self.source:
             diagram.append(os.path.join(host_path, os.path.basename(lst_dgr)))
 
         p1 = subprocess.Popen(['echo', host_password], shell=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        
+        cmd_base = ['sshpass', '-p', host_password, 'scp']
+        if len(hnm) == 2:
+            cmd_base.extend(['-o', 'ProxyCommand={}'.format('sshpass -p {} ssh -W %h:%p {}'.format(host_password, hnm[0].strip()))])
+            host_name = hnm[1]
+        else:
+            cmd_base.append(host)
 
         # shared memory transfert ##########################
         yaml_file = os.path.join(os.path.expanduser("~"), '.skrypy', 'list_shm.yml')
         dest = "{}:{}".format(host_name, '~/.skrypy/')
         if os.path.exists(yaml_file):
-            cmd = ['sshpass', '-p', host_password.strip(), 'scp', yaml_file, dest]
-            print(" ".join(cmd[3:]))
+            cmd_comp = cmd_base.copy()
+            cmd_comp.extend([yaml_file, dest])
+            print(" ".join(cmd_comp[3:]))
+            # cmd = ['sshpass', '-p', host_password.strip(), 'scp', yaml_file, dest]
+            # print(" ".join(cmd[3:]))
             # p1 = subprocess.Popen(['echo',host_password], shell=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            p2 = subprocess.Popen(cmd, stdin=p1.stdout, stdout=subprocess.PIPE)
+            p2 = subprocess.Popen(cmd_comp, stdin=p1.stdout, stdout=subprocess.PIPE)
             self.output = p2.stdout.read().decode()
             p2.communicate()
             p2.wait()
@@ -9109,11 +9137,14 @@ class ssh_diagram_execution():
 
         # diagram transfert ################################
         dest = "{}:{}".format(host_name, host_path)
+        print('dest=', dest)
         for src_dgr in self.source:
-            cmd = ['sshpass', '-p', host_password.strip(), 'scp', src_dgr.strip(), dest]
-            print(" ".join(cmd[3:]))
+            cmd_comp = cmd_base.copy()
+            cmd_comp.extend([src_dgr.strip(), dest])
+            # cmd = ['sshpass', '-p', host_password.strip(), 'scp', src_dgr.strip(), dest]
+            # print(" ".join(cmd[3:]))
             # p1 = subprocess.Popen(['echo',host_password], shell=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            p3 = subprocess.Popen(cmd, stdin=p1.stdout, stdout=subprocess.PIPE)
+            p3 = subprocess.Popen(cmd_comp, stdin=p1.stdout, stdout=subprocess.PIPE)
             self.output = p3.stdout.read().decode()
             p3.communicate()
             p3.wait()
@@ -9122,18 +9153,30 @@ class ssh_diagram_execution():
         # diagram execution on server #####################
         path_ssh_cmd_file = os.path.join(os.path.expanduser('~'), '.skrypy', 'ssh_command.sh')
         diagram = str(diagram).replace(' ', '')
-        with open(path_ssh_cmd_file, 'w') as fssh:
-            fssh.write(pre_exec+"\n")
-            fssh.write("cd {}\n".format(host_skrypy_path))
-            fssh.write("source bin/activate\n")
-            fssh.write("cd skrypy\n")
-            fssh.write("python3 Execution_ssh.py {} {} {} {} {} {}\n".format(host_path, diagram, n_cpu, self.mode, opx, self.cluster))
-            fssh.write("deactivate\n")
-            fssh.write("echo\n")
-            # fssh.write("echo \"\033[1;34mFinished.. you can close this window\033[0m\"\n")
-            # fssh.write("echo \n")
-            fssh.write("exit\n")
 
+        if 'gricad' in self.cluster:
+            with open(path_ssh_cmd_file, 'w') as fssh:
+                fssh.write(pre_exec+"\n")
+                fssh.write("cd {}\n".format(host_skrypy_path))
+                fssh.write("source /applis/site/guix-start.sh\n")
+                fssh.write("python3 Execution_ssh.py {} {} {} {} {} {}\n".format(host_path, diagram, n_cpu, self.mode, opx, self.cluster))
+                fssh.write("echo\n")
+                # fssh.write("echo \"\033[1;34mfinished.. you can close this window\033[0m\"\n")
+                # fssh.write("echo \n")
+                fssh.write("exit\n")            
+        else:
+            with open(path_ssh_cmd_file, 'w') as fssh:
+                fssh.write(pre_exec+"\n")
+                fssh.write("cd {}\n".format(host_skrypy_path))
+                fssh.write("source bin/activate\n")
+                fssh.write("cd skrypy\n")
+                fssh.write("python3 Execution_ssh.py {} {} {} {} {} {}\n".format(host_path, diagram, n_cpu, self.mode, opx, self.cluster))
+                fssh.write("deactivate\n")
+                fssh.write("echo\n")
+                # fssh.write("echo \"\033[1;34mfinished.. you can close this window\033[0m\"\n")
+                # fssh.write("echo \n")
+                fssh.write("exit\n")
+        
         # sd = os.system(f"gnome-terminal --title=\"" + param_ssh[0] + "\" --wait -- bash -c \"sshpass -p " + host_password.strip() + " ssh " + opx +
         #           " " + host_name + " < ~/.skrypy/ssh_command.sh; bash\"")
 
@@ -9144,43 +9187,52 @@ class ssh_diagram_execution():
             opt = opx + 'q'
         else:
             opt = '-q'
+
+        cmd_base = ['sshpass', '-p', password, 'ssh', opt]
+        if len(hnm) == 2:
+            cmd_base.extend(['-o', 'ProxyCommand={}'.format('sshpass -p {} ssh -W %h:%p {}'.format(password, hnm[0].strip())), hnm[1]])
+        else:
+            cmd_base.append(host)
+        cmd_comp = cmd_base.copy()
         with open(file_cmd) as process_stdin:
-            cmd = ["sshpass", "-p", password, "ssh", opt, host_name, "--", "bash", "-s"]
-            print(" ".join(cmd[3:]))
-            p4 = subprocess.Popen(cmd, stdin=process_stdin, stdout=subprocess.PIPE)
+            # cmd = ["sshpass", "-p", password, "ssh", opt, host_name, "--", "bash", "-s"]
+            # print(" ".join(cmd[3:]))
+            cmd_comp.extend(["--", "bash", "-s"])
+            print(" ".join(cmd_comp[3:]))
+            p4 = subprocess.Popen(cmd_comp, stdin=process_stdin, stdout=subprocess.PIPE)
             out, err = p4.communicate()
-            print(out.decode())
+            print('Execution error:', out.decode())
         col = '\x1b[38;2;50;250;50m'
         # print("execution on {} finished".format(host_name))
         print('{}execution on {} finished\033[0m'.format(col, host_name))
         for lst_dgr in self.source:
             print('    - {}{}\033[0m'.format(col, os.path.basename(lst_dgr)))
-
-        # download shared memory from cluster ###################################
-        source = "{}:{}".format(host_name, '~/.skrypy/list_shm.yml')
-        dest = os.path.expanduser("~")
-        dest = os.path.join(dest, ".skrypy")
-        cmd = ['sshpass', '-p', host_password.strip(), 'scp', source.strip(), dest.strip()]
-        print(" ".join(cmd[3:]))
-        p5 = subprocess.Popen(cmd, stdin=p1.stdout, stdout=subprocess.PIPE)
-        # self.output = p5.stdout.read().decode()
-        p5.communicate()
-        p5.wait()
-        if p4.returncode == 0:
-            print('download shared memory done')
-        else:
-            print('download shared memory error !!, code ' + str(p4.returncode))
-
-        # remove list_shme.yaml from cluster #######################################
-        cmd = ['sshpass', '-p', host_password.strip(), 'ssh', host_name, "rm ~/.skrypy/list_shm.yml"]
-        p6 = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
-
-        # display new list
-        SharedMemoryManager(False)
         
+        # # download shared memory from cluster ###################################
+        # source = "{}:{}".format(host_name, '~/.skrypy/list_shm.yml')
+        # dest = os.path.expanduser("~")
+        # dest = os.path.join(dest, ".skrypy")
+        # cmd = ['sshpass', '-p', host_password.strip(), 'scp', source.strip(), dest.strip()]
+        # print(" ".join(cmd[3:]))
+        # p5 = subprocess.Popen(cmd, stdin=p1.stdout, stdout=subprocess.PIPE)
+        # # self.output = p5.stdout.read().decode()
+        # p5.communicate()
+        # p5.wait()
+        # if p4.returncode == 0:
+        #     print('download shared memory done')
+        # else:
+        #     print('download shared memory error !!, code ' + str(p4.returncode))
+        #
+        # # remove list_shme.yaml from cluster #######################################
+        # cmd = ['sshpass', '-p', host_password.strip(), 'ssh', host_name, "rm ~/.skrypy/list_shm.yml"]
+        # p6 = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+        #
+        # # display new list
+        # sharedmemorymanager(false)
+
     def searchSourceConda(self, nhst, phst):
         conda_path = None
-        
+
         stdout, stderr = subprocess.Popen(['sshpass', '-p', phst, 'ssh', nhst, 'test -e ~/.skrypy/env_parameters.txt; echo $?'], stdout=subprocess.PIPE).communicate()
         if not bool(int(stdout[:-1])):
             stdout, stderr = subprocess.Popen(['sshpass', '-p', phst, 'ssh', nhst, 'cat ~/.skrypy/env_parameters.txt'], stdout=subprocess.PIPE).communicate()
@@ -9243,7 +9295,7 @@ class Start_environment():
                                 line_mode = line.split('=')
                                 line_mode[0] = line_mode[0].replace('export', '').strip()
                                 list_env[line_mode[0]] = line_mode[1]
-    
+
             for kenv, venv in list_env.items():
                 if kenv == 'sh':
                     try:
@@ -9258,6 +9310,7 @@ class Start_environment():
                     print(kenv, venv.strip())
         if showing:
             print("\x1b[0m")
+
 
 class StopExecution(QGraphicsPolygonItem):
 

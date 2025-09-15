@@ -25,7 +25,7 @@ class path_exists():
 class path_get_fileName():
     def __init__(self, path_in='path'):
         import os
-        
+
         self.filename = None
         try:
             self.filename = os.path.basename(path_in)

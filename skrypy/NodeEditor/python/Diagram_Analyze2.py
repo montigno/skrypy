@@ -361,7 +361,6 @@ class analyze2:
                                     tmpIttmp.remove(lsbl)
                     tmpIt = tmpIttmp
                     #####################################
-                    
                     if len(tmpIt) > 1 and thrd[1]:
                         tasks_list.append("ThreadOn")
                         tasks_list.extend(tmpIt)

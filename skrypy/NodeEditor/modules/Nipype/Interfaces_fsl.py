@@ -272,7 +272,7 @@ class fsl_FLIRT:
     Note:
         dependencies: Nipype, fsl
         GUI: no
-        link_web: (click Ctrl + U)
+        link_web: https://nipype.readthedocs.io/en/latest/api/generated/nipype.interfaces.fsl.preprocess.html#flirt
     """
     def __init__(self, in_file='path', reference='path', **options):
         from nipype.interfaces import fsl

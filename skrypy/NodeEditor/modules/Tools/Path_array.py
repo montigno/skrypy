@@ -15,8 +15,10 @@ class path_array_flatten():
     def __flatten(self, A):
         rt = []
         for i in A:
-            if isinstance(i,list): rt.extend(self.__flatten(i))
-            else: rt.append(i)
+            if isinstance(i, list):
+                rt.extend(self.__flatten(i))
+            else:
+                rt.append(i)
         return rt
 
     def flatten_out(self: 'list_path'):

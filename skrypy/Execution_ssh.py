@@ -6,8 +6,11 @@ import gc
 import yaml
 import subprocess
 
-from PyQt5.QtWidgets import QApplication
-from PyQt5.QtCore import QRunnable
+# from PyQt5.QtWidgets import QApplication
+# from PyQt5.QtCore import QRunnable
+
+from threading import Thread
+
 
 
 class execution_ssh():
@@ -20,7 +23,7 @@ class execution_ssh():
         for dgr in files_dgr:
             print("\n{} Excution {} ({}) in progress ... \033[0m".format(col, dgr, cluster))
             self.execute_Diagram(dgr, mode)
-            
+
     def Start_environment(self):
         env_file = os.path.join(os.path.expanduser('~'), '.skrypy', 'env_parameters.txt')
         list_env = {}
@@ -43,7 +46,7 @@ class execution_ssh():
                                 line_mode = line.split('=')
                                 line_mode[0] = line_mode[0].replace('export', '').strip()
                                 list_env[line_mode[0]] = line_mode[1]
-            
+
             for kenv, venv in list_env.items():
                 if kenv == 'sh':
                     try:
@@ -54,12 +57,12 @@ class execution_ssh():
                     os.environ['PATH'] += os.pathsep + venv.replace('\n', '')
                 else:
                     os.environ[kenv] = venv.replace('\n', '')
-            
+
             # if 'CONDASOURCE' in list_env.keys():
             #     print('CONDASOURCE found')
             #     path_src_conda = list_env['CONDASOURCE']
             #     subprocess.check_output("source {}".format(path_src_conda), shell=True, executable="/bin/bash")
-            
+
             print("Environment variables:")
             print(os.environ)
 
@@ -155,7 +158,7 @@ class SharedMemoryManager():
             os.remove(self.file_shm)
 
 
-class ThreadDiagram(QRunnable):
+class ThreadDiagram(Thread):
 
     def __init__(self, name, n_cpu, args, parent=None):
         super(ThreadDiagram, self).__init__()
