@@ -9116,8 +9116,8 @@ class ssh_diagram_execution():
         if len(hnm) == 2:
             cmd_base.extend(['-o', 'ProxyCommand={}'.format('sshpass -p {} ssh -W %h:%p {}'.format(host_password, hnm[0].strip()))])
             host_name = hnm[1]
-        else:
-            cmd_base.append(host)
+        # else:
+        #     cmd_base.append(host)
 
         # shared memory transfert ##########################
         yaml_file = os.path.join(os.path.expanduser("~"), '.skrypy', 'list_shm.yml')
@@ -9141,6 +9141,7 @@ class ssh_diagram_execution():
         for src_dgr in self.source:
             cmd_comp = cmd_base.copy()
             cmd_comp.extend([src_dgr.strip(), dest])
+            print(" ".join(cmd_comp[3:]))
             # cmd = ['sshpass', '-p', host_password.strip(), 'scp', src_dgr.strip(), dest]
             # print(" ".join(cmd[3:]))
             # p1 = subprocess.Popen(['echo',host_password], shell=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -9208,27 +9209,42 @@ class ssh_diagram_execution():
         for lst_dgr in self.source:
             print('    - {}{}\033[0m'.format(col, os.path.basename(lst_dgr)))
         
-        # # download shared memory from cluster ###################################
-        # source = "{}:{}".format(host_name, '~/.skrypy/list_shm.yml')
-        # dest = os.path.expanduser("~")
-        # dest = os.path.join(dest, ".skrypy")
+        # download shared memory from cluster ###################################
+        cmd_base = ['sshpass', '-p', password, 'scp', opt]
+        if len(hnm) == 2:
+            cmd_base.extend(['-o', 'ProxyCommand={}'.format('sshpass -p {} ssh -W %h:%p {}'.format(password, hnm[0].strip()))])
+        # else:
+        #     cmd_base.append(host)
+
+        source = "{}:{}".format(host_name, '~/.skrypy/list_shm.yml')
+        dest = os.path.expanduser("~")
+        dest = os.path.join(dest, ".skrypy")
+        cmd_comp = cmd_base.copy()
+        cmd_comp.extend([source.strip(), dest.strip()])
         # cmd = ['sshpass', '-p', host_password.strip(), 'scp', source.strip(), dest.strip()]
         # print(" ".join(cmd[3:]))
-        # p5 = subprocess.Popen(cmd, stdin=p1.stdout, stdout=subprocess.PIPE)
-        # # self.output = p5.stdout.read().decode()
-        # p5.communicate()
-        # p5.wait()
-        # if p4.returncode == 0:
-        #     print('download shared memory done')
-        # else:
-        #     print('download shared memory error !!, code ' + str(p4.returncode))
-        #
-        # # remove list_shme.yaml from cluster #######################################
+        p5 = subprocess.Popen(cmd_comp, stdin=p1.stdout, stdout=subprocess.PIPE)
+        # self.output = p5.stdout.read().decode()
+        p5.communicate()
+        p5.wait()
+        if p4.returncode == 0:
+            print('download shared memory done')
+        else:
+            print('download shared memory error !!, code ' + str(p4.returncode))
+        
+        # remove list_shme.yaml from cluster #######################################
+        cmd_base = ['sshpass', '-p', password, 'ssh']
+        if len(hnm) == 2:
+            cmd_base.extend(['-o', 'ProxyCommand={}'.format('sshpass -p {} ssh -W %h:%p {}'.format(password, hnm[0].strip())), hnm[1]])
+        else:
+            cmd_base.append(host_name)
+        cmd_comp = cmd_base.copy()
+        cmd_comp.append("rm ~/.skrypy/list_shm.yml")
         # cmd = ['sshpass', '-p', host_password.strip(), 'ssh', host_name, "rm ~/.skrypy/list_shm.yml"]
-        # p6 = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
-        #
-        # # display new list
-        # sharedmemorymanager(false)
+        p6 = subprocess.Popen(cmd_comp, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+        
+        # display new list
+        SharedMemoryManager(False)
 
     def searchSourceConda(self, nhst, phst):
         conda_path = None
