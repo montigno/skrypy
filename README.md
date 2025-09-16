@@ -8,6 +8,12 @@ A documentation is available here : [https://montigno.github.io/skrypy](https://
 
 # Release history
 
+
+<p></p>
+
+	16/09/2025: version 25.09.16b
+	- cluster : running on a cluster with bastions
+
 <p></p>
 
 	01/09/2025: version 25.09.01b

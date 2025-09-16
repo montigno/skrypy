@@ -53,6 +53,9 @@ class RS2_predict_datamanagement():
         if not os.path.exists(tmp_folder):
             os.makedirs(tmp_folder)
 
+        if not isinstance(list_files, list):
+            list_files = [list_files]
+
         for cur_file in list_files:
             if cur_file.endswith('.nii'):
                 with open(cur_file, 'rb') as f_in:

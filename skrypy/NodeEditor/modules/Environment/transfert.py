@@ -13,7 +13,7 @@ class scp_transfert():
         stdout: (str)
 
     Note:
-        GUI: yes
+        GUI: no
     """
     def __init__(self, data_type="enumerate(('file', 'directory'))", direction="enumerate(('local_to_host', 'host_to_local'))",
                  host_name='', host_password='', host_path='path', local_path='path'):
@@ -64,6 +64,79 @@ class scp_transfert():
 ##############################################################################
 
 
+class scp_transfert_via_bastion():
+    """
+    Allows to copy data between computers in a network. Needs sshpass
+
+    Args:
+        type: (str) type of data, 'file' or 'directory'
+        host_name: (string) address of the host (user@host_name)
+        host_password: (string) the host password
+        source: (path) path of the source
+        dest: (path) path of the destination
+
+    Returns:
+        stdout: (str)
+
+    Note:
+        GUI: no
+    """
+    def __init__(self, data_type="enumerate(('file', 'directory'))", direction="enumerate(('local_to_host', 'host_to_local'))",
+                 host_bastion_name='', host_name='', host_password='', host_path='path', local_path='path'):
+        from subprocess import Popen, PIPE
+        import os
+
+        if not host_password or host_password == 'None':
+            print("connection abandoned")
+            self.out_pt, self.output = 'path', ''
+        else:
+            host_password = host_password.replace('\n', '')
+            if direction == 'host_to_local':
+                if isinstance(host_path, list):
+                    host_path = ' '.join(host_path)
+                    # host_path = ','.join(host_path)
+                    # host_path = '"\\"{' + host_path + '"\\"}'
+                source = "{}:{}".format(host_name, host_path)
+                dest = local_path
+                self.out_pt = os.path.join(local_path, os.path.basename(host_path))
+            else:
+                if isinstance(local_path, list):
+                    local_path = ' '.join(local_path)
+                    # local_path = ','.join(local_path)
+                    # local_path = '"\\{"' + local_path + '"\\}"'
+                source = local_path
+                dest = "{}:{}".format(host_name, host_path)
+                self.out_pt = os.path.join(host_path, os.path.basename(local_path))
+            p1 = Popen(['echo', host_password], stdout=PIPE, stderr=PIPE)
+            
+            if data_type == 'directory':
+                # cmd = ['sshpass', '-p', host_password, 'scp', '-r', source, dest]
+                cmd_base = ['sshpass', '-p', host_password.strip(), 'scp', '-r']
+            else:
+                # cmd = ['sshpass', '-p', host_password, 'scp', source, dest]
+                cmd_base = ['sshpass', '-p', host_password.strip(), 'scp']
+            cmd_comp = cmd_base.copy()
+            cmd_comp.extend(['-o', 'ProxyCommand={}'.format('sshpass -p {} ssh -W %h:%p {}'.format(host_password, host_bastion_name.strip()))])
+            cmd_comp.extend([source, dest])
+            print(cmd_comp[3:])
+            p2 = Popen(cmd_comp, stdin=p1.stdout, stdout=PIPE, stderr=PIPE)
+            self.output = p2.stdout.read().decode()
+            p2.communicate()
+            p2.wait()
+            if p2.returncode == 0:
+                print('transfert done')
+            else:
+                print('transfert error !!, code ' + str(p2.returncode))
+
+    def out_path(self: 'path'):
+        return self.out_pt
+
+    def stdout(self: 'str'):
+        return self.output
+
+##############################################################################
+
+
 class scp_transfert_multifiles():
     """
     Allows to copy data between computers in a network. Needs ssh pass
@@ -79,7 +152,7 @@ class scp_transfert_multifiles():
         stdout: (str)
 
     Note:
-        GUI: yes
+        GUI: no
     """
     def __init__(self, data_type="enumerate(('file', 'directory'))", direction="enumerate(('local_to_host', 'host_to_local'))",
                  host_name='', host_password='', host_path='path', local_path='path'):

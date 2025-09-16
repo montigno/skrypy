@@ -9242,7 +9242,7 @@ class ssh_diagram_execution():
         cmd_comp.append("rm ~/.skrypy/list_shm.yml")
         # cmd = ['sshpass', '-p', host_password.strip(), 'ssh', host_name, "rm ~/.skrypy/list_shm.yml"]
         p6 = subprocess.Popen(cmd_comp, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
-        
+
         # display new list
         SharedMemoryManager(False)
 
