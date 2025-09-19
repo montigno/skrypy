@@ -128,7 +128,26 @@ ________________________________________________________________
 `RS2 <https://github.com/VitoLin21/Rodent-Skull-Stripping>`__
 -------------------------------------------------------------
 
-Download RS2 `here <https://github.com/VitoLin21/Rodent-Skull-Stripping/archive/refs/heads/main.zip>`__
+#. Download RS2 `here <https://github.com/VitoLin21/Rodent-Skull-Stripping/archive/refs/heads/main.zip>`__
+#. Save it in a temporary folder
+#. In terminal::
+
+	conda create -n rss python=3.9
+	conda activate rss
+	# CUDA 11.7
+	conda install pytorch==2.0.0 torchvision==0.15.0 torchaudio==2.0.0 pytorch-cuda=11.7 -c pytorch -c nvidia
+	# CUDA 11.8
+	conda install pytorch==2.0.0 torchvision==0.15.0 torchaudio==2.0.0 pytorch-cuda=11.8 -c pytorch -c nvidia
+	# CPU Only
+	conda install pytorch==2.0.0 torchvision==0.15.0 torchaudio==2.0.0 cpuonly -c pytorch
+	cd <your_temporary_folder>
+	unzip Rodent-Skull-Stripping-main.zip
+	cd Rodent-Skull-Stripping-main
+	pip install -r requirements.txt
+	python setup.py install
+	pip install blosc2
+
+#.  copy all the files from "Rodent-Skull-Stripping-main/RS2/jsons" to "your_conda_path/envs/rss/lib/python3.9/site-packages/RS2-1.0-py3.9.egg/RS2/jsons"
 
 ________________________________________________________________
 

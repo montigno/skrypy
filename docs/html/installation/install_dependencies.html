@@ -242,7 +242,29 @@ Skrypy takes care of concatenating the ‘PATH’ variable.</p>
 <hr class="docutils" />
 <section id="rs2">
 <h2><a class="reference external" href="https://github.com/VitoLin21/Rodent-Skull-Stripping">RS2</a><a class="headerlink" href="#rs2" title="Link to this heading"></a></h2>
-<p>Download RS2 <a class="reference external" href="https://github.com/VitoLin21/Rodent-Skull-Stripping/archive/refs/heads/main.zip">here</a></p>
+<ol class="arabic">
+<li><p>Download RS2 <a class="reference external" href="https://github.com/VitoLin21/Rodent-Skull-Stripping/archive/refs/heads/main.zip">here</a></p></li>
+<li><p>Save it in a temporary folder</p></li>
+<li><p>In terminal:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">rss</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.9</span>
+<span class="n">conda</span> <span class="n">activate</span> <span class="n">rss</span>
+<span class="c1"># CUDA 11.7</span>
+<span class="n">conda</span> <span class="n">install</span> <span class="n">pytorch</span><span class="o">==</span><span class="mf">2.0.0</span> <span class="n">torchvision</span><span class="o">==</span><span class="mf">0.15.0</span> <span class="n">torchaudio</span><span class="o">==</span><span class="mf">2.0.0</span> <span class="n">pytorch</span><span class="o">-</span><span class="n">cuda</span><span class="o">=</span><span class="mf">11.7</span> <span class="o">-</span><span class="n">c</span> <span class="n">pytorch</span> <span class="o">-</span><span class="n">c</span> <span class="n">nvidia</span>
+<span class="c1"># CUDA 11.8</span>
+<span class="n">conda</span> <span class="n">install</span> <span class="n">pytorch</span><span class="o">==</span><span class="mf">2.0.0</span> <span class="n">torchvision</span><span class="o">==</span><span class="mf">0.15.0</span> <span class="n">torchaudio</span><span class="o">==</span><span class="mf">2.0.0</span> <span class="n">pytorch</span><span class="o">-</span><span class="n">cuda</span><span class="o">=</span><span class="mf">11.8</span> <span class="o">-</span><span class="n">c</span> <span class="n">pytorch</span> <span class="o">-</span><span class="n">c</span> <span class="n">nvidia</span>
+<span class="c1"># CPU Only</span>
+<span class="n">conda</span> <span class="n">install</span> <span class="n">pytorch</span><span class="o">==</span><span class="mf">2.0.0</span> <span class="n">torchvision</span><span class="o">==</span><span class="mf">0.15.0</span> <span class="n">torchaudio</span><span class="o">==</span><span class="mf">2.0.0</span> <span class="n">cpuonly</span> <span class="o">-</span><span class="n">c</span> <span class="n">pytorch</span>
+<span class="n">cd</span> <span class="o">&lt;</span><span class="n">your_temporary_folder</span><span class="o">&gt;</span>
+<span class="n">unzip</span> <span class="n">Rodent</span><span class="o">-</span><span class="n">Skull</span><span class="o">-</span><span class="n">Stripping</span><span class="o">-</span><span class="n">main</span><span class="o">.</span><span class="n">zip</span>
+<span class="n">cd</span> <span class="n">Rodent</span><span class="o">-</span><span class="n">Skull</span><span class="o">-</span><span class="n">Stripping</span><span class="o">-</span><span class="n">main</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">blosc2</span>
+</pre></div>
+</div>
+</li>
+<li><p>copy all the files from “Rodent-Skull-Stripping-main/RS2/jsons” to “your_conda_path/envs/rss/lib/python3.9/site-packages/RS2-1.0-py3.9.egg/RS2/jsons”</p></li>
+</ol>
 </section>
 <hr class="docutils" />
 <section id="spm-requires-matlab">

@@ -26,6 +26,20 @@ class ssh_list_files_in_directory():
 ######################################################################################################################
 
 
+class ssh_get_size():
+    def __init__(self, dir_or_file='path', host_name='', host_password=''):
+        from subprocess import Popen, PIPE
+
+        stdout, stderr = Popen(['sshpass', '-p', host_password, 'ssh', host_name,
+                                'du -msh ' + dir_or_file], stdout=PIPE).communicate()
+        self.answ = stdout.decode()
+
+    def size(self: 'str'):
+        return self.answ
+
+######################################################################################################################
+
+
 # class ssh_remove_files_directory():
 #     def __init__(self, path_type="enumerate(('file', 'directory'))", paths='path', host_name='', host_password=''):
 #         from subprocess import Popen, PIPE
