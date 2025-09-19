@@ -20,39 +20,48 @@ class scp_transfert():
         from subprocess import Popen, PIPE
         import os
 
+        self.out_pt, self.output = [], ''
+
         if not host_password or host_password == 'None':
             print("connection abandoned")
-            self.out_pt, self.output = 'path', ''
         else:
             if direction == 'host_to_local':
-                if isinstance(host_path, list):
-                    host_path = ' '.join(host_path)
+                if not isinstance(host_path, list):
+                    host_path = [host_path]
                     # host_path = ','.join(host_path)
                     # host_path = '"\\"{' + host_path + '"\\"}'
-                source = "{}:{}".format(host_name, host_path)
+                source = ["{}:{}".format(host_name, hp) for hp in host_path]
                 dest = local_path
-                self.out_pt = os.path.join(local_path, os.path.basename(host_path))
+                for src in source:
+                    self.out_pt.append(os.path.join(os.path.basename(local_path), os.path.basename(src)))
             else:
-                if isinstance(local_path, list):
-                    local_path = ' '.join(local_path)
+                if not isinstance(local_path, list):
+                    local_path = [local_path]
                     # local_path = ','.join(local_path)
                     # local_path = '"\\{"' + local_path + '"\\}"'
                 source = local_path
                 dest = "{}:{}".format(host_name, host_path)
-                self.out_pt = os.path.join(host_path, os.path.basename(local_path))
+                for src in source:
+                    self.out_pt.append(os.path.join(host_path, os.path.basename(src)))
             p1 = Popen(['echo', host_password], stdout=PIPE, stderr=PIPE)
             if data_type == 'directory':
-                cmd = ['sshpass', '-p', host_password, 'scp', '-r', source, dest]
+                cmd = ['sshpass', '-p', host_password, 'scp', '-r']
+                # cmd = ['sshpass', '-p', host_password, 'scp', '-r', source, dest]
             else:
-                cmd = ['sshpass', '-p', host_password, 'scp', source, dest]
-            print(" ".join(cmd[3:]))
-            p2 = Popen(cmd, stdin=p1.stdout, stdout=PIPE, stderr=PIPE)
+                cmd = ['sshpass', '-p', host_password, 'scp']
+                # cmd = ['sshpass', '-p', host_password, 'scp', source, dest]
+            cmd_comp = cmd.copy()
+            cmd_comp.extend(source)
+            cmd_comp.append(dest)
+            print(" ".join(cmd_comp[3:]))
+            p2 = Popen(cmd_comp, stdin=p1.stdout, stdout=PIPE, stderr=PIPE)
             self.output = p2.stdout.read().decode()
             p2.communicate()
             p2.wait()
             if p2.returncode == 0:
                 print('transfert done')
             else:
+                self.out_pt = []
                 print('transfert error !!, code ' + str(p2.returncode))
 
     def out_path(self: 'path'):
