@@ -6040,6 +6040,13 @@ class Menu(QMenuBar):
         elif tmpActText == 'Update Skrypy':
             c = skrypy_update()
             c.exec_()
+            if c.getAnswer() == 'ok':
+                msg = QMessageBox()
+                msg.setWindowTitle("Update done...")
+                msg.setText("Please close and restart Skrypy")
+                msg.setIcon(QMessageBox.Question)
+                msg.setStandardButtons(QMessageBox.Yes)
+                msg.exec_()
 
         elif tmpActText == 'Preferences':
             c = setPreferences([True, False, True])

@@ -9,6 +9,7 @@ from PyQt5.QtWidgets import QDialog, QVBoxLayout, QLabel, QTextEdit, QPushButton
 class skrypy_update(QDialog):
     def __init__(self, parent=None):
         super(skrypy_update, self).__init__(parent)
+        self.answer = 'cancel'
         dest = "/tmp/"
         skrypy_current = os.path.realpath(__file__)
         skrypy_current = skrypy_current[:skrypy_current.index('NodeEditor')]
@@ -58,5 +59,9 @@ class skrypy_update(QDialog):
 
     def upgrading(self):
         shutil.copytree(self.skrypy_new, self.skrypy_current, dirs_exist_ok=True)
+        self.answer = 'ok'
         self.close()
+        
+    def getAnswer(self):
+        return self.answer
     
