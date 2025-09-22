@@ -74,6 +74,7 @@ Table of Contents
    installation/package_install.rst
    installation/install_dependencies.rst
    installation/cluster.rst
+   installation/update_skrypy.rst
 
 .. toctree::
    :maxdepth: 1

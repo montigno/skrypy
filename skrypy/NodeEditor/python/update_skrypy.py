@@ -9,6 +9,7 @@ from PyQt5.QtWidgets import QDialog, QVBoxLayout, QLabel, QTextEdit, QPushButton
 class skrypy_update(QDialog):
     def __init__(self, parent=None):
         super(skrypy_update, self).__init__(parent)
+        dest = "/tmp/"
         skrypy_current = os.path.realpath(__file__)
         skrypy_current = skrypy_current[:skrypy_current.index('NodeEditor')]
         config_current = os.path.join(skrypy_current, 'config.yml')
@@ -16,12 +17,12 @@ class skrypy_update(QDialog):
             dicts = yaml.load(stream, yaml.FullLoader)
             self.version_current = dicts['version']
         self.skrypy_current = skrypy_current
-        dest = "/tmp/"
         skrypy_new = os.path.join(dest, "skrypy")
         if os.path.exists(skrypy_new):
             shutil.rmtree(skrypy_new)
-        git.Git("/tmp/").clone("https://github.com/montigno/skrypy.git")
-        config_new = os.path.join(skrypy_new, 'skrypy', 'config.yml')
+        git.Git(dest).clone("https://github.com/montigno/skrypy.git")
+        skrypy_new = os.path.join(skrypy_new, "skrypy")
+        config_new = os.path.join(skrypy_new, 'config.yml')
         with open(config_new, 'r', encoding='utf8') as stream:
             dicts = yaml.load(stream, yaml.FullLoader)
             self.version_new = dicts['version']
@@ -54,8 +55,8 @@ class skrypy_update(QDialog):
         vbox.addLayout(hbox)
 
         self.setLayout(vbox)
-        
+
     def upgrading(self):
-        shutil.copyfile(self.skrypy_new, self.skrypy_current)
+        shutil.copytree(self.skrypy_new, self.skrypy_current, dirs_exist_ok=True)
         self.close()
-        
+    
