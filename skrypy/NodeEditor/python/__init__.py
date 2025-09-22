@@ -37,3 +37,4 @@ from NodeEditor.python.tools import DefinitType, ReorderList
 from NodeEditor.python.tools import GetValueInBrackets, SetValueInBrackets
 from NodeEditor.python.tools import set_dph, get_dph
 from NodeEditor.python.servers_config import servers_window
+from NodeEditor.python.update_skrypy import skrypy_update

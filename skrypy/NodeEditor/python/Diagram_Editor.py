@@ -48,7 +48,7 @@ from threading import Timer
 from . import Config, Plugin, AboutSoft
 from . import DefinitType, ReorderList, diagramInfo
 from . import GetValueInBrackets, SetValueInBrackets
-from . import PythonHighlighter
+from . import PythonHighlighter, skrypy_update
 from . import multiple_execution, multiple_execution_altern
 from . import analyze2, execution2, servers_window
 from . import buildLibrary, SubWindow
@@ -5465,6 +5465,7 @@ class Menu(QMenuBar):
         self.menuHelp = self.addMenu('Help')
         self.menuHelp.addAction('About skrypy')
         self.menuHelp.addAction('HTML documentation')
+        self.menuHelp.addAction('Update Skrypy')
         # self.menuHelp.addAction('Preferences')
         self.menuHelp.addSeparator()
         self.examples = self.menuHelp.addMenu('Examples')
@@ -6035,6 +6036,10 @@ class Menu(QMenuBar):
             path_html = os.path.dirname(os.path.realpath(__file__))
             tmp = str(os.path.join(path_html, '../../../docs', 'index.html'))
             webbrowser.open(tmp)
+
+        elif tmpActText == 'Update Skrypy':
+            c = skrypy_update()
+            c.exec_()
 
         elif tmpActText == 'Preferences':
             c = setPreferences([True, False, True])

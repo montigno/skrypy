@@ -1,0 +1,61 @@
+import os
+import git
+import shutil
+import yaml
+
+from PyQt5.QtWidgets import QDialog, QVBoxLayout, QLabel, QTextEdit, QPushButton,\
+    QHBoxLayout
+
+class skrypy_update(QDialog):
+    def __init__(self, parent=None):
+        super(skrypy_update, self).__init__(parent)
+        skrypy_current = os.path.realpath(__file__)
+        skrypy_current = skrypy_current[:skrypy_current.index('NodeEditor')]
+        config_current = os.path.join(skrypy_current, 'config.yml')
+        with open(config_current, 'r', encoding='utf8') as stream:
+            dicts = yaml.load(stream, yaml.FullLoader)
+            self.version_current = dicts['version']
+        self.skrypy_current = skrypy_current
+        dest = "/tmp/"
+        skrypy_new = os.path.join(dest, "skrypy")
+        if os.path.exists(skrypy_new):
+            shutil.rmtree(skrypy_new)
+        git.Git("/tmp/").clone("https://github.com/montigno/skrypy.git")
+        config_new = os.path.join(skrypy_new, 'skrypy', 'config.yml')
+        with open(config_new, 'r', encoding='utf8') as stream:
+            dicts = yaml.load(stream, yaml.FullLoader)
+            self.version_new = dicts['version']
+        self.skrypy_new = skrypy_new
+
+        self.confirmation_dialog()
+
+    def confirmation_dialog(self):
+        self.setWindowTitle("Skrypy Updater")
+        self.setMinimumWidth(300)
+        self.setAutoFillBackground(True)
+
+        label1 = QLabel("Upgrade to " + self.version_new)
+        label2 = QLabel("Your current version is " + self.version_current)
+        label3 = QLabel("Do you want to update ? If you click OK, you will need to restart Skrypy to take effect.")
+        label3.setWordWrap(True)
+
+        buttonCancel = QPushButton('Cancel', self)
+        buttonCancel.clicked.connect(self.close)
+        buttonOk = QPushButton('OK', self)
+        buttonOk.clicked.connect(self.upgrading)
+        hbox = QHBoxLayout()
+        hbox.addWidget(buttonCancel)
+        hbox.addWidget(buttonOk)
+
+        vbox = QVBoxLayout(self)
+        vbox.addWidget(label1)
+        vbox.addWidget(label2)
+        vbox.addWidget(label3)
+        vbox.addLayout(hbox)
+
+        self.setLayout(vbox)
+        
+    def upgrading(self):
+        shutil.copyfile(self.skrypy_new, self.skrypy_current)
+        self.close()
+        
