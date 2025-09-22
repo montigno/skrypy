@@ -6045,7 +6045,7 @@ class Menu(QMenuBar):
                 msg.setWindowTitle("Update done...")
                 msg.setText("Please close and restart Skrypy")
                 msg.setIcon(QMessageBox.Question)
-                msg.setStandardButtons(QMessageBox.Yes)
+                msg.setStandardButtons(QMessageBox.Ok)
                 msg.exec_()
 
         elif tmpActText == 'Preferences':
