@@ -9,6 +9,9 @@ from PyQt5.QtWidgets import QDialog, QVBoxLayout, QLabel, QTextEdit, QPushButton
 class skrypy_update(QDialog):
     def __init__(self, parent=None):
         super(skrypy_update, self).__init__(parent)
+        self.setWindowTitle("Skrypy Updater")
+        self.setMinimumWidth(300)
+        self.setAutoFillBackground(True)
         self.answer = 'cancel'
         dest = "/tmp/"
         skrypy_current = os.path.realpath(__file__)
@@ -23,22 +26,26 @@ class skrypy_update(QDialog):
             shutil.rmtree(skrypy_new)
         try:
             git.Git(dest).clone("https://github.com/montigno/skrypy.git")
+            skrypy_new = os.path.join(skrypy_new, "skrypy")
+            config_new = os.path.join(skrypy_new, 'config.yml')
+            with open(config_new, 'r', encoding='utf8') as stream:
+                dicts = yaml.load(stream, yaml.FullLoader)
+                self.version_new = dicts['version']
+            self.skrypy_new = skrypy_new
+            self.confirmation_dialog()
         except Exception as err:
-            print(err)
-            return
-        skrypy_new = os.path.join(skrypy_new, "skrypy")
-        config_new = os.path.join(skrypy_new, 'config.yml')
-        with open(config_new, 'r', encoding='utf8') as stream:
-            dicts = yaml.load(stream, yaml.FullLoader)
-            self.version_new = dicts['version']
-        self.skrypy_new = skrypy_new
+            self.error_message()
 
-        self.confirmation_dialog()
+    def error_message(self):
+        label1 = QLabel("fatal: unable to access 'https://github.com/montigno/skrypy.git/': \nCould not resolve host: github.com' ")
+        buttonOk = QPushButton('OK', self)
+        vbox = QVBoxLayout(self)
+        vbox.addWidget(label1)
+        vbox.addWidget(buttonOk)
+        buttonOk.clicked.connect(self.close)
+        self.setLayout(vbox)
 
     def confirmation_dialog(self):
-        self.setWindowTitle("Skrypy Updater")
-        self.setMinimumWidth(300)
-        self.setAutoFillBackground(True)
 
         label1 = QLabel("Upgrade to " + self.version_new)
         label2 = QLabel("Your current version is " + self.version_current)
