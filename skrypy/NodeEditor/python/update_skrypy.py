@@ -21,7 +21,11 @@ class skrypy_update(QDialog):
         skrypy_new = os.path.join(dest, "skrypy")
         if os.path.exists(skrypy_new):
             shutil.rmtree(skrypy_new)
-        git.Git(dest).clone("https://github.com/montigno/skrypy.git")
+        try:
+            git.Git(dest).clone("https://github.com/montigno/skrypy.git")
+        except Exception as err:
+            print(err)
+            return
         skrypy_new = os.path.join(skrypy_new, "skrypy")
         config_new = os.path.join(skrypy_new, 'config.yml')
         with open(config_new, 'r', encoding='utf8') as stream:
