@@ -8,6 +8,10 @@ A documentation is available here : [https://montigno.github.io/skrypy](https://
 
 # Release history
 
+<p></p>
+
+	24/09/2025: version 25.09.24b
+	- menu : 'Upgrade skrypy' improved
 
 <p></p>
 
