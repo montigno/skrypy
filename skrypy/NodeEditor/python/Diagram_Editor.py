@@ -9222,7 +9222,7 @@ class ssh_diagram_execution():
             print('    - {}{}\033[0m'.format(col, os.path.basename(lst_dgr)))
         
         # download shared memory from cluster ###################################
-        cmd_base = ['sshpass', '-p', password, 'scp', opt]
+        cmd_base = ['sshpass', '-p', password, 'scp', '-q']
         if len(hnm) == 2:
             cmd_base.extend(['-o', 'ProxyCommand={}'.format('sshpass -p {} ssh -W %h:%p {}'.format(password, hnm[0].strip()))])
         # else:

@@ -37,3 +37,13 @@ class sh_command():
     def __init__(self, sh_file='path'):
         import os
         os.popen('sh ' + sh_file)
+
+##############################################################################
+
+
+class system_activate_conda():
+    def __init__(self, source_conda='path', env='', **dynamicsInputs):
+        import subprocess
+        command = '. {} && conda activate {}'.format(source_conda, env)
+        print(command)
+        subprocess.run(command, shell=True, check=True)

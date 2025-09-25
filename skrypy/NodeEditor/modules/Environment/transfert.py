@@ -3,13 +3,15 @@ class scp_transfert():
     Allows to copy data between computers in a network. Needs ssh pass
 
     Args:
-        type: (str) type of data, 'file' or 'directory'
+        data_type: (str) type of data, 'file' or 'directory'
+        direction: (str) 'local_to_host' or 'host_to_local'
         host_name: (string) address of the host (user@host_name)
         host_password: (string) the host password
-        source: (path) path of the source
-        dest: (path) path of the destination
+        host_path: (path or list of path) file path relative to host
+        local_path: (path or list of path) local file path
 
     Returns:
+        out_path: (path or list of path) path where the files were transferred
         stdout: (str)
 
     Note:
@@ -63,8 +65,10 @@ class scp_transfert():
             else:
                 self.out_pt = []
                 print('transfert error !!, code ' + str(p2.returncode))
+            if len(self.out_pt) == 1:
+                self.out_pt = self.out_pt[0]
 
-    def out_path(self: 'path'):
+    def out_path(self: 'list_path'):
         return self.out_pt
 
     def stdout(self: 'str'):
