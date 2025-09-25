@@ -10,6 +10,11 @@ A documentation is available here : [https://montigno.github.io/skrypy](https://
 
 <p></p>
 
+	25/09/2025: version 25.09.25b
+	- block options : bug fixed
+
+<p></p>
+
 	24/09/2025: version 25.09.24b
 	- menu : 'Upgrade skrypy' improved
 

@@ -6,7 +6,7 @@ Environment variables
 .. important::
    Skrypy needs to point programs to specific versions of dependencies. |br|
    The .bashrc file is in principle sufficient, but it has been found that when processing on a cluster, it does not always load. |br|
-   The best solution is to edit the file **'env_parameters.txt'** which is located in /home/username/.skrypy/. |br|
+   The best solution is to edit the file **'env_parameters.txt'** which is located in the hidden folder **/home/username/.skrypy/**. |br|
    Skrypy takes care of concatenating the 'PATH' variable.
 
 `ANTs <https://github.com/ANTsX/ANTs>`__
@@ -175,7 +175,42 @@ ________________________________________________________________
 	#SPM12
 	export SPM_PATH=matlab_root/MATLAB/R2024b/toolbox/spm12/
 
- 
+Configuration example
+------------------------
+
+To give an idea, here is a configuration of env_parameters.txt file::
+
+	#ImageJ
+	export PATH=/home/olivier/Applications/ImageJ/
+
+	#Matlab
+	export PATH=/home/Apps/MATLAB/R2024b/bin
+	export MATLABCMD=/home/Apps/MATLAB/R2024b/bin/glnxa64/MATLAB
+	export MATLABPATH=/home/olivier/Documents/MATLAB/
+
+	#FSL
+	export PATH=/home/olivier/Applications/fsl/bin
+	sh /home/olivier/Applications/fsl/etc/fslconf/fsl.sh
+
+	#ANTs
+	export PATH=/home/user/Applications/ants-2.5.0
+	export ANTSPATH=/home/user/Applications/ants-2.5.0
+
+	#MRTrix3
+	export PATH=/home/user/Applications/mrtrix3/bin
+
+	#FreeSurfer
+	export FREESURFER_HOME=/usr/local/freesurfer
+
+	#AFNI
+	export PATH=/home/user/abin
+
+	#SPM
+	export PATH=/usr/local/MATLAB/R2020a/toolbox/spm12
+
+	#mri_conv
+	export MRIFilePATH=/home/user_name/Apps/mri_conv/MRIFileManager/MRIManager.jar
+
 
 .. # define a hard line break for HTML
 .. |br| raw:: html

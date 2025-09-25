@@ -243,8 +243,8 @@ class chOptions(QDialog):
                     del self.list3[ind]
 
         self.newports = (self.list1, self.list2, self.poqs[2], self.poqs[3])
-        self.answer = "ok"
         self.close()
+        self.answer = "ok"
 
     def getNewValues(self):
         return self.newports, list(self.list3)

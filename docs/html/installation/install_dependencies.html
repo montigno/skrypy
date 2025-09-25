@@ -59,6 +59,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#mrtrix3">MRTrix3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#rs2">RS2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#spm-requires-matlab">SPM (requires MATLAB)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-example">Configuration example</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cluster.html">Cluster (HPC)</a></li>
@@ -111,7 +112,7 @@
 <p class="admonition-title">Important</p>
 <p>Skrypy needs to point programs to specific versions of dependencies. <br />
 The .bashrc file is in principle sufficient, but it has been found that when processing on a cluster, it does not always load. <br />
-The best solution is to edit the file <strong>‘env_parameters.txt’</strong> which is located in /home/username/.skrypy/. <br />
+The best solution is to edit the file <strong>‘env_parameters.txt’</strong> which is located in the hidden folder <strong>/home/username/.skrypy/</strong>. <br />
 Skrypy takes care of concatenating the ‘PATH’ variable.</p>
 </div>
 </section>
@@ -293,6 +294,42 @@ Skrypy takes care of concatenating the ‘PATH’ variable.</p>
 </div>
 </li>
 </ol>
+</section>
+<section id="configuration-example">
+<h2>Configuration example<a class="headerlink" href="#configuration-example" title="Link to this heading"></a></h2>
+<p>To give an idea, here is a configuration of env_parameters.txt file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#ImageJ</span>
+<span class="n">export</span> <span class="n">PATH</span><span class="o">=/</span><span class="n">home</span><span class="o">/</span><span class="n">olivier</span><span class="o">/</span><span class="n">Applications</span><span class="o">/</span><span class="n">ImageJ</span><span class="o">/</span>
+
+<span class="c1">#Matlab</span>
+<span class="n">export</span> <span class="n">PATH</span><span class="o">=/</span><span class="n">home</span><span class="o">/</span><span class="n">Apps</span><span class="o">/</span><span class="n">MATLAB</span><span class="o">/</span><span class="n">R2024b</span><span class="o">/</span><span class="nb">bin</span>
+<span class="n">export</span> <span class="n">MATLABCMD</span><span class="o">=/</span><span class="n">home</span><span class="o">/</span><span class="n">Apps</span><span class="o">/</span><span class="n">MATLAB</span><span class="o">/</span><span class="n">R2024b</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">glnxa64</span><span class="o">/</span><span class="n">MATLAB</span>
+<span class="n">export</span> <span class="n">MATLABPATH</span><span class="o">=/</span><span class="n">home</span><span class="o">/</span><span class="n">olivier</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">MATLAB</span><span class="o">/</span>
+
+<span class="c1">#FSL</span>
+<span class="n">export</span> <span class="n">PATH</span><span class="o">=/</span><span class="n">home</span><span class="o">/</span><span class="n">olivier</span><span class="o">/</span><span class="n">Applications</span><span class="o">/</span><span class="n">fsl</span><span class="o">/</span><span class="nb">bin</span>
+<span class="n">sh</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">olivier</span><span class="o">/</span><span class="n">Applications</span><span class="o">/</span><span class="n">fsl</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">fslconf</span><span class="o">/</span><span class="n">fsl</span><span class="o">.</span><span class="n">sh</span>
+
+<span class="c1">#ANTs</span>
+<span class="n">export</span> <span class="n">PATH</span><span class="o">=/</span><span class="n">home</span><span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">Applications</span><span class="o">/</span><span class="n">ants</span><span class="o">-</span><span class="mf">2.5.0</span>
+<span class="n">export</span> <span class="n">ANTSPATH</span><span class="o">=/</span><span class="n">home</span><span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">Applications</span><span class="o">/</span><span class="n">ants</span><span class="o">-</span><span class="mf">2.5.0</span>
+
+<span class="c1">#MRTrix3</span>
+<span class="n">export</span> <span class="n">PATH</span><span class="o">=/</span><span class="n">home</span><span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">Applications</span><span class="o">/</span><span class="n">mrtrix3</span><span class="o">/</span><span class="nb">bin</span>
+
+<span class="c1">#FreeSurfer</span>
+<span class="n">export</span> <span class="n">FREESURFER_HOME</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">freesurfer</span>
+
+<span class="c1">#AFNI</span>
+<span class="n">export</span> <span class="n">PATH</span><span class="o">=/</span><span class="n">home</span><span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">abin</span>
+
+<span class="c1">#SPM</span>
+<span class="n">export</span> <span class="n">PATH</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">MATLAB</span><span class="o">/</span><span class="n">R2020a</span><span class="o">/</span><span class="n">toolbox</span><span class="o">/</span><span class="n">spm12</span>
+
+<span class="c1">#mri_conv</span>
+<span class="n">export</span> <span class="n">MRIFilePATH</span><span class="o">=/</span><span class="n">home</span><span class="o">/</span><span class="n">user_name</span><span class="o">/</span><span class="n">Apps</span><span class="o">/</span><span class="n">mri_conv</span><span class="o">/</span><span class="n">MRIFileManager</span><span class="o">/</span><span class="n">MRIManager</span><span class="o">.</span><span class="n">jar</span>
+</pre></div>
+</div>
 </section>
 </section>
 
