@@ -4332,6 +4332,8 @@ class ForLoopItem(QGraphicsRectItem):
         self.setPen(QPen(ItemColor.FRAME_LOOP_ACTIVED.value, 8))
 
     def IteminLoop(self, unitItem, casef, ind):
+        # print(unitItem, casef, ind)
+        ItemToExclude = []
         listItem = editor.listTools[editor.currentTab][self.unit]
 
         if self.unit not in unitItem:
@@ -4356,6 +4358,9 @@ class ForLoopItem(QGraphicsRectItem):
                 listItem = list(set(listItem))
             editor.listTools[editor.currentTab][self.unit] = listItem
             ValueZ2()
+            
+    # def UpdateIteminLoop(self, unitItem, listLoopItem, listItem):
+        
 
     def resize_frame(self, ind):
         loopTop = [self.scenePos().x(), self.scenePos().y()]
@@ -6956,13 +6961,22 @@ class NodeEdit(QWidget):
 
     def loopMultipleItems(self, item, ind):
         items = self.diagramScene[editor.currentTab].selectedItems()
+        listItemsInLoopInternal = []
         if len(items) > 1:
             for el in items:
                 # if (not type(el) in [Slide, CommentsItem]
                 #     and el.unit not in item.unit):
                 if not type(el) in [Slide, CommentsItem]:
-                    item.currentLoop.IteminLoop(el.unit, True, ind)
-                    item.currentLoop.normalState()
+                    if 'F' in el.unit:
+                        listItemsInLoopInternal.extend(editor.listTools[editor.currentTab][el.unit])
+                    elif 'I' in el.unit:
+                        listItemsInLoopInternal.extend(editor.listTools[editor.currentTab][el.unit][0])
+                        listItemsInLoopInternal.extend(editor.listTools[editor.currentTab][el.unit][1])
+            for el in items:
+                if not type(el) in [Slide, CommentsItem]:
+                    if el.unit not in listItemsInLoopInternal:
+                        item.currentLoop.IteminLoop(el.unit, True, ind)
+                        item.currentLoop.normalState()
 
     def sceneMouseMoveEvent(self, event):
         # self.touchF = (int(event.modifiers()) == (Qt.ControlModifier))

@@ -10,6 +10,11 @@ A documentation is available here : [https://montigno.github.io/skrypy](https://
 
 <p></p>
 
+	30/09/2025: version 25.09.30b
+	- Fixed bug when dragging a for loop containing elements into another for loop
+
+<p></p>
+
 	25/09/2025: version 25.09.25b
 	- block options : bug fixed
 

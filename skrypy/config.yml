@@ -12,6 +12,7 @@ packages:
   dirsync: dirsync
   einops: einops
   gdown: gdown
+  gitpython: GitPython
   gputil: GPUtil
   h5py: h5py
   keras: keras==2.8.0
@@ -55,4 +56,4 @@ packages:
   traits: traits
   transformers: transformers
   vedo: vedo
-version: 25.09.25b
+version: 25.09.30b
