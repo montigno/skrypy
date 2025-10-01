@@ -152,6 +152,7 @@ class Manag_cpu():
 
 
 class ClearSharedMemory():
+
     def __init__(self):
         self.file_shm = os.path.join(os.path.expanduser('~'), '.skrypy', 'list_shm.yml')
         self.clearMemory()
@@ -166,9 +167,9 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     self_dir_path = os.path.dirname(os.path.realpath(__file__))
     imageViewer = Project_Irmage(self_dir_path)
-    imageViewer.show()
     mri_icon = os.path.join(self_dir_path, 'ressources', 'skrypy.png')
     app.setWindowIcon(QIcon(mri_icon))
     os.chdir(os.path.expanduser('~'))
+    imageViewer.show()
     if imageViewer.state:
         sys.exit(app.exec_())

@@ -12,7 +12,6 @@ import subprocess
 from threading import Thread
 
 
-
 class execution_ssh():
 
     def __init__(self, workspace, files_dgr, n_cpu, mode, cluster, parent=None):

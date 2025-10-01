@@ -8,6 +8,12 @@ A documentation is available here : [https://montigno.github.io/skrypy](https://
 
 # Release history
 
+
+<p></p>
+
+	01/10/2025: version 25.10.01b
+	- blocks color changed
+
 <p></p>
 
 	30/09/2025: version 25.09.30b

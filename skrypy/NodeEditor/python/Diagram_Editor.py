@@ -4358,9 +4358,6 @@ class ForLoopItem(QGraphicsRectItem):
                 listItem = list(set(listItem))
             editor.listTools[editor.currentTab][self.unit] = listItem
             ValueZ2()
-            
-    # def UpdateIteminLoop(self, unitItem, listLoopItem, listItem):
-        
 
     def resize_frame(self, ind):
         loopTop = [self.scenePos().x(), self.scenePos().y()]
@@ -4792,8 +4789,8 @@ class Imagebox(QGraphicsRectItem):
 
 class ItemColor(Enum):
     BACKGROUND = QColor(40, 40, 40, 100)
-    PROCESS_TOP = QColor(120, 120, 120, 255)
-    PROCESS_BOT = QColor(80, 80, 80, 255)
+    PROCESS_TOP = QColor(52, 73, 94, 255)
+    PROCESS_BOT = QColor(44, 62, 80, 255)
     FRAME_PROCESS = QColor(140, 140, 140, 200)
     SUBPROCESS_TOP = QColor(250, 100, 0, 255)
     SUBPROCESS_BOT = QColor(200, 50, 0, 255)
@@ -9137,7 +9134,7 @@ class ssh_diagram_execution():
             diagram.append(os.path.join(host_path, os.path.basename(lst_dgr)))
 
         p1 = subprocess.Popen(['echo', host_password], shell=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        
+
         cmd_base = ['sshpass', '-p', host_password, 'scp']
         if len(hnm) == 2:
             cmd_base.extend(['-o', 'ProxyCommand={}'.format('sshpass -p {} ssh -W %h:%p {}'.format(host_password, hnm[0].strip()))])
@@ -9190,7 +9187,7 @@ class ssh_diagram_execution():
                 fssh.write("echo\n")
                 # fssh.write("echo \"\033[1;34mfinished.. you can close this window\033[0m\"\n")
                 # fssh.write("echo \n")
-                fssh.write("exit\n")            
+                fssh.write("exit\n")
         else:
             with open(path_ssh_cmd_file, 'w') as fssh:
                 fssh.write(pre_exec+"\n")
@@ -9203,7 +9200,7 @@ class ssh_diagram_execution():
                 # fssh.write("echo \"\033[1;34mfinished.. you can close this window\033[0m\"\n")
                 # fssh.write("echo \n")
                 fssh.write("exit\n")
-        
+
         # sd = os.system(f"gnome-terminal --title=\"" + param_ssh[0] + "\" --wait -- bash -c \"sshpass -p " + host_password.strip() + " ssh " + opx +
         #           " " + host_name + " < ~/.skrypy/ssh_command.sh; bash\"")
 
@@ -9234,7 +9231,7 @@ class ssh_diagram_execution():
         print('{}execution on {} finished\033[0m'.format(col, host_name))
         for lst_dgr in self.source:
             print('    - {}{}\033[0m'.format(col, os.path.basename(lst_dgr)))
-        
+
         # download shared memory from cluster ###################################
         cmd_base = ['sshpass', '-p', password, 'scp', '-q']
         if len(hnm) == 2:
@@ -9257,7 +9254,7 @@ class ssh_diagram_execution():
             print('download shared memory done')
         else:
             print('download shared memory error !!, code ' + str(p4.returncode))
-        
+
         # remove list_shme.yaml from cluster #######################################
         cmd_base = ['sshpass', '-p', password, 'ssh']
         if len(hnm) == 2:

@@ -359,7 +359,7 @@ class servers_window(QDialog):
 
         # host_name_m = host_name.split()
         # if len(host_name) == 2:
-        
+
         cmd_base = ['sshpass', '-p', self.wd_field.text(), 'ssh']
         hnm = host.split()
         if len(hnm) == 2:

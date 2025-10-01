@@ -3,8 +3,9 @@ import git
 import shutil
 import yaml
 
-from PyQt5.QtWidgets import QDialog, QVBoxLayout, QLabel, QTextEdit, QPushButton,\
+from PyQt5.QtWidgets import QDialog, QVBoxLayout, QLabel, QTextEdit, QPushButton, \
     QHBoxLayout
+
 
 class skrypy_update(QDialog):
     def __init__(self, parent=None):
@@ -72,7 +73,6 @@ class skrypy_update(QDialog):
         shutil.copytree(self.skrypy_new, self.skrypy_current, dirs_exist_ok=True)
         self.answer = 'ok'
         self.close()
-        
+
     def getAnswer(self):
         return self.answer
-    
