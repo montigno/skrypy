@@ -1,13 +1,13 @@
 [diagram]
-link=[N2] node=[C0:mask_den_unr_preproc_unb#Node#S0:mask_den_unr_preproc_unb]
-link=[N0] node=[C2:param#Node#S0:param]
 link=[N1] node=[C1:wmfod_norm#Node#S0:wmfod_norm]
-connt=[C2] name=[param] type=[in] format=[list_str] valOut=[['']] RectF=[(-400.0, 675.0, 70, 24)] 
-connt=[C1] name=[wmfod_norm] type=[in] format=[path] valOut=[path] RectF=[(-450.0, 400.0, 70, 24)] 
-connt=[C0] name=[mask_den_unr_preproc_unb] type=[in] format=[path] valOut=[path] RectF=[(-450.0, 125.0, 70, 24)] 
+link=[N0] node=[C2:param#Node#S0:param]
+link=[N2] node=[C0:mask_den_unr_preproc_unb#Node#S0:mask_den_unr_preproc_unb]
 script=[S0] title=[Script_python] inputs=[['mask_den_unr_preproc_unb', 'in', 'path'], ['wmfod_norm', 'in', 'path'], ['param', 'in', 'list_str']] outputs=[] code=[your code] RectF=[(-125.0, -150.0, 919.0, 1104.0)]
+connt=[C0] name=[mask_den_unr_preproc_unb] type=[in] format=[path] valOut=[path] RectF=[(-450.0, 115.39, 70, 24)] 
+connt=[C1] name=[wmfod_norm] type=[in] format=[path] valOut=[path] RectF=[(-430.79, 385.59000000000003, 70, 24)] 
+connt=[C2] name=[param] type=[in] format=[list_str] valOut=[['']] RectF=[(-435.22, 665.39, 70, 24)] 
 [source S0]
-['wmfod_norm=C1:wmfod_norm', 'param=C2:param', 'mask_den_unr_preproc_unb=C0:mask_den_unr_preproc_unb']
+['mask_den_unr_preproc_unb=C0:mask_den_unr_preproc_unb', 'param=C2:param', 'wmfod_norm=C1:wmfod_norm']
 import subprocess 
 import math
 import os

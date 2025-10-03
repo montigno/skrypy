@@ -3386,18 +3386,10 @@ class DiagramView(QGraphicsView):
             name = name[2:len(name) - 1]
             if "For" in name:
                 self.a1 = ForLoopItem('newForLoop', name, 400.0, 400.0, True, [], [])
-                self.a1.setPos(self.mapToScene(event.pos()))
-                self.scene().addItem(self.a1)
-                # self.addItemLoop(self.a1.unit)
             elif "If" in name:
                 self.a1 = ForLoopItem('newIf', name, 400.0, 400.0, True, [], [])
-                self.a1.setPos(self.mapToScene(event.pos()))
-                self.scene().addItem(self.a1)
-                # self.addItemLoop(self.a1.unit)  # ???? required ?
             elif "Comments" in name:
                 self.a1 = CommentsItem(200, 150, 'Comments', True)
-                self.a1.setPos(self.mapToScene(event.pos()))
-                self.scene().addItem(self.a1)
             elif "Constant_" in name:
                 if 'string' in name:
                     val = 'your text'
@@ -3421,9 +3413,6 @@ class DiagramView(QGraphicsView):
                     val = (0,)
                     form = 'tuple'
                 self.a1 = Constants('newConstant', 80, 30, val, form, '', True)
-                self.a1.setPos(self.mapToScene(event.pos()))
-                self.scene().addItem(self.a1)
-                # self.addItemLoop(self.a1.unit)
             elif "Cluster_" in name:
                 if 'integer' in name:
                     val = (-10000, 0, 10000)
@@ -3438,52 +3427,27 @@ class DiagramView(QGraphicsView):
                     val = True
                     form = 'bool'
                 self.a1 = Clusters('newCluster', 115, 33, val, form, '', True)
-                self.a1.setPos(self.mapToScene(event.pos()))
-                self.scene().addItem(self.a1)
-                # self.addItemLoop(self.a1.unit)
             elif "Script_python" in name:
                 self.a1 = ScriptItem('newScript', name, 400.0, 400.0, True, True)
-                self.a1.setPos(self.mapToScene(event.pos()))
-                self.scene().addItem(self.a1)
-                # self.addItemLoop(self.a1.unit)
             elif "Macro_ImageJ" in name:
                 self.a1 = ScriptItem('newMacro', name, 400.0, 400.0, True, True, [], [['macro_out', 'out', 'str']])
-                self.a1.setPos(self.mapToScene(event.pos()))
-                self.scene().addItem(self.a1)
-                # self.addItemLoop(self.a1.unit)
             elif name in ["Value", "Type", "Length"]:
                 self.a1 = Probes('new', 'unkn', name, True)
-                self.a1.setPos(self.mapToScene(event.pos()))
-                self.scene().addItem(self.a1)
-                # self.addItemLoop(self.a1.unit)
             elif "Checkbox" in name:
                 self.a1 = Checkbox('newCheckbox', ['Item1', 'Item2'], '', True)
-                self.a1.setPos(self.mapToScene(event.pos()))
-                self.scene().addItem(self.a1)
-                # self.addItemLoop(self.a1.unit)
             elif "Imagebox" in name:
                 self.a1 = Imagebox('newImagebox', 'path', '', True)
-                self.a1.setPos(self.mapToScene(event.pos()))
-                self.scene().addItem(self.a1)
-                # self.addItemLoop(self.a1.unit)
             elif "Pathbox" in name:
                 self.a1 = Constants('newConstant', 80, 30, ['path'], 'list_path', '', True)
-                # self.a1 = Pathbox('newPathbox', ['path'], '', True)
-                self.a1.setPos(self.mapToScene(event.pos()))
-                self.scene().addItem(self.a1)
-                # self.addItemLoop(self.a1.unit)
             elif "Connector" in name:
                 if "_input" in name:
                     self.a1 = ConnectorItem('unkn', '', 70, 26, 'in', 'unkn', '', True)
                 else:
                     self.a1 = ConnectorItem('unkn', '', 70, 26, 'out', 'unkn', '', True)
-                self.a1.setPos(self.mapToScene(event.pos()))
-                self.scene().addItem(self.a1)
             elif "Stop_execution" in name:
                 self.a1 = StopExecution('newStopExec', True)
-                self.a1.setPos(self.mapToScene(event.pos()))
-                self.scene().addItem(self.a1)
-                # self.addItemLoop(self.a1.unit)
+            self.a1.setPos(self.mapToScene(event.pos()))
+            self.scene().addItem(self.a1)
 
             try:
                 editor.listItems[editor.currentTab][self.a1.unit] = self.a1

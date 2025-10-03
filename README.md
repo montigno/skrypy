@@ -11,6 +11,11 @@ A documentation is available here : [https://montigno.github.io/skrypy](https://
 
 <p></p>
 
+	03/10/2025: version 25.10.03b
+	- improvement and simplification of codes
+
+<p></p>
+
 	01/10/2025: version 25.10.01b
 	- blocks color changed
 
