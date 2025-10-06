@@ -26,7 +26,7 @@ from PyQt5.QtWidgets import QMenuBar, QTextEdit, QGraphicsScene, QDialog, \
     QHBoxLayout, QLabel, QPushButton, QGraphicsProxyWidget, QGraphicsTextItem, \
     QGridLayout, QCheckBox, QLineEdit, QCompleter, QToolBar, QToolButton, \
     QProgressBar, QApplication, qApp, QScrollArea, QProgressDialog, \
-    QMdiArea, QMdiSubWindow, QTabWidget
+    QMdiArea, QMdiSubWindow, QTabWidget, QMainWindow
 
 from collections import deque
 from enum import Enum
@@ -5342,8 +5342,7 @@ class Menu(QMenuBar):
         saveDgr = self.menuDgr.addAction('Save Diagram')
         saveDgr.setShortcut('Ctrl+s')
         self.menuDgr.addAction('Save Diagram As...')
-        closeDgr = self.menuDgr.addAction('Close Diagram')
-        closeDgr.setShortcut('Ctrl+w')
+        closeDgr = self.menuDgr.addAction('Close Diagram\tCtrl+W')
         claseAll = self.menuDgr.addAction('Close All Diagram')
         self.menuDgr.addSeparator()
         self.openRecent = self.menuDgr.addMenu('Open Recent')
@@ -5583,13 +5582,10 @@ class Menu(QMenuBar):
                             pass
 
         elif tmpActText == 'Exit':
-            box = QMessageBox.question(self,
-                                       "Exit main...",
-                                       "Did you save your projects ? ",
-                                       QMessageBox.Yes | QMessageBox.No,
-                                       QMessageBox.No)
-            if box == QMessageBox.Yes:
-                qApp.quit()
+            app = QApplication.instance()
+            for widget in app.topLevelWidgets():
+                if isinstance(widget, QMainWindow):
+                    widget.close()
 
         elif tmpActText == 'load_previous_diagram':
             self.load_previous_diagram()
@@ -5714,12 +5710,11 @@ class Menu(QMenuBar):
                 self.btnPressed(QAction('Tiled'))
             dialog.close()
 
-        elif tmpActText == 'Close Diagram':
-            if len(editor.mdi.subWindowList()) != 0:
-                if len(editor.mdi.subWindowList()) == 1:
-                    editor.closeSubWindow(editor.mdi.subWindowList()[0])
-                else:
-                    editor.closeSubWindow(editor.mdi.currentSubWindow())
+        elif tmpActText == 'Close Diagram\tCtrl+W':
+            title_current = editor.getSubWindowCurrentTitle()
+            for sw in editor.mdi.subWindowList():
+                if sw.windowTitle() == title_current:
+                    sw.close()
 
         elif tmpActText == 'Close All Diagram':
             editor.mdi.closeAllSubWindows()
@@ -6645,6 +6640,8 @@ class NodeEdit(QWidget):
                 a = self.saveDiagramDialog(currentTitle[0:-1])
             if a in ['yes', 'no']:
                 self.mdi.removeSubWindow(obj)
+                obj.close()
+                obj.deleteLater()
                 del self.listItems[currentIndex]
                 del self.listBlocks[currentIndex]
                 del self.listNodes[currentIndex]
@@ -9257,9 +9254,9 @@ class SubWindowManager(QMdiSubWindow):
         super().__init__()
         self.resize(400, 400)
         self.windowNumber = 0
-        for action in self.systemMenu().actions():
-            if action.shortcut() == QKeySequence("Ctrl+w"):
-                action.setShortcut(QKeySequence())
+        # for action in self.systemMenu().actions():
+        #     if action.shortcut() == QKeySequence("Ctrl+w"):
+        #         action.setShortcut(QKeySequence())
 
     @pyqtSlot(str)
     def closeEvent(self, event):

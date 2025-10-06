@@ -74,9 +74,9 @@ class Project_Irmage(QMainWindow):
             os.remove(tmp)
 
     def closeEvent(self, event):
-        msg = QMessageBox()
+        msg = QMessageBox(self)
         msg.setWindowTitle("Exit skrypy...")
-        msg.setText("Have you saved your projects ?)")
+        msg.setText("Have you saved your projects ?")
         msg.setIcon(QMessageBox.Question)
 
         msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)

@@ -1,4 +1,3 @@
-import GPUtil
 from PyQt5.Qt import QTextEdit, QThread, pyqtSignal, QFont
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication, QWidget, QPlainTextEdit, \
@@ -6,6 +5,7 @@ from PyQt5.QtWidgets import QApplication, QWidget, QPlainTextEdit, \
                             QCheckBox
 import os
 import psutil
+import GPUtil
 import signal
 import sys
 
