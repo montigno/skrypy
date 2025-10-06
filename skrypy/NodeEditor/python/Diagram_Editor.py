@@ -5999,9 +5999,9 @@ class Menu(QMenuBar):
             webbrowser.open(tmp)
 
         elif tmpActText == 'Update Skrypy':
-            c = skrypy_update()
+            c = skrypy_update(self)
             c.exec_()
-            if c.getAnswer() == 'ok':
+            if c.getAnswer() == 'YES':
                 msg = QMessageBox()
                 msg.setWindowTitle("Update done...")
                 msg.setText("Please close and restart Skrypy")

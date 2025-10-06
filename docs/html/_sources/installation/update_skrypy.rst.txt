@@ -17,4 +17,6 @@ How to upgrade Skrypy
 
   |pic2|
 
-3. Click on Ok and restart Skrypy
+3. Click on YES or NO
+
+4. Restart skrypy if you clicked YES

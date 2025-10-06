@@ -48,14 +48,14 @@ class skrypy_update(QDialog):
 
     def confirmation_dialog(self):
 
-        label1 = QLabel("Upgrade to " + self.version_new)
+        label1 = QLabel("The latest version available is " + self.version_new)
         label2 = QLabel("Your current version is " + self.version_current)
-        label3 = QLabel("Do you want to update ? If you click OK, you will need to restart Skrypy to take effect.")
+        label3 = QLabel("Do you want to update ? If you click YES, you will need to restart Skrypy to take effect.")
         label3.setWordWrap(True)
 
-        buttonCancel = QPushButton('Cancel', self)
+        buttonCancel = QPushButton('NO', self)
         buttonCancel.clicked.connect(self.close)
-        buttonOk = QPushButton('OK', self)
+        buttonOk = QPushButton('YES', self)
         buttonOk.clicked.connect(self.upgrading)
         hbox = QHBoxLayout()
         hbox.addWidget(buttonCancel)
@@ -71,7 +71,7 @@ class skrypy_update(QDialog):
 
     def upgrading(self):
         shutil.copytree(self.skrypy_new, self.skrypy_current, dirs_exist_ok=True)
-        self.answer = 'ok'
+        self.answer = 'YES'
         self.close()
 
     def getAnswer(self):
