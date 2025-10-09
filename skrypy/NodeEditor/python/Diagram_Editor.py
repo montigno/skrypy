@@ -5609,6 +5609,7 @@ class Menu(QMenuBar):
                     break
 
             if not connectorPresent:
+                self.btnPressed(QAction('Refresh Diagram'))
                 txt = SaveDiagram()
 #                 blk = BlocksProjects(txt.toPlainText())
                 if ('.dgr' not in extension or
