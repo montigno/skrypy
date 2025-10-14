@@ -76,18 +76,18 @@ class DispNifti(QDialog):
                 self.rx = self.w
                 self.ry = int(self.h * pixdim[1] / pixdim[0])
                 self.interl = self.w
-               
+
         self.boxSliders() 
         self.enableSliders()
         self.imgqLabel()
         self.navigImage()
-        
+
         self.info = QLabel()
         self.info.setText("<span style=\" \
                           font-size:10pt; \
                           color:#101010;\"> {:.2f}x{:.2f}mm ({}x{})</span>"
                           .format(self.w * pixdim[0], self.h * pixdim[1], self.w, self.h))
-          
+
         self.verticalLayout = QVBoxLayout(self)
         self.verticalLayout.addWidget(self.imageLabel)
         self.verticalLayout.addWidget(self.layoutSlide)

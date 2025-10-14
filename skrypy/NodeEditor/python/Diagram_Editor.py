@@ -4651,7 +4651,8 @@ class Imagebox(QGraphicsRectItem):
         self.proxyWidget.resize(10, 10)
         self.proxyWidget.updateGeometry()
         # self.proxyWidget.resize(self.sh[0] / factor, self.sh[1] / (ratio * factor))
-        self.proxyWidget.resize(fov_x / factor, fov_y / (ratio * factor))
+        # self.proxyWidget.resize(fov_x / factor, fov_y / (ratio * factor))
+        self.proxyWidget.resize(fov_x / factor, fov_y / factor)
 
         self.proxyWidget.setWidget(self.elemProxy)
         self.proxyWidget.updateGeometry()
@@ -5559,6 +5560,7 @@ class Menu(QMenuBar):
         elif tmpActText == 'Refresh Diagram':
             if len(editor.mdi.subWindowList()) >= 1:
                 editor.diagramView[editor.currentTab].scene().clearFocus()
+                UpdateUndoRedo()
                 ct = editor.currentTab
                 listIf = {}
                 if editor.pointTyping[ct] > 0:
