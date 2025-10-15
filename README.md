@@ -10,6 +10,11 @@ A documentation is available here : [https://montigno.github.io/skrypy](https://
 
 <p></p>
 
+	15/10/2025: version 25.10.15b
+	- ProgressBar : modification and improvement
+
+<p></p>
+
 	14/10/2025: version 25.10.14c
 	- Blocks librarie : DeepLearning - RS2, improvement of codes
 

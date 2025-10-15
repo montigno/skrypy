@@ -6,7 +6,7 @@
 # for details.
 ##########################################################################
 '''
-Skrypy 25.10.14c   setup   Oct. 14 2025
+Skrypy 25.10.15b   setup   Oct. 15 2025
 
 SYNOPSIS
     Install Skrypy in a virtual python environment (administration rights required).

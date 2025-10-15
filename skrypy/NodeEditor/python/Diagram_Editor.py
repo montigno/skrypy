@@ -9477,7 +9477,7 @@ class ThreadDiagram(QRunnable):
         self.pipe_exec.update_progress.connect(self.update_progressBar)
         with open(os.path.join(os.path.expanduser('~'), '.skrypy', 'list_process.tmp'), 'w') as f:
             # list_proc = f.readlines()
-            f.write('{}{}{}\n'.format('Process Name', ' '*10, 'ID'))
+            f.write('{}{}{}\n'.format('Process Name', ' ' * 10, 'ID'))
 
     @pyqtSlot()
     def run(self):
@@ -9497,6 +9497,8 @@ class ThreadDiagram(QRunnable):
         self.label = QLabel()
         self.pbar = QProgressBar(self.winBar)
         self.pbar.setGeometry(-100, 0, 350, 30)
+        self.pbar.setMinimum(0)
+        self.pbar.setMaximum(0)
         self.pbar.setValue(0)
         # self.button_stop = QPushButton('Stop pipeline')
         # self.button_stop.setCheckable(True)
