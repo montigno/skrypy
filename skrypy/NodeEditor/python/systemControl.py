@@ -18,7 +18,6 @@ class controlSys(QDialog):
 
         # self.setWindowFlags(Qt.CustomizeWindowHint | Qt.WindowStaysOnTopHint)
         self.setWindowFlags(Qt.Window | Qt.WindowTitleHint | Qt.CustomizeWindowHint)
-        self.txt = '\n'
 
         self.top = 0
         self.left = 0
@@ -40,12 +39,12 @@ class controlSys(QDialog):
         button_thread.clicked.connect(self.buttonProcess)
         button_stop = QPushButton('force stop')
         button_stop.clicked.connect(self.buttonStop)
-        button_stop_restart = QPushButton('force stop and restart')
-        button_stop_restart.clicked.connect(self.buttonStopRestart)
+        # button_stop_restart = QPushButton('force stop and restart')
+        # button_stop_restart.clicked.connect(self.buttonStopRestart)
         vbox.addWidget(self.plainText)
         hbox.addWidget(button_thread)
         hbox.addWidget(button_stop)
-        hbox.addWidget(button_stop_restart)
+        # hbox.addWidget(button_stop_restart)
         vbox.addLayout(hbox)
 
         self.console = QTextEdit()
@@ -86,8 +85,8 @@ class controlSys(QDialog):
         txt = fp.read()
         try:
             txt = txt[txt.index('cmd_sk'):]
-            self.txt = txt[txt.index('source'): txt.index('\n')-1]
-            os.system(self.txt)
+            txt = txt[txt.index('source'): txt.index('\n')-1]
+            os.system(txt)
         except Exception as err:
             print('restart error : ', err)
             self.close()

@@ -1,12 +1,14 @@
 from NodeEditor.python.Diagram_Editor import LoadDiagram, Diagram_excution
+
 from PyQt5.QtCore import Qt, QMimeData
 from PyQt5.QtTest import QTest
 from PyQt5.QtWidgets import QApplication
+from PyQt5.QtGui import QDrag
+
 from main import Project_Irmage
 import os
 import sys
 import unittest
-from PyQt5.QtGui import QDrag
 
 
 class mri_worksTest(unittest.TestCase):

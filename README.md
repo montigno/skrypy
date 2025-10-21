@@ -10,6 +10,11 @@ A documentation is available here : [https://montigno.github.io/skrypy](https://
 
 <p></p>
 
+	21/10/2025: version 25.10.21b
+	- Function removed : 'force stop and restart' button in the control window removed
+
+<p></p>
+
 	17/10/2025: version 25.10.17b
 	- Added function : text editor for environment variables
 
