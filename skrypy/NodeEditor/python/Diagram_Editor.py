@@ -1815,7 +1815,7 @@ class ConnectorItem(QGraphicsPolygonItem):
             xV = round(args[1].x() / gridSize) * gridSize
             yV = round(args[1].y() / gridSize) * gridSize
             self.setPos(QPointF(xV, yV))
-        return QGraphicsRectItem.itemChange(self, *args, **kwargs)
+        return QGraphicsPolygonItem.itemChange(self, *args, **kwargs)
 
     def keyPressEvent(self, event):
         if event.key() == Qt.Key_Up:
@@ -8039,7 +8039,7 @@ class Probes(QGraphicsPolygonItem):
             xV = round(args[1].x() / gridSize) * gridSize
             yV = round(args[1].y() / gridSize) * gridSize
             self.setPos(QPointF(xV, yV))
-        return QGraphicsRectItem.itemChange(self, *args, **kwargs)
+        return QGraphicsPolygonItem.itemChange(self, *args, **kwargs)
 
     def mouseMoveEvent(self, mouseEvent):
         mouseEvent.accept()
@@ -9389,16 +9389,16 @@ class StopExecution(QGraphicsPolygonItem):
             xV = round(args[1].x() / gridSize) * gridSize
             yV = round(args[1].y() / gridSize) * gridSize
             self.setPos(QPointF(xV, yV))
-        return QGraphicsRectItem.itemChange(self, *args, **kwargs)
+        return QGraphicsPolygonItem.itemChange(self, *args, **kwargs)
 
     def mouseMoveEvent(self, mouseEvent):
         mouseEvent.accept()
         editor.loopMouseMoveEvent(self, mouseEvent.scenePos())
-        return QGraphicsRectItem.mouseMoveEvent(self, mouseEvent)
+        return QGraphicsPolygonItem.mouseMoveEvent(self, mouseEvent)
 
     def mouseReleaseEvent(self, event):
         editor.loopMouseReleaseEvent(self, True)
-        return QGraphicsRectItem.mouseReleaseEvent(self, event)
+        return QGraphicsPolygonItem.mouseReleaseEvent(self, event)
 
     def deleteItem(self):
         editor.diagramScene[editor.currentTab].removeItem(self)
