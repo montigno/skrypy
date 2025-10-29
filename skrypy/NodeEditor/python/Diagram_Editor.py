@@ -2411,6 +2411,7 @@ class Constants_text(QTextEdit):
         self.setMaximumHeight(25)
         self.setAutoFillBackground(False)
         self.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.setCursorWidth(1)
         self.unit = unit
         self.lab = lab
