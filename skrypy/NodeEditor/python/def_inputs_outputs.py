@@ -32,7 +32,7 @@ class define_inputs_outputs(QDialog):
         dim, format = '', 'int'
         if '_' in currentFormat:
             dim = currentFormat[0:currentFormat.index('_')]
-            format = currentFormat[currentFormat.index('_')+1:]
+            format = currentFormat[currentFormat.index('_') + 1:]
         elif currentFormat:
             format = currentFormat
 
@@ -96,8 +96,7 @@ class define_inputs_outputs(QDialog):
             return
         self.format.append(self.portName.text())
         if self.comboDim.currentText():
-            self.format.append(self.comboDim.currentText() + '_'
-                               + self.comboFormat.currentText())
+            self.format.append(self.comboDim.currentText() + '_' + self.comboFormat.currentText())
         else:
             self.format.append(self.comboFormat.currentText())
         self.close()

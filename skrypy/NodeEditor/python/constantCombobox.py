@@ -18,8 +18,7 @@ class editCombobox(QDialog):
         self.answer = "cancel"
         self.listVal = itemsList
         self.setWindowTitle('Edit Combobox')
-        self.setWindowFlags(self.windowFlags() &
-                            Qt.WindowCloseButtonHint)
+        self.setWindowFlags(self.windowFlags() & Qt.WindowCloseButtonHint)
         self.adjustSize()
 
         vbox = QVBoxLayout(self)

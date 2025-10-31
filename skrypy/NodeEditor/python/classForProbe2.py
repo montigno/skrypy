@@ -71,7 +71,7 @@ class printProbe():
                                 tmptxt += ', '
                             else:
                                 continued = False
-                                tmptxt = tmptxt[0:-2]+')'
+                                tmptxt = tmptxt[0:-2] + ')'
                     else:
                         tmptxt = '1'
                     val = tmptxt

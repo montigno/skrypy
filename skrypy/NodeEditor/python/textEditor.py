@@ -58,12 +58,12 @@ class TextEditor(QMainWindow):
         self.open_file()
 
         self.text_edit.textChanged.connect(self.on_text_changed)
-        
+
     def getEnvFile(self):
         env_file = os.path.expanduser('~')
         env_file = os.path.join(env_file, '.skrypy', 'env_parameters.txt')
         return env_file
-        
+
     def menu_toolbar(self):
         toolbar = QToolBar("Tools Bar")
         toolbar.setIconSize(QSize(24, 24))
@@ -80,7 +80,7 @@ class TextEditor(QMainWindow):
         redo_action = QAction(QIcon.fromTheme("edit-redo"), "Redo", self)
         redo_action.setShortcut("Ctrl+Y")
         redo_action.triggered.connect(self.text_edit.redo)
-        
+
         quit_action = QAction(QIcon.fromTheme("application-exit"), "Quit", self)
         quit_action.setShortcut("Ctrl+Q")
         quit_action.triggered.connect(self.close)
@@ -90,12 +90,12 @@ class TextEditor(QMainWindow):
         toolbar.addAction(undo_action)
         toolbar.addAction(redo_action)
         toolbar.addAction(quit_action)
-        
+
     def create_statusbar(self):
         self.status = QStatusBar()
         self.setStatusBar(self.status)
         self.status.showMessage("Ready")
-        
+
     def open_file(self):
         if self.current_file:
             try:
@@ -108,7 +108,7 @@ class TextEditor(QMainWindow):
                 self.setWindowTitle(f"Editor - {self.current_file}")
             except Exception as e:
                 QMessageBox.critical(self, "Error", f"Unable to open file :\n{e}")
-        
+
     def save_file(self):
         if self.current_file:
             try:
@@ -124,7 +124,7 @@ class TextEditor(QMainWindow):
         else:
             self.current_file = self.getEnvFile()
             self.save_as()
-            
+
     def save_as(self):
         if self.current_file:
             try:
@@ -136,7 +136,7 @@ class TextEditor(QMainWindow):
                 self.setWindowTitle(f"Editor - {self.current_file}")
             except Exception as e:
                 QMessageBox.critical(self, "Error", f"Unable to save :\n{e}")
-            
+
     def on_text_changed(self):
         if not self.modifie:
             self.modifie = True
@@ -144,7 +144,7 @@ class TextEditor(QMainWindow):
             if not titre.endswith("*"):
                 self.setWindowTitle(titre + " *")
             self.status.showMessage("Modified")
-            
+
     def closeEvent(self, event):
         if self.modifie:
             reponse = QMessageBox.question(
@@ -158,7 +158,7 @@ class TextEditor(QMainWindow):
                 event.ignore()
                 return
         event.accept()
-        
+
 # if __name__ == "__main__":
 #     app = QApplication(sys.argv)
 #     window = TextEditor()

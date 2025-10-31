@@ -1,13 +1,14 @@
 from PyQt5.Qt import QTextEdit, QThread, pyqtSignal, QFont
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication, QWidget, QPlainTextEdit, \
-                            QVBoxLayout, QDialog, QHBoxLayout, QPushButton, \
-                            QCheckBox
+    QVBoxLayout, QDialog, QHBoxLayout, QPushButton, QCheckBox
+
 import os
 import psutil
 import GPUtil
 import signal
 import sys
+import platform
 
 
 class controlSys(QDialog):
@@ -85,7 +86,7 @@ class controlSys(QDialog):
         txt = fp.read()
         try:
             txt = txt[txt.index('cmd_sk'):]
-            txt = txt[txt.index('source'): txt.index('\n')-1]
+            txt = txt[txt.index('source'): txt.index('\n') - 1]
             os.system(txt)
         except Exception as err:
             print('restart error : ', err)
@@ -112,8 +113,9 @@ class controlSys(QDialog):
         val = valuesCPU[1]
         filled_len = int(bar_len * val / float(total))
         bar = ('=' * filled_len) + (' ' * (bar_len - filled_len))
-        total_swap = int(psutil.swap_memory().total / (1024.**3))
-        tmp += 'SWAP({}Go):{:>4d}% : {}|\n\n'.format(total_swap, val, bar)
+        if platform.system() == 'Linux':
+            total_swap = int(psutil.swap_memory().total / (1024.**3))
+            tmp += 'SWAP({}Go):{:>4d}% : {}|\n\n'.format(total_swap, val, bar)
 
         for i, val in enumerate(valuesCPU[2:]):
             filled_len = int(bar_len * val / float(total))
@@ -148,7 +150,8 @@ class Monitor(QThread):
             value = []
             txt = []
             value.append(int(psutil.virtual_memory().percent))
-            value.append(int(psutil.swap_memory().percent))
+            if platform.system() == 'Linux':
+                value.append(int(psutil.swap_memory().percent))
             for idx, usage in enumerate(per_cpu):
                 value.append(int(psutil.cpu_percent(interval=0.2)))
             for idx, usage in enumerate(per_gpu):

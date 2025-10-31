@@ -22,8 +22,7 @@ class defineTunnels(QDialog):
             self.setWindowTitle('Define input tunnels')
         else:
             self.setWindowTitle('Define output tunnels')
-        self.setWindowFlags(self.windowFlags() &
-                            Qt.WindowCloseButtonHint)
+        self.setWindowFlags(self.windowFlags() & Qt.WindowCloseButtonHint)
         self.adjustSize()
 
         listformat = ["int", "float", "str", "path", "bool"]

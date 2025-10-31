@@ -14,8 +14,7 @@ Last modification on 14 mars 2023
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QFontMetrics
 from PyQt5.QtWidgets import QDialog, QCheckBox, QVBoxLayout, QHBoxLayout, \
-     QPushButton, QScrollArea, QWidget, QMenuBar, QAction, \
-     QTextEdit
+    QPushButton, QScrollArea, QWidget, QMenuBar, QAction, QTextEdit
 import importlib
 import inspect
 import os
@@ -36,8 +35,7 @@ class chOptions(QDialog):
         self.values_inputs = self.poqs[1]
 
         self.setWindowTitle(nameclass)
-        self.setWindowFlags(self.windowFlags() &
-                            Qt.WindowCloseButtonHint)
+        self.setWindowFlags(self.windowFlags() & Qt.WindowCloseButtonHint)
 
         menubar = QMenuBar()
         checkAll = QAction('Check all options', self)

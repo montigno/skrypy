@@ -36,9 +36,9 @@ class buildLibrary(QWidget):
                         Separador.setLineWidth(3)
                         # vbox.addWidget(Separador)
                     else:
-                        lab = list(listModules)[i*ncol + j]
+                        lab = list(listModules)[i * ncol + j]
                         lab = lab.replace('_', '\n')
-                        ico = list(listModules.values())[i*ncol + j]
+                        ico = list(listModules.values())[i * ncol + j]
                         label = QLabel()
                         label.setAlignment(Qt.AlignCenter)
                         # label.setWordWrap(True)
@@ -65,7 +65,7 @@ class buildLibrary(QWidget):
                     glayout.addLayout(vbox, i, j)
                 except Exception as err:
                     pass
-        self.setFixedHeight(row_number*100)
+        self.setFixedHeight(row_number * 100)
         self.setLayout(glayout)
 
     def buttonClik(self, txt):
