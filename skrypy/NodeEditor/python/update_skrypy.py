@@ -2,6 +2,7 @@ import os
 import git
 import shutil
 import yaml
+import tempfile
 
 from PyQt5.QtWidgets import QDialog, QVBoxLayout, QLabel, QTextEdit, QPushButton, \
     QHBoxLayout
@@ -11,28 +12,26 @@ class skrypy_update(QDialog):
     def __init__(self, parent=None):
         super(skrypy_update, self).__init__(parent)
         self.setWindowTitle("Skrypy Updater")
-        self.setMinimumWidth(300)
+        self.setMinimumWidth(400)
         self.setAutoFillBackground(True)
         self.answer = 'cancel'
-        dest = "/tmp/"
-        skrypy_current = os.path.realpath(__file__)
-        skrypy_current = skrypy_current[:skrypy_current.index('NodeEditor')]
-        config_current = os.path.join(skrypy_current, 'config.yml')
+        dest = tempfile.gettempdir()
+        self.skrypy_current = os.path.realpath(__file__)
+        self.skrypy_current = self.skrypy_current[:self.skrypy_current.index('NodeEditor')]
+        config_current = os.path.join(self.skrypy_current, 'config.yml')
         with open(config_current, 'r', encoding='utf8') as stream:
             dicts = yaml.load(stream, yaml.FullLoader)
             self.version_current = dicts['version']
-        self.skrypy_current = skrypy_current
-        skrypy_new = os.path.join(dest, "skrypy")
-        if os.path.exists(skrypy_new):
-            shutil.rmtree(skrypy_new, onerror=self.remove_readonly)
+        self.skrypy_new_dir = os.path.join(dest, "skrypy")
+        if os.path.exists(self.skrypy_new_dir):
+            shutil.rmtree(self.skrypy_new_dir, onerror=self.remove_readonly)
         try:
             git.Git(dest).clone("https://github.com/montigno/skrypy.git")
-            skrypy_new = os.path.join(skrypy_new, "skrypy")
-            config_new = os.path.join(skrypy_new, 'config.yml')
+            self.skrypy_new = os.path.join(self.skrypy_new_dir, "skrypy")
+            config_new = os.path.join(self.skrypy_new, 'config.yml')
             with open(config_new, 'r', encoding='utf8') as stream:
                 dicts = yaml.load(stream, yaml.FullLoader)
                 self.version_new = dicts['version']
-            self.skrypy_new = skrypy_new
             self.confirmation_dialog()
         except Exception as err:
             self.error_message()
@@ -77,12 +76,12 @@ class skrypy_update(QDialog):
     def upgrading(self):
         shutil.rmtree(self.skrypy_current, onerror=self.remove_readonly)
         shutil.copytree(self.skrypy_new, self.skrypy_current, dirs_exist_ok=True)
-        shutil.rmtree(self.skrypy_new, onerror=self.remove_readonly)
+        shutil.rmtree(self.skrypy_new_dir, onerror=self.remove_readonly)
         self.answer = 'YES'
         self.close()
 
     def closeDialog(self):
-        shutil.rmtree(self.skrypy_new, onerror=self.remove_readonly)
+        shutil.rmtree(self.skrypy_new_dir, onerror=self.remove_readonly)
         self.close()
 
     def getAnswer(self):
