@@ -1,18 +1,18 @@
-import os
+from pathlib import Path
 
-user_input = "/home/olivier/Documents/eclipse-workspace/skrypy/NodeEditor/python"
-directory = os.listdir(user_input)
+def searching_string(dossier, mot):
+    dossier_path = Path(dossier)
+    for fichier in dossier_path.rglob('*'):
+        if fichier.is_file():
+            try:
+                with fichier.open('r', encoding='utf-8') as f:
+                    for num_ligne, ligne in enumerate(f, start=1):
+                        if mot in ligne:
+                            print(f"{fichier} (ligne {num_ligne}) : {ligne.strip()}")
+            except (UnicodeDecodeError, PermissionError):
+                continue
 
+user_dir = "/home/olivier/Documents/eclipse-workspace/skrypy-pyqt6/"
 searchstring = "/tmp"
 
-for fname in directory:
-    # print(fname)
-    if os.path.isfile(user_input + os.sep + fname):
-        # Full path
-        f = open(user_input + os.sep + fname, 'r')
-
-        if searchstring in f.read():
-            print('found string in file %s' % fname)
-        else:
-            print('string not found')
-        f.close()
+searching_string(user_dir, searchstring)
