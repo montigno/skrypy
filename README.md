@@ -9,7 +9,7 @@ A documentation is available here : [https://montigno.github.io/skrypy](https://
 
 <p></p>
 
-	03/11/2025: version 26.02.04a
+	04/02/2026: version 26.02.04a
 	- Some bugs fixed
 
 <p></p>
