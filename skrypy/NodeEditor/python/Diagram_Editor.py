@@ -42,6 +42,7 @@ import re
 import time
 import webbrowser
 import yaml
+import shutil
 from random import randint
 from threading import Timer
 
@@ -54,7 +55,7 @@ from . import analyze2, execution2, servers_window
 from . import buildLibrary, SubWindow
 from . import changeLabel, changeTitle, chOptions
 from . import defineTunnels, define_inputs_outputs
-from . import input_output_setName
+from . import input_output_setName, project_archive
 from . import editCombobox, errorHandler
 from . import editParam, editParamLoopFor
 from . import getlistModules, getlistSubModules
@@ -5347,6 +5348,8 @@ class Menu(QMenuBar):
         closeDgr = self.menuDgr.addAction('Close Diagram\tCtrl+W')
         claseAll = self.menuDgr.addAction('Close All Diagram')
         self.menuDgr.addSeparator()
+        archProj = self.menuDgr.addAction('Archive Project')
+        self.menuDgr.addSeparator()
         self.openRecent = self.menuDgr.addMenu('Open Recent')
         if hist:
             for h in hist:
@@ -5723,6 +5726,18 @@ class Menu(QMenuBar):
 
         elif tmpActText == 'Close All Diagram':
             editor.mdi.closeAllSubWindows()
+        
+        elif tmpActText == 'Archive Project':
+            filesCh = QFileDialog.getOpenFileNames(
+                                                self,
+                                                "Select diagram",
+                                                editor.currentpathwork,
+                                                'Diagrams (*.dgr)',
+                                                None,
+                                                QFileDialog.DontUseNativeDialog)
+            if filesCh[0]:
+                skrypy_root = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+                project_archive(filesCh[0][0], skrypy_root, False)
 
         elif tmpActText == 'Run this Diagram':
             # editor.textEdit.clear()
@@ -6056,7 +6071,7 @@ class Menu(QMenuBar):
             for lstWid in editor.mdi.subWindowList():
                 editor.mdi.setActiveSubWindow(lstWid)
                 self.btnPressed(QAction("Fit to window"))
-            editor.mdi.WindowOrder(3)
+            editor.mdi.WindowOrder(2)
 
         elif tmpActText == 'Maximized':
             for lstWid in editor.mdi.subWindowList():
@@ -9018,6 +9033,10 @@ class Slide(QGraphicsPolygonItem):
 class ssh_diagram_execution():
 
     def __init__(self, source, mode, cluster):
+        if not self.is_sshpass_installed():
+            print("error: sshpass is not installed !")
+            return
+
         editor.console.clear()
         self.source = source
         self.mode = mode
@@ -9030,6 +9049,9 @@ class ssh_diagram_execution():
 
         if c.get_params():
             self.execution_ssh(c.get_params())
+            
+    def is_sshpass_installed(self):
+        return shutil.which("sshpass") is not None
 
     class passwd_dialog():
         def __init__(self, host_name):

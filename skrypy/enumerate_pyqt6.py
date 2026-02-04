@@ -189,7 +189,7 @@ def convert_enums_in_file(filepath:str, dry_run:bool) -> None:
         f.write(content)
     return
 
-def convert_all(dry_run:bool) -> None:
+def convert_all(dry_run:bool):
     '''
     Search and replace all enums.
     '''
@@ -203,19 +203,20 @@ def convert_all(dry_run:bool) -> None:
         continue
     return
 
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
-        description = 'Convert enums to fully-qualified names',
-        add_help    = False,
+        description='Convert enums to fully-qualified names',
+        add_help=False,
     )
-    parser.add_argument('-h', '--help'    , action='store_true')
-    parser.add_argument('-d', '--dry_run' , action='store_true')
-    parser.add_argument('-s', '--show'    , action='store_true')
+    parser.add_argument('-h', '--help', action='store_true')
+    parser.add_argument('-d', '--dry_run', action='store_true')
+    parser.add_argument('-s', '--show', action='store_true')
     args = parser.parse_args()
     if args.help:
         show_help()
     else:
-        #& Check if 'pyqt6_folderpath' exists
+        # Check if 'pyqt6_folderpath' exists
         if not os.path.exists(pyqt6_folderpath):
             print(
                 f'\nERROR:\n'
@@ -223,7 +224,7 @@ if __name__ == '__main__':
                 f'{q}pyqt6_folderpath{q} from line 57 points to the PyQt6 installation folder.\n'
             )
         else:
-            #& Fill the 'enum_dict'
+            # & Fill the 'enum_dict'
             type_hint_files = [
                 os.path.join(pyqt6_folderpath, _filename)
                 for _filename in os.listdir(pyqt6_folderpath)
@@ -233,7 +234,7 @@ if __name__ == '__main__':
                 fill_enum_dict(_filepath)
                 continue
 
-            #& Perform requested action
+            # & Perform requested action
             if args.show:
                 import pprint
                 pprint.pprint(enum_dict)

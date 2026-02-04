@@ -167,7 +167,7 @@ if __name__ == '__main__':
     # print(QStyleFactory.keys())
 
     app = QApplication(sys.argv)
-    app.setStyle(QStyleFactory.create("Fusion")) # "Fusion", "Windows", "WindowsVista", "Macintosh"
+    app.setStyle(QStyleFactory.create("Fusion"))  # "Fusion", "Windows", "WindowsVista", "Macintosh"
     self_dir_path = os.path.dirname(os.path.realpath(__file__))
     imageViewer = Project_Irmage(self_dir_path)
     mri_icon = os.path.join(self_dir_path, 'ressources', 'skrypy.png')

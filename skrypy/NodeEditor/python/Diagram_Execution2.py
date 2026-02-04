@@ -508,15 +508,18 @@ class execution2(QObject):
                     for uj in outVals.keys():
                         listDynamicValue[uj] = outVals[uj]
                 except Exception as e:
-                    textEditor.append("<span style=\" \
-                                      font-size:10pt; \
-                                      font-weight:600; \
-                                      color:#cc0000;\"> \
-                                      > Diagram Execution " +
-                                      execution +
-                                      " stopped <br>" +
-                                      execution + ' : ' +
-                                      str(e) + "</span>")
+                    print('error script')
+                    textEditor.append(
+                        (
+                            '<span style="'
+                            'font-size:10pt; '
+                            'font-weight:600; '
+                            'color:#cc0000;">'
+                            f"> Diagram Execution {Execution} stopped <br>"
+                            f"{execution} : {e}</span>"
+                        )
+                    )
+
             elif 'J' in execution:
                 a = executionMacro(execution, listScriptExecution[execution], listDynamicValue, textEditor)
                 outValj = a.getOutValues()
@@ -632,15 +635,16 @@ class executionScript:
             d = dict(locals(), **globals())
             exec(code, d, d)
         except Exception as e:
-            textEditor.append("<span style=\" \
-                              font-size:10pt; \
-                              font-weight:600; \
-                              color:#cc0000;\"> \
-                              > Diagram Execution " +
-                              unitName +
-                              " stopped <br>" +
-                              unitName + ' : ' +
-                              str(e) + "</span>")
+            textEditor.append(
+                (
+                    '<span style="'
+                    'font-size:10pt; '
+                    'font-weight:600; '
+                    'color:#cc0000;">'
+                    f"> Diagram Execution {unitName} stopped <br>"
+                    f"{unitName} : {e}</span>"
+                )
+            )
 
     def getOutValues(self):
         return self.listDynamicValueToReturn
