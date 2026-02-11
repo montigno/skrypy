@@ -759,6 +759,7 @@ class Non_linear_registration_for_Atlases:
                                        'TVMSQC'))",
                  **options):
         import ants
+        from NodeEditor.modules.Tools.Path import path_add_suffixprefix
         img_fi = ants.image_read(image_fixed)
         atlas_temp_mo = ants.image_read(atlas_template_moved)
         atlas_lab_mo = ants.image_read(atlas_label_moved)
@@ -770,6 +771,11 @@ class Non_linear_registration_for_Atlases:
                                                  interpolator=interpolator)
         ants.image_write(warpedmoveout['warpedmovout'], output_template_name)
         ants.image_write(imagetransformed, output_label_name)
+        if 'create_warped_grid' in options:
+            wg = ants.create_warped_grid(atlas_temp_mo)
+            warpedgrid = ants.create_warped_grid(wg, grid_width=1, grid_directions=(True,True),
+                            transform=warpedmoveout['fwdtransforms'], fixed_reference_image=img_fi, foreground=1, background=0)
+            ants.image_write(warpedgrid, path_add_suffixprefix(atlas_template_moved, '_warpedgrid', 'suffix').newPath())
         self.temp_reg = output_template_name
         self.lab_reg = output_label_name
 

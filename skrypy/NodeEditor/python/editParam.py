@@ -70,9 +70,7 @@ class editParam(QDialog):
         for i in range(len(inout[0])):
             hbox3 = QHBoxLayout()
             label = QLabel(inout[0][i])
-            if ('enumerate' not in self.listField[inout[0][i]] and
-                self.listField[inout[0][i]] != 'bool') or (
-                    'Node(' in str(inout[1][i])):
+            if ('enumerate' not in self.listField[inout[0][i]] and self.listField[inout[0][i]] != 'bool') or 'Node(' in str(inout[1][i]):
                 lab = QLineEdit()
                 lab.setText(str(inout[1][i]))
                 lab.setFont(font)

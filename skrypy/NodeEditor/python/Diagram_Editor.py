@@ -8,7 +8,7 @@
 
 '''
 Created on 26 December 2023
-Last modification on 07 august 2025
+Last modification on 04 feb. 2026
 @author: Olivier Montigon
 '''
 
@@ -4755,7 +4755,8 @@ class Imagebox(QGraphicsRectItem):
 
 
 class ItemColor(Enum):
-    BACKGROUND = QColor(40, 40, 40, 100)
+
+    BACKGROUND = QColor(30, 30, 30, 255)
     PROCESS_TOP = QColor(52, 73, 94, 255)
     PROCESS_BOT = QColor(44, 62, 80, 255)
     FRAME_PROCESS = QColor(140, 140, 140, 200)
@@ -9049,7 +9050,7 @@ class ssh_diagram_execution():
 
         if c.get_params():
             self.execution_ssh(c.get_params())
-            
+
     def is_sshpass_installed(self):
         return shutil.which("sshpass") is not None
 
@@ -9860,12 +9861,12 @@ class TreeLibrary(QTreeView):
 
 class TypeColor(Enum):
     str = QColor(200, 0, 250, 255)
-    float = QColor(200, 100, 0, 255)
+    float = QColor(200, 100, 20, 255)
     int = QColor(0, 100, 255, 255)
     path = QColor(255, 100, 100, 255)
     bool = QColor(100, 200, 100, 255)
     dict = QColor(250, 250, 50, 255)
-    tuple = QColor(140, 140, 140, 255)
+    tuple = QColor(100, 100, 100, 255)
     unkn = QColor(255, 255, 255, 255)
 
 

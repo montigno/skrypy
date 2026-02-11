@@ -5,12 +5,8 @@ Skrypy is a node editor to easily create your developments in Python. It was ini
 # Documentation
 
 A documentation is available here : [https://montigno.github.io/skrypy](https://montigno.github.io/skrypy)
+
 # Release history
-
-<p></p>
-
-	04/02/2026: version 26.02.04a
-	- Some bugs fixed
 
 <p></p>
 
