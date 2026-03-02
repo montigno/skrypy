@@ -3000,6 +3000,7 @@ class DiagramScene(QGraphicsScene):
                 # print("error:" + str(err))
 
     def pastItems(self, list_It, list_Bl_Sm, list_Lf_St, list_Comm):
+
         edit = editor.diagramView[editor.currentTab]
 
         listUnitOld = list_It.keys()
@@ -3122,8 +3123,12 @@ class DiagramScene(QGraphicsScene):
                 edit.loadProbe(changeUnit[nameUnit],
                                ins.label, ins.format, posRe)
             elif 'C' in nameUnit:
-                edit.loadConn(changeUnit[nameUnit],
-                              'unkn', posRe, ins.inout, 'unkn', '')
+                # edit.loadConn(changeUnit[nameUnit], 'unkn', posRe, ins.inout, 'unkn', '')
+                if 'in' in ins.inout:
+                    defaultValue = str(editor.listConnects[editor.currentTab][nameUnit][3])
+                else:
+                    defaultValue = ""
+                edit.loadConn(changeUnit[nameUnit], ins.name, posRe, ins.inout, ins.format, defaultValue)
             elif 'F' in nameUnit:
                 edit.loadLoopFor(changeUnit[nameUnit], posRe,
                                  list_Bl_Sm[nameUnit][0],
@@ -3161,6 +3166,8 @@ class DiagramScene(QGraphicsScene):
 #                 tmp.setSelected(1)
                 if 'A' in a:
                     fromPort = tmp.outputs[0]
+                elif 'C' in a:
+                    fromPort = tmp.outputs
                 else:
                     for lin in tmp.outputs:
                         if type(lin) is Port and lin.name == b:
@@ -3168,10 +3175,13 @@ class DiagramScene(QGraphicsScene):
                             break
                 tmp = editor.listItems[editor.currentTab][c]
 #                 tmp.setSelected(1)
-                for lin in tmp.inputs:
-                    if type(lin) is Port and lin.name == d:
-                        toPort = lin
-                        break
+                if 'C' in c:
+                    toPort = tmp.inputs
+                else:
+                    for lin in tmp.inputs:
+                        if type(lin) is Port and lin.name == d:
+                            toPort = lin
+                            break
                 startConnection = Connection(newNode,
                                              fromPort, toPort,
                                              fromPort.format)
@@ -5566,7 +5576,7 @@ class Menu(QMenuBar):
         elif tmpActText == 'Refresh Diagram':
             if len(editor.mdi.subWindowList()) >= 1:
                 editor.diagramView[editor.currentTab].scene().clearFocus()
-                UpdateUndoRedo()
+                # UpdateUndoRedo()
                 ct = editor.currentTab
                 listIf = {}
                 if editor.pointTyping[ct] > 0:
@@ -6269,7 +6279,9 @@ class NodeEdit(QWidget):
                         list_module.append(clas[0])
                     list_by_cat[category] = list_module
             self.list_tree[name] = list_by_cat
-
+        
+        print("Number of blocks in library:", len(libBlocks))
+        print("size of block library:", sys.getsizeof(libBlocks), "bytes.")
         self.setlib(libBlocks)
         self.library_tools = buildLibrary(self.list_tools)
         self.library_tools.menu_choosen.connect(self.menu_choosen)
@@ -9979,6 +9991,7 @@ class UpdateUndoRedo:
     def __init__(self):
         # editor.listItemStored.clear()
         # del editor.listCommentsStored[:]
+        # print("updateUndoRedo!")
         try:
             dd = editor.pointTyping[editor.currentTab]
         except Exception as err:
