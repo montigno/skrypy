@@ -44,6 +44,24 @@ class Project_Irmage(QMainWindow):
         # initial setting #######################################
         config_mr = Config()
         title = "skrypy " + config_mr.getVersion()
+        
+        # check if skrypy path exists in env_parameters.txt #####
+        # envparam = config_mr.getEnvDiagram()
+        # print(envparam, os.path.realpath(__file__))
+        # found_skrypy = False
+        #
+        # with open(envparam, "r", encoding="utf-8") as f:
+        #     contentenv = f.read()
+        #     for line in contentenv.split("\n"):
+        #         print("line:", line)
+        #         if "#skrypy path" in line:
+        #             found_skrypy = True
+        #             break
+        #
+        # if not found_skrypy:
+        #     txt_to_add = f"#skrypy path (do not modify!)\n export skrypy_path={os.path.dirname(os.path.realpath(__file__))}\n\n"
+        #     with open(envparam, "w", encoding="utf-8") as f:
+        #         f.write(txt_to_add + contentenv)
 
         # system control ########################################
         time.sleep(0.1)
