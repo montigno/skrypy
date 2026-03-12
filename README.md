@@ -22,7 +22,7 @@ A documentation is available here : [https://montigno.github.io/skrypy-pyqt5](ht
 	05/03/2026: version 26.03.05a
 	- Undo/Redo : bug fixed
 	- library : block 'tif_to_nii_4d' added
-	
+
 <p></p>
 
 	02/03/2026: version 26.03.02a
