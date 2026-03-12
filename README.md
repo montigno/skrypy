@@ -10,6 +10,15 @@ A documentation is available here : [https://montigno.github.io/skrypy](https://
 
 <p></p>
 
+	11/03/2026: version 26.03.11a
+	- important modification of Skrypy : 
+		- annotation of block outputs conforms to Python conventions.
+		- cleaning up unused variables
+		- more compliant with PEP standards
+		- various bugs resolved
+
+<p></p>
+
 	05/03/2026: version 26.03.05a
 	- Undo/Redo : bug fixed
 	- library : block 'tif_to_nii_4d' added
