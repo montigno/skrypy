@@ -23,12 +23,12 @@ class skrypy_update(QDialog):
         with open(config_current, 'r', encoding='utf8') as stream:
             dicts = yaml.load(stream, yaml.FullLoader)
             self.version_current = dicts['version']
-        self.skrypy_new_dir = os.path.join(dest, "skrypy")
+        self.skrypy_new_dir = os.path.join(dest, "skrypy-pyqt5")
         if os.path.exists(self.skrypy_new_dir):
             shutil.rmtree(self.skrypy_new_dir, onerror=self.remove_readonly)
         try:
-            git.Git(dest).clone("https://github.com/montigno/skrypy.git")
-            self.skrypy_new = os.path.join(self.skrypy_new_dir, "skrypy")
+            git.Git(dest).clone("https://github.com/montigno/skrypy-pyqt5.git")
+            self.skrypy_new = os.path.join(self.skrypy_new_dir, "skrypy-pyqt5")
             config_new = os.path.join(self.skrypy_new, 'config.yml')
             with open(config_new, 'r', encoding='utf8') as stream:
                 dicts = yaml.load(stream, yaml.FullLoader)
@@ -38,7 +38,7 @@ class skrypy_update(QDialog):
             self.error_message()
 
     def error_message(self):
-        label1 = QLabel("fatal: unable to access 'https://github.com/montigno/skrypy.git/': \nCould not resolve host: github.com' ")
+        label1 = QLabel("fatal: unable to access 'https://github.com/montigno/skrypy-pyqt5.git/': \nCould not resolve host: github.com' ")
         buttonOk = QPushButton('OK', self)
         vbox = QVBoxLayout(self)
         vbox.addWidget(label1)
