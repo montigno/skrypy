@@ -6,10 +6,10 @@
 # for details.
 ##########################################################################
 '''
-Skrypy 25.11.03b   setup   Nov. 03 2025
+Skrypy-pyqt5 25.11.03b   setup   Nov. 03 2025
 
 SYNOPSIS
-    Install Skrypy in a virtual python environment (administration rights required).
+    Install Skrypy-pyqt5 in a virtual python environment (administration rights required).
 
 USAGE (in the terminal)
     1 - conda activate (optional, necessary if your Python is in conda)
@@ -73,31 +73,32 @@ def install_linux(pyth, base_dir):
     except Exception as err:
         print("Warning with Virtualenv installation:", err)
     install(pyth + ' -m venv ' + base_dir)
-    install('cp -r skrypy/ ' + base_dir)
+    install('cp -r skrypy-pyqt5/ ' + base_dir)
     print("{}{} is created!{}".format(GREEN, base_dir, RESET))
 
     src_bash = os.path.join(os.path.expanduser('~'), '.bashrc')
-    ext_py = pyth.split(".")
-    ext_py = "_{}{}".format(ext_py[0][-1], ext_py[1])
+    # ext_py = pyth.split(".")
+    # ext_py = "_{}{}".format(ext_py[0][-1], ext_py[1])
+    ext_py = "_pyqt5"
 
     with open(src_bash, 'r') as fp:
         lines = fp.readlines()
     start_here = False
-    if '#skrypy {}\n'.format(pyth) in lines:
+    if '#skrypy {}\n'.format("pyqt5") in lines:
         print("{}aliases for skrypy version {} already exist! Manually update .bashrc !{}".format(RED, pyth, RESET))
         exit()
 
     fp = open(src_bash)
 
-    os.system("echo '\n#skrypy {}' >> ~/.bashrc".format(pyth))
+    os.system("echo '\n#skrypy {}' >> ~/.bashrc".format("pyqt6"))
     os.system("echo 'cmd_sk{}=\"source ".format(ext_py) + os.path.join(base_dir, "bin", "activate") +
-              "; cd " + os.path.join(base_dir, "skrypy") +
+              "; cd " + os.path.join(base_dir, "skrypy-pyqt5") +
               "; " + pyth + " main.py; deactivate\"' >> ~/.bashrc")
     os.system("echo 'cmd_sk{}_packages=\"source ".format(ext_py) + os.path.join(base_dir, "bin", "activate") +
-              "; cd " + os.path.join(base_dir, "skrypy") +
+              "; cd " + os.path.join(base_dir, "skrypy-pyqt5") +
               "; " + pyth + " install_modules.py; deactivate\"' >> ~/.bashrc")
     os.system("echo 'cmd_sk{}_test=\"source ".format(ext_py) + os.path.join(base_dir, "bin", "activate") +
-              "; cd " + os.path.join(base_dir, "skrypy") +
+              "; cd " + os.path.join(base_dir, "skrypy-pyqt5") +
               "; " + pyth + " testunit.py; deactivate\"' >> ~/.bashrc")
     os.system("echo 'alias skrypy{}=$cmd_sk{}".format(ext_py, ext_py) + "'>> ~/.bashrc")
     os.system("echo 'alias skrypy{}_packages=$cmd_sk{}_packages".format(ext_py, ext_py) + "'>> ~/.bashrc")
