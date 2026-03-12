@@ -32,7 +32,7 @@ class matplotlib_plot():
         if 'window_title' in options.keys():
             plt.get_current_fig_manager().set_window_title(options['window_title'])
         plt.tight_layout()
-        plt.show()
+        plt.show(block=False)
 
 ##############################################################################
 
@@ -81,7 +81,7 @@ class matplotlib_multiple_curves():
         if 'window_title' in options.keys():
             plt.get_current_fig_manager().set_window_title(options['window_title'])
         plt.tight_layout()
-        plt.show()
+        plt.show(block=False)
 
 ##############################################################################
 
@@ -126,4 +126,4 @@ class matplotlib_multiple_plots():
         if 'window_title' in options.keys():
             plt.get_current_fig_manager().set_window_title(options['window_title'])
         plt.tight_layout()
-        plt.show()
+        plt.show(block=False)

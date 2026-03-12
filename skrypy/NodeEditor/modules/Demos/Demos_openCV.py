@@ -88,8 +88,7 @@ class openCV_screen():
                 img = Image.frombytes(
                     'RGB',
                     (screenShot.width, screenShot.height),
-                    screenShot.rgb,
-                    )
+                    screenShot.rgb)
                 if filter == 'NoFilter':
                     sketcher_rect = __real_color(np.array(img))
                 else:

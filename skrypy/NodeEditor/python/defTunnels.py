@@ -7,9 +7,9 @@
 ##########################################################################
 
 
-from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QDialog, QHBoxLayout, QLabel, QLineEdit, \
     QComboBox, QPushButton, QVBoxLayout
+from PyQt5.Qt import Qt
 
 
 class defineTunnels(QDialog):

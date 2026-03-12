@@ -6,9 +6,9 @@
 # for details.
 ##########################################################################
 
-from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QDialog, QHBoxLayout, QVBoxLayout, QLabel, QLineEdit, \
-    QPushButton, QComboBox
+    QPushButton
+from PyQt5.Qt import Qt
 
 
 class input_output_setName(QDialog):
@@ -21,7 +21,6 @@ class input_output_setName(QDialog):
         self.defaultName = defaultName
         self.listPorts = []
 
-        currentFormat = ''
         for prts in ports:
             self.listPorts.append(prts.name)
 

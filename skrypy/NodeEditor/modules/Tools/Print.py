@@ -39,6 +39,11 @@ class Print_str:
         print_formatted_text(ANSI('\x1b[38;2;200;0;250m' + comment))
         print_formatted_text(ANSI('\x1b[38;2;200;0;250m{}'.format(in_String)))
 
+        self.out_string = in_String
+
+    def out_string(self) -> str:
+        return self.out_string
+
 ##############################################################################
 
 
@@ -170,7 +175,6 @@ class Print_tuple:
 
 class Print_json():
     def __init__(self, json_file_in='path'):
-        from PyQt5.QtWidgets import QMessageBox
         import json
         with open(json_file_in) as f:
             outJson = json.load(f)

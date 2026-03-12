@@ -7,8 +7,8 @@
 ##########################################################################
 
 from NodeEditor.python.syntax import PythonHighlighter
-from PyQt5.QtGui import QFont, QFontMetrics
-from PyQt5.QtWidgets import QVBoxLayout, QLabel, QDialog, QScrollArea, QTextEdit
+from PyQt5.QtGui import QFontMetrics
+from PyQt5.QtWidgets import QVBoxLayout, QDialog, QTextEdit
 import importlib
 import inspect
 
@@ -61,7 +61,6 @@ class getDocString():
                 # importlib.reload(imp2)
                 nameClass2 = nameClass[nameClass.index('_') + 1:]
                 MyClass2 = getattr(imp2, nameClass2)
-                nip = True
                 self.src = MyClass2.help(True)
                 sub_src_1 = self.subtext('', self.src)
                 sub_src_2 = self.subtext('Inputs::', self.src)
@@ -88,7 +87,7 @@ class getDocString():
         for i in lst:
             try:
                 result = result[:result.index(i)]
-            except Exception as err:
+            except Exception:
                 pass
         return result
 

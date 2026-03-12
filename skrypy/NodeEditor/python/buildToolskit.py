@@ -1,8 +1,8 @@
-from PyQt5.Qt import pyqtSignal
-from PyQt5.QtCore import QSize, Qt
-from PyQt5.QtGui import QIcon, QColor
-from PyQt5.QtWidgets import (QApplication, QGridLayout, QPushButton,
-                             QWidget, QLabel, QVBoxLayout, QFrame, QSizePolicy)
+from PyQt5.Qt import pyqtSignal, QFrame, QSizePolicy, Qt
+from PyQt5.QtCore import QSize
+from PyQt5.QtGui import QIcon
+from PyQt5.QtWidgets import (QGridLayout, QPushButton,
+                             QWidget, QLabel, QVBoxLayout)
 
 
 class buildLibrary(QWidget):
@@ -63,10 +63,10 @@ class buildLibrary(QWidget):
                         # vbox.addWidget(Separator)
                     # vbox.insertSpacing(50, 5)
                     glayout.addLayout(vbox, i, j)
-                except Exception as err:
+                except Exception:
                     pass
         self.setFixedHeight(row_number * 100)
         self.setLayout(glayout)
 
-    def buttonClik(self, txt):
+    def buttonClik(self):
         self.menu_choosen.emit(self.sender().objectName())

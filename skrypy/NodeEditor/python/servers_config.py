@@ -1,7 +1,5 @@
-import os
 import yaml
 import subprocess
-import inspect
 from threading import Timer
 
 from . import Config
@@ -9,8 +7,8 @@ from . import set_dph
 from . import get_dph
 
 from PyQt5.QtWidgets import QComboBox, QDialog, QVBoxLayout, QHBoxLayout, QLabel, \
-    QLineEdit, QTextEdit, QPushButton, QDialogButtonBox, QCheckBox, QMessageBox
-from PyQt5.QtCore import Qt
+    QTextEdit, QPushButton, QCheckBox
+from PyQt5.Qt import Qt, QLineEdit, QMessageBox, QDialogButtonBox
 
 
 class servers_window(QDialog):
@@ -28,7 +26,6 @@ class servers_window(QDialog):
     def getServersInfo(self):
 
         self.server_param = []
-        dicts = {}
 
         with open(self.server_yml, 'r', encoding='utf8') as stream:
             dicts = yaml.load(stream, yaml.FullLoader)
@@ -374,8 +371,8 @@ class servers_window(QDialog):
         timer = Timer(2, proc.kill)
         try:
             timer.start()
-            stdout, stderr = proc.communicate()
-        except Exception as err:
+            stdout, _ = proc.communicate()
+        except Exception:
             msg = '{} connection problem'.format(host_name)
             msg = self.styleErrorMessage(msg)
             self.info1.setText(msg)
@@ -408,7 +405,7 @@ class servers_window(QDialog):
 
         cmd_comp = cmd_base.copy()
         cmd_comp.append('echo "GPU:"; nvidia-smi --query-gpu=memory.used --format=csv && echo "RAM:"; free -m --human')
-        stdout, stderr = subprocess.Popen(cmd_comp, stdout=subprocess.PIPE).communicate()
+        stdout, _ = subprocess.Popen(cmd_comp, stdout=subprocess.PIPE).communicate()
         msg = self.server_name.currentText() + '\n'
         msg += stdout.decode('UTF-8')
         # self.memory_info.setText(msg)

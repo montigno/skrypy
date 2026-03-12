@@ -1,8 +1,8 @@
-from PyQt5.QtCore import QThread, pyqtSlot, Qt, QObject
+from PyQt5.QtCore import QThread
 from PyQt5.QtWidgets import QProgressBar, QVBoxLayout, QHBoxLayout, QPushButton, \
-    QApplication, QWidget, QLabel
-import sys
+    QWidget, QLabel
 import time
+from PyQt5.Qt import Qt
 
 
 class StartDiagram(QThread):

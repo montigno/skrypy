@@ -3,8 +3,11 @@
 #                                       ENUM CONVERTER TOOL                                        #
 # ================================================================================================ #
 
-from typing import *
-import os, argparse, inspect, re
+import PyQt6
+import os
+import argparse
+import inspect
+import re
 q = "'"
 
 help_text = '''
@@ -27,27 +30,27 @@ Place this script in the toplevel directory of your project. Open a terminal, na
 directory and invoke this script:
 
     $ python enum_converter_tool.py
-    
+
 WARNING
 =======
 This script modifies the files in your project! Make sure to backup your project before you put this
 file inside. Also, you might first want to do a dry run:
 
     $ python enum_converter_tool.py --dry_run
-    
+
 FEATURES
 ========
 You can invoke this script in the following ways:
 
     $ python enum_converter_tool.py                   No parameters. The script simply goes through
                                                       all the files and makes the replacements.
-                                                      
+
     $ python enum_converter_tool.py --dry_run         Dry run mode. The script won't do any replace-
                                                       ments, but prints out what it could replace.
-                                                      
+
     $ python enum_converter_tool.py --show            Print the dictionary this script creates to
                                                       convert the old-style enums into new-style.
-                                                      
+
     $ python enum_converter_tool.py --help            Show this help info
 
 '''
@@ -57,7 +60,6 @@ You can invoke this script in the following ways:
 # pyqt6_folderpath = 'C:/Python39/Lib/site-packages/PyQt6'
 # EDIT: @Myridium suggested another way to fill this 'pyqt6_folderpath'
 # variable:
-import PyQt6
 pyqt6_folderpath = PyQt6.__path__[0]
 
 # Figure out where the toplevel directory is located. We assume that this converter tool is located
@@ -80,9 +82,10 @@ script_name = os.path.realpath(
 ).replace('\\', '/').split('/')[-1]
 
 # Create the dictionary that will be filled with enums
-enum_dict:Dict[str, str] = {}
+enum_dict: dict[str, str] = {}
 
-def fill_enum_dict(filepath:str) -> None:
+
+def fill_enum_dict(filepath: str) -> None:
     '''
     Parse the given stub file to extract the enums and flags. Each one is inside a class, possibly a
     nested one. For example:
@@ -105,7 +108,7 @@ def fill_enum_dict(filepath:str) -> None:
         'Qt.Round' : 'Qt.HighDpiScaleFactorRoundingPolicy.Round'
     }
     '''
-    content:str = ''
+    content: str = ''
     with open(filepath, 'r', encoding='utf-8', newline='\n', errors='replace') as f:
         content = f.read()
 
@@ -134,6 +137,7 @@ def fill_enum_dict(filepath:str) -> None:
         continue
     return
 
+
 def show_help() -> None:
     '''
     Print help info and quit.
@@ -141,18 +145,19 @@ def show_help() -> None:
     print(help_text)
     return
 
-def convert_enums_in_file(filepath:str, dry_run:bool) -> None:
+
+def convert_enums_in_file(filepath: str, dry_run: bool) -> None:
     '''
     Convert the enums in the given file.
     '''
-    filename:str = filepath.split('/')[-1]
+    filename: str = filepath.split('/')[-1]
 
     # Ignore the file in some cases
     if any(filename == fname for fname in (script_name, )):
         return
 
     # Read the content
-    content:str = ''
+    content: str = ''
     with open(filepath, 'r', encoding='utf-8', newline='\n', errors='replace') as f:
         content = f.read()
 
@@ -189,7 +194,8 @@ def convert_enums_in_file(filepath:str, dry_run:bool) -> None:
         f.write(content)
     return
 
-def convert_all(dry_run:bool):
+
+def convert_all(dry_run: bool):
     '''
     Search and replace all enums.
     '''

@@ -1,7 +1,6 @@
-from PyQt5.Qt import QTextEdit, QThread, pyqtSignal, QFont
-from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QApplication, QWidget, QPlainTextEdit, \
-    QVBoxLayout, QDialog, QHBoxLayout, QPushButton, QCheckBox
+from PyQt5.Qt import QTextEdit, QThread, pyqtSignal, QFont, Qt, QPlainTextEdit
+from PyQt5.QtWidgets import QApplication, QVBoxLayout, QDialog, \
+    QHBoxLayout, QPushButton
 
 import os
 import psutil
@@ -74,7 +73,7 @@ class controlSys(QDialog):
     def buttonStop(self):
         try:
             os.kill(self.proid, signal.SIGKILL)
-        except Exception as err:
+        except Exception:
             pass
         self.close()
 
@@ -145,16 +144,16 @@ class Monitor(QThread):
             per_gpu = []
             try:
                 per_gpu = GPUtil.getGPUs()
-            except Exception as err:
+            except Exception:
                 pass
             value = []
             txt = []
             value.append(int(psutil.virtual_memory().percent))
             if platform.system() == 'Linux':
                 value.append(int(psutil.swap_memory().percent))
-            for idx, usage in enumerate(per_cpu):
+            for _, usage in enumerate(per_cpu):
                 value.append(int(psutil.cpu_percent(interval=0.2)))
-            for idx, usage in enumerate(per_gpu):
+            for _, usage in enumerate(per_gpu):
                 txt.append(float(usage.load))
             self.cpuPercent.emit(value, txt)
 

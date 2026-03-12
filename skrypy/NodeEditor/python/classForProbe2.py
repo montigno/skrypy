@@ -1,40 +1,37 @@
-import numpy as np
-
-
 class printProbe():
-    def __init__(self, unit, lab, format, label, val, console):
+    def __init__(self, unit, lab, form, label, val, console):
 
         col = ''
 
         if console:
-            if 'int' in format:
+            if 'int' in form:
                 col = '#0064FF'
-            elif 'float' in format:
+            elif 'float' in form:
                 col = '#C86400'
-            elif 'tuple' in format:
+            elif 'tuple' in form:
                 col = '#B4B4B4'
-            elif 'str' in format:
+            elif 'str' in form:
                 col = '#c800FA'
-            elif 'bool' in format:
+            elif 'bool' in form:
                 col = '#32FA32'
-            elif 'path' in format:
+            elif 'path' in form:
                 col = '#FF6464'
-            elif 'dict' in format:
+            elif 'dict' in form:
                 col = '#C8FA00'
         else:
-            if 'int' in format:
+            if 'int' in form:
                 col = '\x1b[38;2;0;100;255m'
-            elif 'float' in format:
+            elif 'float' in form:
                 col = '\x1b[38;2;200;100;0m'
-            elif 'tuple' in format:
+            elif 'tuple' in form:
                 col = '\x1b[38;2;200;180;180m'
-            elif 'str' in format:
+            elif 'str' in form:
                 col = '\x1b[38;2;200;0;250m'
-            elif 'bool' in format:
+            elif 'bool' in form:
                 col = '\x1b[38;2;50;250;50m'
-            elif 'path' in format:
+            elif 'path' in form:
                 col = '\x1b[38;2;255;100;100m'
-            elif 'dict' in format:
+            elif 'dict' in form:
                 col = '\x1b[38;2;200;250;0m'
 
         if label == 'Type':

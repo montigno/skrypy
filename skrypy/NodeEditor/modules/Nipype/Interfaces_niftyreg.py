@@ -8,5 +8,5 @@ class niftyreg_RegResample():
             setattr(node.inputs, ef, options[ef])
         self.res = node.run()
 
-    def out_file(self: 'path'):
+    def out_file(self) -> None:
         return self.res.outputs.out_file

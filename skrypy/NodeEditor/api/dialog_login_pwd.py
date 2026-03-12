@@ -1,15 +1,16 @@
 import sys
-from PyQt5.QtWidgets import (QApplication, QMainWindow, QWidget, 
-                             QFormLayout, QLabel, QLineEdit, QPushButton,
-                             QMessageBox, QDialogButtonBox, QDesktopWidget)
+from PyQt5.QtWidgets import (QApplication, QMainWindow, QWidget,
+                             QFormLayout, QLabel, QDesktopWidget)
+from PyQt5.Qt import QLineEdit, QDialogButtonBox
+
 
 class LoginPasswd(QMainWindow):
     def __init__(self, titl, parent=None):
         super(LoginPasswd, self).__init__(parent)
         self.start(titl)
-        
+
     def start(self, titl):
-       
+
         # Set the window properties (title and initial size)
         self.setWindowTitle(titl)
         qtRectangle = self.frameGeometry()
@@ -33,7 +34,7 @@ class LoginPasswd(QMainWindow):
         password_label = QLabel("Password:")
         self.password_field = QLineEdit()
         self.password_field.setEchoMode(QLineEdit.Password)
-        
+
         buttons = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
         buttons.accepted.connect(self._control)
         buttons.rejected.connect(self._reject)
@@ -45,7 +46,7 @@ class LoginPasswd(QMainWindow):
 
         # Set the layout for the central widget
         central_widget.setLayout(form_layout)
-        
+
     def _control(self):
         print(self.username_field.text(), self.password_field.text())
         self.close()
@@ -54,8 +55,8 @@ class LoginPasswd(QMainWindow):
         print(None, None)
         self.close()
 
-    
-if __name__=="__main__":
+
+if __name__ == "__main__":
     app = QApplication(sys.argv)
     myprogram = LoginPasswd(sys.argv[1])
     myprogram.show()

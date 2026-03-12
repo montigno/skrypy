@@ -6,9 +6,9 @@
 # for details.
 ##########################################################################
 
-from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QVBoxLayout, QHBoxLayout, QDialog, QLabel, \
-    QPushButton, QWidget, QGroupBox, QLineEdit
+    QPushButton, QLineEdit
+from PyQt5.Qt import Qt
 
 
 class changeLabel(QDialog):

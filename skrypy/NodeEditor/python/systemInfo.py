@@ -1,7 +1,7 @@
-from PyQt5.QtWidgets import QApplication, QWidget, QPlainTextEdit, \
-    QVBoxLayout, QDialog
+from PyQt5.QtWidgets import QApplication, QVBoxLayout, QDialog
 
 import sys
+from PyQt5.Qt import QPlainTextEdit
 
 
 class diagramInfo(QDialog):

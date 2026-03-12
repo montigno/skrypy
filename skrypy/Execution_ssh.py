@@ -4,7 +4,6 @@ import os
 import sys
 import gc
 import yaml
-import subprocess
 
 # from PyQt5.QtWidgets import QApplication
 # from PyQt5.QtCore import QRunnable
@@ -113,7 +112,7 @@ class execution_ssh():
         # subprocess.Popen([sys.executable, source_disp, 'start diagram'])
         self.runner = ThreadDiagram(title_dgr, self.n_cpu, args)
         try:
-            sr = self.runner.run()
+            self.runner.run()
         except Exception as err:
             print("\n\33[31mThis diagram contains errors : {}\33[0m".format(str(err)))
         # self.runner.sysctrl.kill()
@@ -166,7 +165,7 @@ class ThreadDiagram(Thread):
         self.pipe_exec = execution2(n_cpu)
         with open(os.path.join(os.path.expanduser('~'), '.skrypy', 'list_process.tmp'), 'w') as f:
             # list_proc = f.readlines()
-            f.write('{}{}{}\n'.format('Process Name', ' '*10, 'ID'))
+            f.write('{}{}{}\n'.format('Process Name', ' ' * 10, 'ID'))
 
     def run(self):
         self.pipe_exec.go_execution(*self.args)

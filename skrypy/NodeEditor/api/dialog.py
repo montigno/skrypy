@@ -1,6 +1,5 @@
-from PyQt5.Qt import Qt
-from PyQt5.QtWidgets import QDialog, QLineEdit, QFormLayout, QDialogButtonBox, \
-    QVBoxLayout
+from PyQt5.Qt import Qt, QLineEdit, QDialogButtonBox
+from PyQt5.QtWidgets import QDialog, QFormLayout, QVBoxLayout
 
 
 class log_pwd_dialog(QDialog):

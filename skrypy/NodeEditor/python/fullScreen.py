@@ -1,7 +1,7 @@
-from PyQt5.QtCore import Qt, QEvent, QPoint
-from PyQt5.QtGui import QColor, QPainter
+from PyQt5.QtCore import QPoint
+from PyQt5.QtGui import QColor
 from PyQt5.QtWidgets import QDialog, QVBoxLayout, QGraphicsView
-from PyQt5.Qt import QLabel
+from PyQt5.Qt import QLabel, Qt, QPainter, QEvent
 
 
 class SubWindow(QDialog):
@@ -18,11 +18,12 @@ class SubWindow(QDialog):
         self.diagram_view.setRenderHints(QPainter.Antialiasing | QPainter.SmoothPixmapTransform)
         self.diagram_scene.setSceneRect(self.diagram_scene.itemsBoundingRect())
         self.diagram_view.centerOn(0, 0)
+        self.diagram_view.setDragMode(QGraphicsView.RubberBandDrag)
         self.diagram_view\
             .fitInView(self.diagram_scene.sceneRect(), Qt.KeepAspectRatio)
         self.diagram_view.viewport().installEventFilter(self)
         self.diagram_view.scale(0.4, 0.4)
-        self.diagram_view.setScene(diagram_scene)
+        self.diagram_view.setScene(self.diagram_scene)
         # self.setWindowFlags(Qt.CustomizeWindowHint | Qt.WindowStaysOnTopHint)
         # self.setWindowFlags(Qt.WindowStaysOnTopHint)
         self.setWindowFlags(Qt.CustomizeWindowHint)
@@ -36,8 +37,12 @@ class SubWindow(QDialog):
         if (source == self.diagram_view.viewport()):
             if (event.type() == QEvent.Wheel):
                 return True
-            if (event.type() == QEvent.MouseMove):
+            elif (event.type() == QEvent.MouseMove):
                 self.mouseMouveDiagram(event)
+            elif (event.type() == QEvent.MouseButtonPress):
+                self.mousePressEvent(event)
+            elif (event.type() == QEvent.MouseButtonRelease):
+                self.mouseReleaseEvent(event)
         return False
 
     def wheelEvent(self, event):
@@ -59,11 +64,12 @@ class SubWindow(QDialog):
                 SubWindow.mouseDoubleClickEvent(self, event)
             else:
                 self.close()
-        except Exception as err:
+        except Exception:
             pass
 
     def mousePressEvent(self, event):
         if event.button() == Qt.MidButton:
+            self.diagram_view.setDragMode(QGraphicsView.NoDrag)
             self.__prevMousePos = event.pos()
         self.diagram_view.horizontalScrollBar().setEnabled(True)
         self.diagram_view.verticalScrollBar().setEnabled(True)
@@ -76,6 +82,10 @@ class SubWindow(QDialog):
             self.diagram_view.verticalScrollBar().setValue(self.diagram_view.verticalScrollBar().value() + offset.y())
         else:
             super(SubWindow, self).mouseMoveEvent(event)
+            
+    def mouseReleaseEvent(self, event):
+        self.diagram_view.setDragMode(QGraphicsView.RubberBandDrag)
+        super().mouseReleaseEvent(event)
 
     def closeEvent(self, event):
         return QDialog.closeEvent(self, event)

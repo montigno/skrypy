@@ -6,13 +6,12 @@
 # for details.
 ##########################################################################
 
-from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QDialog, QVBoxLayout, QHBoxLayout, QLabel, QComboBox, \
-    QButtonGroup, QCheckBox, QPushButton, QLineEdit
+    QButtonGroup, QCheckBox, QPushButton
 
-import time
 import os
 import yaml
+from PyQt5.Qt import Qt
 
 
 class multiple_execution_altern(QDialog):
@@ -26,7 +25,7 @@ class multiple_execution_altern(QDialog):
         self.zonecombo = []
         list_clust = ['local']
         list_clust.extend(self.get_clusters_list())
-        for i, lst in enumerate(listDiagram):
+        for i, _ in enumerate(listDiagram):
             lab = QLabel('Diagram ' + str(i))
             comb = QComboBox(self)
             comb.addItems(listDiagram)

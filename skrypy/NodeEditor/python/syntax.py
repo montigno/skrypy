@@ -1,9 +1,8 @@
-import sys
+from PyQt5 import QtCore, QtGui
+from PyQt5.Qt import QFont
 
-from PyQt5 import QtCore, QtGui, QtWidgets
 
-
-def format(color, style=''):
+def formatColor(color, style=''):
     """Return a QTextCharFormat with the given attributes.
     """
     _color = QtGui.QColor()
@@ -12,7 +11,7 @@ def format(color, style=''):
     _format = QtGui.QTextCharFormat()
     _format.setForeground(_color)
     if 'bold' in style:
-        _format.setFontWeight(QtGui.QFont.Bold)
+        _format.setFontWeight(QFont.Bold)
     if 'italic' in style:
         _format.setFontItalic(True)
 
@@ -21,15 +20,15 @@ def format(color, style=''):
 
 # Syntax styles that can be shared by all languages
 STYLES = {
-    'keyword': format('blue'),
-    'operator': format('red'),
-    'brace': format('darkGray'),
-    'defclass': format('black', 'bold'),
-    'string': format('magenta'),
-    'string2': format('darkMagenta'),
-    'comment': format('darkGreen', 'italic'),
-    'self': format('black', 'italic'),
-    'numbers': format('brown'),
+    'keyword': formatColor('blue'),
+    'operator': formatColor('red'),
+    'brace': formatColor('darkGray'),
+    'defclass': formatColor('black', 'bold'),
+    'string': formatColor('magenta'),
+    'string2': formatColor('darkMagenta'),
+    'comment': formatColor('darkGreen', 'italic'),
+    'self': formatColor('black', 'italic'),
+    'numbers': formatColor('brown'),
 }
 
 
@@ -114,7 +113,7 @@ class PythonHighlighter (QtGui.QSyntaxHighlighter):
         """
         self.tripleQuoutesWithinStrings = []
         # Do other syntax formatting
-        for expression, nth, format in self.rules:
+        for expression, nth, form in self.rules:
             index = expression.indexIn(text, 0)
             if index >= 0:
                 # if there is a string we check
@@ -139,7 +138,7 @@ class PythonHighlighter (QtGui.QSyntaxHighlighter):
                 # We actually want the index of the nth match
                 index = expression.pos(nth)
                 length = len(expression.cap(nth))
-                self.setFormat(index, length, format)
+                self.setFormat(index, length, form)
                 index = expression.indexIn(text, index + length)
 
         self.setCurrentBlockState(0)

@@ -1,7 +1,8 @@
 import sys
-from PyQt5.QtWidgets import (QApplication, QMainWindow, QWidget, 
-                             QFormLayout, QLabel, QLineEdit, QPushButton,
-                             QMessageBox, QDialogButtonBox, QDesktopWidget)
+from PyQt5.QtWidgets import (QApplication, QMainWindow, QWidget,
+                             QFormLayout, QLabel, QDesktopWidget)
+from PyQt5.Qt import QLineEdit, QDialogButtonBox
+
 
 class Passwd(QMainWindow):
     def __init__(self, titl, parent=None):
@@ -9,7 +10,7 @@ class Passwd(QMainWindow):
         self.start(titl)
 
     def start(self, titl):
-       
+
         # Set the window properties (title and initial size)
         self.setWindowTitle(titl)
         qtRectangle = self.frameGeometry()
@@ -29,7 +30,7 @@ class Passwd(QMainWindow):
         password_label = QLabel("Password:")
         self.password_field = QLineEdit()
         self.password_field.setEchoMode(QLineEdit.Password)
-        
+
         buttons = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
         buttons.accepted.connect(self._control)
         buttons.rejected.connect(self._reject)
@@ -50,7 +51,7 @@ class Passwd(QMainWindow):
         self.close()
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     app = QApplication(sys.argv)
     myprogram = Passwd(sys.argv[1])
     myprogram.show()

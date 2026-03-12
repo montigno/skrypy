@@ -1,8 +1,9 @@
 from PyQt5.QtCore import QRegExp
-from PyQt5.QtGui import QColor, QTextCharFormat, QFont, QSyntaxHighlighter
+from PyQt5.QtGui import QColor, QTextCharFormat, QSyntaxHighlighter
+from PyQt5.Qt import QFont
 
 
-def format(color, style=''):
+def form(color, style=''):
     """Return a QTextCharFormat with the given attributes.
     """
     _color = QColor()
@@ -22,15 +23,15 @@ def format(color, style=''):
 
 
 STYLES = {
-    'keyword': format('blue'),
-    'operator': format('red'),
-    'brace': format('darkGray'),
-    'defclass': format('black', 'bold'),
-    'string': format('magenta'),
-    'string2': format('darkGreen'),
-    'comment': format('darkGreen', 'italic'),
-    'self': format('black', 'italic'),
-    'numbers': format('brown'),
+    'keyword': form('blue'),
+    'operator': form('red'),
+    'brace': form('darkGray'),
+    'defclass': form('black', 'bold'),
+    'string': form('magenta'),
+    'string2': form('darkGreen'),
+    'comment': form('darkGreen', 'italic'),
+    'self': form('black', 'italic'),
+    'numbers': form('brown'),
 }
 
 
@@ -116,7 +117,7 @@ class PythonHighlighter (QSyntaxHighlighter):
         """Apply syntax highlighting to the given block of text.
         """
         # Do other syntax formatting
-        for expression, nth, format in self.rules:
+        for expression, nth, form in self.rules:
             index = expression.indexIn(text, 0)
 
             while index >= 0:
@@ -125,7 +126,7 @@ class PythonHighlighter (QSyntaxHighlighter):
 #                 length = expression.cap(nth).length()
                 length = len(expression.cap(nth))
 
-                self.setFormat(index, length, format)
+                self.setFormat(index, length, form)
                 index = expression.indexIn(text, index + length)
 
         self.setCurrentBlockState(0)

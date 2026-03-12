@@ -15,7 +15,7 @@ from Config import Config
 from NodeEditor.python.Diagram_Editor import NodeEdit
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QWidget, QApplication, QVBoxLayout, \
-      QLineEdit, QMainWindow, QMessageBox, QCheckBox, QStyleFactory
+    QLineEdit, QMainWindow, QMessageBox, QCheckBox, QStyleFactory
 
 import os
 import shutil
@@ -44,7 +44,7 @@ class Project_Irmage(QMainWindow):
         # initial setting #######################################
         config_mr = Config()
         title = "skrypy " + config_mr.getVersion()
-        
+
         # check if skrypy path exists in env_parameters.txt #####
         # envparam = config_mr.getEnvDiagram()
         # print(envparam, os.path.realpath(__file__))
@@ -116,7 +116,7 @@ class Project_Irmage(QMainWindow):
     def __del__(self):
         try:
             shutil.rmtree(self.tmp_dir)
-        except Exception as err:
+        except Exception:
             pass
 
 

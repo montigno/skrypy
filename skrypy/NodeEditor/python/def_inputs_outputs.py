@@ -6,16 +6,16 @@
 # for details.
 ##########################################################################
 
-from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QDialog, QHBoxLayout, QVBoxLayout, QLabel, QLineEdit, \
     QPushButton, QComboBox
+from PyQt5.Qt import Qt
 
 
 class define_inputs_outputs(QDialog):
 
     def __init__(self, unit, typeport, ports, defaultName, parent=None):
         super(define_inputs_outputs, self).__init__(parent)
-        self.format = ''
+        self.form = ''
 
         self.typeport = typeport
         self.defaultName = defaultName
@@ -27,14 +27,14 @@ class define_inputs_outputs(QDialog):
         for prts in ports:
             self.listPorts.append(prts.name)
             if prts.name == defaultName:
-                currentFormat = prts.format
+                currentFormat = prts.form
 
-        dim, format = '', 'int'
+        dim, form = '', 'int'
         if '_' in currentFormat:
             dim = currentFormat[0:currentFormat.index('_')]
-            format = currentFormat[currentFormat.index('_') + 1:]
+            form = currentFormat[currentFormat.index('_') + 1:]
         elif currentFormat:
-            format = currentFormat
+            form = currentFormat
 
         self.vbox = QVBoxLayout(self)
 
@@ -56,7 +56,7 @@ class define_inputs_outputs(QDialog):
         hbox3 = QHBoxLayout()
         self.comboFormat = QComboBox(self)
         self.comboFormat.addItems(listformat)
-        self.comboFormat.setCurrentText(format)
+        self.comboFormat.setCurrentText(form)
         self.comboDim = QComboBox(self)
         self.comboDim.addItems(listdim)
         self.comboDim.setCurrentText(dim)
@@ -79,31 +79,31 @@ class define_inputs_outputs(QDialog):
         self.vbox.addWidget(self.info)
 
     def OK(self):
-        self.format = []
+        self.form = []
         if not self.portName.text():
             self.info.setText("<span style=\" \
                               font-size:10pt; \
-                              color:#cc0000;\" > error : name "
-                              + self.typeport
-                              + " port  is empty </span>")
+                              color:#cc0000;\" > error : name " +
+                              self.typeport +
+                              " port  is empty </span>")
             return
         if self.portName.text() in self.listPorts and self.portName.text() != self.defaultName:
             self.info.setText("<span style=\" \
                               font-size:10pt; \
-                              color:#cc0000;\" > error : name "
-                              + self.typeport
-                              + " is already taken ! </span>")
+                              color:#cc0000;\" > error : name " +
+                              self.typeport +
+                              " is already taken ! </span>")
             return
-        self.format.append(self.portName.text())
+        self.form.append(self.portName.text())
         if self.comboDim.currentText():
-            self.format.append(self.comboDim.currentText() + '_' + self.comboFormat.currentText())
+            self.form.append(self.comboDim.currentText() + '_' + self.comboFormat.currentText())
         else:
-            self.format.append(self.comboFormat.currentText())
+            self.form.append(self.comboFormat.currentText())
         self.close()
 
     def CANCEL(self):
-        self.format = []
+        self.form = []
         self.close()
 
     def getNewValues(self):
-        return self.format
+        return self.form

@@ -1,8 +1,7 @@
-from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QFont, QTextCursor
 from PyQt5.QtWidgets import QDialog, QPlainTextEdit, QHBoxLayout, QPushButton, \
     QLineEdit, QVBoxLayout, QTextEdit, QCompleter
-from subprocess import Popen, PIPE, STDOUT, DEVNULL
+from subprocess import Popen, PIPE, STDOUT
+from PyQt5.Qt import QFont, Qt
 
 
 class manage_pck(QDialog):

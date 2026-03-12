@@ -1,15 +1,15 @@
-import sys
 import re
 import os
 
 from PyQt5.QtWidgets import (
-    QApplication, QMainWindow, QTextEdit, QAction,
-    QMessageBox, QToolBar, QStatusBar
+    QMainWindow, QTextEdit, QAction,
+    QToolBar, QStatusBar
 )
 from PyQt5.QtGui import (
-    QIcon, QSyntaxHighlighter, QTextCharFormat, QColor, QFont
+    QIcon, QSyntaxHighlighter, QTextCharFormat, QColor
 )
 from PyQt5.QtCore import QSize
+from PyQt5.Qt import QFont, QMessageBox
 
 
 class BashHighlighter(QSyntaxHighlighter):

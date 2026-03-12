@@ -7,9 +7,9 @@
 ##########################################################################
 
 
-from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QDialog, QTextEdit, QVBoxLayout, QWidget, \
-    QScrollArea, QHBoxLayout, QPushButton
+from PyQt5.QtWidgets import QDialog, QTextEdit, QVBoxLayout, \
+    QHBoxLayout, QPushButton
+from PyQt5.Qt import Qt
 
 
 class editCombobox(QDialog):

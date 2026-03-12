@@ -6,16 +6,16 @@
 # for details.
 ##########################################################################
 
-from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QDialog, QVBoxLayout, QHBoxLayout, QLabel, QLineEdit, \
     QPushButton
+from PyQt5.Qt import Qt
 
 
 class setLimits(QDialog):
-    def __init__(self, format, limits, parent=None):
+    def __init__(self, form, limits, parent=None):
         super(setLimits, self).__init__(parent)
 
-        self.format = format[format.index('_') + 1:] if '_' in format else format
+        self.format = form[form.index('_') + 1:] if '_' in form else form
         self.limits = limits
         self.new_limits = []
 
@@ -53,7 +53,7 @@ class setLimits(QDialog):
         vbox.addLayout(hbox3)
 
     def OK(self):
-        for index, i in enumerate(self.new_limits):
+        for _, i in enumerate(self.new_limits):
             if type(eval(i.text())).__name__ != self.format:
                 self.info.setText("<span style=\" \
                                   font-size:10pt; \

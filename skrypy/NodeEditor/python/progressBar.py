@@ -7,7 +7,7 @@
 ##########################################################################
 
 from PyQt5.QtCore import QThread, pyqtSignal
-from PyQt5.QtWidgets import QWidget, QVBoxLayout, QProgressBar, QPushButton, \
+from PyQt5.QtWidgets import QWidget, QVBoxLayout, QProgressBar, \
     QApplication
 import sys
 import time

@@ -11,12 +11,11 @@ Last modification on 14 mars 2023
 @author: omonti
 '''
 
-from PyQt5.QtCore import Qt
+from PyQt5.Qt import Qt
 from PyQt5.QtGui import QFontMetrics
 from PyQt5.QtWidgets import QDialog, QCheckBox, QVBoxLayout, QHBoxLayout, \
     QPushButton, QScrollArea, QWidget, QMenuBar, QAction, QTextEdit
 import importlib
-import inspect
 import os
 import yaml
 
@@ -105,7 +104,6 @@ class chOptions(QDialog):
                         self.list1.remove(el)
                         if 'Node(' in str(self.list2[ind]):
                             enableTo = False
-                        vals = self.list2[ind]
                         del self.list2[ind]
                         del self.list3[ind]
                         checkedTo = True
@@ -142,13 +140,13 @@ class chOptions(QDialog):
                         if tmp.strip() in listLabels:
                             n = n - 1
                         doc = doc + "<br><span style=\" font-size:10pt; font-weight:600; color:#222222;\" >" + tmp + " : </span><br>"
-                    except Exception as e:
+                    except Exception:
                         pass
                     comm = ''
                     try:
                         comm = lst[lst.index('#') + 1:]
                         doc = doc + "<span style=\" font-size:10pt; font-weight:600; color:#2222ee;\" >" + comm + "</span><br>"
-                    except Exception as e:
+                    except Exception:
                         pass
 
                 if len(doc) != 0:
@@ -193,7 +191,7 @@ class chOptions(QDialog):
                     if 'Node(' in str(self.values_inputs[ind]):
                         val = self.values_inputs[ind]
                         valueExists = True
-                except Exception as e:
+                except Exception:
                     pass
 
                 if not valueExists:
@@ -210,18 +208,18 @@ class chOptions(QDialog):
                     else:
                         try:
                             imb = eval(list_val)
-                        except Exception as e:
+                        except Exception:
                             imb = list_val
 
                     _imb1 = imb
-                    tuple = False
+                    isTuple = False
                     try:
                         if type(eval(imb)).__name__ == 'tuple':
                             self.list2.append(eval(imb))
-                            tuple = True
-                    except Exception as err:
-                        tuple = False
-                    if not tuple:
+                            isTuple = True
+                    except Exception:
+                        isTuple = False
+                    if not isTuple:
                         if type(imb).__name__ == 'str':
                             if 'enumerate' in imb:
                                 self.list2.append(list(eval(_imb1))[0][1])
