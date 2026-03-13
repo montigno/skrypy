@@ -85,12 +85,12 @@ def install_linux(pyth, base_dir):
         lines = fp.readlines()
     start_here = False
     if '#skrypy {}\n'.format("pyqt5") in lines:
-        print("{}aliases for skrypy version {} already exist! Manually update .bashrc !{}".format(RED, pyth, RESET))
+        print("{}aliases for skrypy version {} already exist! Manually update .bashrc !{}".format(RED, "pyqt5", RESET))
         exit()
 
     fp = open(src_bash)
 
-    os.system("echo '\n#skrypy {}' >> ~/.bashrc".format("pyqt6"))
+    os.system("echo '\n#skrypy {}' >> ~/.bashrc".format("pyqt5"))
     os.system("echo 'cmd_sk{}=\"source ".format(ext_py) + os.path.join(base_dir, "bin", "activate") +
               "; cd " + os.path.join(base_dir, "skrypy-pyqt5") +
               "; " + pyth + " main.py; deactivate\"' >> ~/.bashrc")

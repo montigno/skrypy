@@ -82,7 +82,7 @@ class SubWindow(QDialog):
             self.diagram_view.verticalScrollBar().setValue(self.diagram_view.verticalScrollBar().value() + offset.y())
         else:
             super(SubWindow, self).mouseMoveEvent(event)
-            
+
     def mouseReleaseEvent(self, event):
         self.diagram_view.setDragMode(QGraphicsView.RubberBandDrag)
         super().mouseReleaseEvent(event)
