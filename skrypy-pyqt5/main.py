@@ -94,9 +94,15 @@ class Project_Irmage(QMainWindow):
             os.remove(tmp)
 
     def closeEvent(self, event):
+
+        list_unsaved_diagram = self.t.wdg.getUnsavedDiagram()
+
         msg = QMessageBox(self)
         msg.setWindowTitle("Exit skrypy...")
-        msg.setText("Have you saved your projects ?")
+        if list_unsaved_diagram:
+            msg.setText(f"Warning:\nThese diagrams have not been saved:\n\n{'\n'.join(list_unsaved_diagram)}\n\nQuit anyway?")
+        else:
+            msg.setText("Exit Skrypy ?")
         msg.setIcon(QMessageBox.Question)
 
         msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)

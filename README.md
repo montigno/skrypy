@@ -11,6 +11,11 @@ A documentation is available here : [https://montigno.github.io/skrypy-pyqt5](ht
 
 <p></p>
 
+	09/07/2026: version 26.07.09a
+	- bug when the config_user.yml is empty resolved.
+
+<p></p>
+
 	30/06/2026: version 26.06.30a
 	- connection bug between Explorer and the script editor resolved.
 

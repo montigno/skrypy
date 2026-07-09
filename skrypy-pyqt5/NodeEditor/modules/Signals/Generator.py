@@ -96,7 +96,7 @@ class gen_noise:
 class gen_random_float():
     def __init__(self):
         import numpy as np
-        self.randout = np.random.rand(1, 1)[0][0]
+        self.randout = float(np.random.rand(1, 1)[0][0])
 
     def rand_out(self) -> float:
         return self.randout

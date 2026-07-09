@@ -6797,6 +6797,7 @@ class NodeEdit(QWidget):
         self.list_tools, self.list_tree = {}, {}
         self.listItemStored, self.listBlSmStored, self.listLoopStored = {}, {}, {}
         self.listCommentsStored = []
+        self.UnsavedDiagram = []
         self.autofit, self.grid = True, True
 
         self.currentpathwork = os.path.dirname(os.path.realpath(__file__))
@@ -7268,10 +7269,19 @@ class NodeEdit(QWidget):
         return currentTitle
 
     def setSubWindowCurrentTitle(self, title):
+        if '*' in title[-1]:
+            self.UnsavedDiagram.append(title)
+            self.UnsavedDiagram = list(self.UnsavedDiagram)
+        else:
+            self.UnsavedDiagram.remove(f"{title}*")
+
         if len(self.mdi.subWindowList()) > 1:
             self.mdi.currentSubWindow().setWindowTitle(title)
         else:
             self.mdi.subWindowList()[0].setWindowTitle(title)
+            
+    def getUnsavedDiagram(self):
+        return self.UnsavedDiagram
 
     def setlib(self, lib):
         self.libBlocks = lib.copy()

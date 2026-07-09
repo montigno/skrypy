@@ -6,19 +6,21 @@
 # for details.
 ##########################################################################
 
-from Config import Config
-from NodeEditor.python.classForProbe2 import printProbe
-from NodeEditor.python.tools import DefinitType
-from PyQt5.QtCore import pyqtSignal, QObject
-from PyQt5.QtWidgets import QApplication
 import ast
 import importlib
-from multiprocessing import Process, Semaphore, Pool
+from multiprocessing import Process, Semaphore, Pool, Queue
 import os
 import sys
 import re
 import threading
 import time
+
+from NodeEditor.python.tools import DefinitType
+from PyQt5.QtCore import pyqtSignal, QObject
+from PyQt5.QtWidgets import QApplication
+
+from Config import Config
+from NodeEditor.python.classForProbe2 import printProbe
 
 
 class execution2(QObject):
@@ -51,6 +53,8 @@ class execution2(QObject):
 
         if sema:
             sema.acquire()
+            
+        self.console = console
 
         # compiles a list of items
         listConnctIn = []
@@ -257,6 +261,7 @@ class execution2(QObject):
 
             elif 'P' in execution:
                 vl = listBlock[execution][2]
+
                 if vl:
                     try:
                         valToPrint = listDynamicValue[vl]
@@ -268,7 +273,7 @@ class execution2(QObject):
                                listBlock[execution][1],
                                valToPrint,
                                console)
-
+                    
                     try:
                         if vl in listOut:
                             listOut.remove(vl)

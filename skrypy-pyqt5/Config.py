@@ -123,7 +123,11 @@ class Config():
         self.saveConfigUser()
 
     def getPathHistories(self):
-        hist = self.config_user["paths"]["histories"]
+        if self.config_user:
+            hist = self.config_user["paths"]["histories"]
+        else:
+            hist = dict(diagram_report=False, paths=dict(diagrams='', histories='', run_at_start=''))
+            self.config_user = hist
         newHist = []
         if hist:
             for h in hist:
