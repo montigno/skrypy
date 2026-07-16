@@ -7273,7 +7273,10 @@ class NodeEdit(QWidget):
             self.UnsavedDiagram.append(title)
             self.UnsavedDiagram = list(self.UnsavedDiagram)
         else:
-            self.UnsavedDiagram.remove(f"{title}*")
+            try:
+                self.UnsavedDiagram.remove(f"{title}*")
+            except Exception as err:
+                pass
 
         if len(self.mdi.subWindowList()) > 1:
             self.mdi.currentSubWindow().setWindowTitle(title)

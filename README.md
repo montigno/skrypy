@@ -11,6 +11,11 @@ A documentation is available here : [https://montigno.github.io/skrypy-pyqt5](ht
 
 <p></p>
 
+	16/07/2026: version 26.07.16a
+	- Fixed bug during diagram saving (new method)
+
+<p></p>
+
 	09/07/2026: version 26.07.09a
 	- bug when the config_user.yml is empty resolved.
 
