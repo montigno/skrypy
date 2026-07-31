@@ -11,8 +11,13 @@ A documentation is available here : [https://montigno.github.io/skrypy-pyqt5](ht
 
 <p></p>
 
+	31/07/2026: version 26.07.31a
+	- Bug with the Skrypy closing dialog window resolved.
+
+<p></p>
+
 	16/07/2026: version 26.07.16a
-	- Fixed bug during diagram saving (new method)
+	- Fixed bug during diagram saving (new method).
 
 <p></p>
 

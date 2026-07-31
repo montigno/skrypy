@@ -100,7 +100,10 @@ class Project_Irmage(QMainWindow):
         msg = QMessageBox(self)
         msg.setWindowTitle("Exit skrypy...")
         if list_unsaved_diagram:
-            msg.setText(f"Warning:\nThese diagrams have not been saved:\n\n{'\n'.join(list_unsaved_diagram)}\n\nQuit anyway?")
+            msg.setText(
+                f"Warning:\nThese diagrams have not been saved:\n\n"
+                f"{'\n'.join(list_unsaved_diagram)}\n\nQuit anyway?"
+            )
         else:
             msg.setText("Exit Skrypy ?")
         msg.setIcon(QMessageBox.Question)
