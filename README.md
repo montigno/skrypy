@@ -11,6 +11,12 @@ A documentation is available here : [https://montigno.github.io/skrypy-pyqt5](ht
 
 <p></p>
 
+	06/08/2026: version 26.08.06b
+	- Pipeline launch time displayed in the info window.
+
+
+<p></p>
+
 	06/08/2026: version 26.08.06a
 	- Bug with Skrypy's close dialog fixed.
 

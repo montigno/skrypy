@@ -2850,9 +2850,9 @@ class Diagram_excution():
             editor.editText("Warning: some scripts contain the terms 'QApplication' or 'syst.exit', remove them !",
                             10, 600, 'ff0000', False, True)
             return
-
+        start_hour = datetime.now().strftime("%H:%M:%S")
         editor.editText(" {} execution: ".format(mode), 10, 600, '0000CC', False, False)
-        editor.editText("     > started", 10, 600, '0000CC', False, False)
+        editor.editText("     > started at {}".format(start_hour), 10, 600, '0000CC', False, False)
         editor.editText("     > in progress ...", 10, 600, '0000CC', False, False)
 
         args = (txt, {}, editor.textEdit, True, '', editor.console)
