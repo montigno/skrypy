@@ -8,16 +8,16 @@ echo "======================================"
 echo
 
 # ============================================================
-#
+# Test if user is admnistrator
 # ============================================================
 
-if ! sudo -n true 2>/dev/null; then
-    echo "Administrator privileges are required to install the dependencies.."
-    echo "Your user does not appear to have permission to use sudo."
-    echo "Try this command : sudo usermod -aG sudo <your_user_name>"
-	echo
-    exit 1
-fi
+#if ! sudo -n true 2>/dev/null; then
+#    echo "Administrator privileges are required to install the dependencies.."
+#    echo "Your user does not appear to have permission to use sudo."
+#    echo "Try this command : sudo usermod -aG sudo <your_user_name>"
+#	echo
+#    exit 1
+#fi
 
 # ============================================================
 # Select installation folder
