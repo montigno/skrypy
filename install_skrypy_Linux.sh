@@ -7,17 +7,29 @@ echo "        Skrypy install"
 echo "======================================"
 echo
 
+
+# ============================================================
+#
+# ============================================================
+
+if ! sudo -n true 2>/dev/null; then
+    echo "Administrator privileges are required to install the dependencies.."
+    echo "Your user does not appear to have permission to use sudo.."
+    exit 1
+fi
+echo
+
 # ============================================================
 # Select installation folder
 # ============================================================
 
 DEFAULT_INSTALL_DIR="$HOME/Applications"
 
-echo "Dossier d'installation par défaut :"
+echo "Default installation folder :"
 echo "  $DEFAULT_INSTALL_DIR"
 echo
 
-read -p "Dossier d'installation [$DEFAULT_INSTALL_DIR] : " INSTALL_DIR
+read -p "Installation folder [$DEFAULT_INSTALL_DIR] : " INSTALL_DIR
 
 # If the user simply presses Enter
 if [ -z "$INSTALL_DIR" ]; then
