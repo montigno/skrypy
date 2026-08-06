@@ -6,6 +6,7 @@ packages:
   bids: pybids
   blosc2: blosc2
   cryptography: cryptography
+  cuda: cuda-python
   cython: Cython
   dcmstack: dcmstack
   dirsync: dirsync
@@ -14,10 +15,12 @@ packages:
   gitpython: GitPython
   gputil: GPUtil
   h5py: h5py
+  keras: keras==2.8.0
   list_imports: list-imports
   lmdb: lmdb
   lmfit: lmfit
   matplotlib: matplotlib --prefer-binary
+  mlflow: mlflow
   mss: mss
   nibabel: nibabel
   nilearn: nilearn
@@ -39,6 +42,7 @@ packages:
   pyqt6-sip: PyQt6-sip
   pytest: pytest
   python-dotenv: python-dotenv
+  pytorch-ignite: pytorch-ignite
   pyvista: pyvista
   pyvistaqt: pyvistaqt
   ray: ray
@@ -50,7 +54,9 @@ packages:
   simpleITK: simpleITK
   sip: sip
   sympy: sympy
+  tensorflow: tensorflow==2.19.0
   tkinter: tk
+  torchvision: torchvision
   traits: traits
   transformers: transformers
   typing_inspect: typing_inspect
