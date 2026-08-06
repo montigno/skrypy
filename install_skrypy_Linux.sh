@@ -275,6 +275,24 @@ cp "$DESKTOP_FILE" "$DESKTOP_SHORTCUT" 2>/dev/null || true
 chmod +x "$DESKTOP_SHORTCUT" 2>/dev/null || true
 
 # ============================================================
+# Creating command line launcher
+# ============================================================
+
+echo
+echo "=== Creating terminal launcher ==="
+
+mkdir -p "$HOME/.local/bin"
+
+cat > "$HOME/.local/bin/skrypy" <<EOL
+#!/usr/bin/env bash
+exec "$BASE/bin/python" "$DEST/main.py" "\$@"
+EOL
+
+chmod +x "$HOME/.local/bin/skrypy"
+
+echo "Launcher created: ~/.local/bin/skrypy"
+
+# ============================================================
 # End
 # ============================================================
 
