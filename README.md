@@ -11,6 +11,11 @@ A documentation is available here : [https://montigno.github.io/skrypy-pyqt5](ht
 
 <p></p>
 
+	06/08/2026: version 26.08.06a
+	- Bug with Skrypy's close dialog fixed.
+
+<p></p>
+
 	04/08/2026: version 26.08.04a
 	- Some bugs fixed.
 
