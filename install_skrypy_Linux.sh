@@ -292,6 +292,15 @@ chmod +x "$HOME/.local/bin/skrypy"
 
 echo "Launcher created: ~/.local/bin/skrypy"
 
+# Add ~/.local/bin to PATH if needed
+if ! grep -q 'HOME/.local/bin' "$HOME/.bashrc"; then
+    cat >> "$HOME/.bashrc" <<'EOF'
+
+# Skrypy
+export PATH="$HOME/.local/bin:$PATH"
+EOF
+fi
+
 # ============================================================
 # End
 # ============================================================
