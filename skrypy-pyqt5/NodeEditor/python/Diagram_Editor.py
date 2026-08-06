@@ -7282,7 +7282,7 @@ class NodeEdit(QWidget):
             self.mdi.currentSubWindow().setWindowTitle(title)
         else:
             self.mdi.subWindowList()[0].setWindowTitle(title)
-            
+
     def getUnsavedDiagram(self):
         return self.UnsavedDiagram
 
@@ -7346,6 +7346,10 @@ class NodeEdit(QWidget):
                         if currentTitle in elem:
                             list_dgr.remove(elem)
                 Config().setPathDiagrams(list_dgr)
+                try:
+                    self.UnsavedDiagram.remove(f"{currentTitle}")
+                except Exception as err:
+                    pass
 
     def saveDiagramDialog(self, title):
         choice = QMessageBox.question(self, 'Save resource',
