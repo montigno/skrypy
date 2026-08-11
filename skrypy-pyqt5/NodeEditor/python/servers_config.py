@@ -376,12 +376,19 @@ class servers_window(QDialog):
         cmd_comp.append('test -e {}; echo $?'.format(self.skry_dir.text().strip()))
         cmd_comp.append('&&')
         cmd_comp.append('test -e {}; echo $?'.format(self.wrkspace_dir.text().strip()))
-        proc = subprocess.Popen(cmd_comp, stdout=subprocess.PIPE, shell=False)
+        try:
+            proc = subprocess.Popen(cmd_comp, stdout=subprocess.PIPE, shell=False)
+        except:
+            msg = 'connection problem: sshpass is not installed.<br> \
+                  Run on Terminal: sudo apt install sshpass.'
+            msg = self.styleErrorMessage(msg)
+            self.info1.setText(msg)
+            return
         timer = Timer(2, proc.kill)
         try:
             timer.start()
             stdout, _ = proc.communicate()
-        except Exception:
+        except Exception as err:
             msg = '{} connection problem'.format(host_name)
             msg = self.styleErrorMessage(msg)
             self.info1.setText(msg)
