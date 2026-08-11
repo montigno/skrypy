@@ -227,7 +227,7 @@ class BlockCreate(QGraphicsRectItem):
             self.setFlag(QGraphicsRectItem.ItemSendsGeometryChanges)
 
     def paint(self, painter, option, widget=None):
-        # super().paint(painter, option, widget)
+        super().paint(painter, option, widget)
 
         rect = self.rect()
 
@@ -248,10 +248,10 @@ class BlockCreate(QGraphicsRectItem):
         painter.setPen(pen)
         painter.setBrush(QBrush(gradient))
 
-        if option.state & QStyle.State_Selected:
-            super().paint(painter, option, widget)
-        radius = 12
-        painter.drawRoundedRect(rect, radius, radius)
+        # if option.state & QStyle.State_Selected:
+        #     super().paint(painter, option, widget)
+        # radius = 12
+        # painter.drawRoundedRect(rect, radius, radius)
 
     def addProbesOutputs(self):
         height = self.boundingRect().height() / 2
