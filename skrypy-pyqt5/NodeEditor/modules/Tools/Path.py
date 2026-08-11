@@ -143,13 +143,16 @@ class path_change_extension_2ext:
 class path_add_suffixprefix:
     def __init__(self,
                  path_in='path',
-                 new_str='',
+                 new_str='_new',
                  place="enumerate(('suffix','prefix'))"):
         import os
+        from datetime import datetime
         dir = os.path.dirname(path_in)
         tmp = os.path.basename(path_in)
         name = ('.').join(tmp.split('.')[:-1])
         ext = tmp.split('.')[-1]
+        if not new_str:
+            new_str = datetime.now().strftime("_%Y%m%d_%H%M%S")
         if place == 'suffix':
             self.outPath = os.path.join(dir, name + new_str + '.' + ext)
         elif place == 'prefix':
@@ -164,14 +167,17 @@ class path_add_suffixprefix:
 class path_add_suffixprefix_2ext:
     def __init__(self,
                  path_in='path',
-                 new_str='',
+                 new_str='_new',
                  place="enumerate(('suffix','prefix'))"):
         import os
+        from datetime import datetime
         dir = os.path.dirname(path_in)
         tmp = os.path.basename(path_in)
         lsfield = tmp.split('.')
         name = ('.').join(lsfield[:-2])
         ext = lsfield[-2] + '.' + lsfield[-1]
+        if not new_str:
+            new_str = datetime.now().strftime("_%Y%m%d_%H%M%S")
         if place == 'suffix':
             self.outPath = os.path.join(dir, name + new_str + '.' + ext)
         elif place == 'prefix':

@@ -8,6 +8,11 @@ A documentation is available here : [https://montigno.github.io/skrypy-pyqt5](ht
 
 # Release history
 
+<p></p>
+
+	11/08/2026: version 26.08.11b
+	- Module 'path_add_suffixPrefix': corrected default value.
+	- Documantation HTML: some corrections.
 
 <p></p>
 
