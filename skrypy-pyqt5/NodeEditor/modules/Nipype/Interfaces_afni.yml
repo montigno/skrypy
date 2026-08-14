@@ -1,1050 +1,1131 @@
-afni_Deconvolve:
-  in_files: ['path']
-  sat: true
-  trans: true
-  noblock: true
-  force_TR: 0.0
-  input1D: 'path'
-  TR_1D: 0.0
-  legendre: true
-  nolegendre: true
-  nodmbase: true
-  dmbase: true
-  svd: true
-  nosvd: true
-  rmsmin: 0.0
-  nocond: true
-  singvals: true
-  goforit: 0
-  allzero_OK: true
-  dname: (0,)
-  mask: 'path'
-  automask: true
-  STATmask: 'path'
-  censor: 'path'
-  polort: 0
-  ortvec: (0,)
-  x1D: 'path'
-  x1D_stop: true
-  cbucket: ''
-  out_file: 'path'
-  num_threads: 0
-  fout: true
-  rout: true
-  tout: true
-  vout: true
-  nofdr: true
-  global_times: true
-  local_times: true
-  num_stimts: 0
-  stim_times: [(0, )]
-  stim_label: [(0, )]
-  stim_times_subtract: 0.0
-  num_glt: 0
-  gltsym: ['']
-  glt_label: [(0, )]
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
-afni_Remlfit:
-  polort: 0
-  matim: 'path'
-  mask: 'path'
-  automask: true
-  STATmask: 'path'
-  addbase: ['path']
-  slibase: ['path']
-  slibase_sm: ['path']
-  usetemp: true
-  nodmbase: true
-  dsort: 'path'
-  dsort_nods: true
-  fout: true
-  rout: true
-  tout: true
-  nofdr: true
-  nobout: true
-  gltsym: [(0, )]
-  out_file: 'path'
-  var_file: 'path'
-  rbeta_file: 'path'
-  glt_file: 'path'
-  fitts_file: 'path'
-  errts_file: 'path'
-  wherr_file: 'path'
-  quiet: true
-  verb: true
-  goforit: true
-  ovar: 'path'
-  obeta: 'path'
-  obuck: 'path'
-  oglt: 'path'
-  ofitts: 'path'
-  oerrts: 'path'
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
-afni_Synthesize:
-  out_file: 'path'
-  dry_run: true
-  TR: 0.0
-  cenfill: enumerate(('zero','nbhr','none'))
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
-afni_AlignEpiAnatPy:
-  anat2epi: true
-  epi2anat: true
-  save_skullstrip: true
-  suffix: ''
-  epi_strip: enumerate(('3dSkullStrip','3dAutomask','None'))
-  volreg: enumerate(('on','off'))
-  tshift: enumerate(('on','off'))
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  py27_path: 'path'
-  args: ''
-afni_Allineate:
-  reference: 'path'
-  out_file: 'path'
-  out_param_file: 'path'
-  in_param_file: 'path'
-  out_matrix: 'path'
-  in_matrix: 'path'
-  overwrite: true
-  allcostx: 'path'
-  cost: enumerate(('leastsq','ls','mutualinfo','mi','corratio_mul','crM','norm_mutualinfo','nmi','hellinger','hel','corratio_add','crA','corratio_uns','crU'))
-  interpolation: enumerate(('nearestneighbour','linear','cubic','quintic'))
-  final_interpolation: enumerate(('nearestneighbour','linear','cubic','quintic','wsinc5'))
-  nmatch: 0
-  no_pad: true
-  zclip: true
-  convergence: 0.0
-  usetemp: true
-  check: enumerate(('leastsq','ls','mutualinfo','mi','corratio_mul','crM','norm_mutualinfo','nmi','hellinger','hel','corratio_add','crA','corratio_uns','crU'))
-  one_pass: true
-  two_pass: true
-  two_blur: 0.0
-  two_first: true
-  two_best: 0
-  fine_blur: 0.0
-  center_of_mass: ''
-  autoweight: ''
-  automask: 0
-  autobox: true
-  nomask: true
-  weight_file: 'path'
-  weight: 'path'
-  out_weight_file: 'path'
-  source_mask: 'path'
-  source_automask: 0
-  warp_type: enumerate(('shift_only','shift_rotate','shift_rotate_scale','affine_general'))
-  warpfreeze: true
-  replacebase: true
-  replacemeth: enumerate(('leastsq','ls','mutualinfo','mi','corratio_mul','crM','norm_mutualinfo','nmi','hellinger','hel','corratio_add','crA','corratio_uns','crU'))
-  epi: true
-  maxrot: 0.0
-  maxshf: 0.0
-  maxscl: 0.0
-  maxshr: 0.0
-  master: 'path'
-  newgrid: 0.0
-  nwarp: enumerate(('bilinear','cubic','quintic','heptic','nonic','poly3','poly5','poly7','poly9'))
-  nwarp_fixmot: enumerate(('X','Y','Z','I','J','K'))
-  nwarp_fixdep: enumerate(('X','Y','Z','I','J','K'))
-  verbose: true
-  quiet: true
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
-afni_AutoTLRC:
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  no_ss: true
-  args: ''
-afni_AutoTcorrelate:
-  polort: 0
-  eta2: true
-  mask: 'path'
-  mask_only_targets: true
-  mask_source: 'path'
-  out_file: 'path'
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
-afni_Automask:
-  out_file: 'path'
-  brain_file: 'path'
-  clfrac: 0.0
-  dilate: 0
-  erode: 0
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
-afni_Bandpass:
-  out_file: 'path'
-  mask: 'path'
-  despike: true
-  orthogonalize_file: ['path']
-  orthogonalize_dset: 'path'
-  no_detrend: true
-  tr: 0.0
-  nfft: 0
-  normalize: true
-  automask: true
-  blur: 0.0
-  localPV: 0.0
-  notrans: true
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
-afni_BlurInMask:
-  out_file: 'path'
-  mask: 'path'
-  multimask: 'path'
-  automask: true
-  preserve: true
-  float_out: true
-  options: ''
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
-afni_BlurToFWHM:
-  automask: true
-  fwhm: 0.0
-  fwhmxy: 0.0
-  blurmaster: 'path'
-  mask: 'path'
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  out_file: 'path'
-  args: ''
-afni_ClipLevel:
-  mfrac: 0.0
-  doall: true
-  grad: 'path'
-  args: ''
-afni_DegreeCentrality:
-  sparsity: 0.0
-  oned_file: ''
-  mask: 'path'
-  thresh: 0.0
-  polort: 0
-  autoclip: true
-  automask: true
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  out_file: 'path'
-  args: ''
-afni_Despike:
-  out_file: 'path'
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
-afni_Detrend:
-  out_file: 'path'
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
-afni_ECM:
-  sparsity: 0.0
-  full: true
-  fecm: true
-  shift: 0.0
-  scale: 0.0
-  eps: 0.0
-  max_iter: 0
-  memory: 0.0
-  mask: 'path'
-  thresh: 0.0
-  polort: 0
-  autoclip: true
-  automask: true
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  out_file: 'path'
-  args: ''
-afni_Fim:
-  out_file: 'path'
-  fim_thr: 0.0
-  out: ''
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
-afni_Fourier:
-  out_file: 'path'
-  retrend: true
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
-afni_Hist:
-  out_file: 'path'
-  showhist: true
-  out_show: 'path'
-  mask: 'path'
-  nbin: 0
-  max_value: 0.0
-  min_value: 0.0
-  bin_width: 0.0
-  args: ''
-afni_LFCD:
-  mask: 'path'
-  thresh: 0.0
-  polort: 0
-  autoclip: true
-  automask: true
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  out_file: 'path'
-  args: ''
-afni_Maskave:
-  out_file: 'path'
-  mask: 'path'
-  quiet: true
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
-afni_Means:
-  in_file_b: 'path'
-  datum: ''
-  out_file: 'path'
-  scale: ''
-  non_zero: true
-  std_dev: true
-  sqr: true
-  summ: true
-  count: true
-  mask_inter: true
-  mask_union: true
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
-afni_NetCorr:
-  mask: 'path'
-  weight_ts: 'path'
-  fish_z: true
-  part_corr: true
-  ts_out: true
-  ts_label: true
-  ts_indiv: true
-  ts_wb_corr: true
-  ts_wb_Z: true
-  ts_wb_strlabel: true
-  nifti: true
-  output_mask_nonnull: true
-  push_thru_many_zeros: true
-  ignore_LT: true
-  out_file: 'path'
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
-afni_OutlierCount:
-  mask: 'path'
-  qthr: 0.0
-  autoclip: true
-  automask: true
-  fraction: true
-  interval: true
-  save_outliers: true
-  outliers_file: 'path'
-  polort: 0
-  legendre: true
-  out_file: 'path'
-  args: ''
-afni_QualityIndex:
-  mask: 'path'
-  spearman: true
-  quadrant: true
-  autoclip: true
-  automask: true
-  clip: 0.0
-  interval: true
-  out_file: 'path'
-  args: ''
-afni_Qwarp:
-  out_file: 'path'
-  resample: true
-  allineate: true
-  allineate_opts: ''
-  nowarp: true
-  iwarp: true
-  pear: true
-  noneg: true
-  nopenalty: true
-  penfac: 0.0
-  noweight: true
-  weight: 'path'
-  wball: 0
-  bandpass: (0,)
-  wmask: (0,)
-  out_weight_file: 'path'
-  blur: 0.0
-  pblur: 0.0
-  emask: 'path'
-  noXdis: true
-  noYdis: true
-  noZdis: true
-  iniwarp: ['path']
-  inilev: 0
-  minpatch: 0
-  maxlev: 0
-  gridlist: 'path'
-  allsave: true
-  duplo: true
-  workhard: true
-  Qfinal: true
-  Qonly: true
-  plusminus: true
-  nopad: true
-  nopadWARP: true
-  expad: 0
-  ballopt: true
-  baxopt: true
-  verb: true
-  quiet: true
-  overwrite: true
-  lpc: true
-  lpa: true
-  hel: true
-  mi: true
-  nmi: true
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
-afni_QwarpPlusMinus:
-  source_file: 'path'
-  out_file: 'path'
-  plusminus: true
-  resample: true
-  allineate: true
-  allineate_opts: ''
-  nowarp: true
-  iwarp: true
-  pear: true
-  noneg: true
-  nopenalty: true
-  penfac: 0.0
-  noweight: true
-  weight: 'path'
-  wball: 0
-  bandpass: (0,)
-  wmask: (0,)
-  out_weight_file: 'path'
-  blur: 0.0
-  pblur: 0.0
-  emask: 'path'
-  noXdis: true
-  noYdis: true
-  noZdis: true
-  iniwarp: ['path']
-  inilev: 0
-  minpatch: 0
-  maxlev: 0
-  gridlist: 'path'
-  allsave: true
-  duplo: true
-  workhard: true
-  Qfinal: true
-  Qonly: true
-  nopad: true
-  nopadWARP: true
-  expad: 0
-  ballopt: true
-  baxopt: true
-  verb: true
-  quiet: true
-  overwrite: true
-  lpc: true
-  lpa: true
-  hel: true
-  mi: true
-  nmi: true
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
-afni_ROIStats:
-  mask: 'path'
-  mask_file: 'path'
-  mask_f2short: true
-  num_roi: 0
-  zerofill: ''
-  roisel: 'path'
-  debug: true
-  quiet: true
-  nomeanout: true
-  nobriklab: true
-  format1D: true
-  format1DR: true
-  stat: enumerate(('mean','sum','voxels','minmax','sigma','median','mode','summary','zerominmax','zerosigma','zeromedian','zeromode'))
-  out_file: 'path'
-  args: ''
-afni_Retroicor:
-  out_file: 'path'
-  card: 'path'
-  resp: 'path'
-  threshold: 0
-  order: 0
-  cardphase: 'path'
-  respphase: 'path'
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
-afni_Seg:
-  blur_meth: enumerate(('BFT','BIM'))
-  bias_fwhm: 0.0
-  classes: ''
-  bmrf: 0.0
-  bias_classes: ''
-  prefix: ''
-  mixfrac: ''
-  mixfloor: 0.0
-  main_N: 0
-  args: ''
-afni_SkullStrip:
-  out_file: 'path'
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
-afni_TCorr1D:
-  out_file: 'path'
-  pearson: true
-  spearman: true
-  quadrant: true
-  ktaub: true
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
-afni_TCorrMap:
-  seeds: 'path'
-  mask: 'path'
-  automask: true
-  polort: 0
-  bandpass: (0,)
-  regress_out_timeseries: 'path'
-  blur_fwhm: 0.0
-  seeds_width: 0.0
-  mean_file: 'path'
-  zmean: 'path'
-  qmean: 'path'
-  pmean: 'path'
-  thresholds: [0]
-  absolute_threshold: 'path'
-  var_absolute_threshold: 'path'
-  var_absolute_threshold_normalize: 'path'
-  correlation_maps: 'path'
-  correlation_maps_masked: 'path'
-  expr: ''
-  average_expr: 'path'
-  average_expr_nonzero: 'path'
-  sum_expr: 'path'
-  histogram_bin_numbers: 0
-  histogram: 'path'
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  out_file: 'path'
-  args: ''
-afni_TCorrelate:
-  out_file: 'path'
-  pearson: true
-  polort: 0
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
-afni_TNorm:
-  out_file: 'path'
-  norm2: true
-  normR: true
-  norm1: true
-  normx: true
-  polort: 0
-  L1fit: true
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
-afni_TProject:
-  out_file: 'path'
-  censor: 'path'
-  censortr: ['']
-  cenmode: enumerate(('KILL','ZERO','NTRP'))
-  concat: 'path'
-  noblock: true
-  ort: 'path'
-  polort: 0
-  dsort: ['path']
-  bandpass: (0,)
-  stopband: (0,)
-  TR: 0.0
-  mask: 'path'
-  automask: true
-  blur: 0.0
-  norm: true
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
-afni_TShift:
-  out_file: 'path'
-  tr: ''
-  tzero: 0.0
-  tslice: 0
-  ignore: 0
-  interp: enumerate(('Fourier','linear','cubic','quintic','heptic'))
-  tpattern: enumerate(('alt+z','altplus','alt+z2','alt-z','altminus','alt-z2','seq+z','seqplus','seq-z','seqminus'))
-  slice_timing: ['path']
-  slice_encoding_direction: enumerate(('k','k-'))
-  rlt: true
-  rltplus: true
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
-afni_TSmooth:
-  out_file: 'path'
-  datum: ''
-  lin: true
-  med: true
-  osf: true
-  lin3: 0
-  hamming: 0
-  blackman: 0
-  custom: 'path'
-  adaptive: 0
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
-afni_Volreg:
-  in_weight_volume: (0,)
-  out_file: 'path'
-  basefile: 'path'
-  zpad: 0
-  md1d_file: 'path'
-  oned_file: 'path'
-  verbose: true
-  timeshift: true
-  copyorigin: true
-  oned_matrix_save: 'path'
-  interp: enumerate(('Fourier','cubic','heptic','quintic','linear'))
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
-afni_Warp:
-  out_file: 'path'
-  tta2mni: true
-  mni2tta: true
-  matparent: 'path'
-  oblique_parent: 'path'
-  deoblique: true
-  interp: enumerate(('linear','cubic','NN','quintic'))
-  gridset: 'path'
-  newgrid: 0.0
-  zpad: 0
-  verbose: true
-  save_warp: true
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
-afni_SVMTest:
-  out_file: 'path'
-  testlabels: 'path'
-  classout: true
-  nopredcensord: true
-  nodetrend: true
-  multiclass: true
-  options: ''
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
-afni_SVMTrain:
-  out_file: 'path'
-  model: 'path'
-  alphas: 'path'
-  mask: 'path'
-  nomodelmask: true
-  trainlabels: 'path'
-  censor: 'path'
-  kernel: ''
-  max_iterations: 0
-  w_out: true
-  options: ''
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
 afni_ABoverlap:
-  out_file: 'path'
+  args: ''
+  environ: {}
   no_automask: true
+  num_threads: 0
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
   quiet: true
   verb: true
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
 afni_AFNItoNIFTI:
-  out_file: 'path'
-  pure: true
+  args: ''
   denote: true
-  oldid: true
+  environ: {}
   newid: true
   num_threads: 0
+  oldid: true
+  out_file: path
   outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  pure: true
+afni_AlignEpiAnatPy:
+  anat2epi: true
   args: ''
+  environ: {}
+  epi2anat: true
+  epi_strip: enumerate(('3dSkullStrip','3dAutomask','None'))
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  py27_path: path
+  save_skullstrip: true
+  suffix: ''
+  tshift: enumerate(('on','off'))
+  volreg: enumerate(('on','off'))
+afni_Allineate:
+  allcostx: path
+  args: ''
+  autobox: true
+  automask: 0
+  autoweight: ''
+  center_of_mass: ''
+  check: enumerate(('leastsq','ls','mutualinfo','mi','corratio_mul','crM','norm_mutualinfo','nmi','hellinger','hel','corratio_add','crA','corratio_uns','crU'))
+  convergence: 0.0
+  cost: enumerate(('leastsq','ls','mutualinfo','mi','corratio_mul','crM','norm_mutualinfo','nmi','hellinger','hel','corratio_add','crA','corratio_uns','crU'))
+  environ: {}
+  epi: true
+  final_interpolation: enumerate(('nearestneighbour','linear','cubic','quintic','wsinc5'))
+  fine_blur: 0.0
+  in_matrix: path
+  in_param_file: path
+  interpolation: enumerate(('nearestneighbour','linear','cubic','quintic'))
+  master: path
+  maxrot: 0.0
+  maxscl: 0.0
+  maxshf: 0.0
+  maxshr: 0.0
+  newgrid: 0.0
+  nmatch: 0
+  no_pad: true
+  nomask: true
+  num_threads: 0
+  nwarp: enumerate(('bilinear','cubic','quintic','heptic','nonic','poly3','poly5','poly7','poly9'))
+  nwarp_fixdep: enumerate(('X','Y','Z','I','J','K'))
+  nwarp_fixmot: enumerate(('X','Y','Z','I','J','K'))
+  one_pass: true
+  out_file: path
+  out_matrix: path
+  out_param_file: path
+  out_weight_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  overwrite: true
+  quiet: true
+  reference: path
+  replacebase: true
+  replacemeth: enumerate(('leastsq','ls','mutualinfo','mi','corratio_mul','crM','norm_mutualinfo','nmi','hellinger','hel','corratio_add','crA','corratio_uns','crU'))
+  source_automask: 0
+  source_mask: path
+  two_best: 0
+  two_blur: 0.0
+  two_first: true
+  two_pass: true
+  usetemp: true
+  verbose: true
+  warp_type: enumerate(('shift_only','shift_rotate','shift_rotate_scale','affine_general'))
+  warpfreeze: true
+  weight: path
+  weight_file: path
+  zclip: true
+afni_AutoTLRC:
+  args: ''
+  environ: {}
+  no_ss: true
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+afni_AutoTcorrelate:
+  args: ''
+  environ: {}
+  eta2: true
+  mask: path
+  mask_only_targets: true
+  mask_source: path
+  num_threads: 0
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  polort: 0
 afni_Autobox:
-  padding: 0
-  out_file: 'path'
+  args: ''
+  environ: {}
   no_clustering: true
   num_threads: 0
+  out_file: path
   outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  padding: 0
+afni_Automask:
   args: ''
-afni_Axialize:
-  out_file: 'path'
-  verb: true
-  sagittal: true
-  coronal: true
-  axial: true
-  orientation: ''
+  brain_file: path
+  clfrac: 0.0
+  dilate: 0
+  environ: {}
+  erode: 0
   num_threads: 0
+  out_file: path
   outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+afni_Axialize:
   args: ''
+  axial: true
+  coronal: true
+  environ: {}
+  num_threads: 0
+  orientation: ''
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  sagittal: true
+  verb: true
+afni_Bandpass:
+  args: ''
+  automask: true
+  blur: 0.0
+  despike: true
+  environ: {}
+  localPV: 0.0
+  mask: path
+  nfft: 0
+  no_detrend: true
+  normalize: true
+  notrans: true
+  num_threads: 0
+  orthogonalize_dset: path
+  orthogonalize_file: [path]
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  tr: 0.0
+afni_BlurInMask:
+  args: ''
+  automask: true
+  environ: {}
+  float_out: true
+  mask: path
+  multimask: path
+  num_threads: 0
+  options: ''
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  preserve: true
+afni_BlurToFWHM:
+  args: ''
+  automask: true
+  blurmaster: path
+  environ: {}
+  fwhm: 0.0
+  fwhmxy: 0.0
+  mask: path
+  num_threads: 0
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
 afni_BrickStat:
-  mask: 'path'
-  min: true
-  slow: true
+  args: ''
+  environ: {}
+  mask: path
   max: true
   mean: true
+  min: true
+  percentile: (0,)
+  slow: true
   sum: true
   var: true
-  percentile: (0,)
-  args: ''
 afni_Bucket:
-  out_file: 'path'
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
   args: ''
+  environ: {}
+  num_threads: 0
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
 afni_Calc:
-  in_file_b: 'path'
-  in_file_c: 'path'
-  out_file: 'path'
+  args: ''
+  environ: {}
+  in_file_b: path
+  in_file_c: path
+  num_threads: 0
+  other: path
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  overwrite: true
+  single_idx: 0
   start_idx: 0
   stop_idx: 0
-  single_idx: 0
-  overwrite: true
-  other: 'path'
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
 afni_Cat:
-  omitconst: true
+  args: ''
+  environ: {}
   keepfree: true
-  out_format: enumerate(('int','nice','double','fint','cint'))
-  stack: true
-  sel: ''
-  out_int: true
-  out_nice: true
+  num_threads: 0
+  omitconst: true
+  out_cint: true
   out_double: true
   out_fint: true
-  out_cint: true
-  num_threads: 0
+  out_format: enumerate(('int','nice','double','fint','cint'))
+  out_int: true
+  out_nice: true
   outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
+  sel: ''
+  stack: true
 afni_CatMatvec:
-  matrix: true
-  oneline: true
-  fourxfour: true
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
   args: ''
+  environ: {}
+  fourxfour: true
+  matrix: true
+  num_threads: 0
+  oneline: true
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
 afni_CenterMass:
-  cm_file: 'path'
-  mask_file: 'path'
-  automask: true
-  set_cm: (0,)
-  local_ijk: true
-  roi_vals: [0]
   all_rois: true
   args: ''
+  automask: true
+  cm_file: path
+  environ: {}
+  local_ijk: true
+  mask_file: path
+  roi_vals: [0]
+  set_cm: (0,)
+afni_ClipLevel:
+  args: ''
+  doall: true
+  environ: {}
+  grad: path
+  mfrac: 0.0
 afni_ConvertDset:
+  args: ''
+  environ: {}
   num_threads: 0
   outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
 afni_Copy:
-  out_file: 'path'
-  verbose: true
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
   args: ''
+  environ: {}
+  num_threads: 0
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  verbose: true
+afni_Deconvolve:
+  STATmask: path
+  TR_1D: 0.0
+  allzero_OK: true
+  args: ''
+  automask: true
+  cbucket: ''
+  censor: path
+  dmbase: true
+  dname: (0,)
+  environ: {}
+  force_TR: 0.0
+  fout: true
+  global_times: true
+  glt_label: [(0, )]
+  gltsym: ['']
+  goforit: 0
+  in_files: [path]
+  input1D: path
+  legendre: true
+  local_times: true
+  mask: path
+  noblock: true
+  nocond: true
+  nodmbase: true
+  nofdr: true
+  nolegendre: true
+  nosvd: true
+  num_glt: 0
+  num_stimts: 0
+  num_threads: 0
+  ortvec: (0,)
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  polort: 0
+  rmsmin: 0.0
+  rout: true
+  sat: true
+  singvals: true
+  stim_label: [(0, )]
+  stim_times: [(0, )]
+  stim_times_subtract: 0.0
+  svd: true
+  tout: true
+  trans: true
+  vout: true
+  x1D: path
+  x1D_stop: true
+afni_DegreeCentrality:
+  args: ''
+  autoclip: true
+  automask: true
+  environ: {}
+  mask: path
+  num_threads: 0
+  oned_file: ''
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  polort: 0
+  sparsity: 0.0
+  thresh: 0.0
+afni_Despike:
+  args: ''
+  environ: {}
+  num_threads: 0
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+afni_Detrend:
+  args: ''
+  environ: {}
+  num_threads: 0
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
 afni_Dot:
-  in_files: ['path']
-  out_file: 'path'
-  mask: 'path'
-  mrange: (0,)
+  args: ''
   demean: true
-  docor: true
-  dodot: true
   docoef: true
-  dosums: true
+  docor: true
   dodice: true
+  dodot: true
   doeta2: true
+  dosums: true
+  environ: {}
   full: true
+  in_files: [path]
+  mask: path
+  mrange: (0,)
+  num_threads: 0
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
   show_labels: true
   upper: true
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+afni_ECM:
   args: ''
+  autoclip: true
+  automask: true
+  environ: {}
+  eps: 0.0
+  fecm: true
+  full: true
+  mask: path
+  max_iter: 0
+  memory: 0.0
+  num_threads: 0
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  polort: 0
+  scale: 0.0
+  shift: 0.0
+  sparsity: 0.0
+  thresh: 0.0
 afni_Edge3:
-  out_file: 'path'
+  args: ''
   datum: enumerate(('byte','short','float'))
+  environ: {}
   fscale: true
   gscale: true
   nscale: true
+  num_threads: 0
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
   scale_floats: 0.0
   verbose: true
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
 afni_Eval:
-  in_file_b: 'path'
-  in_file_c: 'path'
-  out_file: 'path'
+  args: ''
+  environ: {}
+  in_file_b: path
+  in_file_c: path
+  num_threads: 0
+  other: path
   out1D: true
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  single_idx: 0
   start_idx: 0
   stop_idx: 0
-  single_idx: 0
-  other: 'path'
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
 afni_FWHMx:
-  out_file: 'path'
-  out_subbricks: 'path'
-  mask: 'path'
-  automask: true
-  detrend: true
-  demed: true
-  unif: true
-  out_detrend: 'path'
-  geom: true
-  arith: true
-  combine: true
-  compat: true
   acf: (0,)
   args: ''
+  arith: true
+  automask: true
+  combine: true
+  compat: true
+  demed: true
+  detrend: true
+  environ: {}
+  geom: true
+  mask: path
+  out_detrend: path
+  out_file: path
+  out_subbricks: path
+  unif: true
+afni_Fim:
+  args: ''
+  environ: {}
+  fim_thr: 0.0
+  num_threads: 0
+  out: ''
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+afni_Fourier:
+  args: ''
+  environ: {}
+  num_threads: 0
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  retrend: true
 afni_GCOR:
-  mask: 'path'
+  args: ''
+  environ: {}
+  mask: path
   nfirst: 0
   no_demean: true
+afni_Hist:
   args: ''
+  bin_width: 0.0
+  environ: {}
+  mask: path
+  max_value: 0.0
+  min_value: 0.0
+  nbin: 0
+  out_file: path
+  out_show: path
+  showhist: true
+afni_LFCD:
+  args: ''
+  autoclip: true
+  automask: true
+  environ: {}
+  mask: path
+  num_threads: 0
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  polort: 0
+  thresh: 0.0
 afni_LocalBistat:
-  mask_file: 'path'
-  automask: true
-  weight_file: 'path'
-  out_file: 'path'
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
   args: ''
+  automask: true
+  environ: {}
+  mask_file: path
+  num_threads: 0
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  weight_file: path
 afni_Localstat:
-  mask_file: 'path'
-  automask: true
-  nonmask: true
-  reduce_grid: (0,)
-  reduce_restore_grid: (0,)
-  reduce_max_vox: 0.0
-  grid_rmode: enumerate(('NN','Li','Cu','Bk'))
-  quiet: true
-  overwrite: true
-  out_file: 'path'
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
   args: ''
+  automask: true
+  environ: {}
+  grid_rmode: enumerate(('NN','Li','Cu','Bk'))
+  mask_file: path
+  nonmask: true
+  num_threads: 0
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  overwrite: true
+  quiet: true
+  reduce_grid: (0,)
+  reduce_max_vox: 0.0
+  reduce_restore_grid: (0,)
 afni_MaskTool:
-  out_file: 'path'
+  args: ''
   count: true
   datum: enumerate(('byte','short','float'))
   dilate_inputs: ''
   dilate_results: ''
+  environ: {}
+  fill_dirs: ''
+  fill_holes: true
   frac: 0.0
   inter: true
+  num_threads: 0
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
   union: true
-  fill_holes: true
-  fill_dirs: ''
   verbose: 0
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+afni_Maskave:
   args: ''
+  environ: {}
+  mask: path
+  num_threads: 0
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  quiet: true
+afni_Means:
+  args: ''
+  count: true
+  datum: ''
+  environ: {}
+  in_file_b: path
+  mask_inter: true
+  mask_union: true
+  non_zero: true
+  num_threads: 0
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  scale: ''
+  sqr: true
+  std_dev: true
+  summ: true
 afni_Merge:
-  out_file: 'path'
-  doall: true
-  blurfwhm: 0
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
   args: ''
+  blurfwhm: 0
+  doall: true
+  environ: {}
+  num_threads: 0
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+afni_NetCorr:
+  args: ''
+  environ: {}
+  fish_z: true
+  ignore_LT: true
+  mask: path
+  nifti: true
+  num_threads: 0
+  out_file: path
+  output_mask_nonnull: true
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  part_corr: true
+  push_thru_many_zeros: true
+  ts_indiv: true
+  ts_label: true
+  ts_out: true
+  ts_wb_Z: true
+  ts_wb_corr: true
+  ts_wb_strlabel: true
+  weight_ts: path
 afni_Notes:
   add: ''
   add_history: ''
-  rep_history: ''
+  args: ''
   delete: 0
+  environ: {}
+  num_threads: 0
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  rep_history: ''
   ses: true
-  out_file: 'path'
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
 afni_NwarpAdjust:
-  in_files: 'path'
-  out_file: 'path'
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
   args: ''
+  environ: {}
+  in_files: path
+  num_threads: 0
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
 afni_NwarpApply:
-  inv_warp: true
-  master: 'path'
-  interp: enumerate(('wsinc5','NN','nearestneighbour','nearestneighbor','linear','trilinear','cubic','tricubic','quintic','triquintic'))
   ainterp: enumerate(('NN','nearestneighbour','nearestneighbor','linear','trilinear','cubic','tricubic','quintic','triquintic','wsinc5'))
-  out_file: 'path'
-  short: true
-  quiet: true
-  verb: true
   args: ''
-afni_NwarpCat:
-  space: ''
+  environ: {}
+  interp: enumerate(('wsinc5','NN','nearestneighbour','nearestneighbor','linear','trilinear','cubic','tricubic','quintic','triquintic'))
   inv_warp: true
-  interp: enumerate(('wsinc5','linear','quintic'))
-  expad: 0
-  out_file: 'path'
+  master: path
+  out_file: path
+  quiet: true
+  short: true
   verb: true
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+afni_NwarpCat:
   args: ''
+  environ: {}
+  expad: 0
+  interp: enumerate(('wsinc5','linear','quintic'))
+  inv_warp: true
+  num_threads: 0
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  space: ''
+  verb: true
 afni_OneDToolPy:
-  set_nruns: 0
-  derivative: true
-  demean: true
-  out_file: 'path'
-  show_censor_count: true
+  args: ''
   censor_motion: (0,)
   censor_prev_TR: true
-  show_trs_uncensored: enumerate(('comma','space','encoded','verbose'))
-  show_cormat_warnings: 'path'
+  demean: true
+  derivative: true
+  environ: {}
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  py27_path: path
+  set_nruns: 0
+  show_censor_count: true
+  show_cormat_warnings: path
   show_indices_interest: true
   show_trs_run: 0
+  show_trs_uncensored: enumerate(('comma','space','encoded','verbose'))
+afni_OutlierCount:
+  args: ''
+  autoclip: true
+  automask: true
+  environ: {}
+  fraction: true
+  interval: true
+  legendre: true
+  mask: path
+  out_file: path
+  outliers_file: path
+  polort: 0
+  qthr: 0.0
+  save_outliers: true
+afni_QualityIndex:
+  args: ''
+  autoclip: true
+  automask: true
+  clip: 0.0
+  environ: {}
+  interval: true
+  mask: path
+  out_file: path
+  quadrant: true
+  spearman: true
+afni_Qwarp:
+  Qfinal: true
+  Qonly: true
+  allineate: true
+  allineate_opts: ''
+  allsave: true
+  args: ''
+  ballopt: true
+  bandpass: (0,)
+  baxopt: true
+  blur: 0.0
+  duplo: true
+  emask: path
+  environ: {}
+  expad: 0
+  gridlist: path
+  hel: true
+  inilev: 0
+  iniwarp: [path]
+  iwarp: true
+  lpa: true
+  lpc: true
+  maxlev: 0
+  mi: true
+  minpatch: 0
+  nmi: true
+  noXdis: true
+  noYdis: true
+  noZdis: true
+  noneg: true
+  nopad: true
+  nopadWARP: true
+  nopenalty: true
+  nowarp: true
+  noweight: true
+  num_threads: 0
+  out_file: path
+  out_weight_file: path
   outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  py27_path: 'path'
-  args: ''
-afni_ReHo:
-  out_file: 'path'
-  chi_sq: true
-  mask_file: 'path'
-  neighborhood: enumerate(('faces','edges','vertices'))
-  sphere: 0.0
-  ellipsoid: (0,)
-  label_set: 'path'
   overwrite: true
+  pblur: 0.0
+  pear: true
+  penfac: 0.0
+  plusminus: true
+  quiet: true
+  resample: true
+  verb: true
+  wball: 0
+  weight: path
+  wmask: (0,)
+  workhard: true
+afni_QwarpPlusMinus:
+  Qfinal: true
+  Qonly: true
+  allineate: true
+  allineate_opts: ''
+  allsave: true
   args: ''
+  ballopt: true
+  bandpass: (0,)
+  baxopt: true
+  blur: 0.0
+  duplo: true
+  emask: path
+  environ: {}
+  expad: 0
+  gridlist: path
+  hel: true
+  inilev: 0
+  iniwarp: [path]
+  iwarp: true
+  lpa: true
+  lpc: true
+  maxlev: 0
+  mi: true
+  minpatch: 0
+  nmi: true
+  noXdis: true
+  noYdis: true
+  noZdis: true
+  noneg: true
+  nopad: true
+  nopadWARP: true
+  nopenalty: true
+  nowarp: true
+  noweight: true
+  num_threads: 0
+  out_file: path
+  out_weight_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  overwrite: true
+  pblur: 0.0
+  pear: true
+  penfac: 0.0
+  plusminus: true
+  quiet: true
+  resample: true
+  source_file: path
+  verb: true
+  wball: 0
+  weight: path
+  wmask: (0,)
+  workhard: true
+afni_ROIStats:
+  args: ''
+  debug: true
+  environ: {}
+  format1D: true
+  format1DR: true
+  mask: path
+  mask_f2short: true
+  mask_file: path
+  nobriklab: true
+  nomeanout: true
+  num_roi: 0
+  out_file: path
+  quiet: true
+  roisel: path
+  stat: enumerate(('mean','sum','voxels','minmax','sigma','median','mode','summary','zerominmax','zerosigma','zeromedian','zeromode'))
+  zerofill: ''
+afni_ReHo:
+  args: ''
+  chi_sq: true
+  ellipsoid: (0,)
+  environ: {}
+  label_set: path
+  mask_file: path
+  neighborhood: enumerate(('faces','edges','vertices'))
+  out_file: path
+  overwrite: true
+  sphere: 0.0
 afni_Refit:
-  deoblique: true
-  xorigin: ''
-  yorigin: ''
-  zorigin: ''
-  duporigin_file: 'path'
-  xdel: 0.0
-  ydel: 0.0
-  zdel: 0.0
-  xyzscale: 0.0
-  space: enumerate(('TLRC','MNI','ORIG'))
+  args: ''
   atrcopy: (0,)
-  atrstring: (0,)
   atrfloat: (0,)
   atrint: (0,)
-  saveatr: true
+  atrstring: (0,)
+  deoblique: true
+  duporigin_file: path
+  environ: {}
   nosaveatr: true
+  saveatr: true
+  space: enumerate(('TLRC','MNI','ORIG'))
+  xdel: 0.0
+  xorigin: ''
+  xyzscale: 0.0
+  ydel: 0.0
+  yorigin: ''
+  zdel: 0.0
+  zorigin: ''
+afni_Remlfit:
+  STATmask: path
+  addbase: [path]
   args: ''
+  automask: true
+  dsort: path
+  dsort_nods: true
+  environ: {}
+  errts_file: path
+  fitts_file: path
+  fout: true
+  glt_file: path
+  gltsym: [(0, )]
+  goforit: true
+  mask: path
+  matim: path
+  nobout: true
+  nodmbase: true
+  nofdr: true
+  num_threads: 0
+  obeta: path
+  obuck: path
+  oerrts: path
+  ofitts: path
+  oglt: path
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  ovar: path
+  polort: 0
+  quiet: true
+  rbeta_file: path
+  rout: true
+  slibase: [path]
+  slibase_sm: [path]
+  tout: true
+  usetemp: true
+  var_file: path
+  verb: true
+  wherr_file: path
 afni_Resample:
-  out_file: 'path'
+  args: ''
+  environ: {}
+  master: path
+  num_threads: 0
   orientation: ''
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
   resample_mode: enumerate(('NN','Li','Cu','Bk'))
   voxel_size: (0,)
-  master: 'path'
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+afni_Retroicor:
   args: ''
+  card: path
+  cardphase: path
+  environ: {}
+  num_threads: 0
+  order: 0
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  resp: path
+  respphase: path
+  threshold: 0
+afni_SVMTest:
+  args: ''
+  classout: true
+  environ: {}
+  multiclass: true
+  nodetrend: true
+  nopredcensord: true
+  num_threads: 0
+  options: ''
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  testlabels: path
+afni_SVMTrain:
+  alphas: path
+  args: ''
+  censor: path
+  environ: {}
+  kernel: ''
+  mask: path
+  max_iterations: 0
+  model: path
+  nomodelmask: true
+  num_threads: 0
+  options: ''
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  trainlabels: path
+  w_out: true
+afni_Seg:
+  args: ''
+  bias_classes: ''
+  bias_fwhm: 0.0
+  blur_meth: enumerate(('BFT','BIM'))
+  bmrf: 0.0
+  classes: ''
+  environ: {}
+  main_N: 0
+  mixfloor: 0.0
+  mixfrac: ''
+  prefix: ''
+afni_SkullStrip:
+  args: ''
+  environ: {}
+  num_threads: 0
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+afni_Synthesize:
+  TR: 0.0
+  args: ''
+  cenfill: enumerate(('zero','nbhr','none'))
+  dry_run: true
+  environ: {}
+  num_threads: 0
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
 afni_TCat:
-  out_file: 'path'
+  args: ''
+  environ: {}
+  num_threads: 0
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
   rlt: enumerate(('','+','++'))
   verbose: true
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
 afni_TCatSubBrick:
-  out_file: 'path'
+  args: ''
+  environ: {}
+  num_threads: 0
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
   rlt: enumerate(('','+','++'))
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+afni_TCorr1D:
   args: ''
+  environ: {}
+  ktaub: true
+  num_threads: 0
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  pearson: true
+  quadrant: true
+  spearman: true
+afni_TCorrMap:
+  absolute_threshold: path
+  args: ''
+  automask: true
+  average_expr: path
+  average_expr_nonzero: path
+  bandpass: (0,)
+  blur_fwhm: 0.0
+  correlation_maps: path
+  correlation_maps_masked: path
+  environ: {}
+  expr: ''
+  histogram: path
+  histogram_bin_numbers: 0
+  mask: path
+  mean_file: path
+  num_threads: 0
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  pmean: path
+  polort: 0
+  qmean: path
+  regress_out_timeseries: path
+  seeds: path
+  seeds_width: 0.0
+  sum_expr: path
+  thresholds: [0]
+  var_absolute_threshold: path
+  var_absolute_threshold_normalize: path
+  zmean: path
+afni_TCorrelate:
+  args: ''
+  environ: {}
+  num_threads: 0
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  pearson: true
+  polort: 0
+afni_TNorm:
+  L1fit: true
+  args: ''
+  environ: {}
+  norm1: true
+  norm2: true
+  normR: true
+  normx: true
+  num_threads: 0
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  polort: 0
+afni_TProject:
+  TR: 0.0
+  args: ''
+  automask: true
+  bandpass: (0,)
+  blur: 0.0
+  cenmode: enumerate(('KILL','ZERO','NTRP'))
+  censor: path
+  censortr: ['']
+  concat: path
+  dsort: [path]
+  environ: {}
+  mask: path
+  noblock: true
+  norm: true
+  num_threads: 0
+  ort: path
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  polort: 0
+  stopband: (0,)
+afni_TShift:
+  args: ''
+  environ: {}
+  ignore: 0
+  interp: enumerate(('Fourier','linear','cubic','quintic','heptic'))
+  num_threads: 0
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  rlt: true
+  rltplus: true
+  slice_encoding_direction: enumerate(('k','k-'))
+  slice_timing: [path]
+  tpattern: enumerate(('alt+z','altplus','alt+z2','alt-z','altminus','alt-z2','seq+z','seqplus','seq-z','seqminus'))
+  tr: ''
+  tslice: 0
+  tzero: 0.0
+afni_TSmooth:
+  adaptive: 0
+  args: ''
+  blackman: 0
+  custom: path
+  datum: ''
+  environ: {}
+  hamming: 0
+  lin: true
+  lin3: 0
+  med: true
+  num_threads: 0
+  osf: true
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
 afni_TStat:
-  out_file: 'path'
-  mask: 'path'
-  options: ''
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
   args: ''
+  environ: {}
+  mask: path
+  num_threads: 0
+  options: ''
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
 afni_To3D:
-  out_file: 'path'
-  filetype: enumerate(('spgr','fse','epan','anat','ct','spct','pet','mra','bmap','diff','omri','abuc','fim','fith','fico','fitt','fift','fizt','fict','fibt','fibn','figt','fipt','fbuc'))
-  skipoutliers: true
+  args: ''
   assumemosaic: true
   datatype: enumerate(('short','float','byte','complex'))
+  environ: {}
+  filetype: enumerate(('spgr','fse','epan','anat','ct','spct','pet','mra','bmap','diff','omri','abuc','fim','fith','fico','fitt','fift','fizt','fict','fibt','fibn','figt','fipt','fbuc'))
   funcparams: ''
   num_threads: 0
+  out_file: path
   outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
+  skipoutliers: true
 afni_Undump:
-  out_file: 'path'
-  mask_file: 'path'
+  args: ''
+  coordinates_specification: enumerate(('ijk','xyz'))
   datatype: enumerate(('short','float','byte'))
   default_value: 0.0
+  environ: {}
   fill_value: 0.0
-  coordinates_specification: enumerate(('ijk','xyz'))
-  srad: 0.0
-  orient: enumerate(('R','L'))
   head_only: true
+  mask_file: path
   num_threads: 0
+  orient: enumerate(('R','L'))
+  out_file: path
   outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
+  srad: 0.0
 afni_Unifize:
-  out_file: 'path'
-  t2: true
-  gm: true
-  urad: 0.0
-  scale_file: 'path'
-  no_duplo: true
-  epi: true
-  rbt: (0,)
-  t2_up: 0.0
-  cl_frac: 0.0
-  quiet: true
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
   args: ''
+  cl_frac: 0.0
+  environ: {}
+  epi: true
+  gm: true
+  no_duplo: true
+  num_threads: 0
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  quiet: true
+  rbt: (0,)
+  scale_file: path
+  t2: true
+  t2_up: 0.0
+  urad: 0.0
+afni_Volreg:
+  args: ''
+  basefile: path
+  copyorigin: true
+  environ: {}
+  in_weight_volume: (0,)
+  interp: enumerate(('Fourier','cubic','heptic','quintic','linear'))
+  md1d_file: path
+  num_threads: 0
+  oned_file: path
+  oned_matrix_save: path
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  timeshift: true
+  verbose: true
+  zpad: 0
+afni_Warp:
+  args: ''
+  deoblique: true
+  environ: {}
+  gridset: path
+  interp: enumerate(('linear','cubic','NN','quintic'))
+  matparent: path
+  mni2tta: true
+  newgrid: 0.0
+  num_threads: 0
+  oblique_parent: path
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  save_warp: true
+  tta2mni: true
+  verbose: true
+  zpad: 0
 afni_ZCutUp:
-  out_file: 'path'
+  args: ''
+  environ: {}
   keep: ''
   num_threads: 0
+  out_file: path
   outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
 afni_Zcat:
-  out_file: 'path'
+  args: ''
   datum: enumerate(('byte','short','float'))
-  verb: true
+  environ: {}
   fscale: true
   nscale: true
   num_threads: 0
+  out_file: path
   outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
-  args: ''
+  verb: true
 afni_Zeropad:
-  out_file: 'path'
-  I: 0
-  S: 0
   A: 0
-  P: 0
-  L: 0
-  R: 0
-  z: 0
-  RL: 0
   AP: 0
+  I: 0
   IS: 0
-  mm: true
-  master: 'path'
-  num_threads: 0
-  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  L: 0
+  P: 0
+  R: 0
+  RL: 0
+  S: 0
   args: ''
+  environ: {}
+  master: path
+  mm: true
+  num_threads: 0
+  out_file: path
+  outputtype: enumerate(('NIFTI','AFNI','NIFTI_GZ'))
+  z: 0
+
