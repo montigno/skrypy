@@ -47,13 +47,13 @@ class execution2(QObject):
         return execution2.go_execution(execution2(), *args)
 
     def go_execution(self, diagram, listDynamicValue, textEditor, progressBar, sema, console):
-        
+
         if progressBar:
             self.update_progress.emit(0, 'starting ...')
 
         if sema:
             sema.acquire()
-            
+
         self.console = console
 
         # compiles a list of items
@@ -273,7 +273,7 @@ class execution2(QObject):
                                listBlock[execution][1],
                                valToPrint,
                                console)
-                    
+
                     try:
                         if vl in listOut:
                             listOut.remove(vl)

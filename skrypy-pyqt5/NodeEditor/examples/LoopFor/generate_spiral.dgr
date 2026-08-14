@@ -28,9 +28,9 @@ constant=[A9] value=['blue'] format=[enumerate(('green', 'blue', 'red', 'black',
 constant=[A8] value=[(-100000.0, 1.0, 100000.0)] format=[float] label=[plot_linewidth] RectF=[(680.0, 180.0, 131.0, 31.0)] 
 constant=[A7] value=['bmh'] format=[enumerate(('default', 'classic', 'bmh', 'fast', 'ggplot'))] label=[style_use] RectF=[(860.0, 140.0, 85.0, 31.0)] 
 constant=[A5] value=[(-100000.0, 15000.0, 100000.0)] format=[float] label=[xmax] RectF=[(-980.0, -20.0, 131.0, 31.0)] 
-constant=[A4] value=[(-100000.0, 45.0, 100000.0)] format=[float] label=[xmin] RectF=[(-980.0, -100.0, 131.0, 31.0)] 
+constant=[A4] value=[(-100000.0, 56.0, 100000.0)] format=[float] label=[xmin] RectF=[(-980.0, -100.0, 131.0, 31.0)] 
 constant=[A0] value=['radian'] format=[enumerate(('degree', 'radian'))] label=[angle_type] RectF=[(-560.0, -140.0, 85.0, 31.0)] 
-constant=[A6] value=[(-100000.0, 90.0, 100000.0)] format=[float] label=[delta_x] RectF=[(-980.0, 60.0, 131.0, 31.0)] 
+constant=[A6] value=[(-100000.0, 91.0, 100000.0)] format=[float] label=[delta_x] RectF=[(-980.0, 60.0, 131.0, 31.0)] 
 block=[U3] category=[Tools.Float] class=[float_operations_dyn] valInputs=[(['operation', 'list_float_in', 'list_float_in_0'], ['Node(N7)', 'Node(N9)', 'Node(N11)'], ['out_result'], ['float'])] RectF=[(140.0, -80.0, 200.0, 80.0)] 
 constant=[A1] value=['cos'] format=[enumerate(('sin', 'cos', 'tan', 'arcsin', 'arccos', 'arctan'))] label=[op] RectF=[(-320.0, -180.0, 82.0, 31.0)] 
 constant=[A2] value=['sin'] format=[enumerate(('sin', 'cos', 'tan', 'arcsin', 'arccos', 'arctan'))] label=[op] RectF=[(-340.0, 180.0, 82.0, 31.0)] 
@@ -45,7 +45,7 @@ comments=[] RectF=[(-120.0, -300.0, 270.7080154476402, 10.0)] text=['a = x * cos
 [execution]
 []
 ['U0', 'F0', 'U5']
-{'U0': ('Signals.Generator', 'gen_abscissa', "(['xmin', 'xmax', 'delta_x'], [45.0, 15000.0, 90.0], ['outAbscissa'], ['list_float'])"), 'U5': ('Matplotlib.Plots', 'matplotlib_plot', "(['y_data', 'x', 'style_use', 'plot_linewidth', 'plot_color', 'plot_linestyle'], ['F0:out0', 'F0:out1', 'bmh', 1.0, 'blue', 'solid'], [], [])")}
+{'U0': ('Signals.Generator', 'gen_abscissa', "(['xmin', 'xmax', 'delta_x'], [56.0, 15000.0, 91.0], ['outAbscissa'], ['list_float'])"), 'U5': ('Matplotlib.Plots', 'matplotlib_plot', "(['y_data', 'x', 'style_use', 'plot_linewidth', 'plot_color', 'plot_linestyle'], ['F0:out0', 'F0:out1', 'bmh', 1.0, 'blue', 'solid'], [], [])")}
 ['F0:out1', 'F0:out0', 'U0:outAbscissa']
 {}
 []

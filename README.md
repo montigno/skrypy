@@ -13,6 +13,13 @@ If you encounter problems with Skrypy, see [here](https://montigno.github.io/skr
 
 # Release history
 
+
+<p></p>
+
+	14/08/2026: version 26.08.14b
+	- Nipype' fsl : correction of options.
+	- Documentation HTML: some corrections.
+
 <p></p>
 
 	11/08/2026: version 26.08.11b

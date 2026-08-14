@@ -31,7 +31,7 @@ class BuildLibrary(QWidget):
         for index, (lab, ico) in enumerate(items):
             row = index // ncol
             col = index % ncol
-        
+
             vbox = QVBoxLayout()
 
             label = QLabel(lab.replace('_', '\n'))

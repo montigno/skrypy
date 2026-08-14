@@ -217,6 +217,7 @@ class execution2():
 
             elif 'P' in execution:
                 vl = listBlock[execution][2]
+
                 if vl:
                     try:
                         valToPrint = listDynamicValue[vl]

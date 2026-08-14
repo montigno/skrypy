@@ -5682,7 +5682,7 @@ class LoadCodeScript:
                     tmpConstName = tmpVal[0:-1]
                     tmpVal = editor.listItems[editor.currentTab][tmpConstName].widget.state['selected_paths']
                     tmpVal = repr(tmpVal)
-                    
+
                 listInputVal.append(tmpIn + '=' + tmpVal)
         return listInputVal
 
@@ -10753,7 +10753,7 @@ class ValueZ2:
 
         keyZ = []
         uniZ = []
-        for keyList, valList in editor.listTools[editor.currentTab].items():
+        for keyList, valList in lst.items():
             keyZ.append(keyList)
             if 'I' in keyList:
                 uniZ.append(valList[0])
