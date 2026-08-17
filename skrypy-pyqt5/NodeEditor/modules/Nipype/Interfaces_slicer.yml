@@ -34,6 +34,16 @@ slicer_BSplineToDeformationField:
   environ: {}
   refImage: path
   tfm: path
+slicer_DicomToNrrdConverter:
+  args: ''
+  environ: {}
+  inputDicomDirectory: path 
+  outputDirectory: path
+  outputVolume: 'file.nrrd'
+  smallGradientThreshold: 0.0
+  useBMatrixGradientDirections: true
+  useIdentityMeaseurementFrame: true
+  writeProtocolGradientsFile: true
 slicer_ExpertAutomatedRegistration:
   affineMaxIterations: 0
   affineSamplingRatio: 0.0
@@ -94,6 +104,12 @@ slicer_MultiResolutionAffineRegistration:
   saveTransform: path
   stepSize: 0.0
   stepTolerance: 0.0
+slicer_OrientScalarVolume:
+  args: ''
+  environ: {}
+  inputVolume1: path
+  orientation: enumerate(('Axial', 'Coronal', 'Sagittal', 'RIP', 'LIP', 'RSP', 'LSP', 'RIA', 'LIA', 'RSA', 'LSA', 'IRP', 'ILP', 'SRP', 'SLP', 'IRA', 'ILA', 'SRA', 'SLA', 'RPI', 'LPI', 'RAI', 'LAI', 'RPS', 'LPS', 'RAS', 'LAS', 'PRI', 'PLI', 'ARI', 'ALI', 'PRS', 'PLS', 'ARS', 'ALS', 'IPR', 'SPR', 'IAR', 'SAR', 'IPL', 'SPL', 'IAL', 'SAL', 'PIR', 'PSR', 'AIR', 'ASR', 'PIL', 'PSL', 'AIL', 'ASL'))
+  outputVolume: path
 slicer_OtsuThresholdImageFilter:
   args: ''
   environ: {}
@@ -348,4 +364,3 @@ slicer_VBRAINSDemonWarp:
   upperThresholdForBOBF: 0
   use_vanilla_dem: true
   weightFactors: [0.0]
-

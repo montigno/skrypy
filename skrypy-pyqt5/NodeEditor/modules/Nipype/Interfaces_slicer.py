@@ -1,7 +1,7 @@
 class slicer_ACPCTransform:
     """
     Note:
-        dependencies: Nipype,registration
+        dependencies: Nipype, slicer
         GUI: no
         link_web: (click Ctrl + U)
     """
@@ -21,7 +21,7 @@ class slicer_ACPCTransform:
 class slicer_AffineRegistration:
     """
     Note:
-        dependencies: Nipype,legacy
+        dependencies: Nipype, slicer
         GUI: no
         link_web: (click Ctrl + U)
     """
@@ -44,7 +44,7 @@ class slicer_AffineRegistration:
 class slicer_BRAINSDemonWarp:
     """
     Note:
-        dependencies: Nipype,registration
+        dependencies: Nipype, slicer
         GUI: no
         link_web: (click Ctrl + U)
     """
@@ -70,7 +70,7 @@ class slicer_BRAINSDemonWarp:
 class slicer_BSplineDeformableRegistration:
     """
     Note:
-        dependencies: Nipype,legacy
+        dependencies: Nipype, slicer
         GUI: no
         link_web: (click Ctrl + U)
     """
@@ -96,7 +96,7 @@ class slicer_BSplineDeformableRegistration:
 class slicer_BSplineToDeformationField:
     """
     Note:
-        dependencies: Nipype,legacy
+        dependencies: Nipype, slicer
         GUI: no
         link_web: (click Ctrl + U)
     """
@@ -113,25 +113,22 @@ class slicer_BSplineToDeformationField:
 ###############################################################################
 
 
-class slicer_IntensityDifferenceMetric:
+class slicer_DicomToNrrdConverter:
     """
     Note:
-        dependencies: Nipype,quantification
+        dependencies: Nipype, slicer
         GUI: no
         link_web: (click Ctrl + U)
     """
     def __init__(self, **options):
-        from nipype.interfaces.slicer.quantification.changequantification import IntensityDifferenceMetric
-        at = IntensityDifferenceMetric()
+        from nipype.interfaces.slicer.converters import DicomToNrrdConverter
+        at = DicomToNrrdConverter()
         for ef in options:
             setattr(at.inputs, ef, options[ef])
         self.res = at.run()
-
-    def outputVolume(self) -> None:
-        return self.res.outputs.outputVolume
-
-    def reportFileName(self) -> None:
-        return self.res.outputs.reportFileName
+        
+    def outputDirectory(self) -> None:
+        return self.res.outputs.outputDirectory
 
 ###############################################################################
 
@@ -139,7 +136,7 @@ class slicer_IntensityDifferenceMetric:
 class slicer_DWIUnbiasedNonLocalMeansFilter:
     """
     Note:
-        dependencies: Nipype,legacy
+        dependencies: Nipype, slicer
         GUI: no
         link_web: (click Ctrl + U)
     """
@@ -159,7 +156,7 @@ class slicer_DWIUnbiasedNonLocalMeansFilter:
 class slicer_ExpertAutomatedRegistration:
     """
     Note:
-        dependencies: Nipype,legacy
+        dependencies: Nipype, slicer
         GUI: no
         link_web: (click Ctrl + U)
     """
@@ -182,7 +179,7 @@ class slicer_ExpertAutomatedRegistration:
 class slicer_FiducialRegistration:
     """
     Note:
-        dependencies: Nipype,registration
+        dependencies: Nipype, slicer
         GUI: no
         link_web: (click Ctrl + U)
     """
@@ -199,10 +196,33 @@ class slicer_FiducialRegistration:
 ###############################################################################
 
 
+class slicer_IntensityDifferenceMetric:
+    """
+    Note:
+        dependencies: Nipype, slicer
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, **options):
+        from nipype.interfaces.slicer.quantification.changequantification import IntensityDifferenceMetric
+        at = IntensityDifferenceMetric()
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def outputVolume(self) -> None:
+        return self.res.outputs.outputVolume
+
+    def reportFileName(self) -> None:
+        return self.res.outputs.reportFileName
+
+###############################################################################
+
+
 class slicer_LinearRegistration:
     """
     Note:
-        dependencies: Nipype,legacy
+        dependencies: Nipype, slicer
         GUI: no
         link_web: (click Ctrl + U)
     """
@@ -225,7 +245,7 @@ class slicer_LinearRegistration:
 class slicer_MultiResolutionAffineRegistration:
     """
     Note:
-        dependencies: Nipype,legacy
+        dependencies: Nipype, slicer
         GUI: no
         link_web: (click Ctrl + U)
     """
@@ -245,10 +265,29 @@ class slicer_MultiResolutionAffineRegistration:
 ###############################################################################
 
 
+class slicer_OrientScalarVolume:
+    """
+    Note:
+        dependencies: Nipype, slicer
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, **options):
+        from nipype.interfaces.slicer.converters import OrientScalarVolume
+        at = OrientScalarVolume()
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def outputVolume(self) -> None:
+        return self.res.outputs.outputVolume
+
+###############################################################################   
+
 class slicer_OtsuThresholdImageFilter:
     """
     Note:
-        dependencies: Nipype,legacy
+        dependencies: Nipype, slicer
         GUI: no
         link_web: (click Ctrl + U)
     """
@@ -268,7 +307,7 @@ class slicer_OtsuThresholdImageFilter:
 class slicer_PETStandardUptakeValueComputation:
     """
     Note:
-        dependencies: Nipype,quantification
+        dependencies: Nipype, slicer
         GUI: no
         link_web: (click Ctrl + U)
     """
@@ -288,7 +327,7 @@ class slicer_PETStandardUptakeValueComputation:
 class slicer_ResampleScalarVolume:
     """
     Note:
-        dependencies: Nipype,legacy
+        dependencies: Nipype, slicer
         GUI: no
         link_web: (click Ctrl + U)
     """
@@ -308,7 +347,7 @@ class slicer_ResampleScalarVolume:
 class slicer_RigidRegistration:
     """
     Note:
-        dependencies: Nipype,legacy
+        dependencies: Nipype, slicer
         GUI: no
         link_web: (click Ctrl + U)
     """
@@ -331,7 +370,7 @@ class slicer_RigidRegistration:
 class slicer_OtsuThresholdSegmentation:
     """
     Note:
-        dependencies: Nipype,legacy
+        dependencies: Nipype, slicer
         GUI: no
         link_web: (click Ctrl + U)
     """
@@ -351,7 +390,7 @@ class slicer_OtsuThresholdSegmentation:
 class slicer_VBRAINSDemonWarp:
     """
     Note:
-        dependencies: Nipype,registration
+        dependencies: Nipype, slicer
         GUI: no
         link_web: (click Ctrl + U)
     """
@@ -377,7 +416,7 @@ class slicer_VBRAINSDemonWarp:
 class slicer_BRAINSFit:
     """
     Note:
-        dependencies: Nipype,registration
+        dependencies: Nipype, slicer
         GUI: no
         link_web: (click Ctrl + U)
     """
@@ -415,7 +454,7 @@ class slicer_BRAINSFit:
 class slicer_BRAINSResample:
     """
     Note:
-        dependencies: Nipype,registration
+        dependencies: Nipype, slicer
         GUI: no
         link_web: (click Ctrl + U)
     """
