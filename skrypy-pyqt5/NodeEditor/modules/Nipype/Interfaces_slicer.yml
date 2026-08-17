@@ -150,7 +150,7 @@ slicer_RigidRegistration:
   spatialsamples: 0
   testingmode: true
   translationscale: 0.0
-slicer_denoising.DWIUnbiasedNonLocalMeansFilter:
+slicer_DWIUnbiasedNonLocalMeansFilter:
   args: ''
   environ: {}
   hp: 0.0
