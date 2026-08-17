@@ -13,6 +13,10 @@ If you encounter problems with Skrypy, see [here](https://montigno.github.io/skr
 
 # Release history
 
+<p></p>
+
+	17/08/2026: version 26.08.17a
+	- Nipype's freesurfer, brainsuite added.
 
 <p></p>
 
