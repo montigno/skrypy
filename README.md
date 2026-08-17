@@ -16,12 +16,12 @@ If you encounter problems with Skrypy, see [here](https://montigno.github.io/skr
 <p></p>
 
 	17/08/2026: version 26.08.17a
-	- Nipype's freesurfer, brainsuite added.
+	- Nipype's freesurfer, brainsuite and some slicers modules added.
 
 <p></p>
 
 	14/08/2026: version 26.08.14b
-	- Nipype's fsl, ants, afni, mrtrix3 : correction of options.
+	- Nipype's fsl, ants, afni, mrtrix3 modules: correction of options.
 	- Documentation HTML: some corrections.
 
 <p></p>
