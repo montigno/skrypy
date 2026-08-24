@@ -83,7 +83,6 @@ class DefinitType():
 
     def __init__(self, var):
         self.var = var
-        # print(var, ' : ', type(var).__name__)
 
     def returntype(self):
         if type(self.var).__name__ == 'str':
@@ -96,21 +95,25 @@ class DefinitType():
 
         typVar = ''
         if 'list' in type(self.var).__name__:
-            if isinstance(self.var, list):
-                lengt = 1
-                if isinstance(self.var[0], list):
-                    lengt = 2
-                    if isinstance(self.var[0][0], list):
-                        lengt = 3
-            if lengt == 1:
+            if "['(" in str(self.var) and (("'),") in str(self.var) or ")']" in str(self.var)):
                 typVar = 'list'
-                typVal = self.isPath(self.var[0])
-            elif lengt == 2:
-                typVar = 'array'
-                typVal = self.isPath(self.var[0][0])
-            elif lengt == 3:
-                typVar = 'array'
-                typVal = self.isPath(self.var[0][0][0])
+                typVal = 'tuple'
+            else:
+                if isinstance(self.var, list):
+                    lengt = 1
+                    if isinstance(self.var[0], list):
+                        lengt = 2
+                        if isinstance(self.var[0][0], list):
+                            lengt = 3
+                if lengt == 1:
+                    typVar = 'list'
+                    typVal = self.isPath(self.var[0])
+                elif lengt == 2:
+                    typVar = 'array'
+                    typVal = self.isPath(self.var[0][0])
+                elif lengt == 3:
+                    typVar = 'array'
+                    typVal = self.isPath(self.var[0][0][0])
 
         elif 'tuple' in type(self.var).__name__:
             typVar = 'tuple'

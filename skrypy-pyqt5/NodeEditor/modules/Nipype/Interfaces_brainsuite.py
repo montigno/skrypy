@@ -5,8 +5,8 @@ class brainsuite_BDP:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, inputDiffusionData='path', **options):
-        from nipype.interfaces.brainsuite import BDP
+    def __init__(self, inputDiffusionData="path", **options):
+        from nipype.interfaces.brainsuite.brainsuite import BDP
         at = BDP()
         at.inputs.inputDiffusionData = inputDiffusionData
         for ef in options:
@@ -23,8 +23,8 @@ class brainsuite_Bfc:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, inputMRIFile='path', **options):
-        from nipype.interfaces.brainsuite import Bfc
+    def __init__(self, inputMRIFile="path", **options):
+        from nipype.interfaces.brainsuite.brainsuite import Bfc
         at = Bfc()
         at.inputs.inputMRIFile = inputMRIFile
         for ef in options:
@@ -53,8 +53,8 @@ class brainsuite_Bse:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, inputMRIFile='path', **options):
-        from nipype.interfaces.brainsuite import Bse
+    def __init__(self, inputMRIFile="path", **options):
+        from nipype.interfaces.brainsuite.brainsuite import Bse
         at = Bse()
         at.inputs.inputMRIFile = inputMRIFile
         for ef in options:
@@ -89,8 +89,8 @@ class brainsuite_Cerebro:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, inputMRIFile='path', inputAtlasMRIFile='path', inputAtlasLabelFile='path', **options):
-        from nipype.interfaces.brainsuite import Cerebro
+    def __init__(self, inputMRIFile="path", inputAtlasMRIFile="path", inputAtlasLabelFile="path", **options):
+        from nipype.interfaces.brainsuite.brainsuite import Cerebro
         at = Cerebro()
         at.inputs.inputMRIFile = inputMRIFile
         at.inputs.inputAtlasMRIFile = inputAtlasMRIFile
@@ -121,8 +121,8 @@ class brainsuite_Cortex:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, inputHemisphereLabelFile='path', inputTissueFractionFile='path', **options):
-        from nipype.interfaces.brainsuite import Cortex
+    def __init__(self, inputHemisphereLabelFile="path", inputTissueFractionFile="path", **options):
+        from nipype.interfaces.brainsuite.brainsuite import Cortex
         at = Cortex()
         at.inputs.inputHemisphereLabelFile = inputHemisphereLabelFile
         at.inputs.inputTissueFractionFile = inputTissueFractionFile
@@ -143,8 +143,8 @@ class brainsuite_Dewisp:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, inputMaskFile='path', **options):
-        from nipype.interfaces.brainsuite import Dewisp
+    def __init__(self, inputMaskFile="path", **options):
+        from nipype.interfaces.brainsuite.brainsuite import Dewisp
         at = Dewisp()
         at.inputs.inputMaskFile = inputMaskFile
         for ef in options:
@@ -164,8 +164,8 @@ class brainsuite_Dfs:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, inputVolumeFile='path', **options):
-        from nipype.interfaces.brainsuite import Dfs
+    def __init__(self, inputVolumeFile="path", **options):
+        from nipype.interfaces.brainsuite.brainsuite import Dfs
         at = Dfs()
         at.inputs.inputVolumeFile = inputVolumeFile
         for ef in options:
@@ -185,8 +185,8 @@ class brainsuite_Hemisplit:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, inputSurfaceFile='path', inputHemisphereLabelFile='path', **options):
-        from nipype.interfaces.brainsuite import Hemisplit
+    def __init__(self, inputSurfaceFile="path", inputHemisphereLabelFile="path", **options):
+        from nipype.interfaces.brainsuite.brainsuite import Hemisplit
         at = Hemisplit()
         at.inputs.inputSurfaceFile = inputSurfaceFile
         at.inputs.inputHemisphereLabelFile = inputHemisphereLabelFile
@@ -216,8 +216,8 @@ class brainsuite_Pialmesh:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, inputSurfaceFile='path', inputTissueFractionFile='path', inputMaskFile='path', **options):
-        from nipype.interfaces.brainsuite import Pialmesh
+    def __init__(self, inputSurfaceFile="path", inputTissueFractionFile="path", inputMaskFile="path", **options):
+        from nipype.interfaces.brainsuite.brainsuite import Pialmesh
         at = Pialmesh()
         at.inputs.inputSurfaceFile = inputSurfaceFile
         at.inputs.inputTissueFractionFile = inputTissueFractionFile
@@ -239,8 +239,8 @@ class brainsuite_Pvc:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, inputMRIFile='path', **options):
-        from nipype.interfaces.brainsuite import Pvc
+    def __init__(self, inputMRIFile="path", **options):
+        from nipype.interfaces.brainsuite.brainsuite import Pvc
         at = Pvc()
         at.inputs.inputMRIFile = inputMRIFile
         for ef in options:
@@ -264,7 +264,7 @@ class brainsuite_SVReg:
         link_web: (click Ctrl + U)
     """
     def __init__(self, subjectFilePrefix='', **options):
-        from nipype.interfaces.brainsuite import SVReg
+        from nipype.interfaces.brainsuite.brainsuite import SVReg
         at = SVReg()
         at.inputs.subjectFilePrefix = subjectFilePrefix
         for ef in options:
@@ -281,8 +281,8 @@ class brainsuite_Scrubmask:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, inputMaskFile='path', **options):
-        from nipype.interfaces.brainsuite import Scrubmask
+    def __init__(self, inputMaskFile="path", **options):
+        from nipype.interfaces.brainsuite.brainsuite import Scrubmask
         at = Scrubmask()
         at.inputs.inputMaskFile = inputMaskFile
         for ef in options:
@@ -302,8 +302,8 @@ class brainsuite_Skullfinder:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, inputMRIFile='path', inputMaskFile='path', **options):
-        from nipype.interfaces.brainsuite import Skullfinder
+    def __init__(self, inputMRIFile="path", inputMaskFile="path", **options):
+        from nipype.interfaces.brainsuite.brainsuite import Skullfinder
         at = Skullfinder()
         at.inputs.inputMRIFile = inputMRIFile
         at.inputs.inputMaskFile = inputMaskFile
@@ -324,8 +324,8 @@ class brainsuite_Tca:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, inputMaskFile='path', **options):
-        from nipype.interfaces.brainsuite import Tca
+    def __init__(self, inputMaskFile="path", **options):
+        from nipype.interfaces.brainsuite.brainsuite import Tca
         at = Tca()
         at.inputs.inputMaskFile = inputMaskFile
         for ef in options:
@@ -346,7 +346,7 @@ class brainsuite_ThicknessPVC:
         link_web: (click Ctrl + U)
     """
     def __init__(self, subjectFilePrefix='', **options):
-        from nipype.interfaces.brainsuite import ThicknessPVC
+        from nipype.interfaces.brainsuite.brainsuite import ThicknessPVC
         at = ThicknessPVC()
         at.inputs.subjectFilePrefix = subjectFilePrefix
         for ef in options:

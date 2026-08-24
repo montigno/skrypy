@@ -1,17 +1,21 @@
-class meshfix_MeshFix():
+class meshfix_MeshFix:
     """
     Note:
-        dependencies: Nipype
-        GUI: 'no'
+        dependencies: Nipype,meshfix
+        GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file1='path', **options):
-        import nipype.interfaces.meshfix as mf
-        self.fix = mf.MeshFix()
-        self.fix.inputs.in_file1 = in_file1
+    def __init__(self, in_file1="path", **options):
+        from nipype.interfaces.meshfix import MeshFix
+        at = MeshFix()
+        at.inputs.in_file1 = in_file1
         for ef in options:
-            setattr(self.fix.inputs, ef, options[ef])
-        self.fix.run()
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
 
     def mesh_file(self) -> None:
-        return self.fix._outputs.mesh_file
+        return self.res.outputs.mesh_file
+
+###############################################################################
+
+

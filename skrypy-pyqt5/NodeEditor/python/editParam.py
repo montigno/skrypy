@@ -6,12 +6,14 @@
 # for details.
 ##########################################################################
 
-from NodeEditor.python.tools import DefinitType
+import os
+
 from PyQt5.QtGui import QFont
 from PyQt5.QtWidgets import QVBoxLayout, QHBoxLayout, QDialog, QLabel, \
     QPushButton, QWidget, QComboBox, QScrollArea, QLineEdit
-import os
 from PyQt5.Qt import Qt, QPalette
+
+from NodeEditor.python.tools import DefinitType
 
 
 class editParam(QDialog):

@@ -1,5 +1,5 @@
 quickshear_Quickshear:
-  out_file: 'path'
-  environ: {}
   args: ''
   buff: 0
+  environ: {}
+  out_file: "path"

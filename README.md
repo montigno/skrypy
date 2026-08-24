@@ -13,6 +13,12 @@ If you encounter problems with Skrypy, see [here](https://montigno.github.io/skr
 
 # Release history
 
+
+<p></p>
+
+	24/08/2026: version 26.08.24a
+	- Nipypes modules (afni, ants): correction of default values 
+
 <p></p>
 
 	17/08/2026: version 26.08.17a

@@ -8229,7 +8229,7 @@ class Port(QGraphicsRectItem):
                 cp = menu.addAction('add Print block')
                 cp.triggered.connect(self.addPrint)
             elif (
-                self.format not in ['list_bool', 'array_bool', 'list_path', 'array_path', 'dict']
+                self.format not in ['list_bool', 'array_bool', 'list_path', 'list_tuple', 'array_path', 'dict']
                 and all(x not in self.unit for x in ['A', 'P', 'C', 'W'])
             ):
                 yet = False

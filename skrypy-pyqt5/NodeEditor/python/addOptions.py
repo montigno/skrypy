@@ -18,6 +18,7 @@ from PyQt5.QtWidgets import QDialog, QCheckBox, QVBoxLayout, QHBoxLayout, \
 import importlib
 import os
 import yaml
+import ast
 
 
 class chOptions(QDialog):
@@ -196,6 +197,12 @@ class chOptions(QDialog):
 
                 if not valueExists:
                     list_val = self.dicts[self.nameclass][aze.text()]
+                    # print('list_val', list_val)
+                    # if isinstance(list_val, list):
+                    #     if "['(" in str(list_val) and (("'),") in str(list_val) or ")']" in str(list_val)):
+                    #         imb = str(list_val).replace("'", "")
+                    #         imb = ast.literal_eval(imb)
+                    #         print('imb=', imb)
                     if type(list_val).__name__ == 'str':
                         if ('enumerate' in list_val):
                             imb = list_val

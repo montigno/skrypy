@@ -1,154 +1,154 @@
 brainsuite_BDP:
-  bfcFile: 'path' # Mandatory Mutually exclusive
-  noStructuralRegistration: True # Mandatory Mutually exclusive
-  bMatrixFile: 'path' # Mandatory Mutually exclusive
-  BVecBValPair: '' # Mandatory Mutually exclusive
+  BVecBValPair: '' # Mandatory Mutually exclusive with: bMatrixFile
+  bMatrixFile: "path" # Mandatory Mutually exclusive with: BVecBValPair
+  bfcFile: "path" # Mandatory Mutually exclusive with: noStructuralRegistration
+  noStructuralRegistration: True # Mandatory Mutually exclusive with: bfcFile
   args: ''
   bValRatioThreshold: 0.0
-  customDiffusionLabel: path
-  customLabelXML: path
-  customT1Label: path
+  customDiffusionLabel: "path"
+  customLabelXML: "path"
+  customT1Label: "path"
   dataSinkDelay: ['']
-  dcorrRegMeasure: enumerate(('MI','INVERSION-EPI','INVERSION-T1','INVERSION-BOTH','BDP'))
+  dcorrRegMeasure: "enumerate(('MI','INVERSION-EPI','INVERSION-T1','INVERSION-BOTH','BDP'))"
   dcorrWeight: 0.0
-  dwiMask: path
+  dwiMask: "path"
   echoSpacing: 0.0
   environ: {}
   estimateODF_3DShore: 0.0
-  estimateODF_FRACT: true
-  estimateODF_FRT: true
-  estimateTensors: true
-  fieldmapCorrection: path
-  fieldmapCorrectionMethod: enumerate(('pixelshift','leastsq'))
+  estimateODF_FRACT: True
+  estimateODF_FRT: True
+  estimateTensors: True
+  fieldmapCorrection: "path"
+  fieldmapCorrectionMethod: "enumerate(('pixelshift','leastsq'))" # Optional Mutually exclusive with: skipIntensityCorr
   fieldmapSmooth: 0.0
-  flagConfigFile: path
-  forcePartialROIStats: true
-  generateStats: true
-  ignoreFieldmapFOV: true
-  ignoreMemory: true
-  lowMemory: true
-  odfLambta: true
-  onlyStats: true
+  flagConfigFile: "path"
+  forcePartialROIStats: True
+  generateStats: True
+  ignoreFieldmapFOV: True
+  ignoreMemory: True
+  lowMemory: True
+  odfLambta: True
+  onlyStats: True
   outPrefix: ''
-  outputDiffusionCoordinates: true
+  outputDiffusionCoordinates: True
   outputSubdir: ''
-  phaseEncodingDirection: enumerate(('x','x-','y','y-','z','z-'))
-  rigidRegMeasure: enumerate(('MI','INVERSION','BDP'))
-  skipDistortionCorr: true
-  skipIntensityCorr: true
-  skipNonuniformityCorr: true
-  t1Mask: path
+  phaseEncodingDirection: "enumerate(('x','x-','y','y-','z','z-'))"
+  rigidRegMeasure: "enumerate(('MI','INVERSION','BDP'))"
+  skipDistortionCorr: True
+  skipIntensityCorr: True # Optional Mutually exclusive with: fieldmapCorrectionMethod
+  skipNonuniformityCorr: True
+  t1Mask: "path"
   threads: 0
-  transformDataOnly: true
-  transformDiffusionSurface: path
-  transformDiffusionVolume: path
-  transformInterpolation: enumerate(('linear','nearest','cubic','spline'))
-  transformT1Surface: path
-  transformT1Volume: path
+  transformDataOnly: True
+  transformDiffusionSurface: "path"
+  transformDiffusionVolume: "path"
+  transformInterpolation: "enumerate(('linear','nearest','cubic','spline'))"
+  transformT1Surface: "path"
+  transformT1Volume: "path"
 brainsuite_Bfc:
   args: ''
   biasEstimateConvergenceThreshold: 0.0
   biasEstimateSpacing: 0
   biasFieldEstimatesOutputPrefix: ''
-  biasRange: enumerate(('low','medium','high'))
+  biasRange: "enumerate(('low','medium','high'))"
   controlPointSpacing: 0
   convergenceThreshold: 0.0
-  correctWholeVolume: true
+  correctWholeVolume: True
   correctedImagesOutputPrefix: ''
-  correctionScheduleFile: path
+  correctionScheduleFile: "path"
   environ: {}
   histogramRadius: 0
-  histogramType: enumerate(('ellipse','block'))
-  inputMaskFile: path
-  intermediate_file_type: enumerate(('analyze','nifti','gzippedAnalyze','gzippedNifti'))
-  iterativeMode: true
+  histogramType: "enumerate(('ellipse','block'))"
+  inputMaskFile: "path"
+  intermediate_file_type: "enumerate(('analyze','nifti','gzippedAnalyze','gzippedNifti'))"
+  iterativeMode: True
   maxBias: 0.0
   minBias: 0.0
-  outputBiasField: path
-  outputMRIVolume: path
-  outputMaskedBiasField: path
+  outputBiasField: "path"
+  outputMRIVolume: "path"
+  outputMaskedBiasField: "path"
   splineLambda: 0.0
-  timer: true
+  timer: True
   verbosityLevel: 0
 brainsuite_Bse:
   args: ''
   diffusionConstant: 0.0
   diffusionIterations: 0
-  dilateFinalMask: true
+  dilateFinalMask: True
   edgeDetectionConstant: 0.0
   environ: {}
-  noRotate: true
-  outputCortexFile: path
-  outputDetailedBrainMask: path
-  outputDiffusionFilter: path
-  outputEdgeMap: path
-  outputMRIVolume: path
-  outputMaskFile: path
+  noRotate: True
+  outputCortexFile: "path"
+  outputDetailedBrainMask: "path"
+  outputDiffusionFilter: "path"
+  outputEdgeMap: "path"
+  outputMRIVolume: "path"
+  outputMaskFile: "path"
   radius: 0.0
-  timer: true
-  trim: true
+  timer: True
+  trim: True
   verbosityLevel: 0.0
 brainsuite_Cerebro:
   args: ''
   costFunction: 0
   environ: {}
-  inputBrainMaskFile: path
-  keepTempFiles: true
+  inputBrainMaskFile: "path"
+  keepTempFiles: True
   linearConvergence: 0.0
-  outputAffineTransformFile: path
-  outputCerebrumMaskFile: path
-  outputLabelVolumeFile: path
-  outputWarpTransformFile: path
+  outputAffineTransformFile: "path"
+  outputCerebrumMaskFile: "path"
+  outputLabelVolumeFile: "path"
+  outputWarpTransformFile: "path"
   tempDirectory: ''
   tempDirectoryBase: ''
-  useCentroids: true
+  useCentroids: True
   verbosity: 0
   warpConvergence: 0.0
   warpLabel: 0
 brainsuite_Cortex:
   args: ''
-  computeGCBoundary: true
-  computeWGBoundary: true
+  computeGCBoundary: True
+  computeWGBoundary: True
   environ: {}
-  includeAllSubcorticalAreas: true
-  outputCerebrumMask: path
-  timer: true
+  includeAllSubcorticalAreas: True
+  outputCerebrumMask: "path"
+  timer: True
   tissueFractionThreshold: 0.0
   verbosity: 0
 brainsuite_Dewisp:
   args: ''
   environ: {}
   maximumIterations: 0
-  outputMaskFile: path
+  outputMaskFile: "path"
   sizeThreshold: 0
-  timer: true
+  timer: True
   verbosity: 0
 brainsuite_Dfs:
   args: ''
   curvatureWeighting: 0.0
   environ: {}
-  inputShadingVolume: path
-  noNormalsFlag: true
-  nonZeroTessellation: true
-  outputSurfaceFile: path
-  postSmoothFlag: true
+  inputShadingVolume: "path"
+  noNormalsFlag: True
+  nonZeroTessellation: True # Optional Mutually exclusive with: nonZeroTessellation, specialTessellation
+  outputSurfaceFile: "path"
+  postSmoothFlag: True
   scalingPercentile: 0.0
   smoothingConstant: 0.0
   smoothingIterations: 0
-  specialTessellation: enumerate(('greater_than','less_than','equal_to'))
+  specialTessellation: "enumerate(('greater_than','less_than','equal_to'))" # Optional Mutually exclusive with: nonZeroTessellation, specialTessellation requires: tessellationThreshold
   tessellationThreshold: 0.0
-  timer: true
+  timer: True
   verbosity: 0
-  zeroPadFlag: true
+  zeroPadFlag: True
 brainsuite_Hemisplit:
   args: ''
   environ: {}
-  outputLeftHemisphere: path
-  outputLeftPialHemisphere: path
-  outputRightHemisphere: path
-  outputRightPialHemisphere: path
-  pialSurfaceFile: path
-  timer: true
+  outputLeftHemisphere: "path"
+  outputLeftPialHemisphere: "path"
+  outputRightHemisphere: "path"
+  outputRightPialHemisphere: "path"
+  pialSurfaceFile: "path"
+  timer: True
   verbosity: 0
 brainsuite_Pialmesh:
   args: ''
@@ -159,23 +159,23 @@ brainsuite_Pialmesh:
   normalSmoother: 0.0
   numIterations: 0
   outputInterval: 0
-  outputSurfaceFile: path
-  recomputeNormals: true
+  outputSurfaceFile: "path"
+  recomputeNormals: True
   searchRadius: 0.0
   stepSize: 0.0
   tangentSmoother: 0.0
-  timer: true
+  timer: True
   tissueThreshold: 0.0
   verbosity: 0
 brainsuite_Pvc:
   args: ''
   environ: {}
-  inputMaskFile: path
-  outputLabelFile: path
-  outputTissueFractionFile: path
+  inputMaskFile: "path"
+  outputLabelFile: "path"
+  outputTissueFractionFile: "path"
   spatialPrior: 0.0
-  threeClassFlag: true
-  timer: true
+  threeClassFlag: True
+  timer: True
   verbosity: 0
 brainsuite_Scrubmask:
   args: ''
@@ -183,8 +183,8 @@ brainsuite_Scrubmask:
   environ: {}
   foregroundTrimThreshold: 0
   numberIterations: 0
-  outputMaskFile: path
-  timer: true
+  outputMaskFile: "path"
+  timer: True
   verbosity: 0
 brainsuite_Skullfinder:
   args: ''
@@ -192,8 +192,8 @@ brainsuite_Skullfinder:
   brainLabelValue: 0
   environ: {}
   lowerThreshold: 0
-  outputLabelFile: path
-  performFinalOpening: true
+  outputLabelFile: "path"
+  performFinalOpening: True
   scalpLabelValue: 0
   skullLabelValue: 0
   spaceLabelValue: 0
@@ -206,8 +206,8 @@ brainsuite_Tca:
   foregroundDelta: 0
   maxCorrectionSize: 0
   minCorrectionSize: 0
-  outputMaskFile: path
-  timer: true
+  outputMaskFile: "path"
+  timer: True
   verbosity: 0
 brainsuite_ThicknessPVC:
   args: ''

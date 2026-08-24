@@ -5,8 +5,8 @@ class ants_AI:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, fixed_image='path', moving_image='path', metric="enumerate(('Mattes','GC','MI'))", **options):
-        from nipype.interfaces.ants import AI
+    def __init__(self, fixed_image="path", moving_image="path", metric="enumerate(('Mattes','GC','MI','Regular','Random','None'))", **options):
+        from nipype.interfaces.ants.utils import AI
         at = AI()
         at.inputs.fixed_image = fixed_image
         at.inputs.moving_image = moving_image
@@ -21,230 +21,6 @@ class ants_AI:
 ###############################################################################
 
 
-class ants_AffineInitializer:
-    """
-    Note:
-        dependencies: Nipype,ants
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, fixed_image='path', moving_image='path', **options):
-        from nipype.interfaces.ants import AffineInitializer
-        at = AffineInitializer()
-        at.inputs.fixed_image = fixed_image
-        at.inputs.moving_image = moving_image
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def out_file(self) -> None:
-        return self.res.outputs.out_file
-
-###############################################################################
-
-
-class ants_AverageAffineTransform:
-    """
-    Note:
-        dependencies: Nipype,ants
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, dimension='', output_affine_transform='path', transforms=['path'], **options):
-        from nipype.interfaces.ants import AverageAffineTransform
-        at = AverageAffineTransform()
-        at.inputs.dimension = dimension
-        at.inputs.output_affine_transform = output_affine_transform
-        at.inputs.transforms = transforms
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def affine_transform(self) -> None:
-        return self.res.outputs.affine_transform
-
-###############################################################################
-
-
-class ants_AverageImages:
-    """
-    Note:
-        dependencies: Nipype,ants
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, dimension='', normalize=True, images=['path'], **options):
-        from nipype.interfaces.ants import AverageImages
-        at = AverageImages()
-        at.inputs.dimension = dimension
-        at.inputs.normalize = normalize
-        at.inputs.images = images
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def output_average_image(self) -> None:
-        return self.res.outputs.output_average_image
-
-###############################################################################
-
-
-class ants_ComposeMultiTransform:
-    """
-    Note:
-        dependencies: Nipype,ants
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, transforms=['path'], **options):
-        from nipype.interfaces.ants import ComposeMultiTransform
-        at = ComposeMultiTransform()
-        at.inputs.transforms = transforms
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def output_transform(self) -> None:
-        return self.res.outputs.output_transform
-
-###############################################################################
-
-
-class ants_CreateJacobianDeterminantImage:
-    """
-    Note:
-        dependencies: Nipype,ants
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, imageDimension='', deformationField='path', outputImage='path', **options):
-        from nipype.interfaces.ants import CreateJacobianDeterminantImage
-        at = CreateJacobianDeterminantImage()
-        at.inputs.imageDimension = imageDimension
-        at.inputs.deformationField = deformationField
-        at.inputs.outputImage = outputImage
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def jacobian_image(self) -> None:
-        return self.res.outputs.jacobian_image
-
-###############################################################################
-
-
-class ants_ImageMath:
-    """
-    Note:
-        dependencies: Nipype,ants
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, operation="enumerate(('m','vm','+','v+','-','v-','/','^','max','exp','addtozero','overadd','abs','total','mean','vtotal','Decision','Neg','Project','G','MD','ME','MO','MC','GD','GE','GO','GC','ExtractContours','Translate','4DTensorTo3DTensor','ExtractVectorComponent','TensorColor','TensorFA','TensorFADenominator','TensorFANumerator','TensorMeanDiffusion','TensorRadialDiffusion','TensorAxialDiffusion','TensorEigenvalue','TensorToVector','TensorToVectorComponent','TensorMask','Byte','CorruptImage','D','MaurerDistance','ExtractSlice','FillHoles','Convolve','Finite','FlattenImage','GetLargestComponent','Grad','RescaleImage','WindowImage','NeighborhoodStats','ReplicateDisplacement','ReplicateImage','LabelStats','Laplacian','Canny','Lipschitz','MTR','Normalize','PadImage','SigmoidImage','Sharpen','UnsharpMask','PValueImage','ReplaceVoxelValue','SetTimeSpacing','SetTimeSpacingWarp','stack','ThresholdAtMean','TriPlanarView','TruncateImageIntensity'))", op1='path', **options):
-        from nipype.interfaces.ants import ImageMath
-        at = ImageMath()
-        at.inputs.operation = operation
-        at.inputs.op1 = op1
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def output_image(self) -> None:
-        return self.res.outputs.output_image
-
-###############################################################################
-
-
-class ants_LabelGeometry:
-    """
-    Note:
-        dependencies: Nipype,ants
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, label_image='path', intensity_image='path', **options):
-        from nipype.interfaces.ants import LabelGeometry
-        at = LabelGeometry()
-        at.inputs.label_image = label_image
-        at.inputs.intensity_image = intensity_image
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def output_file(self) -> None:
-        return self.res.outputs.output_file
-
-###############################################################################
-
-
-class ants_MultiplyImages:
-    """
-    Note:
-        dependencies: Nipype,ants
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, dimension='', first_input='path', second_input='path', output_product_image='path', **options):
-        from nipype.interfaces.ants import MultiplyImages
-        at = MultiplyImages()
-        at.inputs.dimension = dimension
-        at.inputs.first_input = first_input
-        at.inputs.second_input = second_input
-        at.inputs.output_product_image = output_product_image
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def output_product_image(self) -> None:
-        return self.res.outputs.output_product_image
-
-###############################################################################
-
-
-class ants_ResampleImageBySpacing:
-    """
-    Note:
-        dependencies: Nipype,ants
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, input_image='path', out_spacing=(0,), **options):
-        from nipype.interfaces.ants import ResampleImageBySpacing
-        at = ResampleImageBySpacing()
-        at.inputs.input_image = input_image
-        at.inputs.out_spacing = out_spacing
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def output_image(self) -> None:
-        return self.res.outputs.output_image
-
-###############################################################################
-
-
-class ants_ThresholdImage:
-    """
-    Note:
-        dependencies: Nipype,ants
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, input_image='path', copy_header=True, **options):
-        from nipype.interfaces.ants import ThresholdImage
-        at = ThresholdImage()
-        at.inputs.input_image = input_image
-        at.inputs.copy_header = copy_header
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def output_image(self) -> None:
-        return self.res.outputs.output_image
-
-###############################################################################
-
-
 class ants_ANTS:
     """
     Note:
@@ -252,8 +28,8 @@ class ants_ANTS:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, fixed_image=['path'], moving_image=['path'], metric="enumerate(('CC','MI','SMI','PR','SSD','MSQ','PSE'))", metric_weight=[0.0], radius=[0], output_transform_prefix='', transformation_model="enumerate(('Diff','Elast','Exp','Greedy Exp','SyN'))", **options):
-        from nipype.interfaces.ants import ANTS
+    def __init__(self, fixed_image=["path"], moving_image=["path"], metric="enumerate(('CC','MI','SMI','PR','SSD','MSQ','PSE'))", metric_weight=[0.0], radius=[0], output_transform_prefix='', transformation_model="enumerate(('Diff','Elast','Exp','Greedy Exp','SyN'))", **options):
+        from nipype.interfaces.ants.registration import ANTS
         at = ANTS()
         at.inputs.fixed_image = fixed_image
         at.inputs.moving_image = moving_image
@@ -284,26 +60,21 @@ class ants_ANTS:
 ###############################################################################
 
 
-class ants_CompositeTransformUtil:
+class ants_AffineInitializer:
     """
     Note:
         dependencies: Nipype,ants
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file=['path'], **options):
-        from nipype.interfaces.ants import CompositeTransformUtil
-        at = CompositeTransformUtil()
-        at.inputs.in_file = in_file
+    def __init__(self, fixed_image="path", moving_image="path", **options):
+        from nipype.interfaces.ants.utils import AffineInitializer
+        at = AffineInitializer()
+        at.inputs.fixed_image = fixed_image
+        at.inputs.moving_image = moving_image
         for ef in options:
             setattr(at.inputs, ef, options[ef])
         self.res = at.run()
-
-    def affine_transform(self) -> None:
-        return self.res.outputs.affine_transform
-
-    def displacement_field(self) -> None:
-        return self.res.outputs.displacement_field
 
     def out_file(self) -> None:
         return self.res.outputs.out_file
@@ -311,138 +82,16 @@ class ants_CompositeTransformUtil:
 ###############################################################################
 
 
-class ants_MeasureImageSimilarity:
+class ants_AntsJointFusion:
     """
     Note:
         dependencies: Nipype,ants
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, fixed_image='path', moving_image='path', metric="enumerate(('CC','MI','Mattes','MeanSquares','Demons','GC'))", radius_or_number_of_bins=0, sampling_percentage=0.0, **options):
-        from nipype.interfaces.ants import MeasureImageSimilarity
-        at = MeasureImageSimilarity()
-        at.inputs.fixed_image = fixed_image
-        at.inputs.moving_image = moving_image
-        at.inputs.metric = metric
-        at.inputs.radius_or_number_of_bins = radius_or_number_of_bins
-        at.inputs.sampling_percentage = sampling_percentage
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def similarity(self) -> float:
-        return self.res.outputs.similarity
-
-###############################################################################
-
-
-class ants_Registration:
-    """
-    Note:
-        dependencies: Nipype,ants
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, fixed_image=['path'], moving_image=['path'], metric="enumerate(('CC','MeanSquares','Demons','GC','MI','Mattes',a list of items which are 'CC','MeanSquares','Demons','GC','MI','Mattes'))", metric_weight=[0.0], transforms="enumerate(('Rigid','Affine','CompositeAffine','Similarity','Translation','BSpline','GaussianDisplacementField','TimeVaryingVelocityField','TimeVaryingBSplineVelocityField','SyN','BSplineSyN','Exponential','BSplineExponential'))", smoothing_sigmas=[[0.0]], shrink_factors=[[0]], **options):
-        from nipype.interfaces.ants import Registration
-        at = Registration()
-        at.inputs.fixed_image = fixed_image
-        at.inputs.moving_image = moving_image
-        at.inputs.metric = metric
-        at.inputs.metric_weight = metric_weight
-        at.inputs.transforms = transforms
-        at.inputs.smoothing_sigmas = smoothing_sigmas
-        at.inputs.shrink_factors = shrink_factors
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def forward_transforms(self) -> list[None]:
-        return self.res.outputs.forward_transforms
-
-    def reverse_forward_transforms(self) -> list[None]:
-        return self.res.outputs.reverse_forward_transforms
-
-    def reverse_transforms(self) -> list[None]:
-        return self.res.outputs.reverse_transforms
-
-    def forward_invert_flags(self) -> list[bool]:
-        return self.res.outputs.forward_invert_flags
-
-    def reverse_forward_invert_flags(self) -> list[bool]:
-        return self.res.outputs.reverse_forward_invert_flags
-
-    def reverse_invert_flags(self) -> list[bool]:
-        return self.res.outputs.reverse_invert_flags
-
-    def composite_transform(self) -> None:
-        return self.res.outputs.composite_transform
-
-    def inverse_composite_transform(self) -> None:
-        return self.res.outputs.inverse_composite_transform
-
-    def warped_image(self) -> None:
-        return self.res.outputs.warped_image
-
-    def inverse_warped_image(self) -> None:
-        return self.res.outputs.inverse_warped_image
-
-    def save_state(self) -> None:
-        return self.res.outputs.save_state
-
-    def metric_value(self) -> float:
-        return self.res.outputs.metric_value
-
-    def elapsed_time(self) -> float:
-        return self.res.outputs.elapsed_time
-
-###############################################################################
-
-
-class ants_RegistrationSynQuick:
-    """
-    Note:
-        dependencies: Nipype,ants
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, fixed_image=['path'], moving_image=['path'], **options):
-        from nipype.interfaces.ants import RegistrationSynQuick
-        at = RegistrationSynQuick()
-        at.inputs.fixed_image = fixed_image
-        at.inputs.moving_image = moving_image
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def warped_image(self) -> None:
-        return self.res.outputs.warped_image
-
-    def inverse_warped_image(self) -> None:
-        return self.res.outputs.inverse_warped_image
-
-    def out_matrix(self) -> None:
-        return self.res.outputs.out_matrix
-
-    def forward_warp_field(self) -> None:
-        return self.res.outputs.forward_warp_field
-
-    def inverse_warp_field(self) -> None:
-        return self.res.outputs.inverse_warp_field
-
-###############################################################################
-
-
-class ants_JointFusion:
-    """
-    Note:
-        dependencies: Nipype,ants
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, target_image=[['path']], atlas_image=[['path']], atlas_segmentation_image=['path'], **options):
-        from nipype.interfaces.ants import JointFusion
-        at = JointFusion()
+    def __init__(self, target_image=[["path"]], atlas_image=[["path"]], atlas_segmentation_image=["path"], **options):
+        from nipype.interfaces.ants.segmentation import AntsJointFusion
+        at = AntsJointFusion()
         at.inputs.target_image = target_image
         at.inputs.atlas_image = atlas_image
         at.inputs.atlas_segmentation_image = atlas_segmentation_image
@@ -465,6 +114,51 @@ class ants_JointFusion:
 ###############################################################################
 
 
+class ants_ApplyTransforms:
+    """
+    Note:
+        dependencies: Nipype,ants
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, input_image="path", reference_image="path", transforms=["path"], **options):
+        from nipype.interfaces.ants.resampling import ApplyTransforms
+        at = ApplyTransforms()
+        at.inputs.input_image = input_image
+        at.inputs.reference_image = reference_image
+        at.inputs.transforms = transforms
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def output_image(self) -> None:
+        return self.res.outputs.output_image
+
+###############################################################################
+
+
+class ants_ApplyTransformsToPoints:
+    """
+    Note:
+        dependencies: Nipype,ants
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, input_file="path", transforms=["path"], **options):
+        from nipype.interfaces.ants.resampling import ApplyTransformsToPoints
+        at = ApplyTransformsToPoints()
+        at.inputs.input_file = input_file
+        at.inputs.transforms = transforms
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def output_file(self) -> None:
+        return self.res.outputs.output_file
+
+###############################################################################
+
+
 class ants_Atropos:
     """
     Note:
@@ -472,8 +166,8 @@ class ants_Atropos:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, intensity_images=['path'], mask_image='path', initialization="enumerate(('Random','Otsu','KMeans','PriorProbabilityImages','PriorLabelImage'))", number_of_tissue_classes=0, **options):
-        from nipype.interfaces.ants import Atropos
+    def __init__(self, intensity_images=["path"], mask_image="path", initialization="enumerate(('Random','Otsu','KMeans','PriorProbabilityImages','PriorLabelImage'))", number_of_tissue_classes=0, **options):
+        from nipype.interfaces.ants.segmentation import Atropos
         at = Atropos()
         at.inputs.intensity_images = intensity_images
         at.inputs.mask_image = mask_image
@@ -492,6 +186,52 @@ class ants_Atropos:
 ###############################################################################
 
 
+class ants_AverageAffineTransform:
+    """
+    Note:
+        dependencies: Nipype,ants
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, dimension='', output_affine_transform="path", transforms=["path"], **options):
+        from nipype.interfaces.ants.utils import AverageAffineTransform
+        at = AverageAffineTransform()
+        at.inputs.dimension = dimension
+        at.inputs.output_affine_transform = output_affine_transform
+        at.inputs.transforms = transforms
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def affine_transform(self) -> None:
+        return self.res.outputs.affine_transform
+
+###############################################################################
+
+
+class ants_AverageImages:
+    """
+    Note:
+        dependencies: Nipype,ants
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, dimension='', normalize=True, images=["path"], **options):
+        from nipype.interfaces.ants.utils import AverageImages
+        at = AverageImages()
+        at.inputs.dimension = dimension
+        at.inputs.normalize = normalize
+        at.inputs.images = images
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def output_average_image(self) -> None:
+        return self.res.outputs.output_average_image
+
+###############################################################################
+
+
 class ants_BrainExtraction:
     """
     Note:
@@ -499,8 +239,8 @@ class ants_BrainExtraction:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, anatomical_image='path', brain_template='path', brain_probability_mask='path', **options):
-        from nipype.interfaces.ants import BrainExtraction
+    def __init__(self, anatomical_image="path", brain_template="path", brain_probability_mask="path", **options):
+        from nipype.interfaces.ants.segmentation import BrainExtraction
         at = BrainExtraction()
         at.inputs.anatomical_image = anatomical_image
         at.inputs.brain_template = brain_template
@@ -566,6 +306,79 @@ class ants_BrainExtraction:
 ###############################################################################
 
 
+class ants_ComposeMultiTransform:
+    """
+    Note:
+        dependencies: Nipype,ants
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, transforms=["path"], **options):
+        from nipype.interfaces.ants.utils import ComposeMultiTransform
+        at = ComposeMultiTransform()
+        at.inputs.transforms = transforms
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def output_transform(self) -> None:
+        return self.res.outputs.output_transform
+
+###############################################################################
+
+
+class ants_CompositeTransformUtil:
+    """
+    Note:
+        dependencies: Nipype,ants
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, in_file=["path"], **options):
+        from nipype.interfaces.ants.registration import CompositeTransformUtil
+        at = CompositeTransformUtil()
+        at.inputs.in_file = in_file
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def affine_transform(self) -> None:
+        return self.res.outputs.affine_transform
+
+    def displacement_field(self) -> None:
+        return self.res.outputs.displacement_field
+
+    def out_file(self) -> None:
+        return self.res.outputs.out_file
+
+###############################################################################
+
+
+class ants_ConvertScalarImageToRGB:
+    """
+    Note:
+        dependencies: Nipype,ants
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, dimension='', input_image="path", colormap="enumerate(('grey','red','green','blue','copper','jet','hsv','spring','summer','autumn','winter','hot','cool','overunder','custom'))", minimum_input=0, maximum_input=0, **options):
+        from nipype.interfaces.ants.visualization import ConvertScalarImageToRGB
+        at = ConvertScalarImageToRGB()
+        at.inputs.dimension = dimension
+        at.inputs.input_image = input_image
+        at.inputs.colormap = colormap
+        at.inputs.minimum_input = minimum_input
+        at.inputs.maximum_input = maximum_input
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def output_image(self) -> None:
+        return self.res.outputs.output_image
+
+###############################################################################
+
+
 class ants_CorticalThickness:
     """
     Note:
@@ -573,8 +386,8 @@ class ants_CorticalThickness:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, anatomical_image='path', brain_template='path', brain_probability_mask='path', segmentation_priors=['path'], t1_registration_template='path', **options):
-        from nipype.interfaces.ants import CorticalThickness
+    def __init__(self, anatomical_image="path", brain_template="path", brain_probability_mask="path", segmentation_priors=["path"], t1_registration_template="path", **options):
+        from nipype.interfaces.ants.segmentation import CorticalThickness
         at = CorticalThickness()
         at.inputs.anatomical_image = anatomical_image
         at.inputs.brain_template = brain_template
@@ -627,6 +440,51 @@ class ants_CorticalThickness:
 ###############################################################################
 
 
+class ants_CreateJacobianDeterminantImage:
+    """
+    Note:
+        dependencies: Nipype,ants
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, imageDimension='', deformationField="path", outputImage="path", **options):
+        from nipype.interfaces.ants.utils import CreateJacobianDeterminantImage
+        at = CreateJacobianDeterminantImage()
+        at.inputs.imageDimension = imageDimension
+        at.inputs.deformationField = deformationField
+        at.inputs.outputImage = outputImage
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def jacobian_image(self) -> None:
+        return self.res.outputs.jacobian_image
+
+###############################################################################
+
+
+class ants_CreateTiledMosaic:
+    """
+    Note:
+        dependencies: Nipype,ants
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, input_image="path", rgb_image="path", **options):
+        from nipype.interfaces.ants.visualization import CreateTiledMosaic
+        at = CreateTiledMosaic()
+        at.inputs.input_image = input_image
+        at.inputs.rgb_image = rgb_image
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def output_image(self) -> None:
+        return self.res.outputs.output_image
+
+###############################################################################
+
+
 class ants_DenoiseImage:
     """
     Note:
@@ -634,8 +492,8 @@ class ants_DenoiseImage:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, input_image='path', **options):
-        from nipype.interfaces.ants import DenoiseImage
+    def __init__(self, input_image="path", **options):
+        from nipype.interfaces.ants.segmentation import DenoiseImage
         at = DenoiseImage()
         at.inputs.input_image = input_image
         for ef in options:
@@ -651,6 +509,82 @@ class ants_DenoiseImage:
 ###############################################################################
 
 
+class ants_ImageMath:
+    """
+    Note:
+        dependencies: Nipype,ants
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, operation="enumerate(('m','vm','+','v+','-','v-','/','^','max','exp','addtozero','overadd','abs','total','mean','vtotal','Decision','Neg','Project','G','MD','ME','MO','MC','GD','GE','GO','GC','ExtractContours','Translate','4DTensorTo3DTensor','ExtractVectorComponent','TensorColor','TensorFA','TensorFADenominator','TensorFANumerator','TensorMeanDiffusion','TensorRadialDiffusion','TensorAxialDiffusion','TensorEigenvalue','TensorToVector','TensorToVectorComponent','TensorMask','Byte','CorruptImage','D','MaurerDistance','ExtractSlice','FillHoles','Convolve','Finite','FlattenImage','GetLargestComponent','Grad','RescaleImage','WindowImage','NeighborhoodStats','ReplicateDisplacement','ReplicateImage','LabelStats','Laplacian','Canny','Lipschitz','MTR','Normalize','PadImage','SigmoidImage','Sharpen','UnsharpMask','PValueImage','ReplaceVoxelValue','SetTimeSpacing','SetTimeSpacingWarp','stack','ThresholdAtMean','TriPlanarView','TruncateImageIntensity'))", op1="path", **options):
+        from nipype.interfaces.ants.utils import ImageMath
+        at = ImageMath()
+        at.inputs.operation = operation
+        at.inputs.op1 = op1
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def output_image(self) -> None:
+        return self.res.outputs.output_image
+
+###############################################################################
+
+
+class ants_JointFusion:
+    """
+    Note:
+        dependencies: Nipype,ants
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, target_image=[["path"]], atlas_image=[["path"]], atlas_segmentation_image=["path"], **options):
+        from nipype.interfaces.ants.segmentation import JointFusion
+        at = JointFusion()
+        at.inputs.target_image = target_image
+        at.inputs.atlas_image = atlas_image
+        at.inputs.atlas_segmentation_image = atlas_segmentation_image
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def out_label_fusion(self) -> None:
+        return self.res.outputs.out_label_fusion
+
+    def out_intensity_fusion(self) -> list[None]:
+        return self.res.outputs.out_intensity_fusion
+
+    def out_label_post_prob(self) -> list[None]:
+        return self.res.outputs.out_label_post_prob
+
+    def out_atlas_voting_weight(self) -> list[None]:
+        return self.res.outputs.out_atlas_voting_weight
+
+###############################################################################
+
+
+class ants_LabelGeometry:
+    """
+    Note:
+        dependencies: Nipype,ants
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, label_image="path", intensity_image="path", **options):
+        from nipype.interfaces.ants.utils import LabelGeometry
+        at = LabelGeometry()
+        at.inputs.label_image = label_image
+        at.inputs.intensity_image = intensity_image
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def output_file(self) -> None:
+        return self.res.outputs.output_file
+
+###############################################################################
+
+
 class ants_LaplacianThickness:
     """
     Note:
@@ -658,8 +592,8 @@ class ants_LaplacianThickness:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, input_wm='path', input_gm='path', **options):
-        from nipype.interfaces.ants import LaplacianThickness
+    def __init__(self, input_wm="path", input_gm="path", **options):
+        from nipype.interfaces.ants.segmentation import LaplacianThickness
         at = LaplacianThickness()
         at.inputs.input_wm = input_wm
         at.inputs.input_gm = input_gm
@@ -673,6 +607,55 @@ class ants_LaplacianThickness:
 ###############################################################################
 
 
+class ants_MeasureImageSimilarity:
+    """
+    Note:
+        dependencies: Nipype,ants
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, fixed_image="path", moving_image="path", metric="enumerate(('CC','MI','Mattes','MeanSquares','Demons','GC'))", radius_or_number_of_bins=0, sampling_percentage=0.0, **options):
+        from nipype.interfaces.ants.registration import MeasureImageSimilarity
+        at = MeasureImageSimilarity()
+        at.inputs.fixed_image = fixed_image
+        at.inputs.moving_image = moving_image
+        at.inputs.metric = metric
+        at.inputs.radius_or_number_of_bins = radius_or_number_of_bins
+        at.inputs.sampling_percentage = sampling_percentage
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def similarity(self) -> float:
+        return self.res.outputs.similarity
+
+###############################################################################
+
+
+class ants_MultiplyImages:
+    """
+    Note:
+        dependencies: Nipype,ants
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, dimension='', first_input="path", second_input="path", output_product_image="path", **options):
+        from nipype.interfaces.ants.utils import MultiplyImages
+        at = MultiplyImages()
+        at.inputs.dimension = dimension
+        at.inputs.first_input = first_input
+        at.inputs.second_input = second_input
+        at.inputs.output_product_image = output_product_image
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def output_product_image(self) -> None:
+        return self.res.outputs.output_product_image
+
+###############################################################################
+
+
 class ants_N4BiasFieldCorrection:
     """
     Note:
@@ -680,11 +663,10 @@ class ants_N4BiasFieldCorrection:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, input_image='path', save_bias=True, copy_header=True, **options):
-        from nipype.interfaces.ants import N4BiasFieldCorrection
+    def __init__(self, input_image="path", copy_header=True, **options):
+        from nipype.interfaces.ants.segmentation import N4BiasFieldCorrection
         at = N4BiasFieldCorrection()
         at.inputs.input_image = input_image
-        at.inputs.save_bias = save_bias
         at.inputs.copy_header = copy_header
         for ef in options:
             setattr(at.inputs, ef, options[ef])
@@ -699,19 +681,115 @@ class ants_N4BiasFieldCorrection:
 ###############################################################################
 
 
-class ants_ApplyTransforms:
+class ants_Registration:
     """
     Note:
         dependencies: Nipype,ants
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, input_image='path', reference_image='path', transforms=['path'], **options):
-        from nipype.interfaces.ants import ApplyTransforms
-        at = ApplyTransforms()
-        at.inputs.input_image = input_image
-        at.inputs.reference_image = reference_image
+    def __init__(self, fixed_image=["path"], moving_image=["path"], metric="enumerate(('CC','MeanSquares','Demons','GC','MI','Mattes'))", metric_weight=[0.0], transforms="enumerate(('Rigid','Affine','CompositeAffine','Similarity','Translation','BSpline','GaussianDisplacementField','TimeVaryingVelocityField','TimeVaryingBSplineVelocityField','SyN','BSplineSyN','Exponential','BSplineExponential'))", smoothing_sigmas=[[0.0]], shrink_factors=[[0]], **options):
+        from nipype.interfaces.ants.registration import Registration
+        at = Registration()
+        at.inputs.fixed_image = fixed_image
+        at.inputs.moving_image = moving_image
+        at.inputs.metric = metric
+        at.inputs.metric_weight = metric_weight
         at.inputs.transforms = transforms
+        at.inputs.smoothing_sigmas = smoothing_sigmas
+        at.inputs.shrink_factors = shrink_factors
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def forward_transforms(self) -> list[None]:
+        return self.res.outputs.forward_transforms
+
+    def reverse_forward_transforms(self) -> list[None]:
+        return self.res.outputs.reverse_forward_transforms
+
+    def reverse_transforms(self) -> list[None]:
+        return self.res.outputs.reverse_transforms
+
+    def forward_invert_flags(self) -> list[bool]:
+        return self.res.outputs.forward_invert_flags
+
+    def reverse_forward_invert_flags(self) -> list[bool]:
+        return self.res.outputs.reverse_forward_invert_flags
+
+    def reverse_invert_flags(self) -> list[bool]:
+        return self.res.outputs.reverse_invert_flags
+
+    def composite_transform(self) -> None:
+        return self.res.outputs.composite_transform
+
+    def inverse_composite_transform(self) -> None:
+        return self.res.outputs.inverse_composite_transform
+
+    def warped_image(self) -> None:
+        return self.res.outputs.warped_image
+
+    def inverse_warped_image(self) -> None:
+        return self.res.outputs.inverse_warped_image
+
+    def save_state(self) -> None:
+        return self.res.outputs.save_state
+
+    def metric_value(self) -> float:
+        return self.res.outputs.metric_value
+
+    def elapsed_time(self) -> float:
+        return self.res.outputs.elapsed_time
+
+###############################################################################
+
+
+class ants_RegistrationSynQuick:
+    """
+    Note:
+        dependencies: Nipype,ants
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, fixed_image=["path"], moving_image=["path"], **options):
+        from nipype.interfaces.ants.registration import RegistrationSynQuick
+        at = RegistrationSynQuick()
+        at.inputs.fixed_image = fixed_image
+        at.inputs.moving_image = moving_image
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def warped_image(self) -> None:
+        return self.res.outputs.warped_image
+
+    def inverse_warped_image(self) -> None:
+        return self.res.outputs.inverse_warped_image
+
+    def out_matrix(self) -> None:
+        return self.res.outputs.out_matrix
+
+    def forward_warp_field(self) -> None:
+        return self.res.outputs.forward_warp_field
+
+    def inverse_warp_field(self) -> None:
+        return self.res.outputs.inverse_warp_field
+
+###############################################################################
+
+
+class ants_ResampleImageBySpacing:
+    """
+    Note:
+        dependencies: Nipype,ants
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, input_image="path", out_spacing=(0,), **options):
+        from nipype.interfaces.ants.utils import ResampleImageBySpacing
+        at = ResampleImageBySpacing()
+        at.inputs.input_image = input_image
+        at.inputs.out_spacing = out_spacing
         for ef in options:
             setattr(at.inputs, ef, options[ef])
         self.res = at.run()
@@ -722,24 +800,24 @@ class ants_ApplyTransforms:
 ###############################################################################
 
 
-class ants_ApplyTransformsToPoints:
+class ants_ThresholdImage:
     """
     Note:
         dependencies: Nipype,ants
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, input_file='path', transforms=['path'], **options):
-        from nipype.interfaces.ants import ApplyTransformsToPoints
-        at = ApplyTransformsToPoints()
-        at.inputs.input_file = input_file
-        at.inputs.transforms = transforms
+    def __init__(self, input_image="path", copy_header=True, **options):
+        from nipype.interfaces.ants.utils import ThresholdImage
+        at = ThresholdImage()
+        at.inputs.input_image = input_image
+        at.inputs.copy_header = copy_header
         for ef in options:
             setattr(at.inputs, ef, options[ef])
         self.res = at.run()
 
-    def output_file(self) -> None:
-        return self.res.outputs.output_file
+    def output_image(self) -> None:
+        return self.res.outputs.output_image
 
 ###############################################################################
 
@@ -751,8 +829,8 @@ class ants_WarpImageMultiTransform:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, input_image='path', transformation_series=['path'], **options):
-        from nipype.interfaces.ants import WarpImageMultiTransform
+    def __init__(self, input_image="path", transformation_series=["path"], **options):
+        from nipype.interfaces.ants.resampling import WarpImageMultiTransform
         at = WarpImageMultiTransform()
         at.inputs.input_image = input_image
         at.inputs.transformation_series = transformation_series
@@ -773,8 +851,8 @@ class ants_WarpTimeSeriesImageMultiTransform:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, input_image='path', transformation_series=['path'], **options):
-        from nipype.interfaces.ants import WarpTimeSeriesImageMultiTransform
+    def __init__(self, input_image="path", transformation_series=["path"], **options):
+        from nipype.interfaces.ants.resampling import WarpTimeSeriesImageMultiTransform
         at = WarpTimeSeriesImageMultiTransform()
         at.inputs.input_image = input_image
         at.inputs.transformation_series = transformation_series
@@ -788,48 +866,3 @@ class ants_WarpTimeSeriesImageMultiTransform:
 ###############################################################################
 
 
-class ants_ConvertScalarImageToRGB:
-    """
-    Note:
-        dependencies: Nipype,ants
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, dimension='', input_image='path', colormap="enumerate(('grey','red','green','blue','copper','jet','hsv','spring','summer','autumn','winter','hot','cool','overunder','custom'))", minimum_input=0, maximum_input=0, **options):
-        from nipype.interfaces.ants import ConvertScalarImageToRGB
-        at = ConvertScalarImageToRGB()
-        at.inputs.dimension = dimension
-        at.inputs.input_image = input_image
-        at.inputs.colormap = colormap
-        at.inputs.minimum_input = minimum_input
-        at.inputs.maximum_input = maximum_input
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def output_image(self) -> None:
-        return self.res.outputs.output_image
-
-###############################################################################
-
-
-class ants_CreateTiledMosaic:
-    """
-    Note:
-        dependencies: Nipype,ants
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, input_image='path', rgb_image='path', **options):
-        from nipype.interfaces.ants import CreateTiledMosaic
-        at = CreateTiledMosaic()
-        at.inputs.input_image = input_image
-        at.inputs.rgb_image = rgb_image
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def output_image(self) -> None:
-        return self.res.outputs.output_image
-
-###############################################################################

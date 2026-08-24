@@ -5,8 +5,8 @@ class afni_ABoverlap:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file_a='path', in_file_b='path', **options):
-        from nipype.interfaces.afni import ABoverlap
+    def __init__(self, in_file_a="path", in_file_b="path", **options):
+        from nipype.interfaces.afni.utils import ABoverlap
         at = ABoverlap()
         at.inputs.in_file_a = in_file_a
         at.inputs.in_file_b = in_file_b
@@ -27,823 +27,10 @@ class afni_AFNItoNIFTI:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import AFNItoNIFTI
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.utils import AFNItoNIFTI
         at = AFNItoNIFTI()
         at.inputs.in_file = in_file
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def out_file(self) -> None:
-        return self.res.outputs.out_file
-
-###############################################################################
-
-
-class afni_Autobox:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import Autobox
-        at = Autobox()
-        at.inputs.in_file = in_file
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def x_min(self) -> int:
-        return self.res.outputs.x_min
-
-    def x_max(self) -> int:
-        return self.res.outputs.x_max
-
-    def y_min(self) -> int:
-        return self.res.outputs.y_min
-
-    def y_max(self) -> int:
-        return self.res.outputs.y_max
-
-    def z_min(self) -> int:
-        return self.res.outputs.z_min
-
-    def z_max(self) -> int:
-        return self.res.outputs.z_max
-
-    def out_file(self) -> None:
-        return self.res.outputs.out_file
-
-###############################################################################
-
-
-class afni_Axialize:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import Axialize
-        at = Axialize()
-        at.inputs.in_file = in_file
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def out_file(self) -> None:
-        return self.res.outputs.out_file
-
-###############################################################################
-
-
-class afni_BrickStat:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import BrickStat
-        at = BrickStat()
-        at.inputs.in_file = in_file
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def min_val(self) -> float:
-        return self.res.outputs.min_val
-
-###############################################################################
-
-
-class afni_Bucket:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, in_file=[(0,)], **options):
-        from nipype.interfaces.afni import Bucket
-        at = Bucket()
-        at.inputs.in_file = in_file
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def out_file(self) -> None:
-        return self.res.outputs.out_file
-
-###############################################################################
-
-
-class afni_Calc:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, in_file_a='path', expr='', **options):
-        from nipype.interfaces.afni import Calc
-        at = Calc()
-        at.inputs.in_file_a = in_file_a
-        at.inputs.expr = expr
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def out_file(self) -> None:
-        return self.res.outputs.out_file
-
-###############################################################################
-
-
-class afni_Cat:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, in_files=['path'], out_file='path', **options):
-        from nipype.interfaces.afni import Cat
-        at = Cat()
-        at.inputs.in_files = in_files
-        at.inputs.out_file = out_file
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def out_file(self) -> None:
-        return self.res.outputs.out_file
-
-###############################################################################
-
-
-class afni_CatMatvec:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, in_file=[(0,)], out_file='path', **options):
-        from nipype.interfaces.afni import CatMatvec
-        at = CatMatvec()
-        at.inputs.in_file = in_file
-        at.inputs.out_file = out_file
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def out_file(self) -> None:
-        return self.res.outputs.out_file
-
-###############################################################################
-
-
-class afni_CenterMass:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import CenterMass
-        at = CenterMass()
-        at.inputs.in_file = in_file
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def out_file(self) -> None:
-        return self.res.outputs.out_file
-
-    def cm_file(self) -> None:
-        return self.res.outputs.cm_file
-
-    def cm(self) -> list[tuple]:
-        return self.res.outputs.cm
-
-###############################################################################
-
-
-class afni_ConvertDset:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, in_file='path', out_file='path', out_type="enumerate(('niml','niml_asc','niml_bi','1D','1Dp','1Dpt','gii','gii_asc','gii_b64','gii_b64gz'))", **options):
-        from nipype.interfaces.afni import ConvertDset
-        at = ConvertDset()
-        at.inputs.in_file = in_file
-        at.inputs.out_file = out_file
-        at.inputs.out_type = out_type
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def out_file(self) -> None:
-        return self.res.outputs.out_file
-
-###############################################################################
-
-
-class afni_Copy:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import Copy
-        at = Copy()
-        at.inputs.in_file = in_file
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def out_file(self) -> None:
-        return self.res.outputs.out_file
-
-###############################################################################
-
-
-class afni_Dot:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import Dot
-        at = Dot()
-        at.inputs.in_file = in_file
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def out_file(self) -> None:
-        return self.res.outputs.out_file
-
-###############################################################################
-
-
-class afni_Edge3:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import Edge3
-        at = Edge3()
-        at.inputs.in_file = in_file
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def out_file(self) -> None:
-        return self.res.outputs.out_file
-
-###############################################################################
-
-
-class afni_Eval:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, in_file_a='path', expr='', **options):
-        from nipype.interfaces.afni import Eval
-        at = Eval()
-        at.inputs.in_file_a = in_file_a
-        at.inputs.expr = expr
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def out_file(self) -> None:
-        return self.res.outputs.out_file
-
-###############################################################################
-
-
-class afni_FWHMx:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import FWHMx
-        at = FWHMx()
-        at.inputs.in_file = in_file
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def out_file(self) -> None:
-        return self.res.outputs.out_file
-
-    def out_subbricks(self) -> None:
-        return self.res.outputs.out_subbricks
-
-    def out_detrend(self) -> None:
-        return self.res.outputs.out_detrend
-
-    def fwhm(self) -> tuple:
-        return self.res.outputs.fwhm
-
-    def acf_param(self) -> tuple:
-        return self.res.outputs.acf_param
-
-    def out_acf(self) -> None:
-        return self.res.outputs.out_acf
-
-###############################################################################
-
-
-class afni_GCOR:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import GCOR
-        at = GCOR()
-        at.inputs.in_file = in_file
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def out(self) -> float:
-        return self.res.outputs.out
-
-###############################################################################
-
-
-class afni_LocalBistat:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, in_file1='path', in_file2='path', neighborhood="enumerate(('SPHERE','RHDD','TOHD'))", stat="enumerate(('pearson','spearman','quadrant','mutinfo','normuti','jointent','hellinger','crU','crM','crA','L2slope','L1slope','num','ALL'))", **options):
-        from nipype.interfaces.afni import LocalBistat
-        at = LocalBistat()
-        at.inputs.in_file1 = in_file1
-        at.inputs.in_file2 = in_file2
-        at.inputs.neighborhood = neighborhood
-        at.inputs.stat = stat
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def out_file(self) -> None:
-        return self.res.outputs.out_file
-
-###############################################################################
-
-
-class afni_Localstat:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, in_file='path', neighborhood="enumerate(('SPHERE','RHDD','TOHD'))", stat="enumerate(('mean','stdev','var','cvar','median','MAD','min','max','absmax','num','sum','FWHM','FWHMbar','rank','frank','P2skew','ALL','mMP2s','mmMP2s',a tuple of the form: ('perc'))", **options):
-        from nipype.interfaces.afni import Localstat
-        at = Localstat()
-        at.inputs.in_file = in_file
-        at.inputs.neighborhood = neighborhood
-        at.inputs.stat = stat
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def out_file(self) -> None:
-        return self.res.outputs.out_file
-
-###############################################################################
-
-
-class afni_MaskTool:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, in_file=['path'], **options):
-        from nipype.interfaces.afni import MaskTool
-        at = MaskTool()
-        at.inputs.in_file = in_file
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def out_file(self) -> None:
-        return self.res.outputs.out_file
-
-###############################################################################
-
-
-class afni_Merge:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, in_files=['path'], **options):
-        from nipype.interfaces.afni import Merge
-        at = Merge()
-        at.inputs.in_files = in_files
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def out_file(self) -> None:
-        return self.res.outputs.out_file
-
-###############################################################################
-
-
-class afni_Notes:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import Notes
-        at = Notes()
-        at.inputs.in_file = in_file
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def out_file(self) -> None:
-        return self.res.outputs.out_file
-
-###############################################################################
-
-
-class afni_NwarpAdjust:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, warps='path', **options):
-        from nipype.interfaces.afni import NwarpAdjust
-        at = NwarpAdjust()
-        at.inputs.warps = warps
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def out_file(self) -> None:
-        return self.res.outputs.out_file
-
-###############################################################################
-
-
-class afni_NwarpApply:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, in_file=['path'], warp='', **options):
-        from nipype.interfaces.afni import NwarpApply
-        at = NwarpApply()
-        at.inputs.in_file = in_file
-        at.inputs.warp = warp
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def out_file(self) -> None:
-        return self.res.outputs.out_file
-
-###############################################################################
-
-
-class afni_NwarpCat:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, in_files="enumerate(('IDENT','INV','SQRT','SQRTINV'))", **options):
-        from nipype.interfaces.afni import NwarpCat
-        at = NwarpCat()
-        at.inputs.in_files = in_files
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def out_file(self) -> None:
-        return self.res.outputs.out_file
-
-###############################################################################
-
-
-class afni_OneDToolPy:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import OneDToolPy
-        at = OneDToolPy()
-        at.inputs.in_file = in_file
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def out_file(self) -> None:
-        return self.res.outputs.out_file
-
-###############################################################################
-
-
-class afni_ReHo:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import ReHo
-        at = ReHo()
-        at.inputs.in_file = in_file
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def out_file(self) -> None:
-        return self.res.outputs.out_file
-
-    def out_vals(self) -> None:
-        return self.res.outputs.out_vals
-
-###############################################################################
-
-
-class afni_Refit:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import Refit
-        at = Refit()
-        at.inputs.in_file = in_file
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def out_file(self) -> None:
-        return self.res.outputs.out_file
-
-###############################################################################
-
-
-class afni_Resample:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import Resample
-        at = Resample()
-        at.inputs.in_file = in_file
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def out_file(self) -> None:
-        return self.res.outputs.out_file
-
-###############################################################################
-
-
-class afni_TCat:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, in_files=['path'], **options):
-        from nipype.interfaces.afni import TCat
-        at = TCat()
-        at.inputs.in_files = in_files
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def out_file(self) -> None:
-        return self.res.outputs.out_file
-
-###############################################################################
-
-
-class afni_TCatSubBrick:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, in_files=[(0,)], **options):
-        from nipype.interfaces.afni import TCatSubBrick
-        at = TCatSubBrick()
-        at.inputs.in_files = in_files
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def out_file(self) -> None:
-        return self.res.outputs.out_file
-
-###############################################################################
-
-
-class afni_TStat:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import TStat
-        at = TStat()
-        at.inputs.in_file = in_file
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def out_file(self) -> None:
-        return self.res.outputs.out_file
-
-###############################################################################
-
-
-class afni_To3D:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, in_folder='path', **options):
-        from nipype.interfaces.afni import To3D
-        at = To3D()
-        at.inputs.in_folder = in_folder
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def out_file(self) -> None:
-        return self.res.outputs.out_file
-
-###############################################################################
-
-
-class afni_Undump:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import Undump
-        at = Undump()
-        at.inputs.in_file = in_file
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def out_file(self) -> None:
-        return self.res.outputs.out_file
-
-###############################################################################
-
-
-class afni_Unifize:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import Unifize
-        at = Unifize()
-        at.inputs.in_file = in_file
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def scale_file(self) -> None:
-        return self.res.outputs.scale_file
-
-    def out_file(self) -> None:
-        return self.res.outputs.out_file
-
-###############################################################################
-
-
-class afni_ZCutUp:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import ZCutUp
-        at = ZCutUp()
-        at.inputs.in_file = in_file
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def out_file(self) -> None:
-        return self.res.outputs.out_file
-
-###############################################################################
-
-
-class afni_Zcat:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, in_files=['path'], **options):
-        from nipype.interfaces.afni import Zcat
-        at = Zcat()
-        at.inputs.in_files = in_files
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def out_file(self) -> None:
-        return self.res.outputs.out_file
-
-###############################################################################
-
-
-class afni_Zeropad:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, in_files='path', **options):
-        from nipype.interfaces.afni import Zeropad
-        at = Zeropad()
-        at.inputs.in_files = in_files
         for ef in options:
             setattr(at.inputs, ef, options[ef])
         self.res = at.run()
@@ -861,8 +48,8 @@ class afni_AlignEpiAnatPy:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file='path', anat='path', epi_base="enumerate(('mean','median','max'))", **options):
-        from nipype.interfaces.afni import AlignEpiAnatPy
+    def __init__(self, in_file="path", anat="path", epi_base="enumerate(('mean','median','max'))", **options):
+        from nipype.interfaces.afni.preprocess import AlignEpiAnatPy
         at = AlignEpiAnatPy()
         at.inputs.in_file = in_file
         at.inputs.anat = anat
@@ -911,8 +98,8 @@ class afni_Allineate:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import Allineate
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.preprocess import Allineate
         at = Allineate()
         at.inputs.in_file = in_file
         for ef in options:
@@ -944,8 +131,8 @@ class afni_AutoTLRC:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file='path', base='', **options):
-        from nipype.interfaces.afni import AutoTLRC
+    def __init__(self, in_file="path", base='', **options):
+        from nipype.interfaces.afni.preprocess import AutoTLRC
         at = AutoTLRC()
         at.inputs.in_file = in_file
         at.inputs.base = base
@@ -966,13 +153,52 @@ class afni_AutoTcorrelate:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import AutoTcorrelate
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.preprocess import AutoTcorrelate
         at = AutoTcorrelate()
         at.inputs.in_file = in_file
         for ef in options:
             setattr(at.inputs, ef, options[ef])
         self.res = at.run()
+
+    def out_file(self) -> None:
+        return self.res.outputs.out_file
+
+###############################################################################
+
+
+class afni_Autobox:
+    """
+    Note:
+        dependencies: Nipype,afni
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.utils import Autobox
+        at = Autobox()
+        at.inputs.in_file = in_file
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def x_min(self) -> int:
+        return self.res.outputs.x_min
+
+    def x_max(self) -> int:
+        return self.res.outputs.x_max
+
+    def y_min(self) -> int:
+        return self.res.outputs.y_min
+
+    def y_max(self) -> int:
+        return self.res.outputs.y_max
+
+    def z_min(self) -> int:
+        return self.res.outputs.z_min
+
+    def z_max(self) -> int:
+        return self.res.outputs.z_max
 
     def out_file(self) -> None:
         return self.res.outputs.out_file
@@ -987,8 +213,8 @@ class afni_Automask:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import Automask
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.preprocess import Automask
         at = Automask()
         at.inputs.in_file = in_file
         for ef in options:
@@ -1004,6 +230,27 @@ class afni_Automask:
 ###############################################################################
 
 
+class afni_Axialize:
+    """
+    Note:
+        dependencies: Nipype,afni
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.utils import Axialize
+        at = Axialize()
+        at.inputs.in_file = in_file
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def out_file(self) -> None:
+        return self.res.outputs.out_file
+
+###############################################################################
+
+
 class afni_Bandpass:
     """
     Note:
@@ -1011,8 +258,8 @@ class afni_Bandpass:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file='path', lowpass=0.0, highpass=0.0, **options):
-        from nipype.interfaces.afni import Bandpass
+    def __init__(self, in_file="path", lowpass=0.0, highpass=0.0, **options):
+        from nipype.interfaces.afni.preprocess import Bandpass
         at = Bandpass()
         at.inputs.in_file = in_file
         at.inputs.lowpass = lowpass
@@ -1034,8 +281,8 @@ class afni_BlurInMask:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file='path', fwhm=0.0, **options):
-        from nipype.interfaces.afni import BlurInMask
+    def __init__(self, in_file="path", fwhm=0.0, **options):
+        from nipype.interfaces.afni.preprocess import BlurInMask
         at = BlurInMask()
         at.inputs.in_file = in_file
         at.inputs.fwhm = fwhm
@@ -1056,8 +303,8 @@ class afni_BlurToFWHM:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import BlurToFWHM
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.preprocess import BlurToFWHM
         at = BlurToFWHM()
         at.inputs.in_file = in_file
         for ef in options:
@@ -1070,6 +317,141 @@ class afni_BlurToFWHM:
 ###############################################################################
 
 
+class afni_BrickStat:
+    """
+    Note:
+        dependencies: Nipype,afni
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.utils import BrickStat
+        at = BrickStat()
+        at.inputs.in_file = in_file
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def min_val(self) -> float:
+        return self.res.outputs.min_val
+
+###############################################################################
+
+
+class afni_Bucket:
+    """
+    Note:
+        dependencies: Nipype,afni
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, in_file=[(0,)], **options):
+        from nipype.interfaces.afni.utils import Bucket
+        at = Bucket()
+        at.inputs.in_file = in_file
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def out_file(self) -> None:
+        return self.res.outputs.out_file
+
+###############################################################################
+
+
+class afni_Calc:
+    """
+    Note:
+        dependencies: Nipype,afni
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, in_file_a="path", expr='', **options):
+        from nipype.interfaces.afni.utils import Calc
+        at = Calc()
+        at.inputs.in_file_a = in_file_a
+        at.inputs.expr = expr
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def out_file(self) -> None:
+        return self.res.outputs.out_file
+
+###############################################################################
+
+
+class afni_Cat:
+    """
+    Note:
+        dependencies: Nipype,afni
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, in_files=["path"], out_file="path", **options):
+        from nipype.interfaces.afni.utils import Cat
+        at = Cat()
+        at.inputs.in_files = in_files
+        at.inputs.out_file = out_file
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def out_file(self) -> None:
+        return self.res.outputs.out_file
+
+###############################################################################
+
+
+class afni_CatMatvec:
+    """
+    Note:
+        dependencies: Nipype,afni
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, in_file=[(0,)], out_file="path", **options):
+        from nipype.interfaces.afni.utils import CatMatvec
+        at = CatMatvec()
+        at.inputs.in_file = in_file
+        at.inputs.out_file = out_file
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def out_file(self) -> None:
+        return self.res.outputs.out_file
+
+###############################################################################
+
+
+class afni_CenterMass:
+    """
+    Note:
+        dependencies: Nipype,afni
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.utils import CenterMass
+        at = CenterMass()
+        at.inputs.in_file = in_file
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def out_file(self) -> None:
+        return self.res.outputs.out_file
+
+    def cm_file(self) -> None:
+        return self.res.outputs.cm_file
+
+    def cm(self) -> list[tuple]:
+        return self.res.outputs.cm
+
+###############################################################################
+
+
 class afni_ClipLevel:
     """
     Note:
@@ -1077,8 +459,8 @@ class afni_ClipLevel:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import ClipLevel
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.preprocess import ClipLevel
         at = ClipLevel()
         at.inputs.in_file = in_file
         for ef in options:
@@ -1091,6 +473,79 @@ class afni_ClipLevel:
 ###############################################################################
 
 
+class afni_ConvertDset:
+    """
+    Note:
+        dependencies: Nipype,afni
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, in_file="path", out_file="path", out_type="enumerate(('niml','niml_asc','niml_bi','1D','1Dp','1Dpt','gii','gii_asc','gii_b64','gii_b64gz'))", **options):
+        from nipype.interfaces.afni.utils import ConvertDset
+        at = ConvertDset()
+        at.inputs.in_file = in_file
+        at.inputs.out_file = out_file
+        at.inputs.out_type = out_type
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def out_file(self) -> None:
+        return self.res.outputs.out_file
+
+###############################################################################
+
+
+class afni_Copy:
+    """
+    Note:
+        dependencies: Nipype,afni
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.utils import Copy
+        at = Copy()
+        at.inputs.in_file = in_file
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def out_file(self) -> None:
+        return self.res.outputs.out_file
+
+###############################################################################
+
+
+class afni_Deconvolve:
+    """
+    Note:
+        dependencies: Nipype,afni
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, **options):
+        from nipype.interfaces.afni.model import Deconvolve
+        at = Deconvolve()
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def out_file(self) -> None:
+        return self.res.outputs.out_file
+
+    def reml_script(self) -> None:
+        return self.res.outputs.reml_script
+
+    def x1D(self) -> None:
+        return self.res.outputs.x1D
+
+    def cbucket(self) -> None:
+        return self.res.outputs.cbucket
+
+###############################################################################
+
+
 class afni_DegreeCentrality:
     """
     Note:
@@ -1098,8 +553,8 @@ class afni_DegreeCentrality:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import DegreeCentrality
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.preprocess import DegreeCentrality
         at = DegreeCentrality()
         at.inputs.in_file = in_file
         for ef in options:
@@ -1122,8 +577,8 @@ class afni_Despike:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import Despike
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.preprocess import Despike
         at = Despike()
         at.inputs.in_file = in_file
         for ef in options:
@@ -1143,10 +598,30 @@ class afni_Detrend:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import Detrend
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.preprocess import Detrend
         at = Detrend()
         at.inputs.in_file = in_file
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def out_file(self) -> None:
+        return self.res.outputs.out_file
+
+###############################################################################
+
+
+class afni_Dot:
+    """
+    Note:
+        dependencies: Nipype,afni
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, **options):
+        from nipype.interfaces.afni.utils import Dot
+        at = Dot()
         for ef in options:
             setattr(at.inputs, ef, options[ef])
         self.res = at.run()
@@ -1164,8 +639,8 @@ class afni_ECM:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import ECM
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.preprocess import ECM
         at = ECM()
         at.inputs.in_file = in_file
         for ef in options:
@@ -1178,6 +653,85 @@ class afni_ECM:
 ###############################################################################
 
 
+class afni_Edge3:
+    """
+    Note:
+        dependencies: Nipype,afni
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.utils import Edge3
+        at = Edge3()
+        at.inputs.in_file = in_file
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def out_file(self) -> None:
+        return self.res.outputs.out_file
+
+###############################################################################
+
+
+class afni_Eval:
+    """
+    Note:
+        dependencies: Nipype,afni
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, in_file_a="path", expr='', **options):
+        from nipype.interfaces.afni.utils import Eval
+        at = Eval()
+        at.inputs.in_file_a = in_file_a
+        at.inputs.expr = expr
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def out_file(self) -> None:
+        return self.res.outputs.out_file
+
+###############################################################################
+
+
+class afni_FWHMx:
+    """
+    Note:
+        dependencies: Nipype,afni
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.utils import FWHMx
+        at = FWHMx()
+        at.inputs.in_file = in_file
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def out_file(self) -> None:
+        return self.res.outputs.out_file
+
+    def out_subbricks(self) -> None:
+        return self.res.outputs.out_subbricks
+
+    def out_detrend(self) -> None:
+        return self.res.outputs.out_detrend
+
+    def fwhm(self) -> tuple:
+        return self.res.outputs.fwhm
+
+    def acf_param(self) -> tuple:
+        return self.res.outputs.acf_param
+
+    def out_acf(self) -> None:
+        return self.res.outputs.out_acf
+
+###############################################################################
+
+
 class afni_Fim:
     """
     Note:
@@ -1185,8 +739,8 @@ class afni_Fim:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file='path', ideal_file='path', **options):
-        from nipype.interfaces.afni import Fim
+    def __init__(self, in_file="path", ideal_file="path", **options):
+        from nipype.interfaces.afni.preprocess import Fim
         at = Fim()
         at.inputs.in_file = in_file
         at.inputs.ideal_file = ideal_file
@@ -1207,8 +761,8 @@ class afni_Fourier:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file='path', lowpass=0.0, highpass=0.0, **options):
-        from nipype.interfaces.afni import Fourier
+    def __init__(self, in_file="path", lowpass=0.0, highpass=0.0, **options):
+        from nipype.interfaces.afni.preprocess import Fourier
         at = Fourier()
         at.inputs.in_file = in_file
         at.inputs.lowpass = lowpass
@@ -1223,6 +777,27 @@ class afni_Fourier:
 ###############################################################################
 
 
+class afni_GCOR:
+    """
+    Note:
+        dependencies: Nipype,afni
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.utils import GCOR
+        at = GCOR()
+        at.inputs.in_file = in_file
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def out(self) -> float:
+        return self.res.outputs.out
+
+###############################################################################
+
+
 class afni_Hist:
     """
     Note:
@@ -1230,8 +805,8 @@ class afni_Hist:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import Hist
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.preprocess import Hist
         at = Hist()
         at.inputs.in_file = in_file
         for ef in options:
@@ -1254,9 +829,77 @@ class afni_LFCD:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import LFCD
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.preprocess import LFCD
         at = LFCD()
+        at.inputs.in_file = in_file
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def out_file(self) -> None:
+        return self.res.outputs.out_file
+
+###############################################################################
+
+
+class afni_LocalBistat:
+    """
+    Note:
+        dependencies: Nipype,afni
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, in_file1="path", in_file2="path", neighborhood="enumerate(('SPHERE','RHDD','TOHD'))", stat="enumerate(('pearson','spearman','quadrant','mutinfo','normuti','jointent','hellinger','crU','crM','crA','L2slope','L1slope','num','ALL'))", **options):
+        from nipype.interfaces.afni.utils import LocalBistat
+        at = LocalBistat()
+        at.inputs.in_file1 = in_file1
+        at.inputs.in_file2 = in_file2
+        at.inputs.neighborhood = neighborhood
+        at.inputs.stat = stat
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def out_file(self) -> None:
+        return self.res.outputs.out_file
+
+###############################################################################
+
+
+class afni_Localstat:
+    """
+    Note:
+        dependencies: Nipype,afni
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, in_file="path", neighborhood="enumerate(('SPHERE','RHDD','TOHD'))", stat="enumerate(('mean','stdev','var','cvar','median','MAD','min','max','absmax','num','sum','FWHM','FWHMbar','rank','frank','P2skew','ALL','mMP2s','mmMP2s','perc'))", **options):
+        from nipype.interfaces.afni.utils import Localstat
+        at = Localstat()
+        at.inputs.in_file = in_file
+        at.inputs.neighborhood = neighborhood
+        at.inputs.stat = stat
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def out_file(self) -> None:
+        return self.res.outputs.out_file
+
+###############################################################################
+
+
+class afni_MaskTool:
+    """
+    Note:
+        dependencies: Nipype,afni
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, in_file=["path"], **options):
+        from nipype.interfaces.afni.utils import MaskTool
+        at = MaskTool()
         at.inputs.in_file = in_file
         for ef in options:
             setattr(at.inputs, ef, options[ef])
@@ -1275,8 +918,8 @@ class afni_Maskave:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import Maskave
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.preprocess import Maskave
         at = Maskave()
         at.inputs.in_file = in_file
         for ef in options:
@@ -1296,10 +939,31 @@ class afni_Means:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file_a='path', **options):
-        from nipype.interfaces.afni import Means
+    def __init__(self, in_file_a="path", **options):
+        from nipype.interfaces.afni.preprocess import Means
         at = Means()
         at.inputs.in_file_a = in_file_a
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def out_file(self) -> None:
+        return self.res.outputs.out_file
+
+###############################################################################
+
+
+class afni_Merge:
+    """
+    Note:
+        dependencies: Nipype,afni
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, in_files=["path"], **options):
+        from nipype.interfaces.afni.utils import Merge
+        at = Merge()
+        at.inputs.in_files = in_files
         for ef in options:
             setattr(at.inputs, ef, options[ef])
         self.res = at.run()
@@ -1317,8 +981,8 @@ class afni_NetCorr:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file='path', in_rois='path', **options):
-        from nipype.interfaces.afni import NetCorr
+    def __init__(self, in_file="path", in_rois="path", **options):
+        from nipype.interfaces.afni.preprocess import NetCorr
         at = NetCorr()
         at.inputs.in_file = in_file
         at.inputs.in_rois = in_rois
@@ -1335,6 +999,112 @@ class afni_NetCorr:
 ###############################################################################
 
 
+class afni_Notes:
+    """
+    Note:
+        dependencies: Nipype,afni
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.utils import Notes
+        at = Notes()
+        at.inputs.in_file = in_file
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def out_file(self) -> None:
+        return self.res.outputs.out_file
+
+###############################################################################
+
+
+class afni_NwarpAdjust:
+    """
+    Note:
+        dependencies: Nipype,afni
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, warps="path", **options):
+        from nipype.interfaces.afni.utils import NwarpAdjust
+        at = NwarpAdjust()
+        at.inputs.warps = warps
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def out_file(self) -> None:
+        return self.res.outputs.out_file
+
+###############################################################################
+
+
+class afni_NwarpApply:
+    """
+    Note:
+        dependencies: Nipype,afni
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, in_file=["path"], warp='', **options):
+        from nipype.interfaces.afni.utils import NwarpApply
+        at = NwarpApply()
+        at.inputs.in_file = in_file
+        at.inputs.warp = warp
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def out_file(self) -> None:
+        return self.res.outputs.out_file
+
+###############################################################################
+
+
+class afni_NwarpCat:
+    """
+    Note:
+        dependencies: Nipype,afni
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, in_files="enumerate(('IDENT','INV','SQRT','SQRTINV'))", **options):
+        from nipype.interfaces.afni.utils import NwarpCat
+        at = NwarpCat()
+        at.inputs.in_files = in_files
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def out_file(self) -> None:
+        return self.res.outputs.out_file
+
+###############################################################################
+
+
+class afni_OneDToolPy:
+    """
+    Note:
+        dependencies: Nipype,afni
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.utils import OneDToolPy
+        at = OneDToolPy()
+        at.inputs.in_file = in_file
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def out_file(self) -> None:
+        return self.res.outputs.out_file
+
+###############################################################################
+
+
 class afni_OutlierCount:
     """
     Note:
@@ -1342,8 +1112,8 @@ class afni_OutlierCount:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import OutlierCount
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.preprocess import OutlierCount
         at = OutlierCount()
         at.inputs.in_file = in_file
         for ef in options:
@@ -1366,8 +1136,8 @@ class afni_QualityIndex:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import QualityIndex
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.preprocess import QualityIndex
         at = QualityIndex()
         at.inputs.in_file = in_file
         for ef in options:
@@ -1387,8 +1157,8 @@ class afni_Qwarp:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file='path', base_file='path', **options):
-        from nipype.interfaces.afni import Qwarp
+    def __init__(self, in_file="path", base_file="path", **options):
+        from nipype.interfaces.afni.preprocess import Qwarp
         at = Qwarp()
         at.inputs.in_file = in_file
         at.inputs.base_file = base_file
@@ -1421,8 +1191,8 @@ class afni_QwarpPlusMinus:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file='path', base_file='path', **options):
-        from nipype.interfaces.afni import QwarpPlusMinus
+    def __init__(self, in_file="path", base_file="path", **options):
+        from nipype.interfaces.afni.preprocess import QwarpPlusMinus
         at = QwarpPlusMinus()
         at.inputs.in_file = in_file
         at.inputs.base_file = base_file
@@ -1455,9 +1225,133 @@ class afni_ROIStats:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import ROIStats
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.preprocess import ROIStats
         at = ROIStats()
+        at.inputs.in_file = in_file
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def out_file(self) -> None:
+        return self.res.outputs.out_file
+
+###############################################################################
+
+
+class afni_ReHo:
+    """
+    Note:
+        dependencies: Nipype,afni
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.utils import ReHo
+        at = ReHo()
+        at.inputs.in_file = in_file
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def out_file(self) -> None:
+        return self.res.outputs.out_file
+
+    def out_vals(self) -> None:
+        return self.res.outputs.out_vals
+
+###############################################################################
+
+
+class afni_Refit:
+    """
+    Note:
+        dependencies: Nipype,afni
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.utils import Refit
+        at = Refit()
+        at.inputs.in_file = in_file
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def out_file(self) -> None:
+        return self.res.outputs.out_file
+
+###############################################################################
+
+
+class afni_Remlfit:
+    """
+    Note:
+        dependencies: Nipype,afni
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, in_files=["path"], matrix="path", **options):
+        from nipype.interfaces.afni.model import Remlfit
+        at = Remlfit()
+        at.inputs.in_files = in_files
+        at.inputs.matrix = matrix
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def out_file(self) -> None:
+        return self.res.outputs.out_file
+
+    def var_file(self) -> None:
+        return self.res.outputs.var_file
+
+    def rbeta_file(self) -> None:
+        return self.res.outputs.rbeta_file
+
+    def glt_file(self) -> None:
+        return self.res.outputs.glt_file
+
+    def fitts_file(self) -> None:
+        return self.res.outputs.fitts_file
+
+    def errts_file(self) -> None:
+        return self.res.outputs.errts_file
+
+    def wherr_file(self) -> None:
+        return self.res.outputs.wherr_file
+
+    def ovar(self) -> None:
+        return self.res.outputs.ovar
+
+    def obeta(self) -> None:
+        return self.res.outputs.obeta
+
+    def obuck(self) -> None:
+        return self.res.outputs.obuck
+
+    def oglt(self) -> None:
+        return self.res.outputs.oglt
+
+    def ofitts(self) -> None:
+        return self.res.outputs.ofitts
+
+    def oerrts(self) -> None:
+        return self.res.outputs.oerrts
+
+###############################################################################
+
+
+class afni_Resample:
+    """
+    Note:
+        dependencies: Nipype,afni
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.utils import Resample
+        at = Resample()
         at.inputs.in_file = in_file
         for ef in options:
             setattr(at.inputs, ef, options[ef])
@@ -1476,8 +1370,8 @@ class afni_Retroicor:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import Retroicor
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.preprocess import Retroicor
         at = Retroicor()
         at.inputs.in_file = in_file
         for ef in options:
@@ -1490,6 +1384,56 @@ class afni_Retroicor:
 ###############################################################################
 
 
+class afni_SVMTest:
+    """
+    Note:
+        dependencies: Nipype,afni
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, model='', in_file="path", **options):
+        from nipype.interfaces.afni.svm import SVMTest
+        at = SVMTest()
+        at.inputs.model = model
+        at.inputs.in_file = in_file
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def out_file(self) -> None:
+        return self.res.outputs.out_file
+
+###############################################################################
+
+
+class afni_SVMTrain:
+    """
+    Note:
+        dependencies: Nipype,afni
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, ttype='', in_file="path", **options):
+        from nipype.interfaces.afni.svm import SVMTrain
+        at = SVMTrain()
+        at.inputs.ttype = ttype
+        at.inputs.in_file = in_file
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def out_file(self) -> None:
+        return self.res.outputs.out_file
+
+    def model(self) -> None:
+        return self.res.outputs.model
+
+    def alphas(self) -> None:
+        return self.res.outputs.alphas
+
+###############################################################################
+
+
 class afni_Seg:
     """
     Note:
@@ -1497,8 +1441,8 @@ class afni_Seg:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file='path', mask='path', **options):
-        from nipype.interfaces.afni import Seg
+    def __init__(self, in_file="path", mask="path", **options):
+        from nipype.interfaces.afni.preprocess import Seg
         at = Seg()
         at.inputs.in_file = in_file
         at.inputs.mask = mask
@@ -1519,10 +1463,75 @@ class afni_SkullStrip:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import SkullStrip
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.preprocess import SkullStrip
         at = SkullStrip()
         at.inputs.in_file = in_file
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def out_file(self) -> None:
+        return self.res.outputs.out_file
+
+###############################################################################
+
+
+class afni_Synthesize:
+    """
+    Note:
+        dependencies: Nipype,afni
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, cbucket="path", matrix="path", select=[''], **options):
+        from nipype.interfaces.afni.model import Synthesize
+        at = Synthesize()
+        at.inputs.cbucket = cbucket
+        at.inputs.matrix = matrix
+        at.inputs.select = select
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def out_file(self) -> None:
+        return self.res.outputs.out_file
+
+###############################################################################
+
+
+class afni_TCat:
+    """
+    Note:
+        dependencies: Nipype,afni
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, in_files=["path"], **options):
+        from nipype.interfaces.afni.utils import TCat
+        at = TCat()
+        at.inputs.in_files = in_files
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def out_file(self) -> None:
+        return self.res.outputs.out_file
+
+###############################################################################
+
+
+class afni_TCatSubBrick:
+    """
+    Note:
+        dependencies: Nipype,afni
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, in_files=[(0,)], **options):
+        from nipype.interfaces.afni.utils import TCatSubBrick
+        at = TCatSubBrick()
+        at.inputs.in_files = in_files
         for ef in options:
             setattr(at.inputs, ef, options[ef])
         self.res = at.run()
@@ -1540,8 +1549,8 @@ class afni_TCorr1D:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, xset='path', y_1d='path', **options):
-        from nipype.interfaces.afni import TCorr1D
+    def __init__(self, xset="path", y_1d="path", **options):
+        from nipype.interfaces.afni.preprocess import TCorr1D
         at = TCorr1D()
         at.inputs.xset = xset
         at.inputs.y_1d = y_1d
@@ -1562,8 +1571,8 @@ class afni_TCorrMap:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import TCorrMap
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.preprocess import TCorrMap
         at = TCorrMap()
         at.inputs.in_file = in_file
         for ef in options:
@@ -1619,8 +1628,8 @@ class afni_TCorrelate:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, xset='path', yset='path', **options):
-        from nipype.interfaces.afni import TCorrelate
+    def __init__(self, xset="path", yset="path", **options):
+        from nipype.interfaces.afni.preprocess import TCorrelate
         at = TCorrelate()
         at.inputs.xset = xset
         at.inputs.yset = yset
@@ -1641,8 +1650,8 @@ class afni_TNorm:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import TNorm
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.preprocess import TNorm
         at = TNorm()
         at.inputs.in_file = in_file
         for ef in options:
@@ -1662,8 +1671,8 @@ class afni_TProject:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import TProject
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.preprocess import TProject
         at = TProject()
         at.inputs.in_file = in_file
         for ef in options:
@@ -1683,8 +1692,8 @@ class afni_TShift:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import TShift
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.preprocess import TShift
         at = TShift()
         at.inputs.in_file = in_file
         for ef in options:
@@ -1707,13 +1716,100 @@ class afni_TSmooth:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import TSmooth
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.preprocess import TSmooth
         at = TSmooth()
         at.inputs.in_file = in_file
         for ef in options:
             setattr(at.inputs, ef, options[ef])
         self.res = at.run()
+
+    def out_file(self) -> None:
+        return self.res.outputs.out_file
+
+###############################################################################
+
+
+class afni_TStat:
+    """
+    Note:
+        dependencies: Nipype,afni
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.utils import TStat
+        at = TStat()
+        at.inputs.in_file = in_file
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def out_file(self) -> None:
+        return self.res.outputs.out_file
+
+###############################################################################
+
+
+class afni_To3D:
+    """
+    Note:
+        dependencies: Nipype,afni
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, in_folder="path", **options):
+        from nipype.interfaces.afni.utils import To3D
+        at = To3D()
+        at.inputs.in_folder = in_folder
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def out_file(self) -> None:
+        return self.res.outputs.out_file
+
+###############################################################################
+
+
+class afni_Undump:
+    """
+    Note:
+        dependencies: Nipype,afni
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.utils import Undump
+        at = Undump()
+        at.inputs.in_file = in_file
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def out_file(self) -> None:
+        return self.res.outputs.out_file
+
+###############################################################################
+
+
+class afni_Unifize:
+    """
+    Note:
+        dependencies: Nipype,afni
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.utils import Unifize
+        at = Unifize()
+        at.inputs.in_file = in_file
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def scale_file(self) -> None:
+        return self.res.outputs.scale_file
 
     def out_file(self) -> None:
         return self.res.outputs.out_file
@@ -1728,8 +1824,8 @@ class afni_Volreg:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import Volreg
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.preprocess import Volreg
         at = Volreg()
         at.inputs.in_file = in_file
         for ef in options:
@@ -1758,8 +1854,8 @@ class afni_Warp:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import Warp
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.preprocess import Warp
         at = Warp()
         at.inputs.in_file = in_file
         for ef in options:
@@ -1775,16 +1871,16 @@ class afni_Warp:
 ###############################################################################
 
 
-class afni_Deconvolve:
+class afni_ZCutUp:
     """
     Note:
         dependencies: Nipype,afni
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file='path', **options):
-        from nipype.interfaces.afni import Deconvolve
-        at = Deconvolve()
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.afni.utils import ZCutUp
+        at = ZCutUp()
         at.inputs.in_file = in_file
         for ef in options:
             setattr(at.inputs, ef, options[ef])
@@ -1793,24 +1889,20 @@ class afni_Deconvolve:
     def out_file(self) -> None:
         return self.res.outputs.out_file
 
-    def warp_file(self) -> None:
-        return self.res.outputs.warp_file
-
 ###############################################################################
 
 
-class afni_Remlfit:
+class afni_Zcat:
     """
     Note:
         dependencies: Nipype,afni
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_files=['path'], matrix='path', **options):
-        from nipype.interfaces.afni import Remlfit
-        at = Remlfit()
+    def __init__(self, in_files=["path"], **options):
+        from nipype.interfaces.afni.utils import Zcat
+        at = Zcat()
         at.inputs.in_files = in_files
-        at.inputs.matrix = matrix
         for ef in options:
             setattr(at.inputs, ef, options[ef])
         self.res = at.run()
@@ -1818,58 +1910,20 @@ class afni_Remlfit:
     def out_file(self) -> None:
         return self.res.outputs.out_file
 
-    def var_file(self) -> None:
-        return self.res.outputs.var_file
-
-    def rbeta_file(self) -> None:
-        return self.res.outputs.rbeta_file
-
-    def glt_file(self) -> None:
-        return self.res.outputs.glt_file
-
-    def fitts_file(self) -> None:
-        return self.res.outputs.fitts_file
-
-    def errts_file(self) -> None:
-        return self.res.outputs.errts_file
-
-    def wherr_file(self) -> None:
-        return self.res.outputs.wherr_file
-
-    def ovar(self) -> None:
-        return self.res.outputs.ovar
-
-    def obeta(self) -> None:
-        return self.res.outputs.obeta
-
-    def obuck(self) -> None:
-        return self.res.outputs.obuck
-
-    def oglt(self) -> None:
-        return self.res.outputs.oglt
-
-    def ofitts(self) -> None:
-        return self.res.outputs.ofitts
-
-    def oerrts(self) -> None:
-        return self.res.outputs.oerrts
-
 ###############################################################################
 
 
-class afni_Synthesize:
+class afni_Zeropad:
     """
     Note:
         dependencies: Nipype,afni
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, cbucket='path', matrix='path', select=[''], **options):
-        from nipype.interfaces.afni import Synthesize
-        at = Synthesize()
-        at.inputs.cbucket = cbucket
-        at.inputs.matrix = matrix
-        at.inputs.select = select
+    def __init__(self, in_files="path", **options):
+        from nipype.interfaces.afni.utils import Zeropad
+        at = Zeropad()
+        at.inputs.in_files = in_files
         for ef in options:
             setattr(at.inputs, ef, options[ef])
         self.res = at.run()
@@ -1880,74 +1934,3 @@ class afni_Synthesize:
 ###############################################################################
 
 
-class afni_Info:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, cbucket='path', matrix='path', select=[''], **options):
-        from nipype.interfaces.afni import Info
-        at = Info()
-        at.inputs.cbucket = cbucket
-        at.inputs.matrix = matrix
-        at.inputs.select = select
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def out_file(self) -> None:
-        return self.res.outputs.out_file
-
-###############################################################################
-
-
-class afni_SVMTest:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, model='', in_file='path', **options):
-        from nipype.interfaces.afni import SVMTest
-        at = SVMTest()
-        at.inputs.model = model
-        at.inputs.in_file = in_file
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def out_file(self) -> None:
-        return self.res.outputs.out_file
-
-###############################################################################
-
-
-class afni_SVMTrain:
-    """
-    Note:
-        dependencies: Nipype,afni
-        GUI: no
-        link_web: (click Ctrl + U)
-    """
-    def __init__(self, ttype='', in_file='path', **options):
-        from nipype.interfaces.afni import SVMTrain
-        at = SVMTrain()
-        at.inputs.ttype = ttype
-        at.inputs.in_file = in_file
-        for ef in options:
-            setattr(at.inputs, ef, options[ef])
-        self.res = at.run()
-
-    def out_file(self) -> None:
-        return self.res.outputs.out_file
-
-    def model(self) -> None:
-        return self.res.outputs.model
-
-    def alphas(self) -> None:
-        return self.res.outputs.alphas
-
-###############################################################################
