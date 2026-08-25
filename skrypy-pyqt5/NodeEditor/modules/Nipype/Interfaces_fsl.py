@@ -385,6 +385,48 @@ class fsl_ChangeDataType:
 ###############################################################################
 
 
+class fsl_Classifier:
+    """
+    Note:
+        dependencies: Nipype,fsl
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, thresh=1, trained_wts_file="path", **options):
+        from nipype.interfaces.fsl.fix import Classifier
+        at = Classifier()
+        at.inputs.thresh = thresh
+        at.inputs.trained_wts_file = trained_wts_file
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def artifacts_list_file(self) -> None:
+        return self.res.outputs.artifacts_list_file
+
+###############################################################################
+
+
+class fsl_Cleaner:
+    """
+    Note:
+        dependencies: Nipype,fsl
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, artifacts_list_file="path", **options):
+        from nipype.interfaces.fsl.fix import Cleaner
+        at = Cleaner()
+        at.inputs.artifacts_list_file = artifacts_list_file
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def cleaned_functional_file(self) -> None:
+        return self.res.outputs.cleaned_functional_file
+
+###############################################################################
+
 class fsl_Cluster:
     """
     Note:
@@ -666,6 +708,29 @@ class fsl_DistanceMap:
 
     def local_max_file(self) -> None:
         return self.res.outputs.local_max_file
+
+###############################################################################
+
+
+class fsl_DualRegression:
+    """
+    Note:
+        dependencies: Nipype,fsl
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, group_IC_maps_4D="path", in_files=["path"], n_perm=1, **options):
+        from nipype.interfaces.fsl.model import DualRegression
+        at = DualRegression()
+        at.inputs.group_IC_maps_4D = group_IC_maps_4D
+        at.inputs.in_files = in_files
+        at.inputs.n_perm = n_perm
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def out_dir(self) -> None:
+        return self.res.outputs.out_dir
 
 ###############################################################################
 
@@ -2436,6 +2501,27 @@ class fsl_Split:
 ###############################################################################
 
 
+class fsl_StdImage:
+    """
+    Note:
+        dependencies: Nipype,fsl
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, in_file="path", **options):
+        from nipype.interfaces.fsl.maths import StdImage
+        at = StdImage()
+        at.inputs.in_file = in_file
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def out_file(self) -> None:
+        return self.res.outputs.out_file
+
+###############################################################################    
+
+
 class fsl_SwapDimensions:
     """
     Note:
@@ -2588,6 +2674,26 @@ class fsl_TractSkeleton:
 
     def skeleton_file(self) -> None:
         return self.res.outputs.skeleton_file
+
+###############################################################################
+
+
+class fsl_Training:
+    """
+    Note:
+        dependencies: Nipype,fsl
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, **options):
+        from nipype.interfaces.fsl.fix import Training
+        at = Training()
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def trained_wts_file(self) -> None:
+        return self.res.outputs.trained_wts_file
 
 ###############################################################################
 
