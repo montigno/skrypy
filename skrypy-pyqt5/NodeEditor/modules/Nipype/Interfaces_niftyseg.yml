@@ -27,19 +27,19 @@ niftyseg_EM:
   prior_4D: "path" # Mandatory Mutually exclusive with: no_prior, priors
   priors: [''] # Mandatory Mutually exclusive with: no_prior, prior_4D
   args: ''
-  bc_order_val: 0
+  bc_order_val: 3
   bc_thresh_val: 0.0
   environ: {}
   mask_file: "path"
-  max_iter: 0
+  max_iter: 100
   min_iter: 0
   mrf_beta_val: 0.0
   out_bc_file: "path"
   out_file: "path"
   out_outlier_file: "path"
-  outlier_val: (0,)
+  outlier_val: (0.0, 0.0)
   reg_val: 0.0
-  relax_priors: (0,)
+  relax_priors: (0.0, 0.0)
 niftyseg_FillLesions:
   args: ''
   bin_mask: "path"
@@ -69,18 +69,26 @@ niftyseg_LabelFusion:
   prob_flag: True
   prob_update_flag: True
   proportion: 0.0
-  set_pq: (0,)
+  set_pq: (0.0, 0.0)
   sm_ranking: "enumerate(('ALL','GNCC','ROINCC','LNCC'))"
   template_file: "path"
   template_num: 0
   unc: True
   unc_thresh: 0.0
   verbose: "enumerate(('0','1','2'))"
+niftyseg_MathsCommand:
+  args: ''
+  environ: {}
+  out_file: path
+  output_datatype: "enumerate(('float','char','int','short','double','input'))"
 niftyseg_Merge:
   args: ''
   environ: {}
   out_file: "path"
   output_datatype: "enumerate(('float','char','int','short','double','input'))"
+niftyseg_NiftySegCommand:
+  args: ''
+  environ: {}
 niftyseg_PatchMatch:
   args: ''
   cs_size: 0
@@ -90,6 +98,11 @@ niftyseg_PatchMatch:
   out_file: "path"
   patch_size: 0
   pm_num: 0
+niftyseg_StatsCommand:
+  args: ''
+  environ: {}
+  larger_voxel: 0.0
+  mask_file: path
 niftyseg_TupleMaths:
   operand_file1: "path" # Mandatory Mutually exclusive with: operand_value1
   operand_file2: "path" # Mandatory Mutually exclusive with: operand_value2

@@ -1,5 +1,5 @@
 cmtk_AverageNetworks:
-  group_id: ''
+  group_id: 'group1'
   out_gexf_groupavg: "path"
   out_gpickled_groupavg: "path"
   resolution_network_file: "path"

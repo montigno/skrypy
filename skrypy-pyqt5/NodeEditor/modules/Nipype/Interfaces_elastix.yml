@@ -1,15 +1,15 @@
 elastix_AnalyzeWarp:
   args: ''
   environ: {}
-  jac: ''
-  jacmat: ''
+  jac: 'all'
+  jacmat: 'all'
   moving_image: "path"
-  num_threads: 0
-  points: ''
+  num_threads: 1
+  points: 'all'
 elastix_ApplyWarp:
   args: ''
   environ: {}
-  num_threads: 0
+  num_threads: 1
 elastix_EditTransform:
   interpolation: "enumerate(('cubic','linear','nearest'))"
   output_file: path
@@ -19,11 +19,11 @@ elastix_EditTransform:
 elastix_PointsWarp:
   args: ''
   environ: {}
-  num_threads: 0
+  num_threads: 1
 elastix_Registration:
   args: ''
   environ: {}
   fixed_mask: "path"
   initial_transform: "path"
   moving_mask: "path"
-  num_threads: 0
+  num_threads: 1

@@ -1543,9 +1543,10 @@ class fsl_L2Model:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self, num_copes=1, **options):
         from nipype.interfaces.fsl.model import L2Model
         at = L2Model()
+        at.inputs.num_copes = num_copes
         for ef in options:
             setattr(at.inputs, ef, options[ef])
         self.res = at.run()

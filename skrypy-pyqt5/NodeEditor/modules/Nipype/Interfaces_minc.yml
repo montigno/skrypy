@@ -4,7 +4,7 @@ minc_Average:
   args: ''
   avgdim: ''
   binarize: True
-  binrange: (0,)
+  binrange: (0.0, 0.0)
   binvalue: 0.0
   check_dimensions: True # Optional Mutually exclusive with: check_dimensions, no_check_dimensions
   clobber: True
@@ -20,7 +20,7 @@ minc_Average:
   format_short: True # Optional Mutually exclusive with: format_filetype, format_byte, format_short, format_int, format_long, format_float, format_double, format_signed, format_unsigned
   format_signed: True # Optional Mutually exclusive with: format_filetype, format_byte, format_short, format_int, format_long, format_float, format_double, format_signed, format_unsigned
   format_unsigned: True # Optional Mutually exclusive with: format_filetype, format_byte, format_short, format_int, format_long, format_float, format_double, format_signed, format_unsigned
-  max_buffer_size_in_kb: 0
+  max_buffer_size_in_kb: 4096
   no_check_dimensions: True # Optional Mutually exclusive with: check_dimensions, no_check_dimensions
   no_copy_header: True # Optional Mutually exclusive with: copy_header, no_copy_header
   nonormalize: True # Optional Mutually exclusive with: normalize, nonormalize
@@ -30,7 +30,7 @@ minc_Average:
   sdfile: "path"
   two: True
   verbose: True # Optional Mutually exclusive with: verbose, quiet
-  voxel_range: (0,)
+  voxel_range: (0, 0)
   weights: ['']
   width_weighted: True
 minc_BBox:
@@ -48,7 +48,7 @@ minc_Beast:
   abspath: True
   args: ''
   clobber: True
-  confidence_level_alpha: 0.0
+  confidence_level_alpha: 0.5
   configuration_file: "path"
   environ: {}
   fill_holes: True
@@ -56,15 +56,15 @@ minc_Beast:
   load_moments: True
   median_filter: True
   nlm_filter: True
-  number_selected_images: 0
+  number_selected_images: 20
   output_file: path
-  patch_size: 0
+  patch_size: 1
   probability_map: True
   same_resolution: True
-  search_area: 0
-  smoothness_factor_beta: 0.0
-  threshold_patch_selection: 0.0
-  voxel_size: 0
+  search_area: 2
+  smoothness_factor_beta: 0.5
+  threshold_patch_selection: 0.95
+  voxel_size: 4
 minc_BestLinReg:
   args: ''
   clobber: True
@@ -92,11 +92,11 @@ minc_Blob:
   translation: True
 minc_Blur:
   fwhm: 0.0 # Mandatory Mutually exclusive with: fwhm, fwhm3d, standard_dev
-  fwhm3d: (0,) # Mandatory Mutually exclusive with: fwhm, fwhm3d, standard_dev
+  fwhm3d: (0.0, 0.0, 0.0) # Mandatory Mutually exclusive with: fwhm, fwhm3d, standard_dev
   standard_dev: 0.0 # Mandatory Mutually exclusive with: fwhm, fwhm3d, standard_dev
   args: ''
   clobber: True
-  dimensions: ''
+  dimensions: 3
   environ: {}
   gaussian: True # Optional Mutually exclusive with: gaussian, rect
   gradient: True
@@ -128,7 +128,7 @@ minc_Calc:
   max_buffer_size_in_kb: 0
   no_check_dimensions: True # Optional Mutually exclusive with: check_dimensions, no_check_dimensions
   no_copy_header: True # Optional Mutually exclusive with: copy_header, no_copy_header
-  outfiles: [(0,)]
+  outfiles: ("", "path")
   output_file: path
   output_illegal: True # Optional Mutually exclusive with: output_nan, output_zero, output_illegal_value
   output_nan: True # Optional Mutually exclusive with: output_nan, output_zero, output_illegal_value
@@ -137,7 +137,7 @@ minc_Calc:
   quiet: True # Optional Mutually exclusive with: verbose, quiet
   two: True
   verbose: True # Optional Mutually exclusive with: verbose, quiet
-  voxel_range: (0,)
+  voxel_range: (0, 0)
 minc_Convert:
   args: ''
   chunk: 0
@@ -164,11 +164,11 @@ minc_Dump:
   netcdf_name: ''
   out_file: "path"
   output_file: path
-  precision: (0,)
+  precision: (0, 0)
   variables: ['']
 minc_Extract:
   args: ''
-  count: [0]
+  count: [4, 4, 4]
   environ: {}
   flip_any_direction: True # Optional Mutually exclusive with: flip_positive_direction, flip_negative_direction, flip_any_direction
   flip_negative_direction: True # Optional Mutually exclusive with: flip_positive_direction, flip_negative_direction, flip_any_direction
@@ -184,19 +184,19 @@ minc_Extract:
   flip_z_positive: True # Optional Mutually exclusive with: flip_z_positive, flip_z_negative, flip_z_any
   image_maximum: 0.0
   image_minimum: 0.0
-  image_range: (0,)
+  image_range: (0.0, 0.0)
   nonormalize: True # Optional Mutually exclusive with: normalize, nonormalize
   normalize: True # Optional Mutually exclusive with: normalize, nonormalize
   out_file: "path"
   output_file: path
-  start: [0]
+  start: [3, 10, 5]
   write_ascii: True # Optional Mutually exclusive with: write_ascii, write_ascii, write_byte, write_short, write_int, write_long, write_float, write_double, write_signed, write_unsigned
   write_byte: True # Optional Mutually exclusive with: write_ascii, write_ascii, write_byte, write_short, write_int, write_long, write_float, write_double, write_signed, write_unsigned
   write_double: True # Optional Mutually exclusive with: write_ascii, write_ascii, write_byte, write_short, write_int, write_long, write_float, write_double, write_signed, write_unsigned
   write_float: True # Optional Mutually exclusive with: write_ascii, write_ascii, write_byte, write_short, write_int, write_long, write_float, write_double, write_signed, write_unsigned
   write_int: True # Optional Mutually exclusive with: write_ascii, write_ascii, write_byte, write_short, write_int, write_long, write_float, write_double, write_signed, write_unsigned
   write_long: True # Optional Mutually exclusive with: write_ascii, write_ascii, write_byte, write_short, write_int, write_long, write_float, write_double, write_signed, write_unsigned
-  write_range: (0,)
+  write_range: (0.0, 0.0)
   write_short: True # Optional Mutually exclusive with: write_ascii, write_ascii, write_byte, write_short, write_int, write_long, write_float, write_double, write_signed, write_unsigned
   write_signed: True # Optional Mutually exclusive with: write_signed, write_unsigned
   write_unsigned: True # Optional Mutually exclusive with: write_signed, write_unsigned
@@ -228,7 +228,7 @@ minc_Math:
   count_valid: True
   dimension: ''
   environ: {}
-  exp: (0,)
+  exp: (0.0, 0.0)
   format_byte: True # Optional Mutually exclusive with: format_filetype, format_byte, format_short, format_int, format_long, format_float, format_double, format_signed, format_unsigned
   format_double: True # Optional Mutually exclusive with: format_filetype, format_byte, format_short, format_int, format_long, format_float, format_double, format_signed, format_unsigned
   format_filetype: True # Optional Mutually exclusive with: format_filetype, format_byte, format_short, format_int, format_long, format_float, format_double, format_signed, format_unsigned
@@ -241,22 +241,22 @@ minc_Math:
   ignore_nan: True
   invert: 0.0
   isnan: True
-  log: (0,)
-  max_buffer_size_in_kb: 0
+  log: (0.0, 0.0)
+  max_buffer_size_in_kb: 4096
   maximum: True
   minimum: True
   nisnan: True
   no_check_dimensions: True # Optional Mutually exclusive with: check_dimensions, no_check_dimensions
   no_copy_header: True # Optional Mutually exclusive with: copy_header, no_copy_header
-  nsegment: (0,)
+  nsegment: (0.0, 0.0)
   output_file: path
   output_illegal: True # Optional Mutually exclusive with: output_nan, output_zero, output_illegal_value
   output_nan: True # Optional Mutually exclusive with: output_nan, output_zero, output_illegal_value
   output_zero: True # Optional Mutually exclusive with: output_nan, output_zero, output_illegal_value
   percentdiff: 0.0
   propagate_nan: True
-  scale: (0,)
-  segment: (0,)
+  scale: (0.0, 0.0)
+  segment: (0.0, 0.0)
   sqrt: True
   square: True
   test_eq: True
@@ -266,7 +266,7 @@ minc_Math:
   test_lt: True
   test_ne: True
   two: True
-  voxel_range: (0,)
+  voxel_range: (0, 0)
 minc_NlpFit:
   args: ''
   clobber: True
@@ -296,18 +296,18 @@ minc_Pik:
   args: ''
   auto_range: True # Optional Mutually exclusive with: image_range, auto_range
   clobber: True
-  depth: ''
+  depth: 8
   environ: {}
   horizontal_triplanar_view: True # Optional Mutually exclusive with: vertical_triplanar_view, horizontal_triplanar_view
-  image_range: (0,) # Optional Mutually exclusive with: image_range, auto_range
+  image_range: (0.0, 0.0) # Optional Mutually exclusive with: image_range, auto_range
   jpg: True # Optional Mutually exclusive with: jpg, png
   lookup: ''
-  minc_range: (0,)
+  minc_range: (0.0, 0.0)
   output_file: path
   png: True # Optional Mutually exclusive with: jpg, png
   sagittal_offset: 0
   sagittal_offset_perc: 0
-  scale: 0
+  scale: 2
   slice_x: True # Optional Mutually exclusive with: slice_z, slice_y, slice_x
   slice_y: True # Optional Mutually exclusive with: slice_z, slice_y, slice_x
   slice_z: True # Optional Mutually exclusive with: slice_z, slice_y, slice_x
@@ -322,7 +322,7 @@ minc_Resample:
   args: ''
   clobber: True
   coronal_slices: True # Optional Mutually exclusive with: transverse, sagittal, coronal
-  dircos: (0,) # Optional Mutually exclusive with: nelements, nelements_x_y_or_z
+  dircos: (0.0, 0.0, 0.0) # Optional Mutually exclusive with: nelements, nelements_x_y_or_z
   environ: {}
   fill: True # Optional Mutually exclusive with: nofill, fill
   fill_value: 0.0
@@ -334,27 +334,27 @@ minc_Resample:
   format_short: True # Optional Mutually exclusive with: format_byte, format_short, format_int, format_long, format_float, format_double, format_signed, format_unsigned
   format_signed: True # Optional Mutually exclusive with: format_byte, format_short, format_int, format_long, format_float, format_double, format_signed, format_unsigned
   format_unsigned: True # Optional Mutually exclusive with: format_byte, format_short, format_int, format_long, format_float, format_double, format_signed, format_unsigned
-  half_width_sinc_window: ''
+  half_width_sinc_window: 5
   input_grid_files: ["path"]
   invert_transformation: True
   keep_real_range: True # Optional Mutually exclusive with: keep_real_range, nokeep_real_range
   like: "path"
   nearest_neighbour_interpolation: True # Optional Mutually exclusive with: trilinear_interpolation, tricubic_interpolation, nearest_neighbour_interpolation, sinc_interpolation
-  nelements: (0,) # Optional Mutually exclusive with: nelements, nelements_x_y_or_z
+  nelements: (0, 0, 0) # Optional Mutually exclusive with: nelements, nelements_x_y_or_z
   no_fill: True # Optional Mutually exclusive with: nofill, fill
   no_input_sampling: True # Optional Mutually exclusive with: vio_transform, no_input_sampling
   nokeep_real_range: True # Optional Mutually exclusive with: keep_real_range, nokeep_real_range
-  origin: (0,)
+  origin: (0.0, 0.0, 0.0)
   output_file: path
-  output_range: (0,)
+  output_range: (0.0, 0.0)
   sagittal_slices: True # Optional Mutually exclusive with: transverse, sagittal, coronal
   sinc_interpolation: True # Optional Mutually exclusive with: trilinear_interpolation, tricubic_interpolation, nearest_neighbour_interpolation, sinc_interpolation
   sinc_window_hamming: True # Optional Mutually exclusive with: sinc_window_hanning, sinc_window_hamming requires: sinc_interpolation
   sinc_window_hanning: True # Optional Mutually exclusive with: sinc_window_hanning, sinc_window_hamming requires: sinc_interpolation
   spacetype: ''
   standard_sampling: True
-  start: (0,) # Optional Mutually exclusive with: nelements, nelements_x_y_or_z
-  step: (0,) # Optional Mutually exclusive with: nelements, nelements_x_y_or_z
+  start: (0.0, 0.0, 0.0) # Optional Mutually exclusive with: nelements, nelements_x_y_or_z
+  step: (0, 0, 0) # Optional Mutually exclusive with: nelements, nelements_x_y_or_z
   talairach: True
   transformation: "path"
   transverse_slices: True # Optional Mutually exclusive with: transverse, sagittal, coronal
@@ -406,7 +406,7 @@ minc_ToRaw:
   write_float: True # Optional Mutually exclusive with: write_byte, write_short, write_int, write_long, write_float, write_double
   write_int: True # Optional Mutually exclusive with: write_byte, write_short, write_int, write_long, write_float, write_double
   write_long: True # Optional Mutually exclusive with: write_byte, write_short, write_int, write_long, write_float, write_double
-  write_range: (0,)
+  write_range: (0.0, 0.0)
   write_short: True # Optional Mutually exclusive with: write_byte, write_short, write_int, write_long, write_float, write_double
   write_signed: True # Optional Mutually exclusive with: write_signed, write_unsigned
   write_unsigned: True # Optional Mutually exclusive with: write_signed, write_unsigned
@@ -427,7 +427,7 @@ minc_VolSymm:
   z: True
 minc_Volcentre:
   args: ''
-  centre: (0,)
+  centre: (0.0, 0.0, 0.0)
   clobber: True
   com: True
   environ: {}

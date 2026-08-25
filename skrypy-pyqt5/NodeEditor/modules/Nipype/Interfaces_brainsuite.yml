@@ -1,5 +1,5 @@
 brainsuite_BDP:
-  BVecBValPair: '' # Mandatory Mutually exclusive with: bMatrixFile
+  BVecBValPair: ["path", "path"] # Mandatory Mutually exclusive with: bMatrixFile
   bMatrixFile: "path" # Mandatory Mutually exclusive with: BVecBValPair
   bfcFile: "path" # Mandatory Mutually exclusive with: noStructuralRegistration
   noStructuralRegistration: True # Mandatory Mutually exclusive with: bfcFile
@@ -62,8 +62,8 @@ brainsuite_Bfc:
   inputMaskFile: "path"
   intermediate_file_type: "enumerate(('analyze','nifti','gzippedAnalyze','gzippedNifti'))"
   iterativeMode: True
-  maxBias: 0.0
-  minBias: 0.0
+  maxBias: 1.5
+  minBias: 0.5
   outputBiasField: "path"
   outputMRIVolume: "path"
   outputMaskedBiasField: "path"
@@ -72,10 +72,10 @@ brainsuite_Bfc:
   verbosityLevel: 0
 brainsuite_Bse:
   args: ''
-  diffusionConstant: 0.0
-  diffusionIterations: 0
+  diffusionConstant: 25.0
+  diffusionIterations: 3
   dilateFinalMask: True
-  edgeDetectionConstant: 0.0
+  edgeDetectionConstant: 0.64
   environ: {}
   noRotate: True
   outputCortexFile: "path"
@@ -84,13 +84,13 @@ brainsuite_Bse:
   outputEdgeMap: "path"
   outputMRIVolume: "path"
   outputMaskFile: "path"
-  radius: 0.0
+  radius: 1.0
   timer: True
   trim: True
-  verbosityLevel: 0.0
+  verbosityLevel: 1.0
 brainsuite_Cerebro:
   args: ''
-  costFunction: 0
+  costFunction: 2
   environ: {}
   inputBrainMaskFile: "path"
   keepTempFiles: True
@@ -113,7 +113,7 @@ brainsuite_Cortex:
   includeAllSubcorticalAreas: True
   outputCerebrumMask: "path"
   timer: True
-  tissueFractionThreshold: 0.0
+  tissueFractionThreshold: 50.0
   verbosity: 0
 brainsuite_Dewisp:
   args: ''
@@ -125,7 +125,7 @@ brainsuite_Dewisp:
   verbosity: 0
 brainsuite_Dfs:
   args: ''
-  curvatureWeighting: 0.0
+  curvatureWeighting: 5.0
   environ: {}
   inputShadingVolume: "path"
   noNormalsFlag: True
@@ -133,8 +133,8 @@ brainsuite_Dfs:
   outputSurfaceFile: "path"
   postSmoothFlag: True
   scalingPercentile: 0.0
-  smoothingConstant: 0.0
-  smoothingIterations: 0
+  smoothingConstant: 0.5
+  smoothingIterations: 10
   specialTessellation: "enumerate(('greater_than','less_than','equal_to'))" # Optional Mutually exclusive with: nonZeroTessellation, specialTessellation requires: tessellationThreshold
   tessellationThreshold: 0.0
   timer: True
@@ -154,18 +154,18 @@ brainsuite_Pialmesh:
   args: ''
   environ: {}
   exportPrefix: ''
-  laplacianSmoothing: 0.0
-  maxThickness: 0.0
-  normalSmoother: 0.0
-  numIterations: 0
-  outputInterval: 0
+  laplacianSmoothing: 0.025
+  maxThickness: 20.0
+  normalSmoother: 0.2
+  numIterations: 100
+  outputInterval: 10
   outputSurfaceFile: "path"
   recomputeNormals: True
-  searchRadius: 0.0
-  stepSize: 0.0
+  searchRadius: 1.0
+  stepSize: 0.4
   tangentSmoother: 0.0
   timer: True
-  tissueThreshold: 0.0
+  tissueThreshold: 1.05
   verbosity: 0
 brainsuite_Pvc:
   args: ''
@@ -179,7 +179,7 @@ brainsuite_Pvc:
   verbosity: 0
 brainsuite_Scrubmask:
   args: ''
-  backgroundFillThreshold: 0
+  backgroundFillThreshold: 2
   environ: {}
   foregroundTrimThreshold: 0
   numberIterations: 0
@@ -203,9 +203,9 @@ brainsuite_Skullfinder:
 brainsuite_Tca:
   args: ''
   environ: {}
-  foregroundDelta: 0
+  foregroundDelta: 20
   maxCorrectionSize: 0
-  minCorrectionSize: 0
+  minCorrectionSize: 2500
   outputMaskFile: "path"
   timer: True
   verbosity: 0

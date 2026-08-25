@@ -32,7 +32,7 @@ dcm2nii_Dcm2niix:
   has_private: True
   ignore_deriv: True
   merge_imgs: 0
-  name_conflicts: 1
+  name_conflicts: 2
   out_filename: ''
   output_dir: "path"
   philips_float: True

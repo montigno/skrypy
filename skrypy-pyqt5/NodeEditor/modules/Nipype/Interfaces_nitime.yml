@@ -1,9 +1,9 @@
 nitime_CoherenceAnalyzer:
-  NFFT: 0
+  NFFT: 64
   TR: 0.0
   figure_type: "enumerate(('matrix','network'))"
-  frequency_range: ''
-  in_TS: ''
+  frequency_range: [0.02, 0.15]
+  in_TS: 0.1
   in_file: "path"
   n_overlap: 0
   output_csv_file: "path"

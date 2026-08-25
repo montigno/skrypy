@@ -563,6 +563,30 @@ class ants_JointFusion:
 ###############################################################################
 
 
+class ants_KellyKapowski:
+    """
+    Note:
+        dependencies: Nipype,ants
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, segmentation_image="path", **options):
+        from nipype.interfaces.ants.segmentation import KellyKapowski
+        at = KellyKapowski()
+        at.inputs.segmentation_image = segmentation_image
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def cortical_thickness(self) -> None:
+        return self.res.outputs.cortical_thickness
+    
+    def warped_white_matter(self) -> None:
+        return self.res.outputs.warped_white_matter
+
+###############################################################################
+
+
 class ants_LabelGeometry:
     """
     Note:

@@ -47,7 +47,7 @@ niftyfit_FitAsl:
   pld: 0.0
   pv0: 0
   pv2: 0
-  pv3: (0,)
+  pv3: (3, 3, 1)
   pv_threshold: True
   seg: "path"
   segstyle: True
@@ -75,7 +75,7 @@ niftyfit_FitDwi:
   famap_file: "path"
   gn_flag: True # Optional Mutually exclusive with: wls_flag
   ivim_flag: True # Optional Mutually exclusive with: mono_flag, dti_flag, ball_flag, ballv_flag, nod_flag, nodv_flag
-  lm_vals: (0,)
+  lm_vals: (100, 1.2)
   mask_file: "path"
   maxit_val: 0
   mcmap_file: "path"
@@ -102,7 +102,7 @@ niftyfit_FitDwi:
   tenmap_file: "path"
   v1map_file: "path"
   vb_flag: True
-  voxel: (0,)
+  voxel: (0, 0, 0)
   wls_flag: True # Optional Mutually exclusive with: gn_flag
   wm_t2_val: 0.0
 niftyfit_FitQt1:
@@ -116,7 +116,7 @@ niftyfit_FitQt1:
   flips_list: "path"
   gn_flag: True
   ir_flag: True
-  lm_val: (0,)
+  lm_val: (100, 1.2)
   m0map_file: "path"
   mask: "path"
   maxit: 0
@@ -139,4 +139,4 @@ niftyfit_FitQt1:
   tis: [0.0]
   tis_list: "path"
   tr_value: 0.0
-  voxel: (0,)
+  voxel: (0, 0, 0)

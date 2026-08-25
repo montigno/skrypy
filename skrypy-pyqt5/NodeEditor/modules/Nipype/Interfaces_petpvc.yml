@@ -1,9 +1,9 @@
 petpvc_PETPVC:
-  alpha: 0.0
+  alpha: 1.5
   args: ''
-  debug: True
+  debug: False
   environ: {}
-  n_deconv: 0
-  n_iter: 0
+  n_deconv: 10
+  n_iter: 10
   out_file: "path"
-  stop_crit: 0.0
+  stop_crit: 0.01

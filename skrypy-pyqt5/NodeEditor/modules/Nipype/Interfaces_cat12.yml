@@ -1,11 +1,11 @@
 cat12_CAT12SANLMDenoising:
-  addnoise: 0.0
-  filename_prefix: ''
+  addnoise: 0.5
+  filename_prefix: 'sanlm_'
   filename_suffix: ''
-  intlim: 0
+  intlim: 100
   matlab_cmd: ''
   mfile: True
-  noisecorr_strength: ''
+  noisecorr_strength: '-Inf'
   paths: ["path"]
   replace_nan_and_inf: True
   rician: True
@@ -13,8 +13,8 @@ cat12_CAT12SANLMDenoising:
   use_mcr: True
   use_v8struct: True
 cat12_CAT12Segment:
-  affine_preprocessing: 0
-  affine_regularization: ''
+  affine_preprocessing: 1070
+  affine_regularization: 'mni'
   cobra: True
   csf_output_dartel: True
   csf_output_modulated: True
@@ -23,9 +23,9 @@ cat12_CAT12Segment:
   gm_output_modulated: True
   gm_output_native: True
   hammers: True
-  ignore_errors: 0
+  ignore_errors: 1
   initial_segmentation: 0
-  internal_resampling_process: (0,)
+  internal_resampling_process: (1.0, 0.1)
   jacobianwarped: True
   label_dartel: True
   label_native: True
@@ -33,7 +33,7 @@ cat12_CAT12Segment:
   las_dartel: True
   las_native: True
   las_warped: True
-  local_adaptive_seg: 0.0
+  local_adaptive_seg: 0.5
   lpba40: True
   matlab_cmd: ''
   mfile: True
@@ -41,22 +41,22 @@ cat12_CAT12Segment:
   output_labelnative: True
   own_atlas: ["path"]
   paths: ["path"]
-  power_spm_inhomogeneity_correction: 0.0
+  power_spm_inhomogeneity_correction: 0.5
   save_bias_corrected: True
   shooting_tpm: "path"
   shooting_tpm_template_1: "path"
   shooting_tpm_template_2: "path"
   shooting_tpm_template_3: "path"
   shooting_tpm_template_4: "path"
-  skull_strip: 0.0
-  surface_and_thickness_estimation: 0
-  surface_measures: 0
+  skull_strip: 2.0
+  surface_and_thickness_estimation: 01
+  surface_measures: 1
   tpm: ["path"]
   use_mcr: True
   use_v8struct: True
-  voxel_size: 0.0
+  voxel_size: 1.5
   warps: (0,)
-  wm_hyper_intensity_correction: 0
+  wm_hyper_intensity_correction: 1
   wm_output_dartel: True
   wm_output_modulated: True
   wm_output_native: True

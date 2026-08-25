@@ -26,7 +26,7 @@ afni_AlignEpiAnatPy:
   outputtype: "enumerate(('NIFTI','AFNI','NIFTI_GZ'))"
   py27_path: "path"
   save_skullstrip: True
-  suffix: ''
+  suffix: '_al'
   tshift: "enumerate(('on','off'))"
   volreg: "enumerate(('on','off'))"
 afni_Allineate:
@@ -551,7 +551,7 @@ afni_Notes:
 afni_NwarpAdjust:
   args: ''
   environ: {}
-  in_files: "path"
+  in_files: ["path"]
   num_threads: 1
   out_file: "path"
   outputtype: "enumerate(('NIFTI','AFNI','NIFTI_GZ'))"
@@ -605,7 +605,7 @@ afni_OutlierCount:
   out_file: "path"
   outliers_file: "path"
   polort: 0
-  qthr: 0.0
+  qthr: 0.001
   save_outliers: True
 afni_QualityIndex:
   args: ''
@@ -628,7 +628,7 @@ afni_Qwarp:
   ballopt: True # Optional Mutually exclusive with: workhard, boxopt
   bandpass: (0.0, 0.0)
   baxopt: True # Optional Mutually exclusive with: workhard, ballopt
-  blur: 0.0
+  blur: [0.0]
   duplo: True # Optional Mutually exclusive with: gridlist, maxlev, inilev, iniwarp, plusminus, allsave
   emask: "path"
   environ: {}
@@ -658,14 +658,14 @@ afni_Qwarp:
   out_weight_file: "path"
   outputtype: "enumerate(('NIFTI','AFNI','NIFTI_GZ'))"
   overwrite: True
-  pblur: 0.0
+  pblur: [0.09, 0.09]
   pear: True
   penfac: 0.0
   plusminus: True # Optional Mutually exclusive with: duplo, allsave, iwarp
   quiet: True # Optional Mutually exclusive with: verb
   resample: True
   verb: True # Optional Mutually exclusive with: quiet
-  wball: 0 # Optional Mutually exclusive with: wmask
+  wball: [0, 14, 6, 30, 40] # Optional Mutually exclusive with: wmask
   weight: "path"
   wmask: ("path", 50) # Optional Mutually exclusive with: wball
   workhard: True # Optional Mutually exclusive with: boxopt, ballopt
@@ -679,7 +679,7 @@ afni_QwarpPlusMinus:
   ballopt: True # Optional Mutually exclusive with: workhard, boxopt
   bandpass: (0.0, 0.0)
   baxopt: True # Optional Mutually exclusive with: workhard, ballopt
-  blur: 0.0
+  blur: [0.0]
   duplo: True # Optional Mutually exclusive with: gridlist, maxlev, inilev, iniwarp, plusminus, allsave
   emask: "path"
   environ: {}
@@ -709,7 +709,7 @@ afni_QwarpPlusMinus:
   out_weight_file: "path"
   outputtype: "enumerate(('NIFTI','AFNI','NIFTI_GZ'))"
   overwrite: True
-  pblur: 0.0
+  pblur: [0.09, 0.09]
   pear: True
   penfac: 0.0
   plusminus: True # Optional Mutually exclusive with: duplo, allsave, iwarp
@@ -717,7 +717,7 @@ afni_QwarpPlusMinus:
   resample: True
   source_file: "path"
   verb: True # Optional Mutually exclusive with: quiet
-  wball: 0 # Optional Mutually exclusive with: wmask
+  wball: [0, 14, 6, 30, 40] # Optional Mutually exclusive with: wmask
   weight: "path"
   wmask: ("path", 50) # Optional Mutually exclusive with: wball
   workhard: True # Optional Mutually exclusive with: boxopt, ballopt
@@ -1040,7 +1040,7 @@ afni_Undump:
   head_only: True
   mask_file: "path"
   num_threads: 1
-  orient: "enumerate(('R','L','A','P','I','S'))"
+  orient: ('R', 'A', 'I')
   out_file: "path"
   outputtype: "enumerate(('NIFTI','AFNI','NIFTI_GZ'))"
   srad: 0.0

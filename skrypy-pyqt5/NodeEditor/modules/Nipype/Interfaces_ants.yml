@@ -10,7 +10,7 @@ ants_AI:
   principal_axes: True # Optional Mutually exclusive with: blobs
   search_factor: (20, 0.12)
   search_grid: (0.0, (0.0, 0.0, 0.0))
-  transform: "enumerate(('Affine','Rigid','Similarity'))"
+  transform: ('Affine', 0.1)
   verbose: True
 ants_ANTS:
   affine_gradient_descent_option: [0.0]
@@ -35,16 +35,16 @@ ants_AffineInitializer:
   args: ''
   dimension: 3
   environ: {}
-  local_search: 0
+  local_search: 10
   num_threads: 1
   out_file: "path"
   principal_axes: True
-  radian_fraction: 0.0
-  search_factor: 0.0
+  radian_fraction: 0.1
+  search_factor: 15.0
 ants_AntsJointFusion:
-  alpha: 0.0
+  alpha: 0.1
   args: ''
-  beta: 0.0
+  beta: 2.0
   constrain_nonnegative: True
   dimension: 3
   environ: {}
@@ -52,15 +52,15 @@ ants_AntsJointFusion:
   exclusion_image_label: ['']
   mask_image: "path"
   num_threads: 1
-  out_atlas_voting_weight_name_format: ''
-  out_intensity_fusion_name_format: ''
+  out_atlas_voting_weight_name_format: "path"
+  out_intensity_fusion_name_format: "path"
   out_label_fusion: "path"
-  out_label_post_prob_name_format: ''
+  out_label_post_prob_name_format: antsJointFusionPosterior_%d.nii.gz
   patch_metric: "enumerate(('PC','MSQ'))"
-  patch_radius: 0
+  patch_radius: [2, 2, 2]
   retain_atlas_voting_images: True
   retain_label_posterior_images: True
-  search_radius: ''
+  search_radius: [3]
   verbose: True
 ants_ApplyTransforms:
   args: ''
@@ -73,7 +73,7 @@ ants_ApplyTransforms:
   interpolation_parameters: (5,)
   invert_transform_flags: [True]
   num_threads: 1
-  out_postfix: ''
+  out_postfix: '_trans'
   output_image: path
   print_out_composite_warp_file: True
 ants_ApplyTransformsToPoints:
@@ -97,7 +97,7 @@ ants_Atropos:
   n_iterations: 0
   num_threads: 1
   out_classified_image_name: "path"
-  output_posteriors_name_template: ''
+  output_posteriors_name_template: 'POSTERIOR_%02d.nii.gz'
   posterior_formulation: ''
   prior_image: "path"
   prior_probability_threshold: 0.0
@@ -120,10 +120,10 @@ ants_BrainExtraction:
   dimension: 3
   environ: {}
   extraction_registration_mask: "path"
-  image_suffix: ''
+  image_suffix: 'nii.gz'
   keep_temporary_files: 0
   num_threads: 1
-  out_prefix: ''
+  out_prefix: 'highres001'
   use_floatingpoint_precision: 0
   use_random_seeding: 0
 ants_ComposeMultiTransform:
@@ -138,14 +138,14 @@ ants_CompositeTransformUtil:
   environ: {}
   num_threads: 1
   out_file: "path"
-  output_prefix: ''
+  output_prefix: 'transform'
   process: "enumerate(('assemble','disassemble'))"
 ants_ConvertScalarImageToRGB:
   args: ''
   custom_color_map_file: ''
   environ: {}
   mask_image: "path"
-  maximum_RGB_output: 0
+  maximum_RGB_output: 255
   minimum_RGB_output: 0
   num_threads: 1
   output_image: path
@@ -157,12 +157,12 @@ ants_CorticalThickness:
   dimension: 3
   environ: {}
   extraction_registration_mask: "path"
-  image_suffix: ''
+  image_suffix: 'nii.gz'
   keep_temporary_files: 0
   label_propagation: ''
   max_iterations: 0
   num_threads: 1
-  out_prefix: ''
+  out_prefix: 'antsCT_'
   posterior_formulation: ''
   prior_segmentation_weight: 0.0
   quick_registration: True
@@ -176,7 +176,7 @@ ants_CreateJacobianDeterminantImage:
   num_threads: 1
   useGeometric: 0
 ants_CreateTiledMosaic:
-  alpha_value: 0.0
+  alpha_value: 0.1
   args: ''
   direction: 0
   environ: {}
@@ -197,20 +197,20 @@ ants_DenoiseImage:
   noise_model: "enumerate(('Gaussian','Rician'))"
   num_threads: 1
   output_image: path
-  shrink_factor: 0
+  shrink_factor: 1
   verbose: True
 ants_ImageMath:
   args: ''
   copy_header: True
-  dimension: 0
+  dimension: 3
   environ: {}
   num_threads: 1
   op2: "path"
   output_image: path
 ants_JointFusion:
-  alpha: 0.0
+  alpha: 0.1
   args: ''
-  beta: 0.0
+  beta: 2.0
   constrain_nonnegative: True
   dimension: 3
   environ: {}
@@ -218,16 +218,36 @@ ants_JointFusion:
   exclusion_image_label: ['']
   mask_image: "path"
   num_threads: 1
-  out_atlas_voting_weight_name_format: ''
-  out_intensity_fusion_name_format: ''
+  out_atlas_voting_weight_name_format: "path"
+  out_intensity_fusion_name_format: "path"
   out_label_fusion: "path"
-  out_label_post_prob_name_format: ''
+  out_label_post_prob_name_format: "path"
   patch_metric: "enumerate(('PC','MSQ'))"
-  patch_radius: 0
+  patch_radius: [2, 2, 2]
   retain_atlas_voting_images: True
   retain_label_posterior_images: True
-  search_radius: ''
+  search_radius: [3]
   verbose: True
+ants_KellyKapowski:
+  args: ''
+  convergence: '[50,0.001,10]'
+  cortical_thickness: path
+  dimension: 3
+  environ: {}
+  gradient_step: 0.025
+  gray_matter_label: 2
+  gray_matter_prob_image: path
+  max_invert_displacement_field_iters: 20
+  num_threads: 1
+  number_integration_points: 10
+  smoothing_variance: 1.0
+  smoothing_velocity_field: 1.5
+  thickness_prior_estimate: 10
+  thickness_prior_image: path
+  use_bspline_smoothing: true
+  warped_white_matter: path
+  white_matter_label: 3
+  white_matter_prob_image: path
 ants_LabelGeometry:
   args: ''
   dimension: 3
@@ -249,7 +269,7 @@ ants_MeasureImageSimilarity:
   dimension: 3
   environ: {}
   fixed_image_mask: "path"
-  metric_weight: 0.0
+  metric_weight: 1.0
   moving_image_mask: "path"
   num_threads: 1
   sampling_strategy: "enumerate(('None','Regular','Random'))"
@@ -272,13 +292,13 @@ ants_N4BiasFieldCorrection:
   num_threads: 1
   output_image: path
   rescale_intensities: True
-  shrink_factor: 0
+  shrink_factor: 1
   weight_image: "path"
 ants_Registration:
   args: ''
   collapse_output_transforms: True
-  convergence_threshold: 0.0
-  convergence_window_size: 0
+  convergence_threshold: [0.000006]
+  convergence_window_size: [10]
   dimension: 3
   environ: {}
   fixed_image_mask: "path" # Optional Mutually exclusive with: fixed_image_masks
@@ -292,16 +312,16 @@ ants_Registration:
   invert_initial_moving_transform: [True] # Optional Mutually exclusive with: initial_moving_transform_com requires: initial_moving_transform
   metric_item_trait: "enumerate(('CC','MeanSquares','Demons','GC','MI','Mattes'))"
   metric_stage_trait: "enumerate(('CC','MeanSquares','Demons','GC','MI','Mattes'))"
-  metric_weight_item_trait: 0.0
+  metric_weight_item_trait: 1.0
   metric_weight_stage_trait: [0.0]
   moving_image_mask: "path" # Optional Mutually exclusive with: moving_image_masks requires: fixed_image_mask
   moving_image_masks: ["path"] # Optional Mutually exclusive with: moving_image_mask
   num_threads: 1
   number_of_iterations: [[0]]
   output_inverse_warped_image: "path"
-  output_transform_prefix: ''
+  output_transform_prefix: 'transform'
   output_warped_image: "path"
-  radius_bins_item_trait: 0
+  radius_bins_item_trait: 5
   radius_bins_stage_trait: [0]
   radius_or_number_of_bins: [0]
   random_seed: 0
@@ -315,37 +335,38 @@ ants_Registration:
   sampling_strategy_stage_trait: "enumerate(('None','Regular','Random'))"
   save_state: "path"
   sigma_units: "enumerate(('mm','vox'))"
+  shrink_factors: [[2,1], [3,2,1]]
   transform_parameters: [(2.0,), (0.25, 26, 0, 3)]
   use_estimate_learning_rate_once: [True]
   use_histogram_matching: [True]
   verbose: True
   winsorize_lower_quantile: 0.0
-  winsorize_upper_quantile: 0.0
+  winsorize_upper_quantile: 1.0
   write_composite_transform: True
 ants_RegistrationSynQuick:
   args: ''
   dimension: 3
   environ: {}
-  histogram_bins: 0
+  histogram_bins: 32
   num_threads: 1
   output_prefix: ''
   precision_type: "enumerate(('double','float'))"
   random_seed: 0
-  spline_distance: 0
+  spline_distance: 26
   transform_type: "enumerate(('s','t','r','a','sr','b','br'))"
   use_histogram_matching: True
 ants_ResampleImageBySpacing:
   addvox: 0
   apply_smoothing: True
   args: ''
-  dimension: 0
+  dimension: 3
   environ: {}
   nn_interp: True
   num_threads: 1
   output_image: path
 ants_ThresholdImage:
   args: ''
-  dimension: 0
+  dimension: 3
   environ: {}
   input_mask: "path"
   inside_value: 0.0
@@ -362,7 +383,7 @@ ants_WarpImageMultiTransform:
   environ: {}
   invert_affine: [0]
   num_threads: 1
-  out_postfix: "path" # Optional Mutually exclusive with: output_image
+  out_postfix: "_wtsimt" # Optional Mutually exclusive with: output_image
   output_image: path # Optional Mutually exclusive with: out_postfix
   reference_image: "path" # Optional Mutually exclusive with: tightest_box
   reslice_by_header: True
@@ -375,7 +396,7 @@ ants_WarpTimeSeriesImageMultiTransform:
   environ: {}
   invert_affine: [0]
   num_threads: 1
-  out_postfix: ''
+  out_postfix: '_wtsimt'
   reference_image: "path" # Optional Mutually exclusive with: tightest_box
   reslice_by_header: True
   tightest_box: True # Optional Mutually exclusive with: reference_image

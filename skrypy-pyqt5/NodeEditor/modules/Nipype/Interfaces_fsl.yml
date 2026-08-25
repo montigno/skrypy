@@ -7,6 +7,9 @@ fsl_AR1Image:
   out_file: "path"
   output_datatype: "enumerate(('float','char','int','short','double','input'))"
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
+fsl_AccuracyTester:
+  args: ''
+  environ: {}
 fsl_ApplyMask:
   args: ''
   environ: {}
@@ -39,7 +42,7 @@ fsl_ApplyWarp:
   postmat: "path"
   premat: "path"
   relwarp: True # Optional Mutually exclusive with: abswarp
-  superlevel: 0
+  superlevel: 2
   supersample: True
 fsl_ApplyXFM:
   angle_rep: "enumerate(('quaternion','euler'))"
@@ -80,9 +83,9 @@ fsl_ApplyXFM:
   rigid2D: True
   save_log: True
   schedule: "path"
-  searchr_x: 0
-  searchr_y: 0
-  searchr_z: 0
+  searchr_x: [0, 0]
+  searchr_y: [0, 0]
+  searchr_z: [0, 0]
   sinc_width: 0
   sinc_window: "enumerate(('rectangular','hanning','blackman'))"
   uses_qform: True
@@ -108,10 +111,10 @@ fsl_B0Calc:
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
   x_b0: 0.0 # Optional Mutually exclusive with: xyz_b0
   x_grad: 0.0
-  xyz_b0: (0,) # Optional Mutually exclusive with: x_b0, y_b0, z_b0
+  xyz_b0: (0.0, 0.0, 0.0) # Optional Mutually exclusive with: x_b0, y_b0, z_b0
   y_b0: 0.0 # Optional Mutually exclusive with: xyz_b0
   y_grad: 0.0
-  z_b0: 0.0 # Optional Mutually exclusive with: xyz_b0
+  z_b0: 1.0 # Optional Mutually exclusive with: xyz_b0
   z_grad: 0.0
 fsl_BEDPOSTX:
   all_ard: True # Optional Mutually exclusive with: no_ard, all_ard
@@ -127,16 +130,16 @@ fsl_BEDPOSTX:
   grad_dev: "path"
   gradnonlin: True
   logdir: "path"
-  model: ''
-  n_jumps: 0
+  model: 1
+  n_jumps: 5000
   no_ard: True # Optional Mutually exclusive with: no_ard, all_ard
   no_spat: True # Optional Mutually exclusive with: no_spat, non_linear, cnlinear
   non_linear: True # Optional Mutually exclusive with: no_spat, non_linear, cnlinear
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
   rician: True
-  sample_every: 0
+  sample_every: 1
   seed: 0
-  update_proposal_every: 0
+  update_proposal_every: 40
   use_gpu: True
 fsl_BEDPOSTX5:
   all_ard: True # Optional Mutually exclusive with: no_ard, all_ard
@@ -152,20 +155,20 @@ fsl_BEDPOSTX5:
   grad_dev: "path"
   gradnonlin: True
   logdir: "path"
-  model: ''
-  n_jumps: 0
+  model: 1
+  n_jumps: 5000
   no_ard: True # Optional Mutually exclusive with: no_ard, all_ard
   no_spat: True # Optional Mutually exclusive with: no_spat, non_linear, cnlinear
   non_linear: True # Optional Mutually exclusive with: no_spat, non_linear, cnlinear
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
   rician: True
-  sample_every: 0
+  sample_every: 1
   seed: 0
-  update_proposal_every: 0
+  update_proposal_every: 40
   use_gpu: True
 fsl_BET:
   args: ''
-  center: 0
+  center: [0, 0, 0]
   environ: {}
   frac: 0.0
   functional: True # Optional Mutually exclusive with: functional, reduce_bias, robust, padding, remove_eyes, surfaces, t2_guided
@@ -202,6 +205,20 @@ fsl_ChangeDataType:
   nan2zeros: True
   out_file: "path"
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
+fsl_Classifier:
+  args: ''
+  artifacts_list_file: path
+  environ: {}
+  mel_ica: path
+fsl_Cleaner:
+  aggressive: true
+  args: ''
+  cleanup_motion: true
+  confound_file: path
+  confound_file_1: path
+  confound_file_2: path
+  environ: {}
+  highpass: 100
 fsl_Cluster:
   args: ''
   connectivity: 0
@@ -254,7 +271,7 @@ fsl_Complex:
   start_vol: 0
 fsl_ContrastMgr:
   args: ''
-  contrast_num: 0
+  contrast_num: 1
   environ: {}
   fcon_file: "path"
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
@@ -294,7 +311,7 @@ fsl_CopyGeom:
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
 fsl_DTIFit:
   args: ''
-  base_name: ''
+  base_name: 'dtifit'
   cni: "path"
   environ: {}
   gradnonlin: "path"
@@ -327,19 +344,28 @@ fsl_DistanceMap:
   local_max_file: "path"
   mask_file: "path"
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
+fsl_DualRegression:
+  args: ''
+  con_file: path
+  des_norm: true
+  design_file: path
+  environ: {}
+  one_sample_group_mean: true
+  out_dir: output
+  output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
 fsl_EPIDeWarp:
   args: ''
   cleanup: True
   environ: {}
   epi_file: "path"
   epidw: "path"
-  esp: 0.0
+  esp: 0.58
   exf_file: "path"
   exfdw: "path"
   nocleanup: True
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
-  sigma: 0
-  tediff: 0.0
+  sigma: 2
+  tediff: 2.46
   tmpdir: "path"
   vsm: "path"
 fsl_Eddy:
@@ -353,7 +379,7 @@ fsl_Eddy:
   field: "path"
   field_mat: "path"
   flm: "enumerate(('quadratic','linear','cubic'))"
-  fudge_factor: 0.0
+  fudge_factor: 10.0
   fwhm: 0.0
   in_topup_fieldcoef: "path"
   in_topup_movpar: "path"
@@ -363,14 +389,14 @@ fsl_Eddy:
   json: "path" # Optional Mutually exclusive with: slice_order requires: mporder
   mbs_ksp: 0
   mbs_lambda: 0
-  mbs_niter: 0
+  mbs_niter: 5
   method: "enumerate(('jac','lsr'))"
   mporder: 0
   multiband_factor: 0
   multiband_offset: 0
   niter: 0
-  num_threads: 0
-  nvoxhp: 0
+  num_threads: 1
+  nvoxhp: 1000
   out_base: "path"
   outlier_nstd: 0
   outlier_nvox: 0
@@ -394,7 +420,7 @@ fsl_EddyCorrect:
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
 fsl_EddyQuad:
   args: ''
-  base_name: ''
+  base_name: 'eddy_corrected'
   bvec_file: "path"
   environ: {}
   field: "path"
@@ -411,7 +437,7 @@ fsl_EpiReg:
   fmapmagbrain: "path"
   no_clean: True
   no_fmapreg: True
-  out_base: ''
+  out_base: 'epi2struct'
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
   pedir: "enumerate(('x','y','z','-x','-y','-z'))"
   weight_image: "path"
@@ -444,26 +470,26 @@ fsl_ExtractROI:
   z_size: 0
 fsl_FAST:
   args: ''
-  bias_iters: 0
-  bias_lowpass: 0
+  bias_iters: 1
+  bias_lowpass: 4
   environ: {}
   hyper: 0.0
-  img_type: ''
-  init_seg_smooth: 0.0
+  img_type: 1
+  init_seg_smooth: 0.0001
   init_transform: "path"
-  iters_afterbias: 0
+  iters_afterbias: 1
   manual_seg: "path"
   mixel_smooth: 0.0
   no_bias: True
   no_pve: True
-  number_classes: 0
-  other_priors: "path"
+  number_classes: 1
+  other_priors: ["path", "path", "path"]
   out_basename: "path"
   output_biascorrected: True
   output_biasfield: True
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
   probability_maps: True
-  segment_iters: 0
+  segment_iters: 1
   segments: True
   use_priors: True
   verbose: True
@@ -476,7 +502,7 @@ fsl_FEATModel:
   environ: {}
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
 fsl_FEATRegister:
-  reg_dof: 0
+  reg_dof: 12
 fsl_FILMGLS:
   args: ''
   autocorr_estimate_only: True # Optional Mutually exclusive with: autocorr_estimate_only, fit_armodel, tukey_window, multitaper_product, use_pava, autocorr_noestimate
@@ -496,7 +522,7 @@ fsl_FILMGLS:
   smooth_autocorr: True
   surface: "path"
   tcon_file: "path"
-  threshold: 0.0
+  threshold: 1000.0
   tukey_window: 0 # Optional Mutually exclusive with: autocorr_estimate_only, fit_armodel, tukey_window, multitaper_product, use_pava, autocorr_noestimate
   use_pava: True
 fsl_FIRST:
@@ -504,7 +530,7 @@ fsl_FIRST:
   args: ''
   brain_extracted: True
   environ: {}
-  list_of_specific_structures: ''
+  list_of_specific_structures: ['']
   method: "enumerate(('auto','fast','none'))" # Optional Mutually exclusive with: method_as_numerical_threshold
   method_as_numerical_threshold: 0.0
   no_cleanup: True
@@ -523,7 +549,7 @@ fsl_FLAMEO:
   no_pe_outputs: True
   outlier_iter: 0
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
-  sample_every: 0
+  sample_every: 1
   sigma_dofs: 0
   var_cope_file: "path"
 fsl_FLIRT:
@@ -565,9 +591,9 @@ fsl_FLIRT:
   rigid2D: True
   save_log: True
   schedule: "path"
-  searchr_x: 0
-  searchr_y: 0
-  searchr_z: 0
+  searchr_x: [0, 0]
+  searchr_y: [0, 0]
+  searchr_z: [0, 0]
   sinc_width: 0
   sinc_window: "enumerate(('rectangular','hanning','blackman'))"
   uses_qform: True
@@ -582,7 +608,7 @@ fsl_FNIRT:
   apply_refmask: [0] # Optional Mutually exclusive with: skip_refmask
   args: ''
   bias_regularization_lambda: 0.0
-  biasfield_resolution: (0,)
+  biasfield_resolution: (50, 50, 50)
   config_file: "enumerate(('T1_2_MNI152_2mm','FA_2_FMRIB58_1mm'))"
   derive_from_ref: True
   environ: {}
@@ -590,14 +616,14 @@ fsl_FNIRT:
   fieldcoeff_file: "path"
   hessian_precision: "enumerate(('double','float'))"
   in_fwhm: [0]
-  in_intensitymap_file: "path"
+  in_intensitymap_file: ["path"]
   inmask_file: "path"
   inmask_val: 0.0
   intensity_mapping_model: "enumerate(('none','global_linear','global_non_linear','local_linear','global_non_linear_with_bias','local_non_linear'))"
   intensity_mapping_order: 0
   inwarp_file: "path"
   jacobian_file: "path"
-  jacobian_range: (0,)
+  jacobian_range: (0.0, 0.0)
   log_file: "path"
   max_nonlin_iter: [0]
   modulatedref_file: "path"
@@ -616,7 +642,7 @@ fsl_FNIRT:
   skip_refmask: True # Optional Mutually exclusive with: apply_refmask
   spline_order: 0
   subsampling_scheme: [0]
-  warp_resolution: (0,)
+  warp_resolution: (10, 10, 10)
   warped_file: "path"
 fsl_FUGUE:
   args: ''
@@ -669,6 +695,36 @@ fsl_FindTheBiggest:
   environ: {}
   out_file: "path"
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
+fsl_FSLCommand:
+  args: ''
+  environ: {}
+  output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
+fsl_FSLXCommand:
+  all_ard: true # Optional Mutually exclusive with: no_ard, all_ard
+  args: ''
+  burn_in: 0
+  burn_in_no_ard: 0
+  cnlinear: true # Optional Mutually exclusive with: no_spat, non_linear, cnlinear
+  environ: {}
+  f0_ard: true # Optional Mutually exclusive with: f0_noard, f0_ard, all_ard
+  f0_noard: true # Optional Mutually exclusive with: f0_noard, f0_ard
+  force_dir: true
+  fudge: 0
+  logdir: .
+  model: 1
+  n_jumps: 5000
+  no_ard: true # Optional Mutually exclusive with: no_ard, all_ard
+  no_spat: true # Optional Mutually exclusive with: no_spat, non_linear, cnlinear
+  non_linear: true # Optional Mutually exclusive with: no_spat, non_linear, cnlinear
+  output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
+  rician: true
+  sample_every: 1
+  seed: 0
+  update_proposal_every: 40
+fsl_FeatureExtractor:
+  args: ''
+  environ: {}
+  mel_ica: "path"
 fsl_GLM:
   args: ''
   contrasts: "path"
@@ -720,7 +776,7 @@ fsl_ImageMeants:
   environ: {}
   mask: "path"
   nobin: True
-  order: 0
+  order: 1
   out_file: "path"
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
   show_all: True
@@ -840,6 +896,23 @@ fsl_MakeDyadicVectors:
   output: "path"
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
   perc: 0.0
+fsl_MathsCommand:
+  args: ''
+  environ: {}
+  internal_datatype: "enumerate(('float','char','int','short','double','input'))"
+  nan2zeros: true
+  out_file: path
+  output_datatype: "enumerate(('float','char','int','short','double','input'))"
+  output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
+fsl_MaxImage:
+  args: ''
+  dimension: "enumerate(('T','X','Y','Z'))"
+  environ: {}
+  internal_datatype: "enumerate(('float','char','int','short','double','input'))"
+  nan2zeros: true
+  out_file: path
+  output_datatype: "enumerate(('float','char','int','short','double','input'))"
+  output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
 fsl_MaxnImage:
   args: ''
   dimension: "enumerate(('T','X','Y','Z'))"
@@ -906,7 +979,7 @@ fsl_MultipleRegressDesign:
   groups: [0]
 fsl_Overlay:
   auto_thresh_bg: True # Mandatory Mutually exclusive with: auto_thresh_bg, full_bg_range, bg_thresh
-  bg_thresh: (0,) # Mandatory Mutually exclusive with: auto_thresh_bg, full_bg_range, bg_thresh
+  bg_thresh: (0.0, 0.0) # Mandatory Mutually exclusive with: auto_thresh_bg, full_bg_range, bg_thresh
   full_bg_range: True # Mandatory Mutually exclusive with: auto_thresh_bg, full_bg_range, bg_thresh
   args: ''
   environ: {}
@@ -915,7 +988,7 @@ fsl_Overlay:
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
   show_negative_stats: True # Optional Mutually exclusive with: stat_image2
   stat_image2: "path" # Optional Mutually exclusive with: show_negative_stats
-  stat_thresh2: (0,)
+  stat_thresh2: (0.0, 0.0)
   transparency: True
   use_checkerboard: True
 fsl_PRELUDE:
@@ -953,7 +1026,7 @@ fsl_PlotMotionParams:
   environ: {}
   out_file: "path"
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
-  plot_size: (0,)
+  plot_size: (0, 0)
 fsl_PlotTimeSeries:
   args: ''
   environ: {}
@@ -962,16 +1035,16 @@ fsl_PlotTimeSeries:
   out_file: "path"
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
   plot_finish: 0 # Optional Mutually exclusive with: plot_range
-  plot_range: (0,) # Optional Mutually exclusive with: plot_start, plot_finish
-  plot_size: (0,)
+  plot_range: (0, 0) # Optional Mutually exclusive with: plot_start, plot_finish
+  plot_size: (0, 0)
   plot_start: 0 # Optional Mutually exclusive with: plot_range
   sci_notation: True
   title: ''
   x_precision: 0
-  x_units: 0
+  x_units: 1
   y_max: 0.0 # Optional Mutually exclusive with: y_range
   y_min: 0.0 # Optional Mutually exclusive with: y_range
-  y_range: (0,) # Optional Mutually exclusive with: y_min, y_max
+  y_range: (0.0, 0.0) # Optional Mutually exclusive with: y_min, y_max
 fsl_PowerSpectrum:
   args: ''
   environ: {}
@@ -983,31 +1056,63 @@ fsl_PrepareFieldmap:
   nocheck: True
   out_fieldmap: "path"
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
-  scanner: ''
+  scanner: 'SIEMENS'
 fsl_ProbTrackX:
+  args: ''
+  avoid_mp: "path"
+  c_thresh: 0.0
   correct_path_distribution: True
+  dist_thresh: 0.0
+  environ: {}
+  fibst: 1
   force_dir: True
+  inv_xfm: "path"
+  loop_check: True
   mask2: "path"
   mesh: "path"
   mode: "enumerate(('simple','two_mask_symm','seedmask'))"
+  mod_euler: True
   network: True
+  n_samples: 5000
+  n_steps: 2000
   opd: True
   os2t: True
   out_dir: "path"
-  samples_base_name: ''
+  output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
+  rand_fib: 0
+  random_seed: 0
+  s2tastext: True
+  samples_base_name: 'merged'
+  sample_random_points: 0.0
   seed_ref: "path"
+  step_length: 0.0
+  stop_mask: "path"
   target_masks: ["path"]
+  use_anisotropy: True
+  verbose: 0
   waypoints: "path"
+  xfm: path
 fsl_ProbTrackX2:
+  args: ''
+  avoid_mp: "path"
+  c_thresh: 0.0
   colmask4: "path"
   correct_path_distribution: True
+  dist_thresh: 0.0
   distthresh1: 0.0
   distthresh3: 0.0
+  environ: {}
+  fibst: 1
   fopd: "path"
   force_dir: True
+  inv_xfm: path
+  loop_check: True
   lrtarget3: "path"
   meshspace: "enumerate(('caret','freesurfer','first','vox'))"
   network: True
+  mod_euler: True
+  n_samples: 5000
+  n_steps: 2000
   omatrix1: True
   omatrix2: True
   omatrix3: True
@@ -1016,23 +1121,33 @@ fsl_ProbTrackX2:
   opd: True
   os2t: True
   out_dir: "path"
-  samples_base_name: ''
+  output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
+  rand_fib: 0
+  random_seed: 0
+  s2tastext: True
+  samples_base_name: 'merged'
+  sample_random_points: 0.0
   seed_ref: "path"
   simple: True
+  step_length: 0.0
+  stop_mask: "path"
   target2: "path"
   target3: "path"
   target4: "path"
   target_masks: ["path"]
+  use_anisotropy: True
+  verbose: 0
   waycond: "enumerate(('OR','AND'))"
   wayorder: True
   waypoints: "path"
+  xfm: path
 fsl_ProjThresh:
   args: ''
   environ: {}
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
 fsl_Randomise:
   args: ''
-  base_name: ''
+  base_name: 'randomise'
   c_thresh: 0.0
   cm_thresh: 0.0
   demean: True
@@ -1079,11 +1194,11 @@ fsl_SMM:
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
 fsl_SUSAN:
   args: ''
-  dimension: ''
+  dimension: 3
   environ: {}
   out_file: "path"
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
-  usans: (0,)
+  usans: ("path", 0.0)
   use_median: 1
 fsl_SigLoss:
   args: ''
@@ -1108,7 +1223,7 @@ fsl_SliceTimer:
   interleaved: True
   out_file: "path"
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
-  slice_direction: ''
+  slice_direction: 3
   time_repetition: 0.0
 fsl_Slicer:
   all_axial: True # Optional Mutually exclusive with: single_slice, middle_slices, all_axial, sample_axial requires: image_width
@@ -1118,7 +1233,7 @@ fsl_Slicer:
   environ: {}
   image_edges: "path"
   image_width: 0
-  intensity_range: (0,)
+  intensity_range: (0.0, 0.0)
   label_slices: True
   middle_slices: True # Optional Mutually exclusive with: single_slice, middle_slices, all_axial, sample_axial
   nearest_neighbour: True
@@ -1160,6 +1275,15 @@ fsl_Split:
   environ: {}
   out_base_name: ''
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
+fsl_StdImage:
+  args: ''
+  dimension: "enumerate(('T','X','Y','Z'))"
+  environ: {}
+  internal_datatype: "enumerate(('float','char','int','short','double','input'))"
+  nan2zeros: true
+  out_file: path
+  output_datatype: "enumerate(('float','char','int','short','double','input'))"
+  output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
 fsl_SwapDimensions:
   args: ''
   environ: {}
@@ -1170,7 +1294,7 @@ fsl_TOPUP:
   encoding_file: "path" # Mandatory Mutually exclusive with: encoding_direction
   readout_times: [0.0] # Mandatory Mutually exclusive with: encoding_file requires: encoding_direction
   args: ''
-  config: ''
+  config: 'b02b0.cnf'
   environ: {}
   estmov: 1
   fwhm: 0.0
@@ -1181,10 +1305,10 @@ fsl_TOPUP:
   out_base: "path"
   out_corrected: "path"
   out_field: "path"
-  out_jac_prefix: ''
+  out_jac_prefix: 'jac'
   out_logfile: "path"
-  out_mat_prefix: ''
-  out_warp_prefix: ''
+  out_mat_prefix: 'xfm'
+  out_warp_prefix: 'warpfield'
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
   reg_lambda: 0.0
   regmod: "enumerate(('bending_energy','membrane_energy'))"
@@ -1197,9 +1321,9 @@ fsl_TOPUP:
 fsl_TemporalFilter:
   args: ''
   environ: {}
-  highpass_sigma: 0.0
+  highpass_sigma: -1.0
   internal_datatype: "enumerate(('float','char','int','short','double','input'))"
-  lowpass_sigma: 0.0
+  lowpass_sigma: -1.0
   nan2zeros: True
   out_file: "path"
   output_datatype: "enumerate(('float','char','int','short','double','input'))"
@@ -1233,6 +1357,12 @@ fsl_TractSkeleton:
   skeleton_file: "path"
   threshold: 0.0
   use_cingulum_mask: True # Optional Mutually exclusive with: search_mask_file
+fsl_Training:
+  args: ''
+  environ: {}
+  loo: true
+  mel_icas: ["path"]
+  trained_wts_filestem: ''
 fsl_TrainingSetCreator:
   mel_icas_in: ["path"]
 fsl_UnaryMaths:
@@ -1287,12 +1417,12 @@ fsl_WarpPointsToStd:
 fsl_WarpUtils:
   args: ''
   environ: {}
-  knot_space: (0,)
+  knot_space: (0, 0, 0)
   out_file: "path"
   out_format: "enumerate(('spline','field'))"
   out_jacobian: "path"
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
-  warp_resolution: (0,)
+  warp_resolution: (10.0, 10.0, 10.0)
   with_affine: True
 fsl_XFibres:
   all_ard: True # Optional Mutually exclusive with: no_ard, all_ard
@@ -1307,16 +1437,16 @@ fsl_XFibres:
   fudge: 0
   gradnonlin: "path"
   logdir: "path"
-  model: ''
-  n_jumps: 0
+  model: 1
+  n_jumps: 5000
   no_ard: True # Optional Mutually exclusive with: no_ard, all_ard
   no_spat: True # Optional Mutually exclusive with: no_spat, non_linear, cnlinear
   non_linear: True # Optional Mutually exclusive with: no_spat, non_linear, cnlinear
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
   rician: True
-  sample_every: 0
+  sample_every: 1
   seed: 0
-  update_proposal_every: 0
+  update_proposal_every: 40
 fsl_XFibres5:
   all_ard: True # Optional Mutually exclusive with: no_ard, all_ard
   args: ''
@@ -1330,13 +1460,13 @@ fsl_XFibres5:
   fudge: 0
   gradnonlin: "path"
   logdir: "path"
-  model: ''
-  n_jumps: 0
+  model: 1
+  n_jumps: 5000
   no_ard: True # Optional Mutually exclusive with: no_ard, all_ard
   no_spat: True # Optional Mutually exclusive with: no_spat, non_linear, cnlinear
   non_linear: True # Optional Mutually exclusive with: no_spat, non_linear, cnlinear
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
   rician: True
-  sample_every: 0
+  sample_every: 1
   seed: 0
-  update_proposal_every: 0
+  update_proposal_every: 40

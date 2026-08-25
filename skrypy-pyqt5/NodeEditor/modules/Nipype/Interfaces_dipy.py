@@ -237,7 +237,7 @@ class dipy_StreamlineTractography:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", gfa_thresh=0.0, peak_threshold=0.0, min_angle=0.0, multiprocess=True, save_seeds=True, num_seeds=0, **options):
+    def __init__(self, in_file="path", gfa_thresh=0.2, peak_threshold=0.5, min_angle=25.0, multiprocess=True, save_seeds=True, num_seeds=1000, **options):
         from nipype.interfaces.dipy.tracks import StreamlineTractography
         at = StreamlineTractography()
         at.inputs.in_file = in_file
