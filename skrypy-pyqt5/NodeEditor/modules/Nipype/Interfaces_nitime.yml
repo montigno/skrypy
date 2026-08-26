@@ -4,7 +4,7 @@ nitime_CoherenceAnalyzer:
   figure_type: "enumerate(('matrix','network'))"
   frequency_range: [0.02, 0.15]
   in_TS: 0.1
-  in_file: "path"
+  in_file: "path" # Optional requires: [TR]
   n_overlap: 0
   output_csv_file: "path"
   output_figure_file: "path"

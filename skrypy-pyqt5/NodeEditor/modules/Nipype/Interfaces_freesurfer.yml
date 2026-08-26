@@ -36,7 +36,7 @@ freesurfer_ApplyMask:
   xfm_source: "path"
   xfm_target: "path"
 freesurfer_ApplyVolTransform:
-  fs_target: True # Mandatory Mutually exclusive with: [target_file, tal, fs_target]
+  fs_target: True # Mandatory Mutually exclusive with: [target_file, tal, fs_target]; requires: [reg_file]
   fsl_reg_file: "path" # Mandatory Mutually exclusive with: [reg_file, lta_file, lta_inv_file, fsl_reg_file, xfm_reg_file, reg_header, mni_152_reg, subject]
   lta_file: "path" # Mandatory Mutually exclusive with: [reg_file, lta_file, lta_inv_file, fsl_reg_file, xfm_reg_file, reg_header, mni_152_reg, subject]
   lta_inv_file: "path" # Mandatory Mutually exclusive with: [reg_file, lta_file, lta_inv_file, fsl_reg_file, xfm_reg_file, reg_header, mni_152_reg, subject]
@@ -51,9 +51,9 @@ freesurfer_ApplyVolTransform:
   environ: {}
   interp: "enumerate(('trilin','nearest','cubic'))"
   inverse: True
-  invert_morph: True
+  invert_morph: True # Optional requires: [m3z_file]
   m3z_file: "path"
-  no_ded_m3z_path: True
+  no_ded_m3z_path: True # Optional requires: [m3z_file]
   no_resample: True
   subjects_dir: "path"
   tal_resolution: 0.0
@@ -178,8 +178,8 @@ freesurfer_ConcatenateLTA:
   out_type: "enumerate(('VOX2VOX','RAS2RAS'))"
   subject: ''
   subjects_dir: "path"
-  tal_source_file: "path"
-  tal_template_file: "path"
+  tal_source_file: "path" # Optional requires: [tal_template_file]
+  tal_template_file: "path" # Optional requires: [tal_source_file]
 freesurfer_Contrast:
   args: ''
   copy_inputs: True
@@ -210,9 +210,9 @@ freesurfer_DICOMConvert:
   dicom_info: "path"
   environ: {}
   file_mapping: [("",)]
-  ignore_single_slice: True
+  ignore_single_slice: True # Optional requires: [dicom_info]
   out_type: "enumerate(('cor','mgh','mgz','minc','analyze','analyze4d','spm','afni','brik','bshort','bfloat','sdt','outline','otl','gdf','nifti1','nii','niigz'))"
-  seq_list: ['']
+  seq_list: [''] # Optional requires: [dicom_info]
   subject_dir_template: ''
   subject_id: ''
   subjects_dir: "path"
@@ -315,7 +315,7 @@ freesurfer_GLMFit:
   simulation: ("perm", 0, 0.0, "")
   subject_id: ''
   subjects_dir: "path"
-  surf: True
+  surf: True # Optional requires: [subject_id, hemi]
   surf_geo: 'white'
   synth: True
   uniform: (0.0, 0.0)
@@ -364,7 +364,7 @@ freesurfer_GTMPVC:
   psf_row: 0.0
   psf_slice: 0.0
   pvc_dir: ''
-  rbv: True
+  rbv: True # Optional requires: [subjects_dir]
   rbv_res: 0.0
   reduce_fox_eqodd: True
   replace: (0, 0)
@@ -423,7 +423,7 @@ freesurfer_Label2Label:
   registration_method: "enumerate(('surface','volume'))"
   subjects_dir: "path"
 freesurfer_Label2Vol:
-  annot_file: "path" # Mandatory Mutually exclusive with: [label_file, annot_file, seg_file, aparc_aseg]
+  annot_file: "path" # Mandatory Mutually exclusive with: [label_file, annot_file, seg_file, aparc_aseg]; requires: [subject_id, hemi]
   aparc_aseg: True # Mandatory Mutually exclusive with: [label_file, annot_file, seg_file, aparc_aseg]
   label_file: ["path"] # Mandatory Mutually exclusive with: [label_file, annot_file, seg_file, aparc_aseg]
   seg_file: "path" # Mandatory Mutually exclusive with: [label_file, annot_file, seg_file, aparc_aseg]
@@ -437,7 +437,7 @@ freesurfer_Label2Vol:
   label_voxel_volume: 0.0
   map_label_stat: "path"
   native_vox2ras: True
-  proj: "enumerate(('abs','frac'))"
+  proj: "enumerate(('abs','frac'))" # Optional requires: [subject_id, hemi]
   reg_file: "path" # Optional Mutually exclusive with: [reg_file, reg_header, identity]
   reg_header: "path" # Optional Mutually exclusive with: [reg_file, reg_header, identity]
   subject_id: ''
@@ -550,7 +550,7 @@ freesurfer_MRIConvert:
   zero_outlines: True
 freesurfer_MRICoreg:
   reference_file: "path" # Mandatory Mutually exclusive with: [subject_id]
-  subject_id: '' # Mandatory Mutually exclusive with: [reference_file]
+  subject_id: '' # Mandatory Mutually exclusive with: [reference_file]; requires: [subjects_dir]
   args: ''
   brute_force_limit: 0.0 # Optional Mutually exclusive with: [no_brute_force]
   brute_force_samples: 0 # Optional Mutually exclusive with: [no_brute_force]
@@ -628,12 +628,12 @@ freesurfer_MRISPreprocReconAll:
   fsgd_file: "path" # Optional Mutually exclusive with: [subjects, fsgd_file, subject_file]
   fwhm: 0.0 # Optional Mutually exclusive with: [num_iters]
   fwhm_source: 0.0 # Optional Mutually exclusive with: [num_iters_source]
-  lh_surfreg_target: "path"
+  lh_surfreg_target: "path" # Optional requires: [surfreg_files]
   num_iters: 0 # Optional Mutually exclusive with: [fwhm]
   num_iters_source: 0 # Optional Mutually exclusive with: [fwhm_source]
   out_file: "path"
   proj_frac: 0.0
-  rh_surfreg_target: "path"
+  rh_surfreg_target: "path" # Optional requires: [surfreg_files]
   smooth_cortex_only: True
   source_format: ''
   subject_file: "path" # Optional Mutually exclusive with: [subjects, fsgd_file, subject_file]
@@ -644,7 +644,7 @@ freesurfer_MRISPreprocReconAll:
   surf_dir: ''
   surf_measure: '' # Optional Mutually exclusive with: [surf_measure, surf_measure_file, surf_area]
   surf_measure_file: "path" # Optional Mutually exclusive with: [surf_measure, surf_measure_file, surf_area]
-  surfreg_files: ["path"]
+  surfreg_files: ["path"] # Optional requires: [lh_surfreg_target, rh_surfreg_target]
   vol_measure_file: [(0,)]
 freesurfer_MRITessellate:
   args: ''
@@ -746,7 +746,7 @@ freesurfer_MakeSurfaces:
   mgz: True
   no_white: True
   noaparc: True # Optional Mutually exclusive with: [in_label]
-  orig_pial: "path"
+  orig_pial: "path" # Optional requires: [in_label]
   orig_white: "path"
   subjects_dir: "path"
   white: ''
@@ -814,7 +814,7 @@ freesurfer_OneSampleTTest:
   simulation: "enumerate(('perm','mc-full','mc-z'))"
   subject_id: ''
   subjects_dir: "path"
-  surf: True
+  surf: True # Optional requires: [subject_id, hemi]
   surf_geo: ''
   synth: True
   uniform: (0,)
@@ -841,11 +841,11 @@ freesurfer_ParcellationStats:
   in_label: "path" # Optional Mutually exclusive with: [in_annotatoin, out_color]
   mgz: True
   out_color: "path" # Optional Mutually exclusive with: [in_label]
-  out_table: "path"
+  out_table: "path" # Optional requires: [tabular_output]
   subjects_dir: "path"
   surface: ''
   tabular_output: True
-  th3: True
+  th3: True # Optional requires: [cortex_label]
 freesurfer_ParseDICOMDir:
   args: ''
   dicom_info_file: "path"
@@ -854,25 +854,25 @@ freesurfer_ParseDICOMDir:
   subjects_dir: "path"
   summarize: True
 freesurfer_ReconAll:
-  FLAIR_file: "path"
-  T1_files: ["path"]
-  T2_file: "path"
+  FLAIR_file: "path" # Optional requires: [subject_id]
+  T1_files: ["path"] # Optional requires: [subject_id]
+  T2_file: "path" # Optional requires: [subject_id]
   args: ''
-  base_template_id: '' # Optional Mutually exclusive with: [subject_id, longitudinal_timepoint_id]
+  base_template_id: '' # Optional Mutually exclusive with: [subject_id, longitudinal_timepoint_id]; requires: [base_timepoint_ids]
   base_timepoint_ids: ['']
   big_ventricles: True
-  brainstem: True
+  brainstem: True # Optional requires: [subject_id]
   directive: "enumerate(('all','autorecon1','autorecon2','autorecon2-volonly','autorecon2-perhemi','autorecon2-inflate1','autorecon2-cp','autorecon2-wm','autorecon3','autorecon3-T2pial','autorecon-pial','autorecon-hemi','localGI','qcache'))"
   environ: {}
   expert: "path"
   flags: ['']
-  hemi: "enumerate(('lh','rh'))"
-  hippocampal_subfields_T1: True
-  hippocampal_subfields_T2: ("path", "")
+  hemi: "enumerate(('lh','rh'))" # Optional requires: [subject_id]
+  hippocampal_subfields_T1: True # Optional requires: [subject_id]
+  hippocampal_subfields_T2: ("path", "") # Optional requires: [subject_id]
   hires: True
   longitudinal_template_id: ''
-  longitudinal_timepoint_id: '' # Optional Mutually exclusive with: [subject_id, base_template_id)
-  mprage: True
+  longitudinal_timepoint_id: '' # Optional Mutually exclusive with: [subject_id, base_template_id); requires: [longitudinal_template_id]
+  mprage: True # Optional requires: [subject_id]
   mri_aparc2aseg: '' # Optional Mutually exclusive with: [expert]
   mri_ca_label: '' # Optional Mutually exclusive with: [expert]
   mri_ca_normalize: '' # Optional Mutually exclusive with: [expert]
@@ -908,7 +908,7 @@ freesurfer_ReconAll:
   xopts: "enumerate(('use','clean','overwrite'))"
 freesurfer_Register:
   args: ''
-  curv: True
+  curv: True # Optional requires: [in_smoothwm]
   environ: {}
   in_smoothwm: "path"
   out_file: "path"
@@ -992,8 +992,8 @@ freesurfer_SampleToSurface:
   mni152reg: True # Mandatory Mutually exclusive with: [reg_file, reg_header, mni152reg]
   projection_stem: '' # Mandatory Mutually exclusive with: [sampling_method]
   reg_file: "path" # Mandatory Mutually exclusive with: [reg_file, reg_header, mni152reg]
-  reg_header: True # Mandatory Mutually exclusive with: [reg_file, reg_header, mni152reg]
-  sampling_method: "enumerate(('point','max','average'))" # Mandatory Mutually exclusive with: [projection_stem]
+  reg_header: True # Mandatory Mutually exclusive with: [reg_file, reg_header, mni152reg]; requires: [subject_id]
+  sampling_method: "enumerate(('point','max','average'))" # Mandatory Mutually exclusive with: [projection_stem]; requires: [sampling_range, sampling_units]
   apply_rot: (0.0, 0.0, 0.0)
   apply_trans: (0.0, 0.0, 0.0)
   args: ''
@@ -1004,13 +1004,13 @@ freesurfer_SampleToSurface:
   frame: 0
   hits_file: "path"
   hits_type: "enumerate(('cor','mgh','mgz','minc','analyze','analyze4d','spm','afni','brik','bshort','bfloat','sdt','outline','otl','gdf','nifti1','nii','niigz'))"
-  ico_order: 0
+  ico_order: 0 # Optional requires: [target_subject]
   interp_method: "enumerate(('nearest','trilinear'))"
   mask_label: "path" # Optional Mutually exclusive with: [cortex_mask]
   no_reshape: True # Optional Mutually exclusive with: [reshape]
   out_file: "path"
   out_type: "enumerate(('cor','mgh','mgz','minc','analyze','analyze4d','spm','afni','brik','bshort','bfloat','sdt','outline','otl','gdf','nifti1','nii','niigz','gii'))"
-  override_reg_subj: True
+  override_reg_subj: True # Optional requires: [subject_id]
   reference_file: "path"
   reshape: True # Optional Mutually exclusive with: [no_reshape]
   reshape_slices: 0
@@ -1021,7 +1021,7 @@ freesurfer_SampleToSurface:
   smooth_vol: 0.0
   subject_id: ''
   subjects_dir: "path"
-  surf_reg: True
+  surf_reg: True # Optional requires: [target_subject]
   surface: ''
   target_subject: ''
   vox_file: "path"
@@ -1050,10 +1050,10 @@ freesurfer_SegStats:
   gca_color_table: "path" # Optional Mutually exclusive with: [color_table_file, default_color_table, gca_color_table]
   in_file: "path"
   in_intensity: "path"
-  intensity_units: 'MR'
+  intensity_units: 'MR' # Optional requires: [in_intensity]
   mask_erode: 0
   mask_file: "path"
-  mask_frame: 0
+  mask_frame: 0 # Optional requires: [mask_file]
   mask_invert: True
   mask_sign: "enumerate(('abs','pos','neg','--masksign %s'))"
   mask_thresh: 0.0
@@ -1096,10 +1096,10 @@ freesurfer_SegStatsReconAll:
   gca_color_table: "path" # Optional Mutually exclusive with: [color_table_file, default_color_table, gca_color_table]
   in_file: "path"
   in_intensity: "path"
-  intensity_units: 'MR'
+  intensity_units: 'MR' # Optional requires: [in_intensity]
   mask_erode: 0
   mask_file: "path"
-  mask_frame: 0
+  mask_frame: 0 # Optional requires: [mask_file]
   mask_invert: True
   mask_sign: "enumerate(('abs','pos','neg','--masksign %s'))"
   mask_thresh: 0.0
@@ -1128,7 +1128,7 @@ freesurfer_SegmentWM:
   subjects_dir: "path"
 freesurfer_Smooth:
   num_iters: 1 # Mandatory Mutually exclusive with: [surface_fwhm]
-  surface_fwhm: 0.0 # Mandatory Mutually exclusive with: [num_iters]
+  surface_fwhm: 0.0 # Mandatory Mutually exclusive with: [num_iters]; requires: [reg_file]
   args: ''
   environ: {}
   proj_frac: 0.0 # Optional Mutually exclusive with: [proj_frac_avg]
@@ -1208,7 +1208,7 @@ freesurfer_SurfaceSnapshots:
   label_under: True
   mni152_reg: True # Optional Mutually exclusive with: [overlay_reg, identity_reg, mni152_reg]
   orig_suffix: ''
-  overlay: "path"
+  overlay: "path" # Optional requires: [overlay_range]
   overlay_range: (0.0, 0.0)
   overlay_range_offset: 0.0
   overlay_reg: "path" # Optional Mutually exclusive with: [overlay_reg, identity_reg, mni152_reg]
@@ -1221,7 +1221,7 @@ freesurfer_SurfaceSnapshots:
   show_gray_curv: True # Optional Mutually exclusive with: [show_curv]
   six_images: True
   sphere_suffix: ''
-  stem_template_args: ['']
+  stem_template_args: [''] # Optional requires: [screenshot_stem]
   subjects_dir: "path"
   tcl_script: "path"
   truncate_overlay: True
@@ -1233,7 +1233,7 @@ freesurfer_SurfaceTransform:
   out_file: "path"
   reshape: True
   reshape_factor: 0
-  source_type: "enumerate(('cor','mgh','mgz','minc','analyze','analyze4d','spm','afni','brik','bshort','bfloat','sdt','outline','otl','gdf','nifti1','nii','niigz'))"
+  source_type: "enumerate(('cor','mgh','mgz','minc','analyze','analyze4d','spm','afni','brik','bshort','bfloat','sdt','outline','otl','gdf','nifti1','nii','niigz'))" # Optional requires: [source_file]
   subjects_dir: "path"
   target_ico_order: 7
   target_type: "enumerate(('cor','mgh','mgz','minc','analyze','analyze4d','spm','afni','brik','bshort','bfloat','sdt','outline','otl','gdf','nifti1','nii','niigz','gii'))"
@@ -1259,8 +1259,8 @@ freesurfer_Tkregister2:
   fsl_out: "path"
   fstal: True # Optional Mutually exclusive with: [target_image, moving_image, reg_file]
   fstarg: True # Optional Mutually exclusive with: [target_image]
-  invert_lta_in: True
-  invert_lta_out: True
+  invert_lta_in: True # Optional requires: [lta_in]
+  invert_lta_out: True # Optional requires: [lta_in]
   lta_in: "path"
   lta_out: "path"
   movscale: 0.0

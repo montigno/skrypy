@@ -63,7 +63,7 @@ cmtk_Parcellate:
   subjects_dir: "path"
 cmtk_ROIGen:
   LUT_file: "path" # Optional Mutually exclusive with: [use_freesurfer_LUT]
-  freesurfer_dir: "path"
+  freesurfer_dir: "path" # Optional requires: [use_freesurfer_LUT]
   out_dict_file: "path"
   out_roi_file: "path"
-  use_freesurfer_LUT: True # Optional Mutually exclusive with: LUT_file
+  use_freesurfer_LUT: True # Optional Mutually exclusive with: [LUT_file]

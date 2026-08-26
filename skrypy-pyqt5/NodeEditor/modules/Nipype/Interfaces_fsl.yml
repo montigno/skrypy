@@ -20,8 +20,8 @@ fsl_ApplyTOPUP:
   datatype: "enumerate(('char','short','int','float','double'))"
   environ: {}
   in_index: [0]
-  in_topup_fieldcoef: "path"
-  in_topup_movpar: "path"
+  in_topup_fieldcoef: "path" # Optional requires: [in_topup_movpar]
+  in_topup_movpar: "path" # Optional requires: [in_topup_fieldcoef]
   interp: "enumerate(('trilinear','spline'))"
   method: "enumerate(('jac','lsr'))"
   out_corrected: "path"
@@ -71,7 +71,7 @@ fsl_ApplyXFM:
   no_resample_blur: True
   no_search: True
   out_file: "path"
-  out_log: "path"
+  out_log: "path" # Optional requires: [save_log]
   out_matrix_file: "path"
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
   padding_size: 0
@@ -237,7 +237,7 @@ fsl_Cluster:
   out_threshold_file: "path"
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
   peak_distance: 0.0
-  pthreshold: 0.0
+  pthreshold: 0.0 # Optional requires: [dlh, volume]
   std_space_file: "path"
   use_mm: True
   volume: 0
@@ -288,15 +288,15 @@ fsl_ConvertWarp:
   postmat: "path"
   premat: "path"
   relwarp: True # Optional Mutually exclusive with: [abswarp]
-  shift_direction: "enumerate(('y-','y','x','x-','z','z-'))"
+  shift_direction: "enumerate(('y-','y','x','x-','z','z-'))" # Optional requires: [shift_in_file]
   shift_in_file: "path"
   warp1: "path"
   warp2: "path"
 fsl_ConvertXFM:
   args: ''
-  concat_xfm: True # Optional Mutually exclusive with: [invert_xfm, concat_xfm, fix_scale_skew
+  concat_xfm: True # Optional Mutually exclusive with: [invert_xfm, concat_xfm, fix_scale_skew]; requires: [in_file2]
   environ: {}
-  fix_scale_skew: True # Optional Mutually exclusive with: [invert_xfm, concat_xfm, fix_scale_skew]
+  fix_scale_skew: True # Optional Mutually exclusive with: [invert_xfm, concat_xfm, fix_scale_skew]; requires: [in_file2]
   in_file2: "path"
   invert_xfm: True # Optional Mutually exclusive with: [invert_xfm, concat_xfm, fix_scale_skew]
   out_file: "path"
@@ -378,36 +378,36 @@ fsl_Eddy:
   flm: "enumerate(('quadratic','linear','cubic'))"
   fudge_factor: 10.0
   fwhm: 0.0
-  in_topup_fieldcoef: "path"
-  in_topup_movpar: "path"
+  in_topup_fieldcoef: "path" # Optional requires: [in_topup_movpar]
+  in_topup_movpar: "path" # Optional requires: [in_topup_fieldcoef]
   initrand: True
   interp: "enumerate(('spline','trilinear'))"
   is_shelled: True
-  json: "path" # Optional Mutually exclusive with: [slice_order]
-  mbs_ksp: 0
-  mbs_lambda: 0
-  mbs_niter: 5
+  json: "path" # Optional Mutually exclusive with: [slice_order]; requires: [mporder]
+  mbs_ksp: 0 # Optional requires: [estimate_move_by_susceptibility]
+  mbs_lambda: 0 # Optional requires: [estimate_move_by_susceptibility]
+  mbs_niter: 5 # Optional requires: [estimate_move_by_susceptibility]
   method: "enumerate(('jac','lsr'))"
-  mporder: 0
+  mporder: 0 # Optional requires: [use_cuda]
   multiband_factor: 0
-  multiband_offset: 0
+  multiband_offset: 0 # Optional requires: [multiband_factor]
   niter: 0
   num_threads: 1
   nvoxhp: 1000
   out_base: "path"
-  outlier_nstd: 0
-  outlier_nvox: 0
-  outlier_pos: True
-  outlier_sqr: True
-  outlier_type: "enumerate(('sw','gw','both'))"
+  outlier_nstd: 0 # Optional requires: [repol]
+  outlier_nvox: 0 # Optional requires: [repol]
+  outlier_pos: True # Optional requires: [repol]
+  outlier_sqr: True # Optional requires: [repol]
+  outlier_type: "enumerate(('sw','gw','both'))" # Optional requires: [repol]
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
   repol: True
   residuals: True
   session: "path"
-  slice2vol_interp: "enumerate(('trilinear','spline'))"
-  slice2vol_lambda: 0
-  slice2vol_niter: 0
-  slice_order: "path" # Optional Mutually exclusive with: [json]
+  slice2vol_interp: "enumerate(('trilinear','spline'))" # Optional requires: [mporder]
+  slice2vol_lambda: 0 # Optional requires: [mporder]
+  slice2vol_niter: 0 # Optional requires: [mporder]
+  slice_order: "path" # Optional Mutually exclusive with: [json]; requires: [mporder]
   slm: "enumerate(('none','linear','quadratic'))"
   use_cuda: True
 fsl_EddyCorrect:
@@ -579,7 +579,7 @@ fsl_FLIRT:
   no_resample_blur: True
   no_search: True
   out_file: "path"
-  out_log: "path"
+  out_log: "path" # Optional requires: [save_log]
   out_matrix_file: "path"
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
   padding_size: 0
@@ -653,8 +653,8 @@ fsl_FUGUE:
   fmap_out_file: "path"
   forward_warping: True
   fourier_order: 0
-  icorr: True
-  icorr_only: True
+  icorr: True # Optional requires: [shift_in_file]
+  icorr_only: True # Optional requires: [unwarped_file]
   in_file: "path"
   mask_file: "path"
   median_2dfilter: True
@@ -675,8 +675,8 @@ fsl_FUGUE:
   smooth2d: 0.0
   smooth3d: 0.0
   unwarp_direction: "enumerate(('x','y','z','x-','y-','z-'))"
-  unwarped_file: "path" # Optional Mutually exclusive with: [warped_file]
-  warped_file: "path" # Optional Mutually exclusive with: [unwarped_file]
+  unwarped_file: "path" # Optional Mutually exclusive with: [warped_file]; requires: [in_file]
+  warped_file: "path" # Optional Mutually exclusive with: [unwarped_file]; requires: [in_file]
 fsl_FilterRegressor:
   filter_all: True # Mandatory Mutually exclusive with: [filter_columns]
   filter_columns: [0] # Mandatory Mutually exclusive with: [filter_all]
@@ -1111,8 +1111,8 @@ fsl_ProbTrackX2:
   n_samples: 5000
   n_steps: 2000
   omatrix1: True
-  omatrix2: True
-  omatrix3: True
+  omatrix2: True # Optional requires: [target2]
+  omatrix3: True # Optional requires: [target3, lrtarget3]
   omatrix4: True
   onewaycondition: True
   opd: True
@@ -1223,7 +1223,7 @@ fsl_SliceTimer:
   slice_direction: 3
   time_repetition: 0.0
 fsl_Slicer:
-  all_axial: True # Optional Mutually exclusive with: [single_slice, middle_slices, all_axial, sample_axial]
+  all_axial: True # Optional Mutually exclusive with: [single_slice, middle_slices, all_axial, sample_axial]; requires: [image_width]
   args: ''
   colour_map: "path"
   dither_edges: True
@@ -1236,10 +1236,10 @@ fsl_Slicer:
   nearest_neighbour: True
   out_file: "path"
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
-  sample_axial: 0 # Optional Mutually exclusive with: [single_slice, middle_slices, all_axial, sample_axial]
+  sample_axial: 0 # Optional Mutually exclusive with: [single_slice, middle_slices, all_axial, sample_axial]; requires: [image_width]
   scaling: 0.0
   show_orientation: True
-  single_slice: "enumerate(('x','y','z'))" # Optional Mutually exclusive with: [single_slice, middle_slices, all_axial, sample_axial]
+  single_slice: "enumerate(('x','y','z'))" # Optional Mutually exclusive with: [single_slice, middle_slices, all_axial, sample_axial]; requires: [slice_number]
   slice_number: 0
   threshold_edges: 0.0
 fsl_Smooth:
@@ -1254,7 +1254,7 @@ fsl_SmoothEstimate:
   args: ''
   environ: {}
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
-  residual_fit_file: "path"
+  residual_fit_file: "path" # Optional requires: [dof]
   zstat_file: "path" # Optional Mutually exclusive with: [dof]
 fsl_SpatialFilter:
   args: ''
@@ -1287,9 +1287,9 @@ fsl_SwapDimensions:
   out_file: "path"
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
 fsl_TOPUP:
-  encoding_direction: "enumerate(('y','x','z','x-','y-','z-'))" # Mandatory Mutually exclusive with: [encoding_file]
+  encoding_direction: "enumerate(('y','x','z','x-','y-','z-'))" # Mandatory Mutually exclusive with: [encoding_file]; requires: [readout_times]
   encoding_file: "path" # Mandatory Mutually exclusive with: [encoding_direction]
-  readout_times: [0.0] # Mandatory Mutually exclusive with: [encoding_file]
+  readout_times: [0.0] # Mandatory Mutually exclusive with: [encoding_file]; requires: [encoding_direction]
   args: ''
   config: 'b02b0.cnf'
   environ: {}
@@ -1338,7 +1338,7 @@ fsl_Threshold:
   out_file: "path"
   output_datatype: "enumerate(('float','char','int','short','double','input'))"
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
-  use_nonzero_voxels: True
+  use_nonzero_voxels: True # Optional requires: [use_robust_range]
   use_robust_range: True
 fsl_TractSkeleton:
   alt_data_file: "path"
@@ -1348,7 +1348,7 @@ fsl_TractSkeleton:
   distance_map: "path"
   environ: {}
   output_type: "enumerate(('NIFTI','NIFTI_PAIR','NIFTI_GZ','NIFTI_PAIR_GZ','GIFTI'))"
-  project_data: True
+  project_data: True # Optional requires: [threshold, distance_map, data_file]
   projected_data: "path"
   search_mask_file: "path" # Optional Mutually exclusive with: [use_cingulum_mask]
   skeleton_file: "path"

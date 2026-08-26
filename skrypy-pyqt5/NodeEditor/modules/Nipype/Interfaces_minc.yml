@@ -32,7 +32,7 @@ minc_Average:
   verbose: True # Optional Mutually exclusive with: [verbose, quiet]
   voxel_range: (0, 0)
   weights: ['']
-  width_weighted: True
+  width_weighted: True # Optional requires: [avgdim]
 minc_BBox:
   args: ''
   environ: {}
@@ -312,7 +312,7 @@ minc_Pik:
   slice_y: True # Optional Mutually exclusive with: [slice_z, slice_y, slice_x]
   slice_z: True # Optional Mutually exclusive with: [slice_z, slice_y, slice_x]
   start: 0
-  tile_size: 0
+  tile_size: 0 # Optional requires: [title]
   title: True
   title_size: 0
   triplanar: True
@@ -325,7 +325,7 @@ minc_Resample:
   dircos: (0.0, 0.0, 0.0) # Optional Mutually exclusive with: [nelements, nelements_x_y_or_z]
   environ: {}
   fill: True # Optional Mutually exclusive with: [nofill, fill]
-  fill_value: 0.0
+  fill_value: 0.0 # Optional requires: [fill]
   format_byte: True # Optional Mutually exclusive with: [format_byte, format_short, format_int, format_long, format_float, format_double, format_signed, format_unsigned]
   format_double: True # Optional Mutually exclusive with: [format_byte, format_short, format_int, format_long, format_float, format_double, format_signed, format_unsigned]
   format_float: True # Optional Mutually exclusive with: [format_byte, format_short, format_int, format_long, format_float, format_double, format_signed, format_unsigned]
@@ -334,7 +334,7 @@ minc_Resample:
   format_short: True # Optional Mutually exclusive with: [format_byte, format_short, format_int, format_long, format_float, format_double, format_signed, format_unsigned]
   format_signed: True # Optional Mutually exclusive with: [format_byte, format_short, format_int, format_long, format_float, format_double, format_signed, format_unsigned]
   format_unsigned: True # Optional Mutually exclusive with: [format_byte, format_short, format_int, format_long, format_float, format_double, format_signed, format_unsigned]
-  half_width_sinc_window: 5
+  half_width_sinc_window: 5 # Optional requires: [sinc_interpolation]
   input_grid_files: ["path"]
   invert_transformation: True
   keep_real_range: True # Optional Mutually exclusive with: [keep_real_range, nokeep_real_range]
@@ -349,8 +349,8 @@ minc_Resample:
   output_range: (0.0, 0.0)
   sagittal_slices: True # Optional Mutually exclusive with: [transverse, sagittal, coronal]
   sinc_interpolation: True # Optional Mutually exclusive with: [trilinear_interpolation, tricubic_interpolation, nearest_neighbour_interpolation, sinc_interpolation]
-  sinc_window_hamming: True # Optional Mutually exclusive with: [sinc_window_hanning, sinc_window_hamming]
-  sinc_window_hanning: True # Optional Mutually exclusive with: [sinc_window_hanning, sinc_window_hamming]
+  sinc_window_hamming: True # Optional Mutually exclusive with: [sinc_window_hanning, sinc_window_hamming]; requires: [sinc_interpolation]
+  sinc_window_hanning: True # Optional Mutually exclusive with: [sinc_window_hanning, sinc_window_hamming]; requires: [sinc_interpolation]
   spacetype: ''
   standard_sampling: True
   start: (0.0, 0.0, 0.0) # Optional Mutually exclusive with: [nelements, nelements_x_y_or_z]
@@ -363,18 +363,18 @@ minc_Resample:
   two: True
   units: ''
   vio_transform: True # Optional Mutually exclusive with: [vio_transform, no_input_sampling]
-  xdircos: 0.0 # Optional Mutually exclusive with: [dircos, dircos_x_y_or_z]
-  xnelements: 0 # Optional Mutually exclusive with: [nelements, nelements_x_y_or_z]
-  xstart: 0.0 # Optional Mutually exclusive with: [start, start_x_y_or_z]
-  xstep: 0 # Optional Mutually exclusive with: [step, step_x_y_or_z]
-  ydircos: 0.0 # Optional Mutually exclusive with: [dircos, dircos_x_y_or_z]
-  ynelements: 0 # Optional Mutually exclusive with: [nelements, nelements_x_y_or_z]
-  ystart: 0.0 # Optional Mutually exclusive with: [start, start_x_y_or_z]
-  ystep: 0 # Optional Mutually exclusive with: [step, step_x_y_or_z]
-  zdircos: 0.0 # Optional Mutually exclusive with: [dircos, dircos_x_y_or_z]
-  znelements: 0 # Optional Mutually exclusive with: [nelements, nelements_x_y_or_z]
-  zstart: 0.0 # Optional Mutually exclusive with: [start, start_x_y_or_z]
-  zstep: 0 # Optional Mutually exclusive with: [step, step_x_y_or_z]
+  xdircos: 0.0 # Optional Mutually exclusive with: [dircos, dircos_x_y_or_z]; requires: [ydircos, zdircos]
+  xnelements: 0 # Optional Mutually exclusive with: [nelements, nelements_x_y_or_z]; requires: [ynelements, znelements]
+  xstart: 0.0 # Optional Mutually exclusive with: [start, start_x_y_or_z]; requires: [ystart, zstart]
+  xstep: 0 # Optional Mutually exclusive with: [step, step_x_y_or_z]; requires: [ystep, zstep]
+  ydircos: 0.0 # Optional Mutually exclusive with: [dircos, dircos_x_y_or_z]; requires: [xdircos, zdircos]
+  ynelements: 0 # Optional Mutually exclusive with: [nelements, nelements_x_y_or_z]; requires: [xnelements, znelements]
+  ystart: 0.0 # Optional Mutually exclusive with: [start, start_x_y_or_z]; requires: [xstart, zstart]
+  ystep: 0 # Optional Mutually exclusive with: [step, step_x_y_or_z]; requires: [xstep, zstep]
+  zdircos: 0.0 # Optional Mutually exclusive with: [dircos, dircos_x_y_or_z]; requires: [xdircos, ydircos]
+  znelements: 0 # Optional Mutually exclusive with: [nelements, nelements_x_y_or_z]; requires: [xnelements, ynelements]
+  zstart: 0.0 # Optional Mutually exclusive with: [start, start_x_y_or_z]; requires: [xstart, ystart]
+  zstep: 0 # Optional Mutually exclusive with: [step, step_x_y_or_z]; requires: [xstep, ystep]
 minc_Reshape:
   args: ''
   clobber: True

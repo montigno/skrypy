@@ -30,10 +30,10 @@ niftyreg_RegAverage:
   args: ''
   avg_files: ["path"] # Optional Mutually exclusive with: [avg_lts_files, avg_ref_file, demean1_ref_file, demean2_ref_file, demean3_ref_file, warp_files]
   avg_lts_files: ["path"] # Optional Mutually exclusive with: [avg_files, avg_ref_file, demean1_ref_file, demean2_ref_file, demean3_ref_file, warp_files]
-  avg_ref_file: "path" # Optional Mutually exclusive with: [avg_files, avg_lts_files, demean1_ref_file, demean2_ref_file, demean3_ref_file]
-  demean1_ref_file: "path" # Optional Mutually exclusive with: [avg_files, avg_lts_files, avg_ref_file, demean2_ref_file, demean3_ref_file]
-  demean2_ref_file: "path" # Optional Mutually exclusive with: [avg_files, avg_lts_files, avg_ref_file, demean1_ref_file, demean3_ref_file]
-  demean3_ref_file: "path" # Optional Mutually exclusive with: [avg_files, avg_lts_files, avg_ref_file, demean1_ref_file, demean2_ref_file]
+  avg_ref_file: "path" # Optional Mutually exclusive with: [avg_files, avg_lts_files, demean1_ref_file, demean2_ref_file, demean3_ref_file]; requires: [warp_files]
+  demean1_ref_file: "path" # Optional Mutually exclusive with: [avg_files, avg_lts_files, avg_ref_file, demean2_ref_file, demean3_ref_file]; requires: [warp_files]
+  demean2_ref_file: "path" # Optional Mutually exclusive with: [avg_files, avg_lts_files, avg_ref_file, demean1_ref_file, demean3_ref_file]; requires: [warp_files]
+  demean3_ref_file: "path" # Optional Mutually exclusive with: [avg_files, avg_lts_files, avg_ref_file, demean1_ref_file, demean2_ref_file]; requires: [warp_files]
   environ: {}
   omp_core_val: 1
   out_file: "path"
@@ -138,7 +138,7 @@ niftyreg_RegTools:
 niftyreg_RegTransform:
   aff_2_rig_input: "path" # Optional Mutually exclusive with: [def_input, disp_input, flow_input, comp_input, upd_s_form_input, inv_aff_input, inv_nrr_input, half_input, make_aff_input, flirt_2_nr_input]
   args: ''
-  comp_input: "path" # Optional Mutually exclusive with: [def_input, disp_input, flow_input, upd_s_form_input, inv_aff_input, inv_nrr_input, half_input, make_aff_input, aff_2_rig_input, flirt_2_nr_input]
+  comp_input: "path" # Optional Mutually exclusive with: [def_input, disp_input, flow_input, upd_s_form_input, inv_aff_input, inv_nrr_input, half_input, make_aff_input, aff_2_rig_input, flirt_2_nr_input]; requires: [comp_input2]
   comp_input2: "path"
   def_input: "path" # Optional Mutually exclusive with: [disp_input, flow_input, comp_input, upd_s_form_input, inv_aff_input, inv_nrr_input, half_input, make_aff_input, aff_2_rig_input, flirt_2_nr_input]
   disp_input: "path" # Optional Mutually exclusive with: [def_input, flow_input, comp_input, upd_s_form_input, inv_aff_input, inv_nrr_input, half_input, make_aff_input, aff_2_rig_input, flirt_2_nr_input]
@@ -152,7 +152,7 @@ niftyreg_RegTransform:
   omp_core_val: 1
   out_file: "path"
   ref1_file: "path"
-  ref2_file: "path"
-  upd_s_form_input: "path" # Optional Mutually exclusive with: [def_input, disp_input, flow_input, comp_input, inv_aff_input, inv_nrr_input, half_input, make_aff_input, aff_2_rig_input, flirt_2_nr_input]
-  upd_s_form_input2: "path"
+  ref2_file: "path" # Optional requires: [ref1_file]
+  upd_s_form_input: "path" # Optional Mutually exclusive with: [def_input, disp_input, flow_input, comp_input, inv_aff_input, inv_nrr_input, half_input, make_aff_input, aff_2_rig_input, flirt_2_nr_input]; requires: [upd_s_form_input2]
+  upd_s_form_input2: "path" # Optional requires: [upd_s_form_input]
 

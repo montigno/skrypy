@@ -197,8 +197,8 @@ afni_Calc:
   outputtype: "enumerate(('NIFTI','AFNI','NIFTI_GZ'))"
   overwrite: True
   single_idx: 0
-  start_idx: 0
-  stop_idx: 0
+  start_idx: 0 # Optional requires: [stop_idx]
+  stop_idx: 0 # Optional requires: [start_idx]
 afni_Cat:
   args: ''
   environ: {}
@@ -264,7 +264,7 @@ afni_Deconvolve:
   force_TR: 0.0
   fout: True
   global_times: True # Optional Mutually exclusive with: [local_times]
-  glt_label: [(0, )]
+  glt_label: [(0, )] # Optional requires: [gltsym]
   gltsym: ['SYM: +Houses']
   goforit: 0
   in_files: ["path"]
@@ -289,7 +289,7 @@ afni_Deconvolve:
   rout: True
   sat: True # Optional Mutually exclusive with: [trans]
   singvals: True
-  stim_label: [(1, Houses)]
+  stim_label: [(1, Houses)] # Optional requires: [stim_times]
   stim_times: [(1, timeseries.txt, SPMG1(4))]
   stim_times_subtract: 0.0
   svd: True
@@ -384,8 +384,8 @@ afni_Eval:
   out_file: "path"
   outputtype: "enumerate(('NIFTI','AFNI','NIFTI_GZ'))"
   single_idx: 0
-  start_idx: 0
-  stop_idx: 0
+  start_idx: 0 # Optional requires: [stop_idx]
+  stop_idx: 0 # Optional requires: [start_idx]
 afni_FWHMx:
   acf: False
   args: ''
@@ -458,7 +458,7 @@ afni_Localstat:
   args: ''
   automask: True
   environ: {}
-  grid_rmode: "enumerate(('NN','Li','Cu','Bk'))"
+  grid_rmode: "enumerate(('NN','Li','Cu','Bk'))" # Optional requires: [reduce_restore_grid]
   mask_file: "path"
   nonmask: True
   num_threads: 1
@@ -476,7 +476,7 @@ afni_MaskTool:
   dilate_inputs: ''
   dilate_results: ''
   environ: {}
-  fill_dirs: ''
+  fill_dirs: '' # Optional requires: [fill_holes]
   fill_holes: True
   frac: 0.0
   inter: True
@@ -553,7 +553,7 @@ afni_NwarpAdjust:
   environ: {}
   in_files: ["path"]
   num_threads: 1
-  out_file: "path"
+  out_file: "path" # Optional requires: [in_files]
   outputtype: "enumerate(('NIFTI','AFNI','NIFTI_GZ'))"
 afni_NwarpApply:
   ainterp: "enumerate(('NN','nearestneighbour','nearestneighbor','linear','trilinear','cubic','tricubic','quintic','triquintic','wsinc5'))"
@@ -622,7 +622,7 @@ afni_Qwarp:
   Qfinal: True
   Qonly: True
   allineate: True
-  allineate_opts: ''
+  allineate_opts: '' # Optional requires: [allineate]
   allsave: True # Optional Mutually exclusive with: [nopadWARP, duplo, plusminus]
   args: ''
   ballopt: True # Optional Mutually exclusive with: [workhard, boxopt]
@@ -673,7 +673,7 @@ afni_QwarpPlusMinus:
   Qfinal: True
   Qonly: True
   allineate: True
-  allineate_opts: ''
+  allineate_opts: '' # Optional requires: [allineate]
   allsave: True # Optional Mutually exclusive with: [nopadWARP, duplo, plusminus]
   args: ''
   ballopt: True # Optional Mutually exclusive with: [workhard, boxopt]
@@ -737,7 +737,7 @@ afni_ROIStats:
   quiet: True
   roisel: "path"
   stat: "enumerate(('mean','sum','voxels','minmax','sigma','median','mode','summary','zerominmax','zerosigma','zeromedian','zeromode'))"
-  zerofill: ''
+  zerofill: '' # Optional requires: [num_roi]
 afni_ReHo:
   args: ''
   chi_sq: True
@@ -774,7 +774,7 @@ afni_Remlfit:
   args: ''
   automask: True
   dsort: "path"
-  dsort_nods: True
+  dsort_nods: True # Optional requires: [dsort]
   environ: {}
   errts_file: "path"
   fitts_file: "path"
@@ -785,7 +785,7 @@ afni_Remlfit:
   mask: "path"
   matim: "path" # Optional Mutually exclusive with: [matrix]
   nobout: True
-  nodmbase: True
+  nodmbase: True # Optional requires: [addbase, dsort]
   nofdr: True
   num_threads: 1
   obeta: "path"
@@ -1048,7 +1048,7 @@ afni_Unifize:
   args: ''
   cl_frac: 0.1
   environ: {}
-  epi: True # Optional Mutually exclusive with: [gm]
+  epi: True # Optional Mutually exclusive with: [gm]; requires: [no_duplo, t2]
   gm: True
   no_duplo: True
   num_threads: 1
@@ -1089,7 +1089,7 @@ afni_Warp:
   oblique_parent: "path"
   out_file: "path"
   outputtype: "enumerate(('NIFTI','AFNI','NIFTI_GZ'))"
-  save_warp: True
+  save_warp: True # Optional requires: [verbose]
   tta2mni: True
   verbose: True
   zpad: 0

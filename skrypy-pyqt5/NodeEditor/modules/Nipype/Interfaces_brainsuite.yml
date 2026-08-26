@@ -135,7 +135,7 @@ brainsuite_Dfs:
   scalingPercentile: 0.0
   smoothingConstant: 0.5
   smoothingIterations: 10
-  specialTessellation: "enumerate(('greater_than','less_than','equal_to'))" # Optional Mutually exclusive with: [nonZeroTessellation, specialTessellation]
+  specialTessellation: "enumerate(('greater_than','less_than','equal_to'))" # Optional Mutually exclusive with: [nonZeroTessellation, specialTessellation]; requires: [tessellationThreshold]
   tessellationThreshold: 0.0
   timer: True
   verbosity: 0

@@ -435,7 +435,7 @@ mrtrix3_Tractography:
   roi_incl: (0.0, 0.0, 0.0, 0.0)
   roi_mask: (0.0, 0.0, 0.0, 0.0)
   seed_dynamic: "path"
-  seed_gmwmi: "path"
+  seed_gmwmi: "path" # Optional requires: [act_file]
   seed_grid_voxel: ("path", 0) # Optional Mutually exclusive with: [seed_image, seed_rnd_voxel]
   seed_image: "path"
   seed_rejection: "path"

@@ -19,7 +19,7 @@ niftyfit_DwiTool:
   nod_flag: True # Optional Mutually exclusive with: [mono_flag, ivim_flag, dti_flag, dti_flag2, ball_flag, ballv_flag, nodv_flag]
   nodv_flag: True # Optional Mutually exclusive with: [mono_flag, ivim_flag, dti_flag, dti_flag2, ball_flag, ballv_flag, nod_flag]
   rgbmap_file: "path"
-  syn_file: "path"
+  syn_file: "path" # Optional requires: [bvec_file, b0_file]
   v1map_file: "path"
 niftyfit_FitAsl:
   args: ''
@@ -75,10 +75,10 @@ niftyfit_FitDwi:
   famap_file: "path"
   gn_flag: True # Optional Mutually exclusive with: [wls_flag]
   ivim_flag: True # Optional Mutually exclusive with: [mono_flag, dti_flag, ball_flag, ballv_flag, nod_flag, nodv_flag]
-  lm_vals: (100, 1.2)
+  lm_vals: (100, 1.2) # Optional requires: [gn_flag]
   mask_file: "path"
-  maxit_val: 0
-  mcmap_file: "path"
+  maxit_val: 0 # Optional requires: [gn_flag]
+  mcmap_file: "path" # Optional requires: [nodv_flag]
   mcmaxit: 0
   mcout: "path"
   mcsamples: 0
@@ -90,7 +90,7 @@ niftyfit_FitDwi:
   perf_thr: 0.0
   prior_file: "path"
   res_file: "path"
-  rgbmap_file: "path"
+  rgbmap_file: "path" # Optional requires: [dti_flag]
   rot_sform_flag: 0
   slice_no: 0
   swls_val: 0.0
@@ -98,8 +98,8 @@ niftyfit_FitDwi:
   te_file: "path" # Optional Mutually exclusive with: [te_file]
   te_value: "path" # Optional Mutually exclusive with: [te_file]
   ten_type: "enumerate(('lower-tri','diag-off-diag'))"
-  tenmap2_file: "path"
-  tenmap_file: "path"
+  tenmap2_file: "path" # Optional requires: [dti_flag]
+  tenmap_file: "path" # Optional requires: [dti_flag]
   v1map_file: "path"
   vb_flag: True
   voxel: (0, 0, 0)

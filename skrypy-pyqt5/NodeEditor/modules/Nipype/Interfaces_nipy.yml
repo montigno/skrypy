@@ -19,6 +19,6 @@ nipy_Similarity:
   mask2: "path"
   metric: "enumerate(('cc','cr','crl1','mi','nmi','slr'))"
 nipy_SpaceTimeRealigner:
-  slice_info: [0]
+  slice_info: [0] # Optional requires: [slice_times]
   slice_times: "enumerate(('asc_alt_2','asc_alt_2_1','asc_alt_half','asc_alt_siemens','ascending','desc_alt_2','desc_alt_half','descending'))"
-  tr: 0.0
+  tr: 0.0 # Optional requires: [slice_times]
