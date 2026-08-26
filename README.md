@@ -13,6 +13,10 @@ If you encounter problems with Skrypy, see [here](https://montigno.github.io/skr
 
 # Release history
 
+<p></p>
+
+	26/08/2026: version 26.08.26a
+	- Nipypes mipav modules: correction of default values
 
 <p></p>
 
