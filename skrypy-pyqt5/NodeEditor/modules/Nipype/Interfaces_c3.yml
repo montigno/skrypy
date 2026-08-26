@@ -4,8 +4,8 @@ c3_C3d:
   interp: "enumerate(('Linear','NearestNeighbor','Cubic','Sinc','Gaussian'))"
   is_4d: True
   multicomp_split: True
-  out_file: "path" # Optional Mutually exclusive with: out_files
-  out_files: ["path"] # Optional Mutually exclusive with: out_file
+  out_file: "path" # Optional Mutually exclusive with: [out_files]
+  out_files: ["path"] # Optional Mutually exclusive with: [out_file]
   pix_type: "enumerate(('float','char','uchar','short','ushort','int','uint','double'))"
   resample: ''
   scale: 0.0
@@ -19,3 +19,4 @@ c3_C3dAffineTool:
   reference_file: "path"
   source_file: "path"
   transform_file: "path"
+

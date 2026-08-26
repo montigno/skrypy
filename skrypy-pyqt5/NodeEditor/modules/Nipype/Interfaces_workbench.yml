@@ -11,8 +11,8 @@ workbench_CiftiSmooth:
   out_file: "path"
   right_corrected_areas: "path"
 workbench_MetricResample:
-  area_metrics: True # Optional Mutually exclusive with: area_surfs
-  area_surfs: True # Optional Mutually exclusive with: area_metrics
+  area_metrics: True # Optional Mutually exclusive with: [area_surfs]
+  area_surfs: True # Optional Mutually exclusive with: [area_metrics]
   args: ''
   current_area: "path"
   environ: {}
@@ -21,3 +21,4 @@ workbench_MetricResample:
   out_file: "path"
   roi_metric: "path"
   valid_roi_out: True
+

@@ -1,6 +1,6 @@
 dcm2nii_Dcm2nii:
-  source_dir: "path" # Mandatory Mutually exclusive with: source_names
-  source_names: ["path"] # Mandatory Mutually exclusive with: source_dir
+  source_dir: "path" # Mandatory Mutually exclusive with: [source_names]
+  source_names: ["path"] # Mandatory Mutually exclusive with: [source_dir]
   anonymize: True
   args: ''
   collapse_folders: True
@@ -17,10 +17,10 @@ dcm2nii_Dcm2nii:
   reorient: True
   reorient_and_crop: True
   source_in_filename: True
-  spm_analyze: True # Optional Mutually exclusive with: nii_output
+  spm_analyze: True # Optional Mutually exclusive with: [nii_output]
 dcm2nii_Dcm2niix:
-  source_dir: "path" # Mandatory Mutually exclusive with: source_names
-  source_names: ["path"] # Mandatory Mutually exclusive with: source_dir
+  source_dir: "path" # Mandatory Mutually exclusive with: [source_names]
+  source_names: ["path"] # Mandatory Mutually exclusive with: [source_dir]
   anon_bids: True
   args: ''
   bids_format: True
@@ -40,3 +40,4 @@ dcm2nii_Dcm2niix:
   single_file: True
   to_nrrd: True
   verbose: True
+

@@ -6,8 +6,8 @@ spm_Analyze2nii:
   use_v8struct: True
 spm_ApplyInverseDeformation:
   bounding_box: 0.0
-  deformation: "path" # Optional Mutually exclusive with: deformation_field
-  deformation_field: "path" # Optional Mutually exclusive with: deformation
+  deformation: "path" # Optional Mutually exclusive with: [deformation_field]
+  deformation_field: "path" # Optional Mutually exclusive with: [deformation]
   interpolation: 0
   matlab_cmd: ''
   mfile: True
@@ -99,11 +99,11 @@ spm_DicomImport:
   use_mcr: True
   use_v8struct: True
 spm_EstimateContrast:
-  group_contrast: True # Optional Mutually exclusive with: use_derivs
+  group_contrast: True # Optional Mutually exclusive with: [use_derivs]
   matlab_cmd: ''
   mfile: True
   paths: ["path"]
-  use_derivs: True # Optional Mutually exclusive with: group_contrast
+  use_derivs: True # Optional Mutually exclusive with: [group_contrast]
   use_mcr: True
   use_v8struct: True
 spm_EstimateModel:
@@ -170,9 +170,9 @@ spm_MultiChannelNewSegment:
 spm_MultipleRegressionDesign:
   covariates: "enumerate(('vector','name','interaction','centering'))"
   explicit_mask_file: "path"
-  global_calc_mean: True # Optional Mutually exclusive with: global_calc_omit, global_calc_values
-  global_calc_omit: True # Optional Mutually exclusive with: global_calc_mean, global_calc_values
-  global_calc_values: [0.0] # Optional Mutually exclusive with: global_calc_mean, global_calc_omit
+  global_calc_mean: True # Optional Mutually exclusive with: [global_calc_omit, global_calc_values]
+  global_calc_omit: True # Optional Mutually exclusive with: [global_calc_mean, global_calc_values]
+  global_calc_values: [0.0] # Optional Mutually exclusive with: [global_calc_mean, global_calc_omit]
   global_normalization: ''
   include_intercept: True
   matlab_cmd: ''
@@ -180,9 +180,9 @@ spm_MultipleRegressionDesign:
   no_grand_mean_scaling: True
   paths: ["path"]
   spm_mat_dir: "path"
-  threshold_mask_absolute: 0.0 # Optional Mutually exclusive with: threshold_mask_none, threshold_mask_relative
-  threshold_mask_none: True # Optional Mutually exclusive with: threshold_mask_absolute, threshold_mask_relative
-  threshold_mask_relative: 0.0 # Optional Mutually exclusive with: threshold_mask_absolute, threshold_mask_none
+  threshold_mask_absolute: 0.0 # Optional Mutually exclusive with: [threshold_mask_none, threshold_mask_relative]
+  threshold_mask_none: True # Optional Mutually exclusive with: [threshold_mask_absolute, threshold_mask_relative]
+  threshold_mask_relative: 0.0 # Optional Mutually exclusive with: [threshold_mask_absolute, threshold_mask_none]
   use_implicit_threshold: True
   use_mcr: True
   use_v8struct: True
@@ -200,9 +200,9 @@ spm_NewSegment:
   warping_regularization: 0.0
   write_deformation_fields: True
 spm_Normalize:
-  parameter_file: "path" # Mandatory Mutually exclusive with: source, template
-  source: ["path"] # Mandatory Mutually exclusive with: parameter_file
-  template: "path" # Mandatory Mutually exclusive with: parameter_file
+  parameter_file: "path" # Mandatory Mutually exclusive with: [source, template]
+  source: ["path"] # Mandatory Mutually exclusive with: [parameter_file]
+  template: "path" # Mandatory Mutually exclusive with: [parameter_file]
   DCT_period_cutoff: 0.0
   affine_regularization_type: "enumerate(('mni','size','none'))"
   apply_to_files: ["path"]
@@ -225,8 +225,8 @@ spm_Normalize:
   write_voxel_sizes: 0.0
   write_wrap: [0]
 spm_Normalize12:
-  deformation_file: "path" # Mandatory Mutually exclusive with: image_to_align, tpm
-  image_to_align: "path" # Mandatory Mutually exclusive with: deformation_file
+  deformation_file: "path" # Mandatory Mutually exclusive with: [image_to_align, tpm]
+  image_to_align: "path" # Mandatory Mutually exclusive with: [deformation_file]
   affine_regularization_type: "enumerate(('mni','size','none'))"
   apply_to_files: ["path"]
   bias_fwhm: 0
@@ -238,7 +238,7 @@ spm_Normalize12:
   paths: ["path"]
   sampling_distance: 0.0
   smoothness: 0.0
-  tpm: "path" # Optional Mutually exclusive with: deformation_file
+  tpm: "path" # Optional Mutually exclusive with: [deformation_file]
   use_mcr: True
   use_v8struct: True
   warping_regularization: 0.0
@@ -248,18 +248,18 @@ spm_Normalize12:
 spm_OneSampleTTestDesign:
   covariates: "enumerate(('vector','name','interaction','centering'))"
   explicit_mask_file: "path"
-  global_calc_mean: True # Optional Mutually exclusive with: global_calc_omit, global_calc_values
-  global_calc_omit: True # Optional Mutually exclusive with: global_calc_mean, global_calc_values
-  global_calc_values: [0.0] # Optional Mutually exclusive with: global_calc_mean, global_calc_omit
+  global_calc_mean: True # Optional Mutually exclusive with: [global_calc_omit, global_calc_values]
+  global_calc_omit: True # Optional Mutually exclusive with: [global_calc_mean, global_calc_values]
+  global_calc_values: [0.0] # Optional Mutually exclusive with: [global_calc_mean, global_calc_omit]
   global_normalization: ''
   matlab_cmd: ''
   mfile: True
   no_grand_mean_scaling: True
   paths: ["path"]
   spm_mat_dir: "path"
-  threshold_mask_absolute: 0.0 # Optional Mutually exclusive with: threshold_mask_none, threshold_mask_relative
-  threshold_mask_none: True # Optional Mutually exclusive with: threshold_mask_absolute, threshold_mask_relative
-  threshold_mask_relative: 0.0 # Optional Mutually exclusive with: threshold_mask_absolute, threshold_mask_none
+  threshold_mask_absolute: 0.0 # Optional Mutually exclusive with: [threshold_mask_none, threshold_mask_relative]
+  threshold_mask_none: True # Optional Mutually exclusive with: [threshold_mask_absolute, threshold_mask_relative]
+  threshold_mask_relative: 0.0 # Optional Mutually exclusive with: [threshold_mask_absolute, threshold_mask_none]
   use_implicit_threshold: True
   use_mcr: True
   use_v8struct: True
@@ -267,9 +267,9 @@ spm_PairedTTestDesign:
   ancova: True
   covariates: "enumerate(('vector','name','interaction','centering'))"
   explicit_mask_file: "path"
-  global_calc_mean: True # Optional Mutually exclusive with: global_calc_omit, global_calc_values
-  global_calc_omit: True # Optional Mutually exclusive with: global_calc_mean, global_calc_values
-  global_calc_values: [0.0] # Optional Mutually exclusive with: global_calc_mean, global_calc_omit
+  global_calc_mean: True # Optional Mutually exclusive with: [global_calc_omit, global_calc_values]
+  global_calc_omit: True # Optional Mutually exclusive with: [global_calc_mean, global_calc_values]
+  global_calc_values: [0.0] # Optional Mutually exclusive with: [global_calc_mean, global_calc_omit]
   global_normalization: ''
   grand_mean_scaling: True
   matlab_cmd: ''
@@ -277,9 +277,9 @@ spm_PairedTTestDesign:
   no_grand_mean_scaling: True
   paths: ["path"]
   spm_mat_dir: "path"
-  threshold_mask_absolute: 0.0 # Optional Mutually exclusive with: threshold_mask_none, threshold_mask_relative
-  threshold_mask_none: True # Optional Mutually exclusive with: threshold_mask_absolute, threshold_mask_relative
-  threshold_mask_relative: 0.0 # Optional Mutually exclusive with: threshold_mask_absolute, threshold_mask_none
+  threshold_mask_absolute: 0.0 # Optional Mutually exclusive with: [threshold_mask_none, threshold_mask_relative]
+  threshold_mask_none: True # Optional Mutually exclusive with: [threshold_mask_absolute, threshold_mask_relative]
+  threshold_mask_relative: 0.0 # Optional Mutually exclusive with: [threshold_mask_absolute, threshold_mask_none]
   use_implicit_threshold: True
   use_mcr: True
   use_v8struct: True
@@ -410,18 +410,18 @@ spm_TwoSampleTTestDesign:
   covariates: "enumerate(('vector','name','interaction','centering'))"
   dependent: True
   explicit_mask_file: "path"
-  global_calc_mean: True # Optional Mutually exclusive with: global_calc_omit, global_calc_values
-  global_calc_omit: True # Optional Mutually exclusive with: global_calc_mean, global_calc_values
-  global_calc_values: [0.0] # Optional Mutually exclusive with: global_calc_mean, global_calc_omit
+  global_calc_mean: True # Optional Mutually exclusive with: [global_calc_omit, global_calc_values]
+  global_calc_omit: True # Optional Mutually exclusive with: [global_calc_mean, global_calc_values]
+  global_calc_values: [0.0] # Optional Mutually exclusive with: [global_calc_mean, global_calc_omit]
   global_normalization: ''
   matlab_cmd: ''
   mfile: True
   no_grand_mean_scaling: True
   paths: ["path"]
   spm_mat_dir: "path"
-  threshold_mask_absolute: 0.0 # Optional Mutually exclusive with: threshold_mask_none, threshold_mask_relative
-  threshold_mask_none: True # Optional Mutually exclusive with: threshold_mask_absolute, threshold_mask_relative
-  threshold_mask_relative: 0.0 # Optional Mutually exclusive with: threshold_mask_absolute, threshold_mask_none
+  threshold_mask_absolute: 0.0 # Optional Mutually exclusive with: [threshold_mask_none, threshold_mask_relative]
+  threshold_mask_none: True # Optional Mutually exclusive with: [threshold_mask_absolute, threshold_mask_relative]
+  threshold_mask_relative: 0.0 # Optional Mutually exclusive with: [threshold_mask_absolute, threshold_mask_none]
   unequal_variance: True
   use_implicit_threshold: True
   use_mcr: True
@@ -464,3 +464,4 @@ spm_VBMSegment:
   wm_modulated_normalized: 0
   wm_native: True
   wm_normalized: True
+

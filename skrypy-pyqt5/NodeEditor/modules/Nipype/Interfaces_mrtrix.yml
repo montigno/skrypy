@@ -34,23 +34,23 @@ mrtrix_DiffusionTensorStreamlineTrack:
   desired_number_of_tracks: 0
   do_not_precompute: True
   environ: {}
-  exclude_file: "path" # Optional Mutually exclusive with: exclude_file, exclude_spec
-  exclude_spec: [0.0, 0.0, 0.0, 0.0] # Optional Mutually exclusive with: exclude_file, exclude_spec
-  include_file: "path" # Optional Mutually exclusive with: include_file, include_spec
-  include_spec: [0.0, 0.0, 0.0, 0.0] # Optional Mutually exclusive with: include_file, include_spec
+  exclude_file: "path" # Optional Mutually exclusive with: [exclude_file, exclude_spec]
+  exclude_spec: [0.0, 0.0, 0.0, 0.0] # Optional Mutually exclusive with: [exclude_file, exclude_spec]
+  include_file: "path" # Optional Mutually exclusive with: [include_file, include_spec]
+  include_spec: [0.0, 0.0, 0.0, 0.0] # Optional Mutually exclusive with: [include_file, include_spec]
   initial_cutoff_value: 0.0
   initial_direction: [0, 0]
   inputmodel: "enumerate(('DT_STREAM','SD_PROB','SD_STREAM'))"
-  mask_file: "path" # Optional Mutually exclusive with: mask_file, mask_spec
-  mask_spec: [0.0, 0.0, 0.0, 0.0] # Optional Mutually exclusive with: mask_file, mask_spec
+  mask_file: "path" # Optional Mutually exclusive with: [mask_file, mask_spec]
+  mask_spec: [0.0, 0.0, 0.0, 0.0] # Optional Mutually exclusive with: [mask_file, mask_spec]
   maximum_number_of_tracks: 0
   maximum_tract_length: 0.0
   minimum_radius_of_curvature: 0.0
   minimum_tract_length: 0.0
   no_mask_interpolation: True
   out_file: "path"
-  seed_file: "path" # Optional Mutually exclusive with: seed_file, seed_spec
-  seed_spec: [0.0, 0.0, 0.0, 0.0] # Optional Mutually exclusive with: seed_file, seed_spec
+  seed_file: "path" # Optional Mutually exclusive with: [seed_file, seed_spec]
+  seed_spec: [0.0, 0.0, 0.0, 0.0] # Optional Mutually exclusive with: [seed_file, seed_spec]
   step_size: 0.2
   stop: True
   unidirectional: True
@@ -89,10 +89,10 @@ mrtrix_FilterTracks:
   args: ''
   debug: True
   environ: {}
-  exclude_file: "path" # Optional Mutually exclusive with: exclude_file, exclude_spec
-  exclude_spec: [0.0, 0.0, 0.0, 0.0] # Optional Mutually exclusive with: exclude_file, exclude_spec
-  include_file: "path" # Optional Mutually exclusive with: include_file, include_spec
-  include_spec: [0.0, 0.0, 0.0, 0.0] # Optional Mutually exclusive with: include_file, include_spec
+  exclude_file: "path" # Optional Mutually exclusive with: [exclude_file, exclude_spec]
+  exclude_spec: [0.0, 0.0, 0.0, 0.0] # Optional Mutually exclusive with: [exclude_file, exclude_spec]
+  include_file: "path" # Optional Mutually exclusive with: [include_file, include_spec]
+  include_spec: [0.0, 0.0, 0.0, 0.0] # Optional Mutually exclusive with: [include_file, include_spec]
   invert: True
   minimum_tract_length: 10.0
   no_mask_interpolation: True
@@ -168,15 +168,15 @@ mrtrix_ProbabilisticSphericallyDeconvolutedStreamlineTrack:
   desired_number_of_tracks: 0
   do_not_precompute: True
   environ: {}
-  exclude_file: "path" # Optional Mutually exclusive with: exclude_file, exclude_spec
-  exclude_spec: [0.0, 0.0, 0.0, 0.0] # Optional Mutually exclusive with: exclude_file, exclude_spec
-  include_file: "path" # Optional Mutually exclusive with: include_file, include_spec
-  include_spec: [0.0, 0.0, 0.0, 0.0] # Optional Mutually exclusive with: include_file, include_spec
+  exclude_file: "path" # Optional Mutually exclusive with: [exclude_file, exclude_spec]
+  exclude_spec: [0.0, 0.0, 0.0, 0.0] # Optional Mutually exclusive with: [exclude_file, exclude_spec]
+  include_file: "path" # Optional Mutually exclusive with: [include_file, include_spec]
+  include_spec: [0.0, 0.0, 0.0, 0.0] # Optional Mutually exclusive with: [include_file, include_spec]
   initial_cutoff_value: 0.0
   initial_direction: [0, 0]
   inputmodel: "enumerate(('DT_STREAM','SD_PROB','SD_STREAM'))"
-  mask_file: "path" # Optional Mutually exclusive with: mask_file, mask_spec
-  mask_spec: [0.0, 0.0, 0.0, 0.0] # Optional Mutually exclusive with: mask_file, mask_spec
+  mask_file: "path" # Optional Mutually exclusive with: [mask_file, mask_spec]
+  mask_spec: [0.0, 0.0, 0.0, 0.0] # Optional Mutually exclusive with: [mask_file, mask_spec]
   maximum_number_of_tracks: 0
   maximum_number_of_trials: 0
   maximum_tract_length: 0.0
@@ -184,8 +184,8 @@ mrtrix_ProbabilisticSphericallyDeconvolutedStreamlineTrack:
   minimum_tract_length: 0.0
   no_mask_interpolation: True
   out_file: "path"
-  seed_file: "path" # Optional Mutually exclusive with: seed_file, seed_spec
-  seed_spec: [0.0, 0.0, 0.0, 0.0] # Optional Mutually exclusive with: seed_file, seed_spec
+  seed_file: "path" # Optional Mutually exclusive with: [seed_file, seed_spec]
+  seed_spec: [0.0, 0.0, 0.0, 0.0] # Optional Mutually exclusive with: [seed_file, seed_spec]
   step_size: 0.2
   stop: True
   unidirectional: True
@@ -195,23 +195,23 @@ mrtrix_SphericallyDeconvolutedStreamlineTrack:
   desired_number_of_tracks: 0
   do_not_precompute: True
   environ: {}
-  exclude_file: "path" # Optional Mutually exclusive with: exclude_file, exclude_spec
-  exclude_spec: [0.0, 0.0, 0.0, 0.0] # Optional Mutually exclusive with: exclude_file, exclude_spec
-  include_file: "path" # Optional Mutually exclusive with: include_file, include_spec
-  include_spec: [0.0, 0.0, 0.0, 0.0] # Optional Mutually exclusive with: include_file, include_spec
+  exclude_file: "path" # Optional Mutually exclusive with: [exclude_file, exclude_spec]
+  exclude_spec: [0.0, 0.0, 0.0, 0.0] # Optional Mutually exclusive with: [exclude_file, exclude_spec]
+  include_file: "path" # Optional Mutually exclusive with: [include_file, include_spec]
+  include_spec: [0.0, 0.0, 0.0, 0.0] # Optional Mutually exclusive with: [include_file, include_spec]
   initial_cutoff_value: 0.0
   initial_direction: [0, 0]
   inputmodel: "enumerate(('DT_STREAM','SD_PROB','SD_STREAM'))"
-  mask_file: "path" # Optional Mutually exclusive with: mask_file, mask_spec
-  mask_spec: [0.0, 0.0, 0.0, 0.0] # Optional Mutually exclusive with: mask_file, mask_spec
+  mask_file: "path" # Optional Mutually exclusive with: [mask_file, mask_spec]
+  mask_spec: [0.0, 0.0, 0.0, 0.0] # Optional Mutually exclusive with: [mask_file, mask_spec]
   maximum_number_of_tracks: 0
   maximum_tract_length: 0.0
   minimum_radius_of_curvature: 0.0
   minimum_tract_length: 0.0
   no_mask_interpolation: True
   out_file: "path"
-  seed_file: "path" # Optional Mutually exclusive with: seed_file, seed_spec
-  seed_spec: [0.0, 0.0, 0.0, 0.0] # Optional Mutually exclusive with: seed_file, seed_spec
+  seed_file: "path" # Optional Mutually exclusive with: [seed_file, seed_spec]
+  seed_spec: [0.0, 0.0, 0.0, 0.0] # Optional Mutually exclusive with: [seed_file, seed_spec]
   step_size: 0.2
   stop: True
   unidirectional: True
@@ -221,23 +221,23 @@ mrtrix_StreamlineTrack:
   desired_number_of_tracks: 0
   do_not_precompute: True
   environ: {}
-  exclude_file: "path" # Optional Mutually exclusive with: exclude_file, exclude_spec
-  exclude_spec: [0.0, 0.0, 0.0, 0.0] # Optional Mutually exclusive with: exclude_file, exclude_spec
-  include_file: "path" # Optional Mutually exclusive with: include_file, include_spec
-  include_spec: [0.0, 0.0, 0.0, 0.0] # Optional Mutually exclusive with: include_file, include_spec
+  exclude_file: "path" # Optional Mutually exclusive with: [exclude_file, exclude_spec]
+  exclude_spec: [0.0, 0.0, 0.0, 0.0] # Optional Mutually exclusive with: [exclude_file, exclude_spec]
+  include_file: "path" # Optional Mutually exclusive with: [include_file, include_spec]
+  include_spec: [0.0, 0.0, 0.0, 0.0] # Optional Mutually exclusive with: [include_file, include_spec]
   initial_cutoff_value: 0.0
   initial_direction: 0
   inputmodel: "enumerate(('DT_STREAM','SD_PROB','SD_STREAM'))"
-  mask_file: "path" # Optional Mutually exclusive with: mask_file, mask_spec
-  mask_spec: [0.0, 0.0, 0.0, 0.0] # Optional Mutually exclusive with: mask_file, mask_spec
+  mask_file: "path" # Optional Mutually exclusive with: [mask_file, mask_spec]
+  mask_spec: [0.0, 0.0, 0.0, 0.0] # Optional Mutually exclusive with: [mask_file, mask_spec]
   maximum_number_of_tracks: 0
   maximum_tract_length: 0.0
   minimum_radius_of_curvature: 0.0
   minimum_tract_length: 0.0
   no_mask_interpolation: True
   out_file: "path"
-  seed_file: "path" # Optional Mutually exclusive with: seed_file, seed_spec
-  seed_spec: [0.0, 0.0, 0.0, 0.0] # Optional Mutually exclusive with: seed_file, seed_spec
+  seed_file: "path" # Optional Mutually exclusive with: [seed_file, seed_spec]
+  seed_spec: [0.0, 0.0, 0.0, 0.0] # Optional Mutually exclusive with: [seed_file, seed_spec]
   step_size: 0.2
   stop: True
   unidirectional: True
@@ -279,3 +279,4 @@ mrtrix_Tracks2Prob:
   resample: 0.0
   template_file: "path"
   voxel_dims: [0.0, 0.0, 0.0]
+

@@ -1339,6 +1339,88 @@ class fsl_FNIRT:
 ###############################################################################
 
 
+class fsl_FSLCommand:
+    """
+    Note:
+        dependencies: Nipype,fsl
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, **options):
+        from nipype.interfaces.fsl.base import FSLCommand
+        at = FSLCommand()
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+###############################################################################
+
+
+class fsl_FSLXCommand:
+    """
+    Note:
+        dependencies: Nipype,fsl
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, bvals="path", bvecs="path", dwi="path", mask="path", n_fibres=2, **options):
+        from nipype.interfaces.fsl.dti import FSLXCommand
+        at = FSLXCommand()
+        at.inputs.bvals = bvals
+        at.inputs.bvecs = bvecs
+        at.inputs.dwi = dwi
+        at.inputs.mask = mask
+        at.inputs.n_fibres = n_fibres
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+        
+    def dyads(self) -> list[None]:
+        return self.res.outputs.dyads
+
+    def fsamples(self) -> list[None]:
+        return self.res.outputs.fsamples
+
+    def mean_S0samples(self) -> None:
+        return self.res.outputs.mean_S0samples
+
+    def mean_dsamples(self) -> None:
+        return self.res.outputs.mean_dsamples
+
+    def mean_fsamples(self) -> list[None]:
+        return self.res.outputs.mean_fsamples
+
+    def mean_tausamples(self) -> None:
+        return self.res.outputs.mean_tausamples
+
+    def phsamples(self) -> list[None]:
+        return self.res.outputs.phsamples
+
+    def thsamples(self) -> list[None]:
+        return self.res.outputs.thsamples
+
+###############################################################################
+
+class fsl_FeatureExtractor:
+    """
+    Note:
+        dependencies: Nipype,fsl
+        GUI: no
+        link_web: (click Ctrl + U)
+    """
+    def __init__(self, **options):
+        from nipype.interfaces.fsl.fix import FeatureExtractor
+        at = FeatureExtractor()
+        for ef in options:
+            setattr(at.inputs, ef, options[ef])
+        self.res = at.run()
+
+    def mel_ica(self) -> None:
+        return self.res.outputs.mel_ica
+
+###############################################################################
+
+
 class fsl_FUGUE:
     """
     Note:
@@ -1616,14 +1698,14 @@ class fsl_L2Model:
             setattr(at.inputs, ef, options[ef])
         self.res = at.run()
 
-    def design_mat(self) -> None:
-        return self.res.outputs.design_mat
-
     def design_con(self) -> None:
         return self.res.outputs.design_con
 
     def design_grp(self) -> None:
         return self.res.outputs.design_grp
+
+    def design_mat(self) -> None:
+        return self.res.outputs.design_mat
 
 ###############################################################################
 

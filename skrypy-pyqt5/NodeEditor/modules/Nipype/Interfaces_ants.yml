@@ -7,7 +7,7 @@ ants_AI:
   moving_image_mask: "path"
   num_threads: 1
   output_transform: "path"
-  principal_axes: True # Optional Mutually exclusive with: blobs
+  principal_axes: True # Optional Mutually exclusive with: [blobs]
   search_factor: (20, 0.12)
   search_grid: (0.0, (0.0, 0.0, 0.0))
   transform: ('Affine', 0.1)
@@ -189,7 +189,7 @@ ants_CreateTiledMosaic:
   slices: ''
   tile_geometry: ''
 ants_DenoiseImage:
-  save_noise: True # Mandatory Mutually exclusive with: noise_image
+  save_noise: True # Mandatory Mutually exclusive with: [noise_image]
   args: ''
   dimension: 3
   environ: {}
@@ -278,7 +278,7 @@ ants_MultiplyImages:
   environ: {}
   num_threads: 1
 ants_N4BiasFieldCorrection:
-  save_bias: True # Mandatory Mutually exclusive with: bias_image
+  save_bias: True # Mandatory Mutually exclusive with: [bias_image]
   args: ''
   bias_image: "path"
   bspline_fitting_distance: 0.0
@@ -301,21 +301,21 @@ ants_Registration:
   convergence_window_size: [10]
   dimension: 3
   environ: {}
-  fixed_image_mask: "path" # Optional Mutually exclusive with: fixed_image_masks
-  fixed_image_masks: ["path"] # Optional Mutually exclusive with: fixed_image_mask
+  fixed_image_mask: "path" # Optional Mutually exclusive with: [fixed_image_masks]
+  fixed_image_masks: ["path"] # Optional Mutually exclusive with: [fixed_image_mask]
   float: True
-  initial_moving_transform: ["path"] # Optional Mutually exclusive with: initial_moving_transform_com
-  initial_moving_transform_com: 0 # Optional Mutually exclusive with: initial_moving_transform
+  initial_moving_transform: ["path"] # Optional Mutually exclusive with: [initial_moving_transform_com]
+  initial_moving_transform_com: 0 # Optional Mutually exclusive with: [initial_moving_transform]
   initialize_transforms_per_stage: True
   interpolation: "enumerate(('Linear','NearestNeighbor','CosineWindowedSinc','WelchWindowedSinc','HammingWindowedSinc','LanczosWindowedSinc','BSpline','MultiLabel','Gaussian','GenericLabel'))"
   interpolation_parameters: (3,)
-  invert_initial_moving_transform: [True] # Optional Mutually exclusive with: initial_moving_transform_com requires: initial_moving_transform
+  invert_initial_moving_transform: [True] # Optional Mutually exclusive with: [initial_moving_transform_com]
   metric_item_trait: "enumerate(('CC','MeanSquares','Demons','GC','MI','Mattes'))"
   metric_stage_trait: "enumerate(('CC','MeanSquares','Demons','GC','MI','Mattes'))"
   metric_weight_item_trait: 1.0
   metric_weight_stage_trait: [0.0]
-  moving_image_mask: "path" # Optional Mutually exclusive with: moving_image_masks requires: fixed_image_mask
-  moving_image_masks: ["path"] # Optional Mutually exclusive with: moving_image_mask
+  moving_image_mask: "path" # Optional Mutually exclusive with: [moving_image_masks]
+  moving_image_masks: ["path"] # Optional Mutually exclusive with: [moving_image_mask]
   num_threads: 1
   number_of_iterations: [[0]]
   output_inverse_warped_image: "path"
@@ -370,24 +370,24 @@ ants_ThresholdImage:
   environ: {}
   input_mask: "path"
   inside_value: 0.0
-  mode: "enumerate(('Otsu','Kmeans'))" # Optional Mutually exclusive with: th_low, th_high requires: num_thresholds
+  mode: "enumerate(('Otsu','Kmeans'))" # Optional Mutually exclusive with: [th_low, th_high]
   num_threads: 1
   num_thresholds: 0
   output_image: path
   outside_value: 0.0
-  th_high: 0.0 # Optional Mutually exclusive with: mode
-  th_low: 0.0 # Optional Mutually exclusive with: mode
+  th_high: 0.0 # Optional Mutually exclusive with: [mode]
+  th_low: 0.0 # Optional Mutually exclusive with: [mode]
 ants_WarpImageMultiTransform:
   args: ''
   dimension: 3
   environ: {}
   invert_affine: [0]
   num_threads: 1
-  out_postfix: "_wtsimt" # Optional Mutually exclusive with: output_image
-  output_image: path # Optional Mutually exclusive with: out_postfix
-  reference_image: "path" # Optional Mutually exclusive with: tightest_box
+  out_postfix: "_wtsimt" # Optional Mutually exclusive with: [output_image]
+  output_image: path # Optional Mutually exclusive with: [out_postfix]
+  reference_image: "path" # Optional Mutually exclusive with: [tightest_box]
   reslice_by_header: True
-  tightest_box: True # Optional Mutually exclusive with: reference_image
+  tightest_box: True # Optional Mutually exclusive with: [reference_image]
   use_bspline: True
   use_nearest: True
 ants_WarpTimeSeriesImageMultiTransform:
@@ -397,8 +397,10 @@ ants_WarpTimeSeriesImageMultiTransform:
   invert_affine: [0]
   num_threads: 1
   out_postfix: '_wtsimt'
-  reference_image: "path" # Optional Mutually exclusive with: tightest_box
+  reference_image: "path" # Optional Mutually exclusive with: [tightest_box]
   reslice_by_header: True
-  tightest_box: True # Optional Mutually exclusive with: reference_image
+  tightest_box: True # Optional Mutually exclusive with: [reference_image]
   use_bspline: True
   use_nearest: True
+
+

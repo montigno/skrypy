@@ -59,8 +59,8 @@ camino_Conmat:
   output_root: "path"
   scalar_file: "path"
   targetname_file: "path"
-  tract_prop: "enumerate(('length','endpointsep'))" # Optional Mutually exclusive with: tract_stat
-  tract_stat: "enumerate(('mean','min','max','sum','median','var'))" # Optional Mutually exclusive with: tract_prop requires: scalar_file
+  tract_prop: "enumerate(('length','endpointsep'))" # Optional Mutually exclusive with: [tract_stat]
+  tract_stat: "enumerate(('mean','min','max','sum','median','var'))" # Optional Mutually exclusive with: [tract_prop]
 camino_DT2NIfTI:
   args: ''
   environ: {}
@@ -472,3 +472,4 @@ camino_VtkStreamlines:
   seed_file: "path"
   target_file: "path"
   voxeldims: [1, 1, 1]
+

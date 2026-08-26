@@ -22,13 +22,13 @@ dipy_Denoise:
   signal_mask: "path"
   snr: 0.0
 dipy_EstimateResponseSH:
-  auto: True # Optional Mutually exclusive with: recursive
+  auto: True # Optional Mutually exclusive with: [recursive]
   b0_thres: 700
   fa_thresh: 0.7
   in_mask: "path"
   out_mask: "path"
   out_prefix: ''
-  recursive: True # Optional Mutually exclusive with: auto
+  recursive: True # Optional Mutually exclusive with: [auto]
   response: "path"
   roi_radius: 10
 dipy_RESTORE:
@@ -70,3 +70,4 @@ dipy_TrackDensityMap:
   points_space: "enumerate(('rasmm','voxel'))"
   reference: "path"
   voxel_dims: [1.0, 1.0, 1.0]
+

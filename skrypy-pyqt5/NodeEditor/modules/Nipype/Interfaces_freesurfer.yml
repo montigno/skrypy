@@ -36,17 +36,17 @@ freesurfer_ApplyMask:
   xfm_source: "path"
   xfm_target: "path"
 freesurfer_ApplyVolTransform:
-  fs_target: True # Mandatory Mutually exclusive with: target_file, tal, fs_target requires: reg_file
-  fsl_reg_file: "path" # Mandatory Mutually exclusive with: reg_file, lta_file, lta_inv_file, fsl_reg_file, xfm_reg_file, reg_header, mni_152_reg, subject
-  lta_file: "path" # Mandatory Mutually exclusive with: reg_file, lta_file, lta_inv_file, fsl_reg_file, xfm_reg_file, reg_header, mni_152_reg, subject
-  lta_inv_file: "path" # Mandatory Mutually exclusive with: reg_file, lta_file, lta_inv_file, fsl_reg_file, xfm_reg_file, reg_header, mni_152_reg, subject
-  mni_152_reg: True # Mandatory Mutually exclusive with: reg_file, lta_file, lta_inv_file, fsl_reg_file, xfm_reg_file, reg_header, mni_152_reg, subject
-  reg_file: "path" # Mandatory Mutually exclusive with: reg_file, lta_file, lta_inv_file, fsl_reg_file, xfm_reg_file, reg_header, mni_152_reg, subject
-  reg_header: True # Mandatory Mutually exclusive with: reg_file, lta_file, lta_inv_file, fsl_reg_file, xfm_reg_file, reg_header, mni_152_reg, subject
-  subject: '' # Mandatory Mutually exclusive with: reg_file, lta_file, lta_inv_file, fsl_reg_file, xfm_reg_file, reg_header, mni_152_reg, subject
-  tal: True # Mandatory Mutually exclusive with: target_file, tal, fs_target
-  target_file: "path" # Mandatory Mutually exclusive with: target_file, tal, fs_target
-  xfm_reg_file: "path" # Mandatory Mutually exclusive with: reg_file, lta_file, lta_inv_file, fsl_reg_file, xfm_reg_file, reg_header, mni_152_reg, subject
+  fs_target: True # Mandatory Mutually exclusive with: [target_file, tal, fs_target]
+  fsl_reg_file: "path" # Mandatory Mutually exclusive with: [reg_file, lta_file, lta_inv_file, fsl_reg_file, xfm_reg_file, reg_header, mni_152_reg, subject]
+  lta_file: "path" # Mandatory Mutually exclusive with: [reg_file, lta_file, lta_inv_file, fsl_reg_file, xfm_reg_file, reg_header, mni_152_reg, subject]
+  lta_inv_file: "path" # Mandatory Mutually exclusive with: [reg_file, lta_file, lta_inv_file, fsl_reg_file, xfm_reg_file, reg_header, mni_152_reg, subject]
+  mni_152_reg: True # Mandatory Mutually exclusive with: [reg_file, lta_file, lta_inv_file, fsl_reg_file, xfm_reg_file, reg_header, mni_152_reg, subject]
+  reg_file: "path" # Mandatory Mutually exclusive with: [reg_file, lta_file, lta_inv_file, fsl_reg_file, xfm_reg_file, reg_header, mni_152_reg, subject]
+  reg_header: True # Mandatory Mutually exclusive with: [reg_file, lta_file, lta_inv_file, fsl_reg_file, xfm_reg_file, reg_header, mni_152_reg, subject]
+  subject: '' # Mandatory Mutually exclusive with: [reg_file, lta_file, lta_inv_file, fsl_reg_file, xfm_reg_file, reg_header, mni_152_reg, subject]
+  tal: True # Mandatory Mutually exclusive with: [target_file, tal, fs_target]
+  target_file: "path" # Mandatory Mutually exclusive with: [target_file, tal, fs_target]
+  xfm_reg_file: "path" # Mandatory Mutually exclusive with: [reg_file, lta_file, lta_inv_file, fsl_reg_file, xfm_reg_file, reg_header, mni_152_reg, subject]
   args: ''
   environ: {}
   interp: "enumerate(('trilin','nearest','cubic'))"
@@ -64,15 +64,15 @@ freesurfer_BBRegister:
   environ: {}
   epi_mask: True
   fsldof: 0
-  init: "enumerate(('coreg','rr','spm','fsl','header','best'))" # Optional Mutually exclusive with: init_reg_file
+  init: "enumerate(('coreg','rr','spm','fsl','header','best'))" # Optional Mutually exclusive with: [init_reg_file]
   init_cost_file: "path"
-  init_reg_file: "path" # Optional Mutually exclusive with: init
+  init_reg_file: "path" # Optional Mutually exclusive with: [init]
   intermediate_file: "path"
   out_fsl_file: "path"
   out_lta_file: "path"
   out_reg_file: "path"
-  reg_frame: 0 # Optional Mutually exclusive with: reg_middle_frame
-  reg_middle_frame: True # Optional Mutually exclusive with: reg_frame
+  reg_frame: 0 # Optional Mutually exclusive with: [reg_middle_frame]
+  reg_middle_frame: True # Optional Mutually exclusive with: [reg_frame]
   registered_file: "path"
   spm_nifti: True
   subjects_dir: "path"
@@ -93,16 +93,16 @@ freesurfer_Binarize:
   mask_file: "path"
   mask_thresh: 0.0
   match: [0]
-  max: 0.0 # Optional Mutually exclusive with: wm_ven_csf
+  max: 0.0 # Optional Mutually exclusive with: [wm_ven_csf]
   merge_file: "path"
-  min: 0.0 # Optional Mutually exclusive with: wm_ven_csf
+  min: 0.0 # Optional Mutually exclusive with: [wm_ven_csf]
   out_type: "enumerate(('nii','nii.gz','mgz'))"
   rmax: 0.0
   rmin: 0.0
   subjects_dir: "path"
   ventricles: True
   wm: True
-  wm_ven_csf: True # Optional Mutually exclusive with: min, max
+  wm_ven_csf: True # Optional Mutually exclusive with: [min, max]
   zero_edges: True
   zero_slice_edge: True
 freesurfer_CALabel:
@@ -142,8 +142,8 @@ freesurfer_CARegister:
   template: "path"
   transform: "path"
 freesurfer_CheckTalairachAlignment:
-  in_file: "path" # Mandatory Mutually exclusive with: subject
-  subject: '' # Mandatory Mutually exclusive with: in_file
+  in_file: "path" # Mandatory Mutually exclusive with: [subject]
+  subject: '' # Mandatory Mutually exclusive with: [in_file]
   args: ''
   environ: {}
   subjects_dir: "path"
@@ -271,38 +271,38 @@ freesurfer_GLMFit:
   check_opts: True
   compute_log_y: True
   contrast: ["path"]
-  cortex: True # Optional Mutually exclusive with: label_file
+  cortex: True # Optional Mutually exclusive with: [label_file]
   debug: True
-  design: "path" # Optional Mutually exclusive with: fsgd, design, one_sample
+  design: "path" # Optional Mutually exclusive with: [fsgd, design, one_sample]
   diag: 0
   diag_cluster: True
   environ: {}
-  fixed_fx_dof: 0 # Optional Mutually exclusive with: fixed_fx_dof_file
-  fixed_fx_dof_file: "path" # Optional Mutually exclusive with: fixed_fx_dof
+  fixed_fx_dof: 0 # Optional Mutually exclusive with: [fixed_fx_dof_file]
+  fixed_fx_dof_file: "path" # Optional Mutually exclusive with: [fixed_fx_dof]
   fixed_fx_var: "path"
   force_perm: True
-  fsgd: ("path", 'doss')" # Optional Mutually exclusive with: fsgd, design, one_sample
+  fsgd: ("path", 'doss')" # Optional Mutually exclusive with: [fsgd, design, one_sample]
   fwhm: 0.0
   glm_dir: ''
   hemi: "enumerate(('lh','rh'))"
   invert_mask: True
-  label_file: "path" # Optional Mutually exclusive with: cortex
+  label_file: "path" # Optional Mutually exclusive with: [cortex]
   logan: ("path", "path", 0.0)
   mask_file: "path"
   mrtm1: ("path", "path")
   mrtm2: ("path", "path", 0.0)
-  nii: True # Optional Mutually exclusive with: nii, nii_gz
-  nii_gz: True # Optional Mutually exclusive with: nii, nii_gz
+  nii: True # Optional Mutually exclusive with: [nii, nii_gz]
+  nii_gz: True # Optional Mutually exclusive with: [nii, nii_gz]
   no_contrast_ok: True
   no_est_fwhm: True
   no_mask_smooth: True
-  no_prune: True # Optional Mutually exclusive with: prunethresh
-  one_sample: True # Optional Mutually exclusive with: one_sample, fsgd, design, contrast
+  no_prune: True # Optional Mutually exclusive with: [prunethresh]
+  one_sample: True # Optional Mutually exclusive with: [one_sample, fsgd, design, contrast]
   pca: True
   per_voxel_reg: ["path"]
   profile: 0
   prune: True
-  prune_thresh: 0.0 # Optional Mutually exclusive with: noprune
+  prune_thresh: 0.0 # Optional Mutually exclusive with: [noprune]
   resynth_test: 0
   save_cond: True
   save_estimate: True
@@ -321,22 +321,22 @@ freesurfer_GLMFit:
   uniform: (0.0, 0.0)
   var_fwhm: 0.0
   vox_dump: (1, 1, 1)
-  weight_file: "path" # Optional Mutually exclusive with: weighted_ls
-  weight_inv: True # Optional Mutually exclusive with: weighted_ls
-  weight_sqrt: True # Optional Mutually exclusive with: weighted_ls
-  weighted_ls: "path" # Optional Mutually exclusive with: weight_file, weight_inv, weight_sqrt
+  weight_file: "path" # Optional Mutually exclusive with: [weighted_ls]
+  weight_inv: True # Optional Mutually exclusive with: [weighted_ls]
+  weight_sqrt: True # Optional Mutually exclusive with: [weighted_ls]
+  weighted_ls: "path" # Optional Mutually exclusive with: [weight_file, weight_inv, weight_sqrt]
 freesurfer_GTMPVC:
-  reg_file: "path" # Mandatory Mutually exclusive with: reg_file, regheader, reg_identity
-  reg_identity: True # Mandatory Mutually exclusive with: reg_file, regheader, reg_identity
-  regheader: True # Mandatory Mutually exclusive with: reg_file, regheader, reg_identity
+  reg_file: "path" # Mandatory Mutually exclusive with: [reg_file, regheader, reg_identity]
+  reg_identity: True # Mandatory Mutually exclusive with: [reg_file, regheader, reg_identity]
+  regheader: True # Mandatory Mutually exclusive with: [reg_file, regheader, reg_identity]
   X: True
   X0: True
   args: ''
   auto_mask: (0.0, 0.0)
   beta: True
-  color_table_file: "path" # Optional Mutually exclusive with: color_table_file, default_color_table
+  color_table_file: "path" # Optional Mutually exclusive with: [color_table_file, default_color_table]
   contrast: ["path"]
-  default_color_table: True # Optional Mutually exclusive with: color_table_file, default_color_table
+  default_color_table: True # Optional Mutually exclusive with: [color_table_file, default_color_table]
   default_seg_merge: True
   environ: {}
   frame: 0
@@ -371,10 +371,10 @@ freesurfer_GTMPVC:
   rescale: ['']
   save_eres: True
   save_input: True
-  save_yhat: True # Optional Mutually exclusive with: save_yhat_with_noise
+  save_yhat: True # Optional Mutually exclusive with: [save_yhat_with_noise]
   save_yhat0: True
   save_yhat_full_fov: True
-  save_yhat_with_noise: (0, 0) # Optional Mutually exclusive with: save_yhat
+  save_yhat_with_noise: (0, 0) # Optional Mutually exclusive with: [save_yhat]
   scale_refval: 0.0
   steady_state_params: (0.0, 0.0, 0.0)
   subjects_dir: "path"
@@ -423,23 +423,23 @@ freesurfer_Label2Label:
   registration_method: "enumerate(('surface','volume'))"
   subjects_dir: "path"
 freesurfer_Label2Vol:
-  annot_file: "path" # Mandatory Mutually exclusive with: label_file, annot_file, seg_file, aparc_aseg requires: subject_id, hemi
-  aparc_aseg: True # Mandatory Mutually exclusive with: label_file, annot_file, seg_file, aparc_aseg
-  label_file: ["path"] # Mandatory Mutually exclusive with: label_file, annot_file, seg_file, aparc_aseg
-  seg_file: "path" # Mandatory Mutually exclusive with: label_file, annot_file, seg_file, aparc_aseg
+  annot_file: "path" # Mandatory Mutually exclusive with: [label_file, annot_file, seg_file, aparc_aseg]
+  aparc_aseg: True # Mandatory Mutually exclusive with: [label_file, annot_file, seg_file, aparc_aseg]
+  label_file: ["path"] # Mandatory Mutually exclusive with: [label_file, annot_file, seg_file, aparc_aseg]
+  seg_file: "path" # Mandatory Mutually exclusive with: [label_file, annot_file, seg_file, aparc_aseg]
   args: ''
   environ: {}
   fill_thresh: 0.0
   hemi: "enumerate(('lh','rh'))"
-  identity: True # Optional Mutually exclusive with: reg_file, reg_header, identity
+  identity: True # Optional Mutually exclusive with: [reg_file, reg_header, identity]
   invert_mtx: True
   label_hit_file: "path"
   label_voxel_volume: 0.0
   map_label_stat: "path"
   native_vox2ras: True
   proj: "enumerate(('abs','frac'))"
-  reg_file: "path" # Optional Mutually exclusive with: reg_file, reg_header, identity
-  reg_header: "path" # Optional Mutually exclusive with: reg_file, reg_header, identity
+  reg_file: "path" # Optional Mutually exclusive with: [reg_file, reg_header, identity]
+  reg_header: "path" # Optional Mutually exclusive with: [reg_file, reg_header, identity]
   subject_id: ''
   subjects_dir: "path"
   surface: ''
@@ -549,11 +549,11 @@ freesurfer_MRIConvert:
   zero_ge_z_offset: True
   zero_outlines: True
 freesurfer_MRICoreg:
-  reference_file: "path" # Mandatory Mutually exclusive with: subject_id
-  subject_id: '' # Mandatory Mutually exclusive with: reference_file requires: subjects_dir
+  reference_file: "path" # Mandatory Mutually exclusive with: [subject_id]
+  subject_id: '' # Mandatory Mutually exclusive with: [reference_file]
   args: ''
-  brute_force_limit: 0.0 # Optional Mutually exclusive with: no_brute_force
-  brute_force_samples: 0 # Optional Mutually exclusive with: no_brute_force
+  brute_force_limit: 0.0 # Optional Mutually exclusive with: [no_brute_force]
+  brute_force_samples: 0 # Optional Mutually exclusive with: [no_brute_force]
   conform_reference: True
   dof: 6
   environ: {}
@@ -604,46 +604,46 @@ freesurfer_MRIPretess:
 freesurfer_MRISPreproc:
   args: ''
   environ: {}
-  fsgd_file: "path" # Optional Mutually exclusive with: subjects, fsgd_file, subject_file
-  fwhm: 0.0 # Optional Mutually exclusive with: num_iters
-  fwhm_source: 0.0 # Optional Mutually exclusive with: num_iters_source
-  num_iters: 1 # Optional Mutually exclusive with: fwhm
-  num_iters_source: 0 # Optional Mutually exclusive with: fwhm_source
+  fsgd_file: "path" # Optional Mutually exclusive with: [subjects, fsgd_file, subject_file]
+  fwhm: 0.0 # Optional Mutually exclusive with: [num_iters]
+  fwhm_source: 0.0 # Optional Mutually exclusive with: [num_iters_source]
+  num_iters: 1 # Optional Mutually exclusive with: [fwhm]
+  num_iters_source: 0 # Optional Mutually exclusive with: [fwhm_source]
   out_file: "path"
   proj_frac: 0.0
   smooth_cortex_only: True
   source_format: ''
-  subject_file: "path" # Optional Mutually exclusive with: subjects, fsgd_file, subject_file
-  subjects: [''] # Optional Mutually exclusive with: subjects, fsgd_file, subject_file
+  subject_file: "path" # Optional Mutually exclusive with: [subjects, fsgd_file, subject_file]
+  subjects: [''] # Optional Mutually exclusive with: [subjects, fsgd_file, subject_file]
   subjects_dir: "path"
-  surf_area: '' # Optional Mutually exclusive with: surf_measure, surf_measure_file, surf_area
+  surf_area: '' # Optional Mutually exclusive with: [surf_measure, surf_measure_file, surf_area]
   surf_dir: ''
-  surf_measure: '' # Optional Mutually exclusive with: surf_measure, surf_measure_file, surf_area
-  surf_measure_file: ["path"] # Optional Mutually exclusive with: surf_measure, surf_measure_file, surf_area
+  surf_measure: '' # Optional Mutually exclusive with: [surf_measure, surf_measure_file, surf_area]
+  surf_measure_file: ["path"] # Optional Mutually exclusive with: [surf_measure, surf_measure_file, surf_area]
   vol_measure_file: [(0,)]
 freesurfer_MRISPreprocReconAll:
   args: ''
   copy_inputs: True
   environ: {}
-  fsgd_file: "path" # Optional Mutually exclusive with: subjects, fsgd_file, subject_file
-  fwhm: 0.0 # Optional Mutually exclusive with: num_iters
-  fwhm_source: 0.0 # Optional Mutually exclusive with: num_iters_source
+  fsgd_file: "path" # Optional Mutually exclusive with: [subjects, fsgd_file, subject_file]
+  fwhm: 0.0 # Optional Mutually exclusive with: [num_iters]
+  fwhm_source: 0.0 # Optional Mutually exclusive with: [num_iters_source]
   lh_surfreg_target: "path"
-  num_iters: 0 # Optional Mutually exclusive with: fwhm
-  num_iters_source: 0 # Optional Mutually exclusive with: fwhm_source
+  num_iters: 0 # Optional Mutually exclusive with: [fwhm]
+  num_iters_source: 0 # Optional Mutually exclusive with: [fwhm_source]
   out_file: "path"
   proj_frac: 0.0
   rh_surfreg_target: "path"
   smooth_cortex_only: True
   source_format: ''
-  subject_file: "path" # Optional Mutually exclusive with: subjects, fsgd_file, subject_file
-  subject_id: 'subject_id' # Optional Mutually exclusive with: subjects, fsgd_file, subject_file, subject_id
-  subjects: [''] # Optional Mutually exclusive with: subjects, fsgd_file, subject_file
+  subject_file: "path" # Optional Mutually exclusive with: [subjects, fsgd_file, subject_file]
+  subject_id: 'subject_id' # Optional Mutually exclusive with: [subjects, fsgd_file, subject_file, subject_id]
+  subjects: [''] # Optional Mutually exclusive with: [subjects, fsgd_file, subject_file]
   subjects_dir: "path"
-  surf_area: '' # Optional Mutually exclusive with: surf_measure, surf_measure_file, surf_area
+  surf_area: '' # Optional Mutually exclusive with: [surf_measure, surf_measure_file, surf_area]
   surf_dir: ''
-  surf_measure: '' # Optional Mutually exclusive with: surf_measure, surf_measure_file, surf_area
-  surf_measure_file: "path" # Optional Mutually exclusive with: surf_measure, surf_measure_file, surf_area
+  surf_measure: '' # Optional Mutually exclusive with: [surf_measure, surf_measure_file, surf_area]
+  surf_measure_file: "path" # Optional Mutually exclusive with: [surf_measure, surf_measure_file, surf_area]
   surfreg_files: ["path"]
   vol_measure_file: [(0,)]
 freesurfer_MRITessellate:
@@ -666,17 +666,17 @@ freesurfer_MRIsCALabel:
 freesurfer_MRIsCalc:
   args: ''
   environ: {}
-  in_file2: "path" # Optional Mutually exclusive with: in_float, in_int
-  in_float: 0.0 # Optional Mutually exclusive with: in_file2, in_int
-  in_int: 0 # Optional Mutually exclusive with: in_file2, in_float
+  in_file2: "path" # Optional Mutually exclusive with: [in_float, in_int]
+  in_float: 0.0 # Optional Mutually exclusive with: [in_file2, in_int]
+  in_int: 0 # Optional Mutually exclusive with: [in_file2, in_float]
   subjects_dir: "path"
 freesurfer_MRIsCombine:
   args: ''
   environ: {}
   subjects_dir: "path"
 freesurfer_MRIsConvert:
-  out_datatype: "enumerate(('asc','ico','tri','stl','vtk','gii','mgh','mgz'))" # Mandatory Mutually exclusive with: out_file
-  out_file: "path" # Mandatory Mutually exclusive with: out_datatype
+  out_datatype: "enumerate(('asc','ico','tri','stl','vtk','gii','mgh','mgz'))" # Mandatory Mutually exclusive with: [out_file]
+  out_file: "path" # Mandatory Mutually exclusive with: [out_datatype]
   annot_file: "path"
   args: ''
   dataarray_num: 0
@@ -714,9 +714,9 @@ freesurfer_MRIsExpand:
 freesurfer_MRIsInflate:
   args: ''
   environ: {}
-  no_save_sulc: True # Optional Mutually exclusive with: out_sulc
+  no_save_sulc: True # Optional Mutually exclusive with: [out_sulc]
   out_file: "path"
-  out_sulc: "path" # Optional Mutually exclusive with: no_save_sulc
+  out_sulc: "path" # Optional Mutually exclusive with: [no_save_sulc]
   subjects_dir: "path"
 freesurfer_MS_LDA:
   args: ''
@@ -739,13 +739,13 @@ freesurfer_MakeSurfaces:
   fix_mtl: True
   in_T1: "path"
   in_aseg: "path"
-  in_label: "path" # Optional Mutually exclusive with: noaparc
+  in_label: "path" # Optional Mutually exclusive with: [noaparc]
   in_white: "path"
   longitudinal: True
   maximum: 0.0
   mgz: True
   no_white: True
-  noaparc: True # Optional Mutually exclusive with: in_label
+  noaparc: True # Optional Mutually exclusive with: [in_label]
   orig_pial: "path"
   orig_white: "path"
   subjects_dir: "path"
@@ -770,38 +770,38 @@ freesurfer_OneSampleTTest:
   check_opts: True
   compute_log_y: True
   contrast: ["path"]
-  cortex: True # Optional Mutually exclusive with: label_file
+  cortex: True # Optional Mutually exclusive with: [label_file]
   debug: True
-  design: "path" # Optional Mutually exclusive with: fsgd, design, one_sample
+  design: "path" # Optional Mutually exclusive with: [fsgd, design, one_sample]
   diag: 0
   diag_cluster: True
   environ: {}
-  fixed_fx_dof: 0 # Optional Mutually exclusive with: fixed_fx_dof_file
-  fixed_fx_dof_file: "path" # Optional Mutually exclusive with: fixed_fx_dof
+  fixed_fx_dof: 0 # Optional Mutually exclusive with: [fixed_fx_dof_file]
+  fixed_fx_dof_file: "path" # Optional Mutually exclusive with: [fixed_fx_dof]
   fixed_fx_var: "path"
   force_perm: True
-  fsgd: "enumerate(('doss','dods'))" # Optional Mutually exclusive with: fsgd, design, one_sample
+  fsgd: "enumerate(('doss','dods'))" # Optional Mutually exclusive with: [fsgd, design, one_sample]
   fwhm: 0.0
   glm_dir: ''
   hemi: "enumerate(('lh','rh'))"
   invert_mask: True
-  label_file: "path" # Optional Mutually exclusive with: cortex
+  label_file: "path" # Optional Mutually exclusive with: [cortex]
   logan: (0,)
   mask_file: "path"
   mrtm1: (0,)
   mrtm2: (0,)
-  nii: True # Optional Mutually exclusive with: nii, nii_gz
-  nii_gz: True # Optional Mutually exclusive with: nii, nii_gz
+  nii: True # Optional Mutually exclusive with: [nii, nii_gz]
+  nii_gz: True # Optional Mutually exclusive with: [nii, nii_gz]
   no_contrast_ok: True
   no_est_fwhm: True
   no_mask_smooth: True
-  no_prune: True # Optional Mutually exclusive with: prunethresh
-  one_sample: True # Optional Mutually exclusive with: one_sample, fsgd, design, contrast
+  no_prune: True # Optional Mutually exclusive with: [prunethresh]
+  one_sample: True # Optional Mutually exclusive with: [one_sample, fsgd, design, contrast]
   pca: True
   per_voxel_reg: ["path"]
   profile: 0
   prune: True
-  prune_thresh: 0.0 # Optional Mutually exclusive with: noprune
+  prune_thresh: 0.0 # Optional Mutually exclusive with: [noprune]
   resynth_test: 0
   save_cond: True
   save_estimate: True
@@ -820,10 +820,10 @@ freesurfer_OneSampleTTest:
   uniform: (0,)
   var_fwhm: 0.0
   vox_dump: (0,)
-  weight_file: "path" # Optional Mutually exclusive with: weighted_ls
-  weight_inv: True # Optional Mutually exclusive with: weighted_ls
-  weight_sqrt: True # Optional Mutually exclusive with: weighted_ls
-  weighted_ls: "path" # Optional Mutually exclusive with: weight_file, weight_inv, weight_sqrt
+  weight_file: "path" # Optional Mutually exclusive with: [weighted_ls]
+  weight_inv: True # Optional Mutually exclusive with: [weighted_ls]
+  weight_sqrt: True # Optional Mutually exclusive with: [weighted_ls]
+  weighted_ls: "path" # Optional Mutually exclusive with: [weight_file, weight_inv, weight_sqrt]
 freesurfer_Paint:
   args: ''
   averages: 0
@@ -836,11 +836,11 @@ freesurfer_ParcellationStats:
   copy_inputs: True
   cortex_label: "path"
   environ: {}
-  in_annotation: "path" # Optional Mutually exclusive with: in_label
+  in_annotation: "path" # Optional Mutually exclusive with: [in_label]
   in_cortex: "path"
-  in_label: "path" # Optional Mutually exclusive with: in_annotatoin, out_color
+  in_label: "path" # Optional Mutually exclusive with: [in_annotatoin, out_color]
   mgz: True
-  out_color: "path" # Optional Mutually exclusive with: in_label
+  out_color: "path" # Optional Mutually exclusive with: [in_label]
   out_table: "path"
   subjects_dir: "path"
   surface: ''
@@ -858,7 +858,7 @@ freesurfer_ReconAll:
   T1_files: ["path"]
   T2_file: "path"
   args: ''
-  base_template_id: '' # Optional Mutually exclusive with: subject_id, longitudinal_timepoint_id requires: base_timepoint_ids
+  base_template_id: '' # Optional Mutually exclusive with: [subject_id, longitudinal_timepoint_id]
   base_timepoint_ids: ['']
   big_ventricles: True
   brainstem: True
@@ -871,40 +871,40 @@ freesurfer_ReconAll:
   hippocampal_subfields_T2: ("path", "")
   hires: True
   longitudinal_template_id: ''
-  longitudinal_timepoint_id: '' # Optional Mutually exclusive with: subject_id, base_template_id requires: longitudinal_template_id
+  longitudinal_timepoint_id: '' # Optional Mutually exclusive with: [subject_id, base_template_id)
   mprage: True
-  mri_aparc2aseg: '' # Optional Mutually exclusive with: expert
-  mri_ca_label: '' # Optional Mutually exclusive with: expert
-  mri_ca_normalize: '' # Optional Mutually exclusive with: expert
-  mri_ca_register: '' # Optional Mutually exclusive with: expert
-  mri_edit_wm_with_aseg: '' # Optional Mutually exclusive with: expert
-  mri_em_register: '' # Optional Mutually exclusive with: expert
-  mri_fill: '' # Optional Mutually exclusive with: expert
-  mri_mask: '' # Optional Mutually exclusive with: expert
-  mri_normalize: '' # Optional Mutually exclusive with: expert
-  mri_pretess: '' # Optional Mutually exclusive with: expert
-  mri_remove_neck: '' # Optional Mutually exclusive with: expert
-  mri_segment: '' # Optional Mutually exclusive with: expert
-  mri_segstats: '' # Optional Mutually exclusive with: expert
-  mri_tessellate: '' # Optional Mutually exclusive with: expert
-  mri_watershed: '' # Optional Mutually exclusive with: expert
-  mris_anatomical_stats: '' # Optional Mutually exclusive with: expert
-  mris_ca_label: '' # Optional Mutually exclusive with: expert
-  mris_fix_topology: '' # Optional Mutually exclusive with: expert
-  mris_inflate: '' # Optional Mutually exclusive with: expert
-  mris_make_surfaces: '' # Optional Mutually exclusive with: expert
-  mris_register: '' # Optional Mutually exclusive with: expert
-  mris_smooth: '' # Optional Mutually exclusive with: expert
-  mris_sphere: '' # Optional Mutually exclusive with: expert
-  mris_surf2vol: '' # Optional Mutually exclusive with: expert
-  mrisp_paint: '' # Optional Mutually exclusive with: expert
+  mri_aparc2aseg: '' # Optional Mutually exclusive with: [expert]
+  mri_ca_label: '' # Optional Mutually exclusive with: [expert]
+  mri_ca_normalize: '' # Optional Mutually exclusive with: [expert]
+  mri_ca_register: '' # Optional Mutually exclusive with: [expert]
+  mri_edit_wm_with_aseg: '' # Optional Mutually exclusive with: [expert]
+  mri_em_register: '' # Optional Mutually exclusive with: [expert]
+  mri_fill: '' # Optional Mutually exclusive with: [expert]
+  mri_mask: '' # Optional Mutually exclusive with: [expert]
+  mri_normalize: '' # Optional Mutually exclusive with: [expert]
+  mri_pretess: '' # Optional Mutually exclusive with: [expert]
+  mri_remove_neck: '' # Optional Mutually exclusive with: [expert]
+  mri_segment: '' # Optional Mutually exclusive with: [expert]
+  mri_segstats: '' # Optional Mutually exclusive with: [expert]
+  mri_tessellate: '' # Optional Mutually exclusive with: [expert]
+  mri_watershed: '' # Optional Mutually exclusive with: [expert]
+  mris_anatomical_stats: '' # Optional Mutually exclusive with: [expert]
+  mris_ca_label: '' # Optional Mutually exclusive with: [expert]
+  mris_fix_topology: '' # Optional Mutually exclusive with: [expert]
+  mris_inflate: '' # Optional Mutually exclusive with: [expert]
+  mris_make_surfaces: '' # Optional Mutually exclusive with: [expert]
+  mris_register: '' # Optional Mutually exclusive with: [expert]
+  mris_smooth: '' # Optional Mutually exclusive with: [expert]
+  mris_sphere: '' # Optional Mutually exclusive with: [expert]
+  mris_surf2vol: '' # Optional Mutually exclusive with: [expert]
+  mrisp_paint: '' # Optional Mutually exclusive with: [expert]
   openmp: 0
   parallel: True
-  subject_id: '' # Optional Mutually exclusive with: base_template_id, longitudinal_timepoint_id
+  subject_id: '' # Optional Mutually exclusive with: [base_template_id, longitudinal_timepoint_id]
   subjects_dir: "path"
-  talairach: '' # Optional Mutually exclusive with: expert
-  use_FLAIR: True # Optional Mutually exclusive with: use_T2
-  use_T2: True # Optional Mutually exclusive with: use_FLAIR
+  talairach: '' # Optional Mutually exclusive with: [expert]
+  use_FLAIR: True # Optional Mutually exclusive with: [use_T2]
+  use_T2: True # Optional Mutually exclusive with: [use_FLAIR]
   xopts: "enumerate(('use','clean','overwrite'))"
 freesurfer_Register:
   args: ''
@@ -941,8 +941,8 @@ freesurfer_Resample:
   resampled_file: "path"
   subjects_dir: "path"
 freesurfer_RobustRegister:
-  auto_sens: True # Mandatory Mutually exclusive with: outlier_sens
-  outlier_sens: 0.0 # Mandatory Mutually exclusive with: auto_sens
+  auto_sens: True # Mandatory Mutually exclusive with: [outlier_sens]
+  outlier_sens: 0.0 # Mandatory Mutually exclusive with: [auto_sens]
   args: ''
   environ: {}
   est_int_scale: True
@@ -972,8 +972,8 @@ freesurfer_RobustRegister:
   weights_file: "path"
   write_vo2vox: True
 freesurfer_RobustTemplate:
-  auto_detect_sensitivity: True # Mandatory Mutually exclusive with: outlier_sensitivity
-  outlier_sensitivity: 0.0 # Mandatory Mutually exclusive with: auto_detect_sensitivity
+  auto_detect_sensitivity: True # Mandatory Mutually exclusive with: [outlier_sensitivity]
+  outlier_sensitivity: 0.0 # Mandatory Mutually exclusive with: [auto_detect_sensitivity]
   args: ''
   average_metric: "enumerate(('median','mean'))"
   environ: {}
@@ -989,15 +989,15 @@ freesurfer_RobustTemplate:
   subsample_threshold: 0
   transform_outputs: ["path"]
 freesurfer_SampleToSurface:
-  mni152reg: True # Mandatory Mutually exclusive with: reg_file, reg_header, mni152reg
-  projection_stem: '' # Mandatory Mutually exclusive with: sampling_method
-  reg_file: "path" # Mandatory Mutually exclusive with: reg_file, reg_header, mni152reg
-  reg_header: True # Mandatory Mutually exclusive with: reg_file, reg_header, mni152reg requires: subject_id
-  sampling_method: "enumerate(('point','max','average'))" # Mandatory Mutually exclusive with: projection_stem requires: sampling_range, sampling_units
+  mni152reg: True # Mandatory Mutually exclusive with: [reg_file, reg_header, mni152reg]
+  projection_stem: '' # Mandatory Mutually exclusive with: [sampling_method]
+  reg_file: "path" # Mandatory Mutually exclusive with: [reg_file, reg_header, mni152reg]
+  reg_header: True # Mandatory Mutually exclusive with: [reg_file, reg_header, mni152reg]
+  sampling_method: "enumerate(('point','max','average'))" # Mandatory Mutually exclusive with: [projection_stem]
   apply_rot: (0.0, 0.0, 0.0)
   apply_trans: (0.0, 0.0, 0.0)
   args: ''
-  cortex_mask: True # Optional Mutually exclusive with: mask_label
+  cortex_mask: True # Optional Mutually exclusive with: [mask_label]
   environ: {}
   fix_tk_reg: True
   float2int_method: "enumerate(('round','tkregister'))"
@@ -1006,13 +1006,13 @@ freesurfer_SampleToSurface:
   hits_type: "enumerate(('cor','mgh','mgz','minc','analyze','analyze4d','spm','afni','brik','bshort','bfloat','sdt','outline','otl','gdf','nifti1','nii','niigz'))"
   ico_order: 0
   interp_method: "enumerate(('nearest','trilinear'))"
-  mask_label: "path" # Optional Mutually exclusive with: cortex_mask
-  no_reshape: True # Optional Mutually exclusive with: reshape
+  mask_label: "path" # Optional Mutually exclusive with: [cortex_mask]
+  no_reshape: True # Optional Mutually exclusive with: [reshape]
   out_file: "path"
   out_type: "enumerate(('cor','mgh','mgz','minc','analyze','analyze4d','spm','afni','brik','bshort','bfloat','sdt','outline','otl','gdf','nifti1','nii','niigz','gii'))"
   override_reg_subj: True
   reference_file: "path"
-  reshape: True # Optional Mutually exclusive with: no_reshape
+  reshape: True # Optional Mutually exclusive with: [no_reshape]
   reshape_slices: 0
   sampling_range: (0.0, 0.0, 0.0)
   sampling_units: "enumerate(('mm','frac'))"
@@ -1026,9 +1026,9 @@ freesurfer_SampleToSurface:
   target_subject: ''
   vox_file: "path"
 freesurfer_SegStats:
-  annot: ("", "lh"", "") # Mandatory Mutually exclusive with: segmentation_file, annot, surf_label
-  segmentation_file: "path" # Mandatory Mutually exclusive with: segmentation_file, annot, surf_label
-  surf_label: ("", "lh", "") # Mandatory Mutually exclusive with: segmentation_file, annot, surf_label
+  annot: ("", "lh"", "") # Mandatory Mutually exclusive with: [segmentation_file, annot, surf_label]
+  segmentation_file: "path" # Mandatory Mutually exclusive with: [segmentation_file, annot, surf_label]
+  surf_label: ("", "lh", "") # Mandatory Mutually exclusive with: [segmentation_file, annot, surf_label]
   args: ''
   avgwf_file: "path"
   avgwf_txt_file: "path"
@@ -1036,9 +1036,9 @@ freesurfer_SegStats:
   brainmask_file: "path"
   calc_power: "enumerate(('sqr','sqrt'))"
   calc_snr: True
-  color_table_file: "path" # Optional Mutually exclusive with: color_table_file, default_color_table, gca_color_table
+  color_table_file: "path" # Optional Mutually exclusive with: [color_table_file, default_color_table, gca_color_table]
   cortex_vol_from_surf: True
-  default_color_table: True # Optional Mutually exclusive with: color_table_file, default_color_table, gca_color_table
+  default_color_table: True # Optional Mutually exclusive with: [color_table_file, default_color_table, gca_color_table]
   empty: True
   environ: {}
   etiv: True
@@ -1047,7 +1047,7 @@ freesurfer_SegStats:
   exclude_ctx_gm_wm: True
   exclude_id: 0
   frame: 0
-  gca_color_table: "path" # Optional Mutually exclusive with: color_table_file, default_color_table, gca_color_table
+  gca_color_table: "path" # Optional Mutually exclusive with: [color_table_file, default_color_table, gca_color_table]
   in_file: "path"
   in_intensity: "path"
   intensity_units: 'MR'
@@ -1070,9 +1070,9 @@ freesurfer_SegStats:
   vox: [0]
   wm_vol_from_surf: True
 freesurfer_SegStatsReconAll:
-  annot: ("", "lh"", "") # Mandatory Mutually exclusive with: segmentation_file, annot, surf_label
-  segmentation_file: "path" # Mandatory Mutually exclusive with: segmentation_file, annot, surf_label
-  surf_label: ("", "lh", "") # Mandatory Mutually exclusive with: segmentation_file, annot, surf_label
+  annot: ("", "lh"", "") # Mandatory Mutually exclusive with: [segmentation_file, annot, surf_label]
+  segmentation_file: "path" # Mandatory Mutually exclusive with: [segmentation_file, annot, surf_label]
+  surf_label: ("", "lh", "") # Mandatory Mutually exclusive with: [segmentation_file, annot, surf_label]
   args: ''
   aseg: "path"
   avgwf_file: "path"
@@ -1081,10 +1081,10 @@ freesurfer_SegStatsReconAll:
   brainmask_file: "path"
   calc_power: "enumerate(('sqr','sqrt'))"
   calc_snr: True
-  color_table_file: "path" # Optional Mutually exclusive with: color_table_file, default_color_table, gca_color_table
+  color_table_file: "path" # Optional Mutually exclusive with: [color_table_file, default_color_table, gca_color_table]
   copy_inputs: True
   cortex_vol_from_surf: True
-  default_color_table: True # Optional Mutually exclusive with: color_table_file, default_color_table, gca_color_table
+  default_color_table: True # Optional Mutually exclusive with: [color_table_file, default_color_table, gca_color_table]
   empty: True
   environ: {}
   etiv: True
@@ -1093,7 +1093,7 @@ freesurfer_SegStatsReconAll:
   exclude_ctx_gm_wm: True
   exclude_id: 0
   frame: 0
-  gca_color_table: "path" # Optional Mutually exclusive with: color_table_file, default_color_table, gca_color_table
+  gca_color_table: "path" # Optional Mutually exclusive with: [color_table_file, default_color_table, gca_color_table]
   in_file: "path"
   in_intensity: "path"
   intensity_units: 'MR'
@@ -1127,12 +1127,12 @@ freesurfer_SegmentWM:
   environ: {}
   subjects_dir: "path"
 freesurfer_Smooth:
-  num_iters: 1 # Mandatory Mutually exclusive with: surface_fwhm
-  surface_fwhm: 0.0 # Mandatory Mutually exclusive with: num_iters requires: reg_file
+  num_iters: 1 # Mandatory Mutually exclusive with: [surface_fwhm]
+  surface_fwhm: 0.0 # Mandatory Mutually exclusive with: [num_iters]
   args: ''
   environ: {}
-  proj_frac: 0.0 # Optional Mutually exclusive with: proj_frac_avg
-  proj_frac_avg: (0.0, 0.0, 0.0) # Optional Mutually exclusive with: proj_frac
+  proj_frac: 0.0 # Optional Mutually exclusive with: [proj_frac_avg]
+  proj_frac_avg: (0.0, 0.0, 0.0) # Optional Mutually exclusive with: [proj_frac]
   smoothed_file: "path"
   subjects_dir: "path"
   vol_fwhm: 0.0
@@ -1172,13 +1172,13 @@ freesurfer_SphericalAverage:
   subjects_dir: "path"
   threshold: 0.0
 freesurfer_Surface2VolTransform:
-  reg_file: "path" # Mandatory Mutually exclusive with: subject_id
-  source_file: "path" # Mandatory Mutually exclusive with: mkmask
+  reg_file: "path" # Mandatory Mutually exclusive with: [subject_id]
+  source_file: "path" # Mandatory Mutually exclusive with: [mkmask]
   args: ''
   environ: {}
-  mkmask: True # Optional Mutually exclusive with: source_file
+  mkmask: True # Optional Mutually exclusive with: [source_file]
   projfrac: 0.0
-  subject_id: '' # Optional Mutually exclusive with: reg_file
+  subject_id: '' # Optional Mutually exclusive with: [reg_file]
   subjects_dir: ''
   surf_name: ''
   template_file: "path"
@@ -1188,37 +1188,37 @@ freesurfer_SurfaceSmooth:
   args: ''
   cortex: True
   environ: {}
-  fwhm: 0.0 # Optional Mutually exclusive with: smooth_iters
+  fwhm: 0.0 # Optional Mutually exclusive with: [smooth_iters]
   out_file: "path"
   reshape: True
-  smooth_iters: 0 # Optional Mutually exclusive with: fwhm
+  smooth_iters: 0 # Optional Mutually exclusive with: [fwhm]
   subjects_dir: "path"
 freesurfer_SurfaceSnapshots:
-  annot_file: "path" # Optional Mutually exclusive with: annot_name
-  annot_name: '' # Optional Mutually exclusive with: annot_file
+  annot_file: "path" # Optional Mutually exclusive with: [annot_name]
+  annot_name: '' # Optional Mutually exclusive with: [annot_file]
   args: ''
   colortable: "path"
   demean_overlay: True
   environ: {}
-  identity_reg: True # Optional Mutually exclusive with: overlay_reg, identity_reg, mni152_reg
+  identity_reg: True # Optional Mutually exclusive with: [overlay_reg, identity_reg, mni152_reg]
   invert_overlay: True
-  label_file: "path" # Optional Mutually exclusive with: label_name
-  label_name: '' # Optional Mutually exclusive with: label_file
+  label_file: "path" # Optional Mutually exclusive with: [label_name]
+  label_name: '' # Optional Mutually exclusive with: [label_file]
   label_outline: True
   label_under: True
-  mni152_reg: True # Optional Mutually exclusive with: overlay_reg, identity_reg, mni152_reg
+  mni152_reg: True # Optional Mutually exclusive with: [overlay_reg, identity_reg, mni152_reg]
   orig_suffix: ''
   overlay: "path"
   overlay_range: (0.0, 0.0)
   overlay_range_offset: 0.0
-  overlay_reg: "path" # Optional Mutually exclusive with: overlay_reg, identity_reg, mni152_reg
+  overlay_reg: "path" # Optional Mutually exclusive with: [overlay_reg, identity_reg, mni152_reg]
   patch_file: "path"
   reverse_overlay: True
   screenshot_stem: ''
   show_color_scale: True
   show_color_text: True
-  show_curv: True # Optional Mutually exclusive with: show_gray_curv
-  show_gray_curv: True # Optional Mutually exclusive with: show_curv
+  show_curv: True # Optional Mutually exclusive with: [show_gray_curv]
+  show_gray_curv: True # Optional Mutually exclusive with: [show_curv]
   six_images: True
   sphere_suffix: ''
   stem_template_args: ['']
@@ -1226,8 +1226,8 @@ freesurfer_SurfaceSnapshots:
   tcl_script: "path"
   truncate_overlay: True
 freesurfer_SurfaceTransform:
-  source_annot_file: "path" # Mandatory Mutually exclusive with: source_file
-  source_file: "path" # Mandatory Mutually exclusive with: source_annot_file
+  source_annot_file: "path" # Mandatory Mutually exclusive with: [source_file]
+  source_file: "path" # Mandatory Mutually exclusive with: [source_annot_file]
   args: ''
   environ: {}
   out_file: "path"
@@ -1257,8 +1257,8 @@ freesurfer_Tkregister2:
   environ: {}
   fsl_in_matrix: "path"
   fsl_out: "path"
-  fstal: True # Optional Mutually exclusive with: target_image, moving_image, reg_file
-  fstarg: True # Optional Mutually exclusive with: target_image
+  fstal: True # Optional Mutually exclusive with: [target_image, moving_image, reg_file]
+  fstarg: True # Optional Mutually exclusive with: [target_image]
   invert_lta_in: True
   invert_lta_out: True
   lta_in: "path"
@@ -1268,12 +1268,12 @@ freesurfer_Tkregister2:
   reg_header: True
   subject_id: ''
   subjects_dir: "path"
-  target_image: "path" # Optional Mutually exclusive with: fstarg
+  target_image: "path" # Optional Mutually exclusive with: [fstarg]
   xfm: "path"
 freesurfer_UnpackSDICOMDir:
-  config: "path" # Mandatory Mutually exclusive with: run_info, config, seq_config
-  run_info: (5, "", "", "") # Mandatory Mutually exclusive with: run_info, config, seq_config
-  seq_config: "path" # Mandatory Mutually exclusive with: run_info, config, seq_config
+  config: "path" # Mandatory Mutually exclusive with: [run_info, config, seq_config]
+  run_info: (5, "", "", "") # Mandatory Mutually exclusive with: [run_info, config, seq_config]
+  seq_config: "path" # Mandatory Mutually exclusive with: [run_info, config, seq_config]
   args: ''
   dir_structure: "enumerate(('fsfast','generic'))"
   environ: {}
@@ -1286,10 +1286,10 @@ freesurfer_UnpackSDICOMDir:
   subjects_dir: "path"
 freesurfer_VolumeMask:
   args: ''
-  aseg: "path" # Optional Mutually exclusive with: in_aseg
+  aseg: "path" # Optional Mutually exclusive with: [in_aseg]
   copy_inputs: True
   environ: {}
-  in_aseg: "path" # Optional Mutually exclusive with: aseg
+  in_aseg: "path" # Optional Mutually exclusive with: [aseg]
   save_ribbon: True
   subjects_dir: "path"
 freesurfer_WatershedSkullStrip:
@@ -1299,3 +1299,4 @@ freesurfer_WatershedSkullStrip:
   subjects_dir: "path"
   t1: True
   transform: "path"
+

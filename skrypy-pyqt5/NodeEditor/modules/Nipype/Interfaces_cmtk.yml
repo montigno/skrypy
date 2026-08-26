@@ -62,7 +62,7 @@ cmtk_Parcellate:
   parcellation_name: "enumerate(('scale33','scale60','scale125','scale250','scale500'))"
   subjects_dir: "path"
 cmtk_ROIGen:
-  LUT_file: "path" # Optional Mutually exclusive with: use_freesurfer_LUT
+  LUT_file: "path" # Optional Mutually exclusive with: [use_freesurfer_LUT]
   freesurfer_dir: "path"
   out_dict_file: "path"
   out_roi_file: "path"

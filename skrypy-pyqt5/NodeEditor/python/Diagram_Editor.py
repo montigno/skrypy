@@ -7253,7 +7253,7 @@ class NodeEdit(QWidget):
         libBrowser.setColumnWidth(0, 200)
         libBrowser.hideColumn(1)
         libBrowser.setAlternatingRowColors(True)
-        libBrowser.expandAll()
+        # libBrowser.expandAll()
         libBrowser.setDragDropMode(libBrowser.DragOnly)
 
         return libBrowser

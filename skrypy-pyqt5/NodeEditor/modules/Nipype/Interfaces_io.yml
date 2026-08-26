@@ -56,19 +56,20 @@ io_SSHDataGrabber:
   template_expression: "enumerate(('fnmatch','regexp'))"
   username: ''
 io_XNATSink:
-  config: "path" # Mandatory Mutually exclusive with: server
-  server: '' # Mandatory Mutually exclusive with: config requires: user, pwd
+  config: "path" # Mandatory Mutually exclusive with: [server]
+  server: '' # Mandatory Mutually exclusive with: [config]
   _outputs: {}
-  assessor_id: '' # Optional Mutually exclusive with: reconstruction_id
+  assessor_id: '' # Optional Mutually exclusive with: [reconstruction_id]
   cache_dir: "path"
   pwd: ''
-  reconstruction_id: '' # Optional Mutually exclusive with: assessor_id
+  reconstruction_id: '' # Optional Mutually exclusive with: [assessor_id]
   share: True
   user: ''
 io_XNATSource:
-  config: "path" # Mandatory Mutually exclusive with: server
-  server: '' # Mandatory Mutually exclusive with: config requires: user, pwd
+  config: "path" # Mandatory Mutually exclusive with: [server]
+  server: '' # Mandatory Mutually exclusive with: [config]
   cache_dir: "path"
   pwd: ''
   query_template_args: [[{}]]
   user: ''
+

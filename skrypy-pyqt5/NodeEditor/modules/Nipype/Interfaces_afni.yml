@@ -11,9 +11,9 @@ afni_AFNItoNIFTI:
   args: ''
   denote: True
   environ: {}
-  newid: True # Optional Mutually exclusive with: oldid
+  newid: True # Optional Mutually exclusive with: [oldid]
   num_threads: 1
-  oldid: True # Optional Mutually exclusive with: newid
+  oldid: True # Optional Mutually exclusive with: [newid]
   out_file: "path"
   outputtype: "enumerate(('NIFTI','AFNI','NIFTI_GZ'))"
   pure: True
@@ -30,7 +30,7 @@ afni_AlignEpiAnatPy:
   tshift: "enumerate(('on','off'))"
   volreg: "enumerate(('on','off'))"
 afni_Allineate:
-  allcostx: "path" # Optional Mutually exclusive with: out_file, out_matrix, out_param_file, out_weight_file
+  allcostx: "path" # Optional Mutually exclusive with: [out_file, out_matrix, out_param_file, out_weight_file]
   args: ''
   autobox: True
   automask: 0
@@ -43,8 +43,8 @@ afni_Allineate:
   epi: True
   final_interpolation: "enumerate(('nearestneighbour','linear','cubic','quintic','wsinc5'))"
   fine_blur: 0.0
-  in_matrix: "path" # Optional Mutually exclusive with: out_matrix
-  in_param_file: "path" # Optional Mutually exclusive with: out_param_file
+  in_matrix: "path" # Optional Mutually exclusive with: [out_matrix]
+  in_param_file: "path" # Optional Mutually exclusive with: [out_param_file]
   interpolation: "enumerate(('nearestneighbour','linear','cubic','quintic'))"
   master: "path"
   maxrot: 0.0
@@ -60,10 +60,10 @@ afni_Allineate:
   nwarp_fixdep: ['X', 'Y']
   nwarp_fixmot: ['X', 'Y']
   one_pass: True
-  out_file: "path" # Optional Mutually exclusive with: allcostx
-  out_matrix: "path" # Optional Mutually exclusive with: in_matrix, allcostx
-  out_param_file: "path" # Optional Mutually exclusive with: in_param_file, allcostx
-  out_weight_file: "path" # Optional Mutually exclusive with: allcostx
+  out_file: "path" # Optional Mutually exclusive with: [allcostx]
+  out_matrix: "path" # Optional Mutually exclusive with: [in_matrix, allcostx]
+  out_param_file: "path" # Optional Mutually exclusive with: [in_param_file, allcostx]
+  out_weight_file: "path" # Optional Mutually exclusive with: [allcostx]
   outputtype: "enumerate(('NIFTI','AFNI','NIFTI_GZ'))"
   overwrite: True
   quiet: True
@@ -93,8 +93,8 @@ afni_AutoTcorrelate:
   environ: {}
   eta2: True
   mask: "path"
-  mask_only_targets: True # Optional Mutually exclusive with: mask_source
-  mask_source: "path" # Optional Mutually exclusive with: mask_only_targets
+  mask_only_targets: True # Optional Mutually exclusive with: [mask_source]
+  mask_source: "path" # Optional Mutually exclusive with: [mask_only_targets]
   num_threads: 1
   out_file: "path"
   outputtype: "enumerate(('NIFTI','AFNI','NIFTI_GZ'))"
@@ -119,14 +119,14 @@ afni_Automask:
   outputtype: "enumerate(('NIFTI','AFNI','NIFTI_GZ'))"
 afni_Axialize:
   args: ''
-  axial: True # Optional Mutually exclusive with: coronal, sagittal
-  coronal: True # Optional Mutually exclusive with: sagittal, axial
+  axial: True # Optional Mutually exclusive with: [coronal, sagittal]
+  coronal: True # Optional Mutually exclusive with: [sagittal, axial]
   environ: {}
   num_threads: 1
   orientation: ''
   out_file: "path"
   outputtype: "enumerate(('NIFTI','AFNI','NIFTI_GZ'))"
-  sagittal: True # Optional Mutually exclusive with: coronal, axial
+  sagittal: True # Optional Mutually exclusive with: [coronal, axial]
   verb: True
 afni_Bandpass:
   args: ''
@@ -205,22 +205,22 @@ afni_Cat:
   keepfree: True
   num_threads: 1
   omitconst: True
-  out_cint: True # Optional Mutually exclusive with: out_format, out_nice, out_double, out_fint, out_int
-  out_double: True # Optional Mutually exclusive with: out_format, out_nice, out_int, out_fint, out_cint
-  out_fint: True # Optional Mutually exclusive with: out_format, out_nice, out_double, out_int, out_cint
-  out_format: "enumerate(('int','nice','double','fint','cint'))" # Optional Mutually exclusive with: out_int, out_nice, out_double, out_fint, out_cint
-  out_int: True # Optional Mutually exclusive with: out_format, out_nice, out_double, out_fint, out_cint
-  out_nice: True # Optional Mutually exclusive with: out_format, out_int, out_double, out_fint, out_cint
+  out_cint: True # Optional Mutually exclusive with: [out_format, out_nice, out_double, out_fint, out_int]
+  out_double: True # Optional Mutually exclusive with: [out_format, out_nice, out_int, out_fint, out_cint]
+  out_fint: True # Optional Mutually exclusive with: [out_format, out_nice, out_double, out_int, out_cint]
+  out_format: "enumerate(('int','nice','double','fint','cint'))" # Optional Mutually exclusive with: [out_int, out_nice, out_double, out_fint, out_cint]
+  out_int: True # Optional Mutually exclusive with: [out_format, out_nice, out_double, out_fint, out_cint]
+  out_nice: True # Optional Mutually exclusive with: [out_format, out_int, out_double, out_fint, out_cint]
   outputtype: "enumerate(('NIFTI','AFNI','NIFTI_GZ'))"
   sel: ''
   stack: True
 afni_CatMatvec:
   args: ''
   environ: {}
-  fourxfour: True # Optional Mutually exclusive with: matrix, oneline
-  matrix: True # Optional Mutually exclusive with: oneline, fourxfour
+  fourxfour: True # Optional Mutually exclusive with: [matrix, oneline]
+  matrix: True # Optional Mutually exclusive with: [oneline, fourxfour]
   num_threads: 1
-  oneline: True # Optional Mutually exclusive with: matrix, fourxfour
+  oneline: True # Optional Mutually exclusive with: [matrix, fourxfour]
   outputtype: "enumerate(('NIFTI','AFNI','NIFTI_GZ'))"
 afni_CenterMass:
   all_rois: True
@@ -234,9 +234,9 @@ afni_CenterMass:
   set_cm: (0.0, 0.0, 0.0)
 afni_ClipLevel:
   args: ''
-  doall: True # Optional Mutually exclusive with: g, r, a, d
+  doall: True # Optional Mutually exclusive with: [g, r, a, d]
   environ: {}
-  grad: "path" # Optional Mutually exclusive with: d, o, a, l, l
+  grad: "path" # Optional Mutually exclusive with: [d, o, a, l, l]
   mfrac: 0.0
 afni_ConvertDset:
   args: ''
@@ -263,14 +263,14 @@ afni_Deconvolve:
   environ: {}
   force_TR: 0.0
   fout: True
-  global_times: True # Optional Mutually exclusive with: local_times
+  global_times: True # Optional Mutually exclusive with: [local_times]
   glt_label: [(0, )]
   gltsym: ['SYM: +Houses']
   goforit: 0
   in_files: ["path"]
   input1D: "path"
   legendre: True
-  local_times: True # Optional Mutually exclusive with: global_times
+  local_times: True # Optional Mutually exclusive with: [global_times]
   mask: "path"
   noblock: True
   nocond: True
@@ -287,14 +287,14 @@ afni_Deconvolve:
   polort: 0
   rmsmin: 0.0
   rout: True
-  sat: True # Optional Mutually exclusive with: trans
+  sat: True # Optional Mutually exclusive with: [trans]
   singvals: True
   stim_label: [(1, Houses)]
   stim_times: [(1, timeseries.txt, SPMG1(4))]
   stim_times_subtract: 0.0
   svd: True
   tout: True
-  trans: True # Optional Mutually exclusive with: sat
+  trans: True # Optional Mutually exclusive with: [sat]
   vout: True
   x1D: "path"
   x1D_stop: True
@@ -365,13 +365,13 @@ afni_Edge3:
   args: ''
   datum: "enumerate(('byte','short','float'))"
   environ: {}
-  fscale: True # Optional Mutually exclusive with: gscale, nscale, scale_floats
-  gscale: True # Optional Mutually exclusive with: fscale, nscale, scale_floats
-  nscale: True # Optional Mutually exclusive with: fscale, gscale, scale_floats
+  fscale: True # Optional Mutually exclusive with: [gscale, nscale, scale_floats]
+  gscale: True # Optional Mutually exclusive with: [fscale, nscale, scale_floats]
+  nscale: True # Optional Mutually exclusive with: [fscale, gscale, scale_floats]
   num_threads: 1
   out_file: "path"
   outputtype: "enumerate(('NIFTI','AFNI','NIFTI_GZ'))"
-  scale_floats: 0.0 # Optional Mutually exclusive with: fscale, gscale, nscale
+  scale_floats: 0.0 # Optional Mutually exclusive with: [fscale, gscale, nscale]
   verbose: True
 afni_Eval:
   args: ''
@@ -389,14 +389,14 @@ afni_Eval:
 afni_FWHMx:
   acf: False
   args: ''
-  arith: True # Optional Mutually exclusive with: geom
+  arith: True # Optional Mutually exclusive with: [geom]
   automask: True
   combine: True
   compat: True
-  demed: True # Optional Mutually exclusive with: detrend
-  detrend: True # Optional Mutually exclusive with: demed
+  demed: True # Optional Mutually exclusive with: [detrend]
+  detrend: True # Optional Mutually exclusive with: [demed]
   environ: {}
-  geom: True # Optional Mutually exclusive with: arith
+  geom: True # Optional Mutually exclusive with: [arith]
   mask: "path"
   out_detrend: "path"
   out_file: "path"
@@ -447,13 +447,13 @@ afni_LFCD:
   thresh: 0.0
 afni_LocalBistat:
   args: ''
-  automask: True # Optional Mutually exclusive with: weight_file
+  automask: True # Optional Mutually exclusive with: [weight_file]
   environ: {}
   mask_file: "path"
   num_threads: 1
   out_file: "path"
   outputtype: "enumerate(('NIFTI','AFNI','NIFTI_GZ'))"
-  weight_file: "path" # Optional Mutually exclusive with: automask
+  weight_file: "path" # Optional Mutually exclusive with: [automask]
 afni_Localstat:
   args: ''
   automask: True
@@ -466,9 +466,9 @@ afni_Localstat:
   outputtype: "enumerate(('NIFTI','AFNI','NIFTI_GZ'))"
   overwrite: True
   quiet: True
-  reduce_grid: (0.0, 0.0, 0.0) # Optional Mutually exclusive with: reduce_restore_grid, reduce_max_vox
-  reduce_max_vox: 0.0 # Optional Mutually exclusive with: reduce_restore_grid, reduce_grid
-  reduce_restore_grid: (0.0, 0.0, 0.0) # Optional Mutually exclusive with: reduce_max_vox, reduce_grid
+  reduce_grid: (0.0, 0.0, 0.0) # Optional Mutually exclusive with: [reduce_restore_grid, reduce_max_vox]
+  reduce_max_vox: 0.0 # Optional Mutually exclusive with: [reduce_restore_grid, reduce_grid]
+  reduce_restore_grid: (0.0, 0.0, 0.0) # Optional Mutually exclusive with: [reduce_max_vox, reduce_grid]
 afni_MaskTool:
   args: ''
   count: True
@@ -539,14 +539,14 @@ afni_NetCorr:
   weight_ts: "path"
 afni_Notes:
   add: ''
-  add_history: '' # Optional Mutually exclusive with: rep_history
+  add_history: '' # Optional Mutually exclusive with: [rep_history]
   args: ''
   delete: 0
   environ: {}
   num_threads: 1
   out_file: "path"
   outputtype: "enumerate(('NIFTI','AFNI','NIFTI_GZ'))"
-  rep_history: '' # Optional Mutually exclusive with: add_history
+  rep_history: '' # Optional Mutually exclusive with: [add_history]
   ses: True
 afni_NwarpAdjust:
   args: ''
@@ -563,9 +563,9 @@ afni_NwarpApply:
   inv_warp: True
   master: "path"
   out_file: "path"
-  quiet: True # Optional Mutually exclusive with: verb
+  quiet: True # Optional Mutually exclusive with: [verb]
   short: True
-  verb: True # Optional Mutually exclusive with: quiet
+  verb: True # Optional Mutually exclusive with: [quiet]
 afni_NwarpCat:
   args: ''
   environ: {}
@@ -584,24 +584,24 @@ afni_OneDToolPy:
   demean: True
   derivative: True
   environ: {}
-  out_file: "path" # Optional Mutually exclusive with: show_cormat_warnings
+  out_file: "path" # Optional Mutually exclusive with: [show_cormat_warnings]
   outputtype: "enumerate(('NIFTI','AFNI','NIFTI_GZ'))"
   py27_path: "path"
   set_nruns: 0
   show_censor_count: True
-  show_cormat_warnings: "path" # Optional Mutually exclusive with: out_file
+  show_cormat_warnings: "path" # Optional Mutually exclusive with: [out_file]
   show_indices_interest: True
   show_trs_run: 0
   show_trs_uncensored: "enumerate(('comma','space','encoded','verbose'))"
 afni_OutlierCount:
   args: ''
-  autoclip: True # Optional Mutually exclusive with: mask
-  automask: True # Optional Mutually exclusive with: mask
+  autoclip: True # Optional Mutually exclusive with: [mask]
+  automask: True # Optional Mutually exclusive with: [mask]
   environ: {}
   fraction: True
   interval: True
   legendre: True
-  mask: "path" # Optional Mutually exclusive with: autoclip, automask
+  mask: "path" # Optional Mutually exclusive with: [autoclip, automask]
   out_file: "path"
   outliers_file: "path"
   polort: 0
@@ -609,12 +609,12 @@ afni_OutlierCount:
   save_outliers: True
 afni_QualityIndex:
   args: ''
-  autoclip: True # Optional Mutually exclusive with: mask
-  automask: True # Optional Mutually exclusive with: mask
+  autoclip: True # Optional Mutually exclusive with: [mask]
+  automask: True # Optional Mutually exclusive with: [mask]
   clip: 0.0
   environ: {}
   interval: True
-  mask: "path" # Optional Mutually exclusive with: autoclip, automask
+  mask: "path" # Optional Mutually exclusive with: [autoclip, automask]
   out_file: "path"
   quadrant: True
   spearman: True
@@ -623,33 +623,33 @@ afni_Qwarp:
   Qonly: True
   allineate: True
   allineate_opts: ''
-  allsave: True # Optional Mutually exclusive with: nopadWARP, duplo, plusminus
+  allsave: True # Optional Mutually exclusive with: [nopadWARP, duplo, plusminus]
   args: ''
-  ballopt: True # Optional Mutually exclusive with: workhard, boxopt
+  ballopt: True # Optional Mutually exclusive with: [workhard, boxopt]
   bandpass: (0.0, 0.0)
-  baxopt: True # Optional Mutually exclusive with: workhard, ballopt
+  baxopt: True # Optional Mutually exclusive with: [workhard, ballopt]
   blur: [0.0]
-  duplo: True # Optional Mutually exclusive with: gridlist, maxlev, inilev, iniwarp, plusminus, allsave
+  duplo: True # Optional Mutually exclusive with: [gridlist, maxlev, inilev, iniwarp, plusminus, allsave]
   emask: "path"
   environ: {}
-  expad: 0 # Optional Mutually exclusive with: nopadWARP
-  gridlist: "path" # Optional Mutually exclusive with: duplo, plusminus
-  hel: True # Optional Mutually exclusive with: nmi, mi, lpc, lpa, pear
-  inilev: 0 # Optional Mutually exclusive with: duplo
-  iniwarp: ["path"] # Optional Mutually exclusive with: duplo
-  iwarp: True # Optional Mutually exclusive with: plusminus
-  lpa: True # Optional Mutually exclusive with: nmi, mi, lpc, hel, pear
-  lpc: True # Optional Mutually exclusive with: nmi, mi, hel, lpa, pear
-  maxlev: 0 # Optional Mutually exclusive with: duplo
-  mi: True # Optional Mutually exclusive with: mi, hel, lpc, lpa, pear
+  expad: 0 # Optional Mutually exclusive with: [nopadWARP]
+  gridlist: "path" # Optional Mutually exclusive with: [duplo, plusminus]
+  hel: True # Optional Mutually exclusive with: [nmi, mi, lpc, lpa, pear]
+  inilev: 0 # Optional Mutually exclusive with: [duplo]
+  iniwarp: ["path"] # Optional Mutually exclusive with: [duplo]
+  iwarp: True # Optional Mutually exclusive with: [plusminus]
+  lpa: True # Optional Mutually exclusive with: [nmi, mi, lpc, hel, pear]
+  lpc: True # Optional Mutually exclusive with: [nmi, mi, hel, lpa, pear]
+  maxlev: 0 # Optional Mutually exclusive with: [duplo]
+  mi: True # Optional Mutually exclusive with: [mi, hel, lpc, lpa, pear]
   minpatch: 0
-  nmi: True # Optional Mutually exclusive with: nmi, hel, lpc, lpa, pear
+  nmi: True # Optional Mutually exclusive with: [nmi, hel, lpc, lpa, pear]
   noXdis: True
   noYdis: True
   noZdis: True
   noneg: True
   nopad: True
-  nopadWARP: True # Optional Mutually exclusive with: allsave, expad
+  nopadWARP: True # Optional Mutually exclusive with: [allsave, expad]
   nopenalty: True
   nowarp: True
   noweight: True
@@ -661,46 +661,46 @@ afni_Qwarp:
   pblur: [0.09, 0.09]
   pear: True
   penfac: 0.0
-  plusminus: True # Optional Mutually exclusive with: duplo, allsave, iwarp
-  quiet: True # Optional Mutually exclusive with: verb
+  plusminus: True # Optional Mutually exclusive with: [duplo, allsave, iwarp]
+  quiet: True # Optional Mutually exclusive with: [verb]
   resample: True
-  verb: True # Optional Mutually exclusive with: quiet
-  wball: [0, 14, 6, 30, 40] # Optional Mutually exclusive with: wmask
+  verb: True # Optional Mutually exclusive with: [quiet]
+  wball: [0, 14, 6, 30, 40] # Optional Mutually exclusive with: [wmask]
   weight: "path"
-  wmask: ("path", 50) # Optional Mutually exclusive with: wball
-  workhard: True # Optional Mutually exclusive with: boxopt, ballopt
+  wmask: ("path", 50) # Optional Mutually exclusive with: [wball]
+  workhard: True # Optional Mutually exclusive with: [boxopt, ballopt]
 afni_QwarpPlusMinus:
   Qfinal: True
   Qonly: True
   allineate: True
   allineate_opts: ''
-  allsave: True # Optional Mutually exclusive with: nopadWARP, duplo, plusminus
+  allsave: True # Optional Mutually exclusive with: [nopadWARP, duplo, plusminus]
   args: ''
-  ballopt: True # Optional Mutually exclusive with: workhard, boxopt
+  ballopt: True # Optional Mutually exclusive with: [workhard, boxopt]
   bandpass: (0.0, 0.0)
-  baxopt: True # Optional Mutually exclusive with: workhard, ballopt
+  baxopt: True # Optional Mutually exclusive with: [workhard, ballopt]
   blur: [0.0]
-  duplo: True # Optional Mutually exclusive with: gridlist, maxlev, inilev, iniwarp, plusminus, allsave
+  duplo: True # Optional Mutually exclusive with: [gridlist, maxlev, inilev, iniwarp, plusminus, allsave]
   emask: "path"
   environ: {}
-  expad: 0 # Optional Mutually exclusive with: nopadWARP
-  gridlist: "path" # Optional Mutually exclusive with: duplo, plusminus
-  hel: True # Optional Mutually exclusive with: nmi, mi, lpc, lpa, pear
-  inilev: 0 # Optional Mutually exclusive with: duplo
-  iniwarp: ["path"] # Optional Mutually exclusive with: duplo
-  iwarp: True # Optional Mutually exclusive with: plusminus
-  lpa: True # Optional Mutually exclusive with: nmi, mi, lpc, hel, pear
-  lpc: True # Optional Mutually exclusive with: nmi, mi, hel, lpa, pear
-  maxlev: 0 # Optional Mutually exclusive with: duplo
-  mi: True # Optional Mutually exclusive with: mi, hel, lpc, lpa, pear
+  expad: 0 # Optional Mutually exclusive with: [nopadWARP]
+  gridlist: "path" # Optional Mutually exclusive with: [duplo, plusminus]
+  hel: True # Optional Mutually exclusive with: [nmi, mi, lpc, lpa, pear]
+  inilev: 0 # Optional Mutually exclusive with: [duplo]
+  iniwarp: ["path"] # Optional Mutually exclusive with: [duplo]
+  iwarp: True # Optional Mutually exclusive with: [plusminus]
+  lpa: True # Optional Mutually exclusive with: [nmi, mi, lpc, hel, pear]
+  lpc: True # Optional Mutually exclusive with: [nmi, mi, hel, lpa, pear]
+  maxlev: 0 # Optional Mutually exclusive with: [duplo]
+  mi: True # Optional Mutually exclusive with: [mi, hel, lpc, lpa, pear]
   minpatch: 0
-  nmi: True # Optional Mutually exclusive with: nmi, hel, lpc, lpa, pear
+  nmi: True # Optional Mutually exclusive with: [nmi, hel, lpc, lpa, pear]
   noXdis: True
   noYdis: True
   noZdis: True
   noneg: True
   nopad: True
-  nopadWARP: True # Optional Mutually exclusive with: allsave, expad
+  nopadWARP: True # Optional Mutually exclusive with: [allsave, expad]
   nopenalty: True
   nowarp: True
   noweight: True
@@ -712,21 +712,21 @@ afni_QwarpPlusMinus:
   pblur: [0.09, 0.09]
   pear: True
   penfac: 0.0
-  plusminus: True # Optional Mutually exclusive with: duplo, allsave, iwarp
-  quiet: True # Optional Mutually exclusive with: verb
+  plusminus: True # Optional Mutually exclusive with: [duplo, allsave, iwarp]
+  quiet: True # Optional Mutually exclusive with: [verb]
   resample: True
   source_file: "path"
-  verb: True # Optional Mutually exclusive with: quiet
-  wball: [0, 14, 6, 30, 40] # Optional Mutually exclusive with: wmask
+  verb: True # Optional Mutually exclusive with: [quiet]
+  wball: [0, 14, 6, 30, 40] # Optional Mutually exclusive with: [wmask]
   weight: "path"
-  wmask: ("path", 50) # Optional Mutually exclusive with: wball
-  workhard: True # Optional Mutually exclusive with: boxopt, ballopt
+  wmask: ("path", 50) # Optional Mutually exclusive with: [wball]
+  workhard: True # Optional Mutually exclusive with: [boxopt, ballopt]
 afni_ROIStats:
   args: ''
   debug: True
   environ: {}
-  format1D: True # Optional Mutually exclusive with: format1DR
-  format1DR: True # Optional Mutually exclusive with: format1D
+  format1D: True # Optional Mutually exclusive with: [format1DR]
+  format1DR: True # Optional Mutually exclusive with: [format1D]
   mask: "path"
   mask_f2short: True
   mask_file: "path"
@@ -741,14 +741,14 @@ afni_ROIStats:
 afni_ReHo:
   args: ''
   chi_sq: True
-  ellipsoid: (0.0, 0.0, 0.0) # Optional Mutually exclusive with: sphere, neighborhood
+  ellipsoid: (0.0, 0.0, 0.0) # Optional Mutually exclusive with: [sphere, neighborhood]
   environ: {}
   label_set: "path"
   mask_file: "path"
-  neighborhood: "enumerate(('faces','edges','vertices'))" # Optional Mutually exclusive with: sphere, ellipsoid
+  neighborhood: "enumerate(('faces','edges','vertices'))" # Optional Mutually exclusive with: [sphere, ellipsoid]
   out_file: "path"
   overwrite: True
-  sphere: 0.0 # Optional Mutually exclusive with: neighborhood, ellipsoid
+  sphere: 0.0 # Optional Mutually exclusive with: [neighborhood, ellipsoid]
 afni_Refit:
   args: ''
   atrcopy: ("path", "")
@@ -783,7 +783,7 @@ afni_Remlfit:
   gltsym: [("", ), ("", )]
   goforit: True
   mask: "path"
-  matim: "path" # Optional Mutually exclusive with: matrix
+  matim: "path" # Optional Mutually exclusive with: [matrix]
   nobout: True
   nodmbase: True
   nofdr: True
@@ -796,7 +796,7 @@ afni_Remlfit:
   out_file: "path"
   outputtype: "enumerate(('NIFTI','AFNI','NIFTI_GZ'))"
   ovar: "path"
-  polort: 0 # Optional Mutually exclusive with: matrix
+  polort: 0 # Optional Mutually exclusive with: [matrix]
   quiet: True
   rbeta_file: "path"
   rout: True
@@ -902,19 +902,19 @@ afni_TCatSubBrick:
 afni_TCorr1D:
   args: ''
   environ: {}
-  ktaub: True # Optional Mutually exclusive with: pearson, spearman, quadrant
+  ktaub: True # Optional Mutually exclusive with: [pearson, spearman, quadrant]
   num_threads: 1
   out_file: "path"
   outputtype: "enumerate(('NIFTI','AFNI','NIFTI_GZ'))"
-  pearson: True # Optional Mutually exclusive with: spearman, quadrant, ktaub
-  quadrant: True # Optional Mutually exclusive with: pearson, spearman, ktaub
-  spearman: True # Optional Mutually exclusive with: pearson, quadrant, ktaub
+  pearson: True # Optional Mutually exclusive with: [spearman, quadrant, ktaub]
+  quadrant: True # Optional Mutually exclusive with: [pearson, spearman, ktaub]
+  spearman: True # Optional Mutually exclusive with: [pearson, quadrant, ktaub]
 afni_TCorrMap:
-  absolute_threshold: "path" # Optional Mutually exclusive with: absolute_threshold, var_absolute_threshold, var_absolute_threshold_normalize
+  absolute_threshold: "path" # Optional Mutually exclusive with: [absolute_threshold, var_absolute_threshold, var_absolute_threshold_normalize]
   args: ''
   automask: True
-  average_expr: "path" # Optional Mutually exclusive with: average_expr, average_expr_nonzero, sum_expr
-  average_expr_nonzero: "path" # Optional Mutually exclusive with: average_expr, average_expr_nonzero, sum_expr
+  average_expr: "path" # Optional Mutually exclusive with: [average_expr, average_expr_nonzero, sum_expr]
+  average_expr_nonzero: "path" # Optional Mutually exclusive with: [average_expr, average_expr_nonzero, sum_expr]
   bandpass: (0.0, 0.0)
   blur_fwhm: 0.0
   correlation_maps: "path"
@@ -932,12 +932,12 @@ afni_TCorrMap:
   polort: 0
   qmean: "path"
   regress_out_timeseries: "path"
-  seeds: "path" # Optional Mutually exclusive with: s, e, e, d, s, _, w, i, d, t, h
-  seeds_width: 0.0 # Optional Mutually exclusive with: s, e, e, d, s
-  sum_expr: "path" # Optional Mutually exclusive with: average_expr, average_expr_nonzero, sum_expr
+  seeds: "path" # Optional Mutually exclusive with: [s, e, e, d, s, _, w, i, d, t, h]
+  seeds_width: 0.0 # Optional Mutually exclusive with: [s, e, e, d, s]
+  sum_expr: "path" # Optional Mutually exclusive with: [average_expr, average_expr_nonzero, sum_expr]
   thresholds: [0]
-  var_absolute_threshold: "path" # Optional Mutually exclusive with: absolute_threshold, var_absolute_threshold, var_absolute_threshold_normalize
-  var_absolute_threshold_normalize: "path" # Optional Mutually exclusive with: absolute_threshold, var_absolute_threshold, var_absolute_threshold_normalize
+  var_absolute_threshold: "path" # Optional Mutually exclusive with: [absolute_threshold, var_absolute_threshold, var_absolute_threshold_normalize]
+  var_absolute_threshold_normalize: "path" # Optional Mutually exclusive with: [absolute_threshold, var_absolute_threshold, var_absolute_threshold_normalize]
   zmean: "path"
 afni_TCorrelate:
   args: ''
@@ -962,7 +962,7 @@ afni_TNorm:
 afni_TProject:
   TR: 0.0
   args: ''
-  automask: True # Optional Mutually exclusive with: mask
+  automask: True # Optional Mutually exclusive with: [mask]
   bandpass: (0.0, 0.0)
   blur: 0.0
   cenmode: "enumerate(('KILL','ZERO','NTRP'))"
@@ -991,11 +991,11 @@ afni_TShift:
   rlt: True
   rltplus: True
   slice_encoding_direction: "enumerate(('k','k-'))"
-  slice_timing: ["path"] # Optional Mutually exclusive with: tpattern
-  tpattern: "enumerate(('alt+z','altplus','alt+z2','alt-z','altminus','alt-z2','seq+z','seqplus','seq-z','seqminus'))" # Optional Mutually exclusive with: slice_timing
+  slice_timing: ["path"] # Optional Mutually exclusive with: [tpattern]
+  tpattern: "enumerate(('alt+z','altplus','alt+z2','alt-z','altminus','alt-z2','seq+z','seqplus','seq-z','seqminus'))" # Optional Mutually exclusive with: [slice_timing]
   tr: ''
-  tslice: 0 # Optional Mutually exclusive with: tzero
-  tzero: 0.0 # Optional Mutually exclusive with: tslice
+  tslice: 0 # Optional Mutually exclusive with: [tzero]
+  tzero: 0.0 # Optional Mutually exclusive with: [tslice]
 afni_TSmooth:
   adaptive: 3
   args: ''
@@ -1048,7 +1048,7 @@ afni_Unifize:
   args: ''
   cl_frac: 0.1
   environ: {}
-  epi: True # Optional Mutually exclusive with: gm requires: no_duplo, t2
+  epi: True # Optional Mutually exclusive with: [gm]
   gm: True
   no_duplo: True
   num_threads: 1
@@ -1104,27 +1104,27 @@ afni_Zcat:
   args: ''
   datum: "enumerate(('byte','short','float'))"
   environ: {}
-  fscale: True # Optional Mutually exclusive with: nscale
-  nscale: True # Optional Mutually exclusive with: fscale
+  fscale: True # Optional Mutually exclusive with: [nscale]
+  nscale: True # Optional Mutually exclusive with: [fscale]
   num_threads: 1
   out_file: "path"
   outputtype: "enumerate(('NIFTI','AFNI','NIFTI_GZ'))"
   verb: True
 afni_Zeropad:
-  A: 10 # Optional Mutually exclusive with: master
-  AP: 10 # Optional Mutually exclusive with: master
-  I: 10 # Optional Mutually exclusive with: master
-  IS: 10 # Optional Mutually exclusive with: master
-  L: 10 # Optional Mutually exclusive with: master
-  P: 10 # Optional Mutually exclusive with: master
-  R: 10 # Optional Mutually exclusive with: master
-  RL: 10 # Optional Mutually exclusive with: master
-  S: 10 # Optional Mutually exclusive with: master
+  A: 10 # Optional Mutually exclusive with: [master]]
+  AP: 10 # Optional Mutually exclusive with: [master]
+  I: 10 # Optional Mutually exclusive with: [master]
+  IS: 10 # Optional Mutually exclusive with: [master]
+  L: 10 # Optional Mutually exclusive with: [master]
+  P: 10 # Optional Mutually exclusive with: [master]
+  R: 10 # Optional Mutually exclusive with: [master]
+  RL: 10 # Optional Mutually exclusive with: [master]
+  S: 10 # Optional Mutually exclusive with: [master]
   args: ''
   environ: {}
-  master: "path" # Optional Mutually exclusive with: I, S, A, P, L, R, z, RL, AP, IS, mm
-  mm: True # Optional Mutually exclusive with: master
+  master: "path" # Optional Mutually exclusive with: [I, S, A, P, L, R, z, RL, AP, IS, mm
+  mm: True # Optional Mutually exclusive with: [master]
   num_threads: 1
   out_file: "path"
   outputtype: "enumerate(('NIFTI','AFNI','NIFTI_GZ'))"
-  z: 10 # Optional Mutually exclusive with: master
+  z: 10 # Optional Mutually exclusive with: [master]]
