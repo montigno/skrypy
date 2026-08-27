@@ -8,7 +8,7 @@ class cat12_CAT12SANLMDenoising:
     def __init__(self,
                  in_files=["path"],
                  **options):
-                 
+
         from nipype.interfaces.cat12.preprocess import CAT12SANLMDenoising
         at = CAT12SANLMDenoising()
         at.inputs.in_files = in_files
@@ -33,7 +33,7 @@ class cat12_CAT12Segment:
                  in_files=["path"],
                  n_jobs=0,
                  **options):
-                 
+
         from nipype.interfaces.cat12.preprocess import CAT12Segment
         at = CAT12Segment()
         at.inputs.in_files = in_files
@@ -118,7 +118,7 @@ class cat12_ExtractAdditionalSurfaceParameters:
     def __init__(self,
                  left_central_surfaces=["path"],
                  **options):
-                 
+
         from nipype.interfaces.cat12.surface import ExtractAdditionalSurfaceParameters
         at = ExtractAdditionalSurfaceParameters()
         at.inputs.left_central_surfaces = left_central_surfaces
@@ -176,7 +176,7 @@ class cat12_ExtractROIBasedSurfaceMeasures:
                  lh_roi_atlas=["path"],
                  lh_surface_measure=["path"],
                  **options):
-                 
+
         from nipype.interfaces.cat12.surface import ExtractROIBasedSurfaceMeasures
         at = ExtractROIBasedSurfaceMeasures()
         at.inputs.lh_roi_atlas = lh_roi_atlas
@@ -189,5 +189,3 @@ class cat12_ExtractROIBasedSurfaceMeasures:
         return self.res.outputs.label_files
 
 ###############################################################################
-
-

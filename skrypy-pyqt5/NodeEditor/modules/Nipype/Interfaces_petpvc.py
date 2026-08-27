@@ -13,7 +13,7 @@ class petpvc_PETPVC:
                  fwhm_y=0.0,
                  fwhm_z=0.0,
                  **options):
-                 
+
         from nipype.interfaces.petpvc import PETPVC
         at = PETPVC()
         at.inputs.in_file = in_file
@@ -30,5 +30,3 @@ class petpvc_PETPVC:
         return self.res.outputs.out_file
 
 ###############################################################################
-
-

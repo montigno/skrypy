@@ -9,7 +9,7 @@ class mrtrix3_ACTPrepareFSL:
                  in_file="path",
                  out_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix3.preprocess import ACTPrepareFSL
         at = ACTPrepareFSL()
         at.inputs.in_file = in_file
@@ -35,7 +35,7 @@ class mrtrix3_BrainMask:
                  in_file="path",
                  out_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix3.utils import BrainMask
         at = BrainMask()
         at.inputs.in_file = in_file
@@ -61,7 +61,7 @@ class mrtrix3_BuildConnectome:
                  in_file="path",
                  out_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix3.connectivity import BuildConnectome
         at = BuildConnectome()
         at.inputs.in_file = in_file
@@ -86,7 +86,7 @@ class mrtrix3_ComputeTDI:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix3.utils import ComputeTDI
         at = ComputeTDI()
         at.inputs.in_file = in_file
@@ -113,7 +113,7 @@ class mrtrix3_ConstrainedSphericalDeconvolution:
                  wm_txt="path",
                  wm_odf="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix3.reconst import ConstrainedSphericalDeconvolution
         at = ConstrainedSphericalDeconvolution()
         at.inputs.algorithm = algorithm
@@ -149,7 +149,7 @@ class mrtrix3_DWIBiasCorrect:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix3.preprocess import DWIBiasCorrect
         at = DWIBiasCorrect()
         at.inputs.in_file = in_file
@@ -176,7 +176,7 @@ class mrtrix3_DWIDenoise:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix3.preprocess import DWIDenoise
         at = DWIDenoise()
         at.inputs.in_file = in_file
@@ -204,7 +204,7 @@ class mrtrix3_DWIExtract:
                  in_file="path",
                  out_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix3.utils import DWIExtract
         at = DWIExtract()
         at.inputs.in_file = in_file
@@ -231,7 +231,7 @@ class mrtrix3_DWIPreproc:
                  out_file="path",
                  rpe_options="enumerate(('none','pair','all','header'))",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix3.preprocess import DWIPreproc
         at = DWIPreproc()
         at.inputs.in_file = in_file
@@ -269,7 +269,7 @@ class mrtrix3_EstimateFOD:
                  wm_txt="path",
                  wm_odf="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix3.reconst import EstimateFOD
         at = EstimateFOD()
         at.inputs.algorithm = algorithm
@@ -306,7 +306,7 @@ class mrtrix3_FitTensor:
                  in_file="path",
                  out_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix3.reconst import FitTensor
         at = FitTensor()
         at.inputs.in_file = in_file
@@ -336,7 +336,7 @@ class mrtrix3_Generate5tt:
                  in_file="path",
                  out_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix3.utils import Generate5tt
         at = Generate5tt()
         at.inputs.algorithm = algorithm
@@ -363,7 +363,7 @@ class mrtrix3_Generate5tt2gmwmi:
                  in_file="path",
                  mask_out="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix3.utils import Generate5tt2gmwmi
         at = Generate5tt2gmwmi()
         at.inputs.in_file = in_file
@@ -389,7 +389,7 @@ class mrtrix3_LabelConfig:
                  in_file="path",
                  out_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix3.connectivity import LabelConfig
         at = LabelConfig()
         at.inputs.in_file = in_file
@@ -416,7 +416,7 @@ class mrtrix3_LabelConvert:
                  in_lut="path",
                  out_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix3.connectivity import LabelConvert
         at = LabelConvert()
         at.inputs.in_file = in_file
@@ -443,7 +443,7 @@ class mrtrix3_MRCat:
                  in_files=["path"],
                  out_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix3.utils import MRCat
         at = MRCat()
         at.inputs.in_files = in_files
@@ -469,7 +469,7 @@ class mrtrix3_MRConvert:
                  in_file="path",
                  out_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix3.utils import MRConvert
         at = MRConvert()
         at.inputs.in_file = in_file
@@ -503,7 +503,7 @@ class mrtrix3_MRDeGibbs:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix3.preprocess import MRDeGibbs
         at = MRDeGibbs()
         at.inputs.in_file = in_file
@@ -529,7 +529,7 @@ class mrtrix3_MRMath:
                  out_file="path",
                  operation="enumerate(('mean','median','sum','product','rms','norm','var','std','min','max','absmax','magmax'))",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix3.utils import MRMath
         at = MRMath()
         at.inputs.in_file = in_file
@@ -555,7 +555,7 @@ class mrtrix3_MRResize:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix3.utils import MRResize
         at = MRResize()
         at.inputs.in_file = in_file
@@ -579,7 +579,7 @@ class mrtrix3_MRTransform:
     def __init__(self,
                  in_files=["path"],
                  **options):
-                 
+
         from nipype.interfaces.mrtrix3.utils import MRTransform
         at = MRTransform()
         at.inputs.in_files = in_files
@@ -602,7 +602,7 @@ class mrtrix3_MTNormalise:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.mrtrix3.utils import MTNormalise
         at = MTNormalise()
         for ef in options:
@@ -633,7 +633,7 @@ class mrtrix3_MaskFilter:
                  filter='',
                  out_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix3.utils import MaskFilter
         at = MaskFilter()
         at.inputs.in_file = in_file
@@ -661,7 +661,7 @@ class mrtrix3_Mesh2PVE:
                  reference="path",
                  out_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix3.utils import Mesh2PVE
         at = Mesh2PVE()
         at.inputs.in_file = in_file
@@ -689,7 +689,7 @@ class mrtrix3_ReplaceFSwithFIRST:
                  in_t1w="path",
                  out_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix3.preprocess import ReplaceFSwithFIRST
         at = ReplaceFSwithFIRST()
         at.inputs.in_file = in_file
@@ -716,7 +716,7 @@ class mrtrix3_ResponseSD:
                  algorithm="enumerate(('msmt_5tt','dhollander','tournier','tax'))",
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix3.preprocess import ResponseSD
         at = ResponseSD()
         at.inputs.algorithm = algorithm
@@ -748,7 +748,7 @@ class mrtrix3_SH2Amp:
                  in_file="path",
                  directions="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix3.utils import SH2Amp
         at = SH2Amp()
         at.inputs.in_file = in_file
@@ -774,7 +774,7 @@ class mrtrix3_SHConv:
                  in_file="path",
                  response="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix3.utils import SHConv
         at = SHConv()
         at.inputs.in_file = in_file
@@ -799,7 +799,7 @@ class mrtrix3_TCK2VTK:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix3.utils import TCK2VTK
         at = TCK2VTK()
         at.inputs.in_file = in_file
@@ -823,7 +823,7 @@ class mrtrix3_TensorMetrics:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix3.utils import TensorMetrics
         at = TensorMetrics()
         at.inputs.in_file = in_file
@@ -872,7 +872,7 @@ class mrtrix3_Tractography:
                  in_file="path",
                  out_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix3.tracking import Tractography
         at = Tractography()
         at.inputs.in_file = in_file
@@ -904,7 +904,7 @@ class mrtrix3_TransformFSLConvert:
                  out_transform="path",
                  flirt_import=True,
                  **options):
-                 
+
         from nipype.interfaces.mrtrix3.utils import TransformFSLConvert
         at = TransformFSLConvert()
         at.inputs.in_file = in_file
@@ -920,5 +920,3 @@ class mrtrix3_TransformFSLConvert:
         return self.res.outputs.out_transform
 
 ###############################################################################
-
-

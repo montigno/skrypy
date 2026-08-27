@@ -9,7 +9,7 @@ class afni_ABoverlap:
                  in_file_a="path",
                  in_file_b="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.utils import ABoverlap
         at = ABoverlap()
         at.inputs.in_file_a = in_file_a
@@ -34,7 +34,7 @@ class afni_AFNItoNIFTI:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.utils import AFNItoNIFTI
         at = AFNItoNIFTI()
         at.inputs.in_file = in_file
@@ -113,7 +113,7 @@ class afni_Allineate:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.preprocess import Allineate
         at = Allineate()
         at.inputs.in_file = in_file
@@ -150,7 +150,7 @@ class afni_AutoTLRC:
                  in_file="path",
                  base='',
                  **options):
-                 
+
         from nipype.interfaces.afni.preprocess import AutoTLRC
         at = AutoTLRC()
         at.inputs.in_file = in_file
@@ -175,7 +175,7 @@ class afni_AutoTcorrelate:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.preprocess import AutoTcorrelate
         at = AutoTcorrelate()
         at.inputs.in_file = in_file
@@ -199,7 +199,7 @@ class afni_Autobox:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.utils import Autobox
         at = Autobox()
         at.inputs.in_file = in_file
@@ -241,7 +241,7 @@ class afni_Automask:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.preprocess import Automask
         at = Automask()
         at.inputs.in_file = in_file
@@ -268,7 +268,7 @@ class afni_Axialize:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.utils import Axialize
         at = Axialize()
         at.inputs.in_file = in_file
@@ -294,7 +294,7 @@ class afni_Bandpass:
                  lowpass=0.0,
                  highpass=0.0,
                  **options):
-                 
+
         from nipype.interfaces.afni.preprocess import Bandpass
         at = Bandpass()
         at.inputs.in_file = in_file
@@ -321,7 +321,7 @@ class afni_BlurInMask:
                  in_file="path",
                  fwhm=0.0,
                  **options):
-                 
+
         from nipype.interfaces.afni.preprocess import BlurInMask
         at = BlurInMask()
         at.inputs.in_file = in_file
@@ -346,7 +346,7 @@ class afni_BlurToFWHM:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.preprocess import BlurToFWHM
         at = BlurToFWHM()
         at.inputs.in_file = in_file
@@ -370,7 +370,7 @@ class afni_BrickStat:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.utils import BrickStat
         at = BrickStat()
         at.inputs.in_file = in_file
@@ -394,7 +394,7 @@ class afni_Bucket:
     def __init__(self,
                  in_file=[(0,)],
                  **options):
-                 
+
         from nipype.interfaces.afni.utils import Bucket
         at = Bucket()
         at.inputs.in_file = in_file
@@ -419,7 +419,7 @@ class afni_Calc:
                  in_file_a="path",
                  expr='',
                  **options):
-                 
+
         from nipype.interfaces.afni.utils import Calc
         at = Calc()
         at.inputs.in_file_a = in_file_a
@@ -445,7 +445,7 @@ class afni_Cat:
                  in_files=["path"],
                  out_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.utils import Cat
         at = Cat()
         at.inputs.in_files = in_files
@@ -471,7 +471,7 @@ class afni_CatMatvec:
                  in_file=[(0,)],
                  out_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.utils import CatMatvec
         at = CatMatvec()
         at.inputs.in_file = in_file
@@ -496,7 +496,7 @@ class afni_CenterMass:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.utils import CenterMass
         at = CenterMass()
         at.inputs.in_file = in_file
@@ -526,7 +526,7 @@ class afni_ClipLevel:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.preprocess import ClipLevel
         at = ClipLevel()
         at.inputs.in_file = in_file
@@ -552,7 +552,7 @@ class afni_ConvertDset:
                  out_file="path",
                  out_type="enumerate(('niml','niml_asc','niml_bi','1D','1Dp','1Dpt','gii','gii_asc','gii_b64','gii_b64gz'))",
                  **options):
-                 
+
         from nipype.interfaces.afni.utils import ConvertDset
         at = ConvertDset()
         at.inputs.in_file = in_file
@@ -578,7 +578,7 @@ class afni_Copy:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.utils import Copy
         at = Copy()
         at.inputs.in_file = in_file
@@ -601,7 +601,7 @@ class afni_Deconvolve:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.afni.model import Deconvolve
         at = Deconvolve()
         for ef in options:
@@ -633,7 +633,7 @@ class afni_DegreeCentrality:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.preprocess import DegreeCentrality
         at = DegreeCentrality()
         at.inputs.in_file = in_file
@@ -660,7 +660,7 @@ class afni_Despike:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.preprocess import Despike
         at = Despike()
         at.inputs.in_file = in_file
@@ -684,7 +684,7 @@ class afni_Detrend:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.preprocess import Detrend
         at = Detrend()
         at.inputs.in_file = in_file
@@ -707,7 +707,7 @@ class afni_Dot:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.afni.utils import Dot
         at = Dot()
         for ef in options:
@@ -730,7 +730,7 @@ class afni_ECM:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.preprocess import ECM
         at = ECM()
         at.inputs.in_file = in_file
@@ -754,7 +754,7 @@ class afni_Edge3:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.utils import Edge3
         at = Edge3()
         at.inputs.in_file = in_file
@@ -779,7 +779,7 @@ class afni_Eval:
                  in_file_a="path",
                  expr='',
                  **options):
-                 
+
         from nipype.interfaces.afni.utils import Eval
         at = Eval()
         at.inputs.in_file_a = in_file_a
@@ -804,7 +804,7 @@ class afni_FWHMx:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.utils import FWHMx
         at = FWHMx()
         at.inputs.in_file = in_file
@@ -844,7 +844,7 @@ class afni_Fim:
                  in_file="path",
                  ideal_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.preprocess import Fim
         at = Fim()
         at.inputs.in_file = in_file
@@ -871,7 +871,7 @@ class afni_Fourier:
                  lowpass=0.0,
                  highpass=0.0,
                  **options):
-                 
+
         from nipype.interfaces.afni.preprocess import Fourier
         at = Fourier()
         at.inputs.in_file = in_file
@@ -897,7 +897,7 @@ class afni_GCOR:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.utils import GCOR
         at = GCOR()
         at.inputs.in_file = in_file
@@ -921,7 +921,7 @@ class afni_Hist:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.preprocess import Hist
         at = Hist()
         at.inputs.in_file = in_file
@@ -948,7 +948,7 @@ class afni_LFCD:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.preprocess import LFCD
         at = LFCD()
         at.inputs.in_file = in_file
@@ -975,7 +975,7 @@ class afni_LocalBistat:
                  neighborhood="enumerate(('SPHERE','RHDD','TOHD'))",
                  stat="enumerate(('pearson','spearman','quadrant','mutinfo','normuti','jointent','hellinger','crU','crM','crA','L2slope','L1slope','num','ALL'))",
                  **options):
-                 
+
         from nipype.interfaces.afni.utils import LocalBistat
         at = LocalBistat()
         at.inputs.in_file1 = in_file1
@@ -1004,7 +1004,7 @@ class afni_Localstat:
                  neighborhood="enumerate(('SPHERE','RHDD','TOHD'))",
                  stat="enumerate(('mean','stdev','var','cvar','median','MAD','min','max','absmax','num','sum','FWHM','FWHMbar','rank','frank','P2skew','ALL','mMP2s','mmMP2s','perc'))",
                  **options):
-                 
+
         from nipype.interfaces.afni.utils import Localstat
         at = Localstat()
         at.inputs.in_file = in_file
@@ -1030,7 +1030,7 @@ class afni_MaskTool:
     def __init__(self,
                  in_file=["path"],
                  **options):
-                 
+
         from nipype.interfaces.afni.utils import MaskTool
         at = MaskTool()
         at.inputs.in_file = in_file
@@ -1054,7 +1054,7 @@ class afni_Maskave:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.preprocess import Maskave
         at = Maskave()
         at.inputs.in_file = in_file
@@ -1078,7 +1078,7 @@ class afni_Means:
     def __init__(self,
                  in_file_a="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.preprocess import Means
         at = Means()
         at.inputs.in_file_a = in_file_a
@@ -1102,7 +1102,7 @@ class afni_Merge:
     def __init__(self,
                  in_files=["path"],
                  **options):
-                 
+
         from nipype.interfaces.afni.utils import Merge
         at = Merge()
         at.inputs.in_files = in_files
@@ -1127,7 +1127,7 @@ class afni_NetCorr:
                  in_file="path",
                  in_rois="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.preprocess import NetCorr
         at = NetCorr()
         at.inputs.in_file = in_file
@@ -1155,7 +1155,7 @@ class afni_Notes:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.utils import Notes
         at = Notes()
         at.inputs.in_file = in_file
@@ -1179,7 +1179,7 @@ class afni_NwarpAdjust:
     def __init__(self,
                  warps="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.utils import NwarpAdjust
         at = NwarpAdjust()
         at.inputs.warps = warps
@@ -1204,7 +1204,7 @@ class afni_NwarpApply:
                  in_file=["path"],
                  warp='',
                  **options):
-                 
+
         from nipype.interfaces.afni.utils import NwarpApply
         at = NwarpApply()
         at.inputs.in_file = in_file
@@ -1229,7 +1229,7 @@ class afni_NwarpCat:
     def __init__(self,
                  in_files="enumerate(('IDENT','INV','SQRT','SQRTINV'))",
                  **options):
-                 
+
         from nipype.interfaces.afni.utils import NwarpCat
         at = NwarpCat()
         at.inputs.in_files = in_files
@@ -1253,7 +1253,7 @@ class afni_OneDToolPy:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.utils import OneDToolPy
         at = OneDToolPy()
         at.inputs.in_file = in_file
@@ -1277,7 +1277,7 @@ class afni_OutlierCount:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.preprocess import OutlierCount
         at = OutlierCount()
         at.inputs.in_file = in_file
@@ -1304,7 +1304,7 @@ class afni_QualityIndex:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.preprocess import QualityIndex
         at = QualityIndex()
         at.inputs.in_file = in_file
@@ -1329,7 +1329,7 @@ class afni_Qwarp:
                  in_file="path",
                  base_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.preprocess import Qwarp
         at = Qwarp()
         at.inputs.in_file = in_file
@@ -1367,7 +1367,7 @@ class afni_QwarpPlusMinus:
                  in_file="path",
                  base_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.preprocess import QwarpPlusMinus
         at = QwarpPlusMinus()
         at.inputs.in_file = in_file
@@ -1404,7 +1404,7 @@ class afni_ROIStats:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.preprocess import ROIStats
         at = ROIStats()
         at.inputs.in_file = in_file
@@ -1428,7 +1428,7 @@ class afni_ReHo:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.utils import ReHo
         at = ReHo()
         at.inputs.in_file = in_file
@@ -1455,7 +1455,7 @@ class afni_Refit:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.utils import Refit
         at = Refit()
         at.inputs.in_file = in_file
@@ -1480,7 +1480,7 @@ class afni_Remlfit:
                  in_files=["path"],
                  matrix="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.model import Remlfit
         at = Remlfit()
         at.inputs.in_files = in_files
@@ -1541,7 +1541,7 @@ class afni_Resample:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.utils import Resample
         at = Resample()
         at.inputs.in_file = in_file
@@ -1565,7 +1565,7 @@ class afni_Retroicor:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.preprocess import Retroicor
         at = Retroicor()
         at.inputs.in_file = in_file
@@ -1590,7 +1590,7 @@ class afni_SVMTest:
                  model='',
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.svm import SVMTest
         at = SVMTest()
         at.inputs.model = model
@@ -1616,7 +1616,7 @@ class afni_SVMTrain:
                  ttype='',
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.svm import SVMTrain
         at = SVMTrain()
         at.inputs.ttype = ttype
@@ -1648,7 +1648,7 @@ class afni_Seg:
                  in_file="path",
                  mask="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.preprocess import Seg
         at = Seg()
         at.inputs.in_file = in_file
@@ -1673,7 +1673,7 @@ class afni_SkullStrip:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.preprocess import SkullStrip
         at = SkullStrip()
         at.inputs.in_file = in_file
@@ -1699,7 +1699,7 @@ class afni_Synthesize:
                  matrix="path",
                  select=[''],
                  **options):
-                 
+
         from nipype.interfaces.afni.model import Synthesize
         at = Synthesize()
         at.inputs.cbucket = cbucket
@@ -1725,7 +1725,7 @@ class afni_TCat:
     def __init__(self,
                  in_files=["path"],
                  **options):
-                 
+
         from nipype.interfaces.afni.utils import TCat
         at = TCat()
         at.inputs.in_files = in_files
@@ -1749,7 +1749,7 @@ class afni_TCatSubBrick:
     def __init__(self,
                  in_files=[(0,)],
                  **options):
-                 
+
         from nipype.interfaces.afni.utils import TCatSubBrick
         at = TCatSubBrick()
         at.inputs.in_files = in_files
@@ -1774,7 +1774,7 @@ class afni_TCorr1D:
                  xset="path",
                  y_1d="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.preprocess import TCorr1D
         at = TCorr1D()
         at.inputs.xset = xset
@@ -1799,7 +1799,7 @@ class afni_TCorrMap:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.preprocess import TCorrMap
         at = TCorrMap()
         at.inputs.in_file = in_file
@@ -1860,7 +1860,7 @@ class afni_TCorrelate:
                  xset="path",
                  yset="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.preprocess import TCorrelate
         at = TCorrelate()
         at.inputs.xset = xset
@@ -1885,7 +1885,7 @@ class afni_TNorm:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.preprocess import TNorm
         at = TNorm()
         at.inputs.in_file = in_file
@@ -1909,7 +1909,7 @@ class afni_TProject:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.preprocess import TProject
         at = TProject()
         at.inputs.in_file = in_file
@@ -1933,7 +1933,7 @@ class afni_TShift:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.preprocess import TShift
         at = TShift()
         at.inputs.in_file = in_file
@@ -1960,7 +1960,7 @@ class afni_TSmooth:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.preprocess import TSmooth
         at = TSmooth()
         at.inputs.in_file = in_file
@@ -1984,7 +1984,7 @@ class afni_TStat:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.utils import TStat
         at = TStat()
         at.inputs.in_file = in_file
@@ -2008,7 +2008,7 @@ class afni_To3D:
     def __init__(self,
                  in_folder="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.utils import To3D
         at = To3D()
         at.inputs.in_folder = in_folder
@@ -2032,7 +2032,7 @@ class afni_Undump:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.utils import Undump
         at = Undump()
         at.inputs.in_file = in_file
@@ -2056,7 +2056,7 @@ class afni_Unifize:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.utils import Unifize
         at = Unifize()
         at.inputs.in_file = in_file
@@ -2083,7 +2083,7 @@ class afni_Volreg:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.preprocess import Volreg
         at = Volreg()
         at.inputs.in_file = in_file
@@ -2116,7 +2116,7 @@ class afni_Warp:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.preprocess import Warp
         at = Warp()
         at.inputs.in_file = in_file
@@ -2143,7 +2143,7 @@ class afni_ZCutUp:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.utils import ZCutUp
         at = ZCutUp()
         at.inputs.in_file = in_file
@@ -2167,7 +2167,7 @@ class afni_Zcat:
     def __init__(self,
                  in_files=["path"],
                  **options):
-                 
+
         from nipype.interfaces.afni.utils import Zcat
         at = Zcat()
         at.inputs.in_files = in_files
@@ -2191,7 +2191,7 @@ class afni_Zeropad:
     def __init__(self,
                  in_files="path",
                  **options):
-                 
+
         from nipype.interfaces.afni.utils import Zeropad
         at = Zeropad()
         at.inputs.in_files = in_files
@@ -2203,5 +2203,3 @@ class afni_Zeropad:
         return self.res.outputs.out_file
 
 ###############################################################################
-
-

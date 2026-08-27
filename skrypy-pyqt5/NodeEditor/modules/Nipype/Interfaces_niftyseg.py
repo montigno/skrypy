@@ -9,7 +9,7 @@ class niftyseg_BinaryMaths:
                  operation="enumerate(('mul','div','add','sub','pow','thr','uthr','smo','edge','sobel3','sobel5','min','smol','geo','llsnorm','masknan','hdr_copy','splitinter'))",
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.niftyseg.maths import BinaryMaths
         at = BinaryMaths()
         at.inputs.operation = operation
@@ -36,7 +36,7 @@ class niftyseg_BinaryMathsInteger:
                  operand_value=0,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.niftyseg.maths import BinaryMathsInteger
         at = BinaryMathsInteger()
         at.inputs.operation = operation
@@ -63,7 +63,7 @@ class niftyseg_BinaryStats:
                  operation="enumerate(('p','sa','ss','svp','al','d','ncc','nmi','Vl','Nl'))",
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.niftyseg.stats import BinaryStats
         at = BinaryStats()
         at.inputs.operation = operation
@@ -91,7 +91,7 @@ class niftyseg_CalcTopNCC:
                  in_templates=["path"],
                  top_templates=0,
                  **options):
-                 
+
         from nipype.interfaces.niftyseg.label_fusion import CalcTopNCC
         at = CalcTopNCC()
         at.inputs.in_file = in_file
@@ -118,7 +118,7 @@ class niftyseg_EM:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.niftyseg.em import EM
         at = EM()
         at.inputs.in_file = in_file
@@ -149,7 +149,7 @@ class niftyseg_FillLesions:
                  in_file="path",
                  lesion_mask="path",
                  **options):
-                 
+
         from nipype.interfaces.niftyseg.lesions import FillLesions
         at = FillLesions()
         at.inputs.in_file = in_file
@@ -176,7 +176,7 @@ class niftyseg_LabelFusion:
                  file_to_seg="path",
                  classifier_type="enumerate(('STEPS','STAPLE','MV','SBA'))",
                  **options):
-                 
+
         from nipype.interfaces.niftyseg.label_fusion import LabelFusion
         at = LabelFusion()
         at.inputs.in_file = in_file
@@ -204,7 +204,7 @@ class niftyseg_Merge:
                  merge_files=["path"],
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.niftyseg.maths import Merge
         at = Merge()
         at.inputs.dimension = dimension
@@ -232,7 +232,7 @@ class niftyseg_PatchMatch:
                  mask_file="path",
                  database_file="path",
                  **options):
-                 
+
         from nipype.interfaces.niftyseg.patchmatch import PatchMatch
         at = PatchMatch()
         at.inputs.in_file = in_file
@@ -259,7 +259,7 @@ class niftyseg_TupleMaths:
                  operation="enumerate(('lncc','lssd','lltsnorm'))",
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.niftyseg.maths import TupleMaths
         at = TupleMaths()
         at.inputs.operation = operation
@@ -285,7 +285,7 @@ class niftyseg_UnaryMaths:
                  operation="enumerate(('sqrt','exp','log','recip','abs','bin','otsu','lconcomp','concomp6','concomp26','fill','euc','tpmax','tmean','tmax','tmin','splitlab','removenan','isnan','subsamp2','scl','4to5','range'))",
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.niftyseg.maths import UnaryMaths
         at = UnaryMaths()
         at.inputs.operation = operation
@@ -311,7 +311,7 @@ class niftyseg_UnaryStats:
                  operation="enumerate(('r','R','a','s','v','vl','vp','n','np','e','ne','x','X','c','B','xvox','xdim'))",
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.niftyseg.stats import UnaryStats
         at = UnaryStats()
         at.inputs.operation = operation
@@ -324,5 +324,3 @@ class niftyseg_UnaryStats:
         return self.res.outputs.output
 
 ###############################################################################
-
-

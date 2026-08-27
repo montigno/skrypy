@@ -9,7 +9,7 @@ class io_BIDSDataGrabber:
                  base_dir="path",
                  index_derivatives=True,
                  **options):
-                 
+
         from nipype.interfaces.io import BIDSDataGrabber
         at = BIDSDataGrabber()
         at.inputs.base_dir = base_dir
@@ -30,7 +30,7 @@ class io_BaseInterface:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.base.core import BaseInterface
         at = BaseInterface()
         for ef in options:
@@ -50,7 +50,7 @@ class io_DataFinder:
     def __init__(self,
                  root_paths=[''],
                  **options):
-                 
+
         from nipype.interfaces.io import DataFinder
         at = DataFinder()
         at.inputs.root_paths = root_paths
@@ -72,7 +72,7 @@ class io_DataGrabber:
                  sort_filelist=True,
                  template='',
                  **options):
-                 
+
         from nipype.interfaces.io import DataGrabber
         at = DataGrabber()
         at.inputs.sort_filelist = sort_filelist
@@ -93,7 +93,7 @@ class io_DataSink:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.io import DataSink
         at = DataSink()
         for ef in options:
@@ -117,7 +117,7 @@ class io_ExportFile:
                  in_file="path",
                  out_file="path",
                  **options):
-                 
+
         from nipype.interfaces.io import ExportFile
         at = ExportFile()
         at.inputs.in_file = in_file
@@ -143,7 +143,7 @@ class io_FreeSurferSource:
                  subjects_dir="path",
                  subject_id='',
                  **options):
-                 
+
         from nipype.interfaces.io import FreeSurferSource
         at = FreeSurferSource()
         at.inputs.subjects_dir = subjects_dir
@@ -275,7 +275,7 @@ class io_IOBase:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.io import IOBase
         at = IOBase()
         for ef in options:
@@ -294,7 +294,7 @@ class io_JSONFileGrabber:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.io import JSONFileGrabber
         at = JSONFileGrabber()
         for ef in options:
@@ -313,7 +313,7 @@ class io_JSONFileSink:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.io import JSONFileSink
         at = JSONFileSink()
         for ef in options:
@@ -338,7 +338,7 @@ class io_S3DataGrabber:
                  sort_filelist=True,
                  template='',
                  **options):
-                 
+
         from nipype.interfaces.io import S3DataGrabber
         at = S3DataGrabber()
         at.inputs.bucket = bucket
@@ -364,7 +364,7 @@ class io_SSHDataGrabber:
                  sort_filelist=True,
                  template='',
                  **options):
-                 
+
         from nipype.interfaces.io import SSHDataGrabber
         at = SSHDataGrabber()
         at.inputs.hostname = hostname
@@ -387,7 +387,7 @@ class io_SimpleInterface:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.base.core import SimpleInterface
         at = SimpleInterface()
         for ef in options:
@@ -409,7 +409,7 @@ class io_XNATSink:
                  subject_id='',
                  experiment_id='',
                  **options):
-                 
+
         from nipype.interfaces.io import XNATSink
         at = XNATSink()
         at.inputs.project_id = project_id
@@ -432,7 +432,7 @@ class io_XNATSource:
     def __init__(self,
                  query_template='',
                  **options):
-                 
+
         from nipype.interfaces.io import XNATSource
         at = XNATSource()
         at.inputs.query_template = query_template
@@ -441,5 +441,3 @@ class io_XNATSource:
         self.res = at.run()
 
 ###############################################################################
-
-

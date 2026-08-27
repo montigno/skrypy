@@ -9,7 +9,7 @@ class quickshear_Quickshear:
                  in_file="path",
                  mask_file="path",
                  **options):
-                 
+
         from nipype.interfaces.quickshear import Quickshear
         at = Quickshear()
         at.inputs.in_file = in_file
@@ -22,5 +22,3 @@ class quickshear_Quickshear:
         return self.res.outputs.out_file
 
 ###############################################################################
-
-

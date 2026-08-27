@@ -9,7 +9,7 @@ class niftyreg_RegAladin:
                  ref_file="path",
                  flo_file="path",
                  **options):
-                 
+
         from nipype.interfaces.niftyreg.reg import RegAladin
         at = RegAladin()
         at.inputs.ref_file = ref_file
@@ -39,7 +39,7 @@ class niftyreg_RegAverage:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.niftyreg.regutils import RegAverage
         at = RegAverage()
         for ef in options:
@@ -63,7 +63,7 @@ class niftyreg_RegF3D:
                  ref_file="path",
                  flo_file="path",
                  **options):
-                 
+
         from nipype.interfaces.niftyreg.reg import RegF3D
         at = RegF3D()
         at.inputs.ref_file = ref_file
@@ -100,7 +100,7 @@ class niftyreg_RegJacobian:
     def __init__(self,
                  trans_file="path",
                  **options):
-                 
+
         from nipype.interfaces.niftyreg.regutils import RegJacobian
         at = RegJacobian()
         at.inputs.trans_file = trans_file
@@ -126,7 +126,7 @@ class niftyreg_RegMeasure:
                  flo_file="path",
                  measure_type="enumerate(('ncc','lncc','nmi','ssd'))",
                  **options):
-                 
+
         from nipype.interfaces.niftyreg.regutils import RegMeasure
         at = RegMeasure()
         at.inputs.ref_file = ref_file
@@ -153,7 +153,7 @@ class niftyreg_RegResample:
                  ref_file="path",
                  flo_file="path",
                  **options):
-                 
+
         from nipype.interfaces.niftyreg.regutils import RegResample
         at = RegResample()
         at.inputs.ref_file = ref_file
@@ -178,7 +178,7 @@ class niftyreg_RegTools:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.niftyreg.regutils import RegTools
         at = RegTools()
         at.inputs.in_file = in_file
@@ -201,7 +201,7 @@ class niftyreg_RegTransform:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.niftyreg.regutils import RegTransform
         at = RegTransform()
         for ef in options:
@@ -212,5 +212,3 @@ class niftyreg_RegTransform:
         return self.res.outputs.out_file
 
 ###############################################################################
-
-

@@ -8,7 +8,7 @@ class fsl_AR1Image:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.maths import AR1Image
         at = AR1Image()
         at.inputs.in_file = in_file
@@ -33,7 +33,7 @@ class fsl_ApplyMask:
                  mask_file="path",
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.maths import ApplyMask
         at = ApplyMask()
         at.inputs.mask_file = mask_file
@@ -59,7 +59,7 @@ class fsl_ApplyTOPUP:
                  in_files=["path"],
                  encoding_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.epi import ApplyTOPUP
         at = ApplyTOPUP()
         at.inputs.in_files = in_files
@@ -85,7 +85,7 @@ class fsl_ApplyWarp:
                  in_file="path",
                  ref_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.preprocess import ApplyWarp
         at = ApplyWarp()
         at.inputs.in_file = in_file
@@ -111,7 +111,7 @@ class fsl_ApplyXFM:
                  in_file="path",
                  reference="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.preprocess import ApplyXFM
         at = ApplyXFM()
         at.inputs.in_file = in_file
@@ -141,7 +141,7 @@ class fsl_AvScale:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.fsl.utils import AvScale
         at = AvScale()
         for ef in options:
@@ -191,7 +191,7 @@ class fsl_B0Calc:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.possum import B0Calc
         at = B0Calc()
         at.inputs.in_file = in_file
@@ -220,7 +220,7 @@ class fsl_BEDPOSTX:
                  n_fibres=0,
                  out_dir="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.dti import BEDPOSTX
         at = BEDPOSTX()
         at.inputs.dwi = dwi
@@ -281,7 +281,7 @@ class fsl_BEDPOSTX5:
                  n_fibres=0,
                  out_dir="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.dti import BEDPOSTX5
         at = BEDPOSTX5()
         at.inputs.dwi = dwi
@@ -337,7 +337,7 @@ class fsl_BET:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.preprocess import BET
         at = BET()
         at.inputs.in_file = in_file
@@ -395,7 +395,7 @@ class fsl_BinaryMaths:
                  operation="enumerate(('add','sub','mul','div','rem','max','min'))",
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.maths import BinaryMaths
         at = BinaryMaths()
         at.inputs.operation = operation
@@ -421,7 +421,7 @@ class fsl_ChangeDataType:
                  output_datatype="enumerate(('float','char','int','short','double','input'))",
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.maths import ChangeDataType
         at = ChangeDataType()
         at.inputs.output_datatype = output_datatype
@@ -447,7 +447,7 @@ class fsl_Classifier:
                  thresh=1,
                  trained_wts_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.fix import Classifier
         at = Classifier()
         at.inputs.thresh = thresh
@@ -472,7 +472,7 @@ class fsl_Cleaner:
     def __init__(self,
                  artifacts_list_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.fix import Cleaner
         at = Cleaner()
         at.inputs.artifacts_list_file = artifacts_list_file
@@ -485,6 +485,7 @@ class fsl_Cleaner:
 
 ###############################################################################
 
+
 class fsl_Cluster:
     """
     Note:
@@ -496,7 +497,7 @@ class fsl_Cluster:
                  in_file="path",
                  threshold=0.0,
                  **options):
-                 
+
         from nipype.interfaces.fsl.model import Cluster
         at = Cluster()
         at.inputs.in_file = in_file
@@ -541,7 +542,7 @@ class fsl_Complex:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.fsl.utils import Complex
         at = Complex()
         for ef in options:
@@ -580,7 +581,7 @@ class fsl_ContrastMgr:
                  dof_file="path",
                  sigmasquareds="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.model import ContrastMgr
         at = ContrastMgr()
         at.inputs.tcon_file = tcon_file
@@ -626,7 +627,7 @@ class fsl_ConvertWarp:
     def __init__(self,
                  reference="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.utils import ConvertWarp
         at = ConvertWarp()
         at.inputs.reference = reference
@@ -650,7 +651,7 @@ class fsl_ConvertXFM:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.utils import ConvertXFM
         at = ConvertXFM()
         at.inputs.in_file = in_file
@@ -675,7 +676,7 @@ class fsl_CopyGeom:
                  in_file="path",
                  dest_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.utils import CopyGeom
         at = CopyGeom()
         at.inputs.in_file = in_file
@@ -703,7 +704,7 @@ class fsl_DTIFit:
                  bvecs="path",
                  bvals="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.dti import DTIFit
         at = DTIFit()
         at.inputs.dwi = dwi
@@ -764,7 +765,7 @@ class fsl_DilateImage:
                  operation="enumerate(('mean','modal','max'))",
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.maths import DilateImage
         at = DilateImage()
         at.inputs.operation = operation
@@ -789,7 +790,7 @@ class fsl_DistanceMap:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.dti import DistanceMap
         at = DistanceMap()
         at.inputs.in_file = in_file
@@ -818,7 +819,7 @@ class fsl_DualRegression:
                  in_files=["path"],
                  n_perm=1,
                  **options):
-                 
+
         from nipype.interfaces.fsl.model import DualRegression
         at = DualRegression()
         at.inputs.group_IC_maps_4D = group_IC_maps_4D
@@ -845,7 +846,7 @@ class fsl_EPIDeWarp:
                  mag_file="path",
                  dph_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.epi import EPIDeWarp
         at = EPIDeWarp()
         at.inputs.mag_file = mag_file
@@ -884,7 +885,7 @@ class fsl_Eddy:
                  in_bvec="path",
                  in_bval="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.epi import Eddy
         at = Eddy()
         at.inputs.in_file = in_file
@@ -956,7 +957,7 @@ class fsl_EddyCorrect:
                  in_file="path",
                  ref_num=0,
                  **options):
-                 
+
         from nipype.interfaces.fsl.epi import EddyCorrect
         at = EddyCorrect()
         at.inputs.in_file = in_file
@@ -984,7 +985,7 @@ class fsl_EddyQuad:
                  mask_file="path",
                  bval_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.epi import EddyQuad
         at = EddyQuad()
         at.inputs.idx_file = idx_file
@@ -1034,7 +1035,7 @@ class fsl_EpiReg:
                  t1_head="path",
                  t1_brain="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.epi import EpiReg
         at = EpiReg()
         at.inputs.epi = epi
@@ -1099,7 +1100,7 @@ class fsl_ErodeImage:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.maths import ErodeImage
         at = ErodeImage()
         at.inputs.in_file = in_file
@@ -1123,7 +1124,7 @@ class fsl_ExtractROI:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.utils import ExtractROI
         at = ExtractROI()
         at.inputs.in_file = in_file
@@ -1147,7 +1148,7 @@ class fsl_FAST:
     def __init__(self,
                  in_files=["path"],
                  **options):
-                 
+
         from nipype.interfaces.fsl.preprocess import FAST
         at = FAST()
         at.inputs.in_files = in_files
@@ -1192,7 +1193,7 @@ class fsl_FEAT:
     def __init__(self,
                  fsf_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.model import FEAT
         at = FEAT()
         at.inputs.fsf_file = fsf_file
@@ -1217,7 +1218,7 @@ class fsl_FEATModel:
                  fsf_file="path",
                  ev_files=["path"],
                  **options):
-                 
+
         from nipype.interfaces.fsl.model import FEATModel
         at = FEATModel()
         at.inputs.fsf_file = fsf_file
@@ -1255,7 +1256,7 @@ class fsl_FEATRegister:
                  feat_dirs=["path"],
                  reg_image="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.model import FEATRegister
         at = FEATRegister()
         at.inputs.feat_dirs = feat_dirs
@@ -1280,7 +1281,7 @@ class fsl_FILMGLS:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.model import FILMGLS
         at = FILMGLS()
         at.inputs.in_file = in_file
@@ -1341,7 +1342,7 @@ class fsl_FIRST:
                  in_file="path",
                  out_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.preprocess import FIRST
         at = FIRST()
         at.inputs.in_file = in_file
@@ -1380,7 +1381,7 @@ class fsl_FLAMEO:
                  cov_split_file="path",
                  run_mode="enumerate(('fe','ols','flame1','flame12'))",
                  **options):
-                 
+
         from nipype.interfaces.fsl.model import FLAMEO
         at = FLAMEO()
         at.inputs.cope_file = cope_file
@@ -1443,7 +1444,7 @@ class fsl_FLIRT:
                  in_file="path",
                  reference="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.preprocess import FLIRT
         at = FLIRT()
         at.inputs.in_file = in_file
@@ -1475,7 +1476,7 @@ class fsl_FNIRT:
                  ref_file="path",
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.preprocess import FNIRT
         at = FNIRT()
         at.inputs.ref_file = ref_file
@@ -1517,7 +1518,7 @@ class fsl_FSLCommand:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.fsl.base import FSLCommand
         at = FSLCommand()
         for ef in options:
@@ -1541,7 +1542,7 @@ class fsl_FSLXCommand:
                  mask="path",
                  n_fibres=2,
                  **options):
-                 
+
         from nipype.interfaces.fsl.dti import FSLXCommand
         at = FSLXCommand()
         at.inputs.bvals = bvals
@@ -1552,7 +1553,7 @@ class fsl_FSLXCommand:
         for ef in options:
             setattr(at.inputs, ef, options[ef])
         self.res = at.run()
-        
+
     def dyads(self) -> list[None]:
         return self.res.outputs.dyads
 
@@ -1579,6 +1580,7 @@ class fsl_FSLXCommand:
 
 ###############################################################################
 
+
 class fsl_FeatureExtractor:
     """
     Note:
@@ -1588,7 +1590,7 @@ class fsl_FeatureExtractor:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.fsl.fix import FeatureExtractor
         at = FeatureExtractor()
         for ef in options:
@@ -1610,7 +1612,7 @@ class fsl_FUGUE:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.fsl.preprocess import FUGUE
         at = FUGUE()
         for ef in options:
@@ -1643,7 +1645,7 @@ class fsl_FilterRegressor:
                  in_file="path",
                  design_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.utils import FilterRegressor
         at = FilterRegressor()
         at.inputs.in_file = in_file
@@ -1668,7 +1670,7 @@ class fsl_FindTheBiggest:
     def __init__(self,
                  in_files=["path"],
                  **options):
-                 
+
         from nipype.interfaces.fsl.dti import FindTheBiggest
         at = FindTheBiggest()
         at.inputs.in_files = in_files
@@ -1693,7 +1695,7 @@ class fsl_GLM:
                  in_file="path",
                  design="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.model import GLM
         at = GLM()
         at.inputs.in_file = in_file
@@ -1752,7 +1754,7 @@ class fsl_ICA_AROMA:
                  out_dir="path",
                  denoise_type="enumerate(('nonaggr','aggr','both','no'))",
                  **options):
-                 
+
         from nipype.interfaces.fsl.aroma import ICA_AROMA
         at = ICA_AROMA()
         at.inputs.out_dir = out_dir
@@ -1783,7 +1785,7 @@ class fsl_ImageMaths:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.utils import ImageMaths
         at = ImageMaths()
         at.inputs.in_file = in_file
@@ -1807,7 +1809,7 @@ class fsl_ImageMeants:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.utils import ImageMeants
         at = ImageMeants()
         at.inputs.in_file = in_file
@@ -1832,7 +1834,7 @@ class fsl_ImageStats:
                  in_file="path",
                  op_string='',
                  **options):
-                 
+
         from nipype.interfaces.fsl.utils import ImageStats
         at = ImageStats()
         at.inputs.in_file = in_file
@@ -1858,7 +1860,7 @@ class fsl_InvWarp:
                  warp="path",
                  reference="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.utils import InvWarp
         at = InvWarp()
         at.inputs.warp = warp
@@ -1883,7 +1885,7 @@ class fsl_IsotropicSmooth:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.maths import IsotropicSmooth
         at = IsotropicSmooth()
         at.inputs.in_file = in_file
@@ -1907,7 +1909,7 @@ class fsl_L2Model:
     def __init__(self,
                  num_copes=1,
                  **options):
-                 
+
         from nipype.interfaces.fsl.model import L2Model
         at = L2Model()
         at.inputs.num_copes = num_copes
@@ -1940,7 +1942,7 @@ class fsl_Level1Design:
                  bases="enumerate(('dgamma','derivs','gamma','gammasigma','gammadelay','custom','bfcustompath','none'))",
                  model_serial_correlations=True,
                  **options):
-                 
+
         from nipype.interfaces.fsl.model import Level1Design
         at = Level1Design()
         at.inputs.interscan_interval = interscan_interval
@@ -1970,7 +1972,7 @@ class fsl_MCFLIRT:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.preprocess import MCFLIRT
         at = MCFLIRT()
         at.inputs.in_file = in_file
@@ -2012,7 +2014,7 @@ class fsl_MELODIC:
     def __init__(self,
                  in_files=["path"],
                  **options):
-                 
+
         from nipype.interfaces.fsl.model import MELODIC
         at = MELODIC()
         at.inputs.in_files = in_files
@@ -2040,7 +2042,7 @@ class fsl_MakeDyadicVectors:
                  theta_vol="path",
                  phi_vol="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.dti import MakeDyadicVectors
         at = MakeDyadicVectors()
         at.inputs.theta_vol = theta_vol
@@ -2068,7 +2070,7 @@ class fsl_MaxnImage:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.maths import MaxnImage
         at = MaxnImage()
         at.inputs.in_file = in_file
@@ -2092,7 +2094,7 @@ class fsl_MeanImage:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.maths import MeanImage
         at = MeanImage()
         at.inputs.in_file = in_file
@@ -2116,7 +2118,7 @@ class fsl_MedianImage:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.maths import MedianImage
         at = MedianImage()
         at.inputs.in_file = in_file
@@ -2141,7 +2143,7 @@ class fsl_Merge:
                  in_files=["path"],
                  dimension="enumerate(('t','x','y','z','a'))",
                  **options):
-                 
+
         from nipype.interfaces.fsl.utils import Merge
         at = Merge()
         at.inputs.in_files = in_files
@@ -2166,7 +2168,7 @@ class fsl_MinImage:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.maths import MinImage
         at = MinImage()
         at.inputs.in_file = in_file
@@ -2190,7 +2192,7 @@ class fsl_MotionOutliers:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.utils import MotionOutliers
         at = MotionOutliers()
         at.inputs.in_file = in_file
@@ -2222,7 +2224,7 @@ class fsl_MultiImageMaths:
                  operand_files=["path"],
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.maths import MultiImageMaths
         at = MultiImageMaths()
         at.inputs.op_string = op_string
@@ -2249,7 +2251,7 @@ class fsl_MultipleRegressDesign:
                  contrasts=[(0,)],
                  regressors=[{}],
                  **options):
-                 
+
         from nipype.interfaces.fsl.model import MultipleRegressDesign
         at = MultipleRegressDesign()
         at.inputs.contrasts = contrasts
@@ -2285,7 +2287,7 @@ class fsl_Overlay:
                  stat_image="path",
                  stat_thresh=(0,),
                  **options):
-                 
+
         from nipype.interfaces.fsl.utils import Overlay
         at = Overlay()
         at.inputs.background_image = background_image
@@ -2310,7 +2312,7 @@ class fsl_PRELUDE:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.fsl.preprocess import PRELUDE
         at = PRELUDE()
         for ef in options:
@@ -2333,7 +2335,7 @@ class fsl_PercentileImage:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.maths import PercentileImage
         at = PercentileImage()
         at.inputs.in_file = in_file
@@ -2359,7 +2361,7 @@ class fsl_PlotMotionParams:
                  in_source="enumerate(('spm','fsl'))",
                  plot_type="enumerate(('rotations','translations','displacement'))",
                  **options):
-                 
+
         from nipype.interfaces.fsl.utils import PlotMotionParams
         at = PlotMotionParams()
         at.inputs.in_file = in_file
@@ -2385,7 +2387,7 @@ class fsl_PlotTimeSeries:
     def __init__(self,
                  in_file=["path"],
                  **options):
-                 
+
         from nipype.interfaces.fsl.utils import PlotTimeSeries
         at = PlotTimeSeries()
         at.inputs.in_file = in_file
@@ -2409,7 +2411,7 @@ class fsl_PowerSpectrum:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.utils import PowerSpectrum
         at = PowerSpectrum()
         at.inputs.in_file = in_file
@@ -2435,7 +2437,7 @@ class fsl_PrepareFieldmap:
                  in_magnitude="path",
                  delta_TE=0.0,
                  **options):
-                 
+
         from nipype.interfaces.fsl.epi import PrepareFieldmap
         at = PrepareFieldmap()
         at.inputs.in_phase = in_phase
@@ -2465,7 +2467,7 @@ class fsl_ProbTrackX:
                  mask="path",
                  seed=["path"],
                  **options):
-                 
+
         from nipype.interfaces.fsl.dti import ProbTrackX
         at = ProbTrackX()
         at.inputs.thsamples = thsamples
@@ -2509,7 +2511,7 @@ class fsl_ProbTrackX2:
                  mask="path",
                  seed=["path"],
                  **options):
-                 
+
         from nipype.interfaces.fsl.dti import ProbTrackX2
         at = ProbTrackX2()
         at.inputs.thsamples = thsamples
@@ -2565,7 +2567,7 @@ class fsl_ProjThresh:
                  in_files=["path"],
                  threshold=0,
                  **options):
-                 
+
         from nipype.interfaces.fsl.dti import ProjThresh
         at = ProjThresh()
         at.inputs.in_files = in_files
@@ -2590,7 +2592,7 @@ class fsl_Randomise:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.model import Randomise
         at = Randomise()
         at.inputs.in_file = in_file
@@ -2629,7 +2631,7 @@ class fsl_Reorient2Std:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.utils import Reorient2Std
         at = Reorient2Std()
         at.inputs.in_file = in_file
@@ -2653,7 +2655,7 @@ class fsl_RobustFOV:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.utils import RobustFOV
         at = RobustFOV()
         at.inputs.in_file = in_file
@@ -2681,7 +2683,7 @@ class fsl_SMM:
                  spatial_data_file="path",
                  mask="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.model import SMM
         at = SMM()
         at.inputs.spatial_data_file = spatial_data_file
@@ -2714,7 +2716,7 @@ class fsl_SUSAN:
                  brightness_threshold=0.0,
                  fwhm=0.0,
                  **options):
-                 
+
         from nipype.interfaces.fsl.preprocess import SUSAN
         at = SUSAN()
         at.inputs.in_file = in_file
@@ -2740,7 +2742,7 @@ class fsl_SigLoss:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.epi import SigLoss
         at = SigLoss()
         at.inputs.in_file = in_file
@@ -2764,7 +2766,7 @@ class fsl_Slice:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.utils import Slice
         at = Slice()
         at.inputs.in_file = in_file
@@ -2788,7 +2790,7 @@ class fsl_SliceTimer:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.preprocess import SliceTimer
         at = SliceTimer()
         at.inputs.in_file = in_file
@@ -2812,7 +2814,7 @@ class fsl_Slicer:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.utils import Slicer
         at = Slicer()
         at.inputs.in_file = in_file
@@ -2836,7 +2838,7 @@ class fsl_Smooth:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.utils import Smooth
         at = Smooth()
         at.inputs.in_file = in_file
@@ -2860,7 +2862,7 @@ class fsl_SmoothEstimate:
     def __init__(self,
                  mask_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.model import SmoothEstimate
         at = SmoothEstimate()
         at.inputs.mask_file = mask_file
@@ -2891,7 +2893,7 @@ class fsl_SpatialFilter:
                  operation="enumerate(('mean','median','meanu'))",
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.maths import SpatialFilter
         at = SpatialFilter()
         at.inputs.operation = operation
@@ -2917,7 +2919,7 @@ class fsl_Split:
                  in_file="path",
                  dimension="enumerate(('t','x','y','z'))",
                  **options):
-                 
+
         from nipype.interfaces.fsl.utils import Split
         at = Split()
         at.inputs.in_file = in_file
@@ -2942,7 +2944,7 @@ class fsl_StdImage:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.maths import StdImage
         at = StdImage()
         at.inputs.in_file = in_file
@@ -2953,7 +2955,7 @@ class fsl_StdImage:
     def out_file(self) -> None:
         return self.res.outputs.out_file
 
-###############################################################################    
+###############################################################################
 
 
 class fsl_SwapDimensions:
@@ -2967,7 +2969,7 @@ class fsl_SwapDimensions:
                  in_file="path",
                  new_dims="enumerate(('x','-x','y','-y','z','-z','RL','LR','AP','PA','IS','SI'))",
                  **options):
-                 
+
         from nipype.interfaces.fsl.utils import SwapDimensions
         at = SwapDimensions()
         at.inputs.in_file = in_file
@@ -2992,7 +2994,7 @@ class fsl_TOPUP:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.epi import TOPUP
         at = TOPUP()
         at.inputs.in_file = in_file
@@ -3040,7 +3042,7 @@ class fsl_TemporalFilter:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.maths import TemporalFilter
         at = TemporalFilter()
         at.inputs.in_file = in_file
@@ -3065,7 +3067,7 @@ class fsl_Text2Vest:
                  in_file="path",
                  out_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.utils import Text2Vest
         at = Text2Vest()
         at.inputs.in_file = in_file
@@ -3091,7 +3093,7 @@ class fsl_Threshold:
                  thresh=0.0,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.maths import Threshold
         at = Threshold()
         at.inputs.thresh = thresh
@@ -3116,7 +3118,7 @@ class fsl_TractSkeleton:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.dti import TractSkeleton
         at = TractSkeleton()
         at.inputs.in_file = in_file
@@ -3142,7 +3144,7 @@ class fsl_Training:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.fsl.fix import Training
         at = Training()
         for ef in options:
@@ -3164,7 +3166,7 @@ class fsl_TrainingSetCreator:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.fsl.fix import TrainingSetCreator
         at = TrainingSetCreator()
         for ef in options:
@@ -3188,7 +3190,7 @@ class fsl_UnaryMaths:
                  operation="enumerate(('exp','log','sin','cos','tan','asin','acos','atan','sqr','sqrt','recip','abs','bin','binv','fillh','fillh26','index','edge','nan','nanm','rand','randn','range'))",
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.maths import UnaryMaths
         at = UnaryMaths()
         at.inputs.operation = operation
@@ -3214,7 +3216,7 @@ class fsl_VecReg:
                  in_file="path",
                  ref_vol="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.dti import VecReg
         at = VecReg()
         at.inputs.in_file = in_file
@@ -3239,7 +3241,7 @@ class fsl_Vest2Text:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.utils import Vest2Text
         at = Vest2Text()
         at.inputs.in_file = in_file
@@ -3265,7 +3267,7 @@ class fsl_WarpPoints:
                  dest_file="path",
                  in_coords="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.utils import WarpPoints
         at = WarpPoints()
         at.inputs.src_file = src_file
@@ -3293,7 +3295,7 @@ class fsl_WarpPointsFromStd:
                  std_file="path",
                  in_coords="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.utils import WarpPointsFromStd
         at = WarpPointsFromStd()
         at.inputs.img_file = img_file
@@ -3321,7 +3323,7 @@ class fsl_WarpPointsToStd:
                  std_file="path",
                  in_coords="path",
                  **options):
-                 
+
         from nipype.interfaces.fsl.utils import WarpPointsToStd
         at = WarpPointsToStd()
         at.inputs.img_file = img_file
@@ -3349,7 +3351,7 @@ class fsl_WarpUtils:
                  reference="path",
                  write_jacobian=True,
                  **options):
-                 
+
         from nipype.interfaces.fsl.utils import WarpUtils
         at = WarpUtils()
         at.inputs.in_file = in_file
@@ -3382,7 +3384,7 @@ class fsl_XFibres:
                  bvals="path",
                  n_fibres=0,
                  **options):
-                 
+
         from nipype.interfaces.fsl.dti import XFibres
         at = XFibres()
         at.inputs.dwi = dwi
@@ -3435,7 +3437,7 @@ class fsl_XFibres5:
                  bvals="path",
                  n_fibres=0,
                  **options):
-                 
+
         from nipype.interfaces.fsl.dti import XFibres5
         at = XFibres5()
         at.inputs.dwi = dwi
@@ -3472,5 +3474,3 @@ class fsl_XFibres5:
         return self.res.outputs.thsamples
 
 ###############################################################################
-
-

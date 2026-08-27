@@ -8,7 +8,7 @@ class image_Reorient:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.image import Reorient
         at = Reorient()
         at.inputs.in_file = in_file
@@ -36,7 +36,7 @@ class image_Rescale:
                  in_file="path",
                  ref_file="path",
                  **options):
-                 
+
         from nipype.interfaces.image import Rescale
         at = Rescale()
         at.inputs.in_file = in_file
@@ -60,7 +60,7 @@ class image_SimpleInterface:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.base.core import SimpleInterface
         at = SimpleInterface()
         for ef in options:
@@ -68,5 +68,3 @@ class image_SimpleInterface:
         self.res = at.run()
 
 ###############################################################################
-
-

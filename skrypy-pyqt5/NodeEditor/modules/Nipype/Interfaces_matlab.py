@@ -8,7 +8,7 @@ class matlab_MatlabCommand:
     def __init__(self,
                  script='',
                  **options):
-                 
+
         from nipype.interfaces.matlab import MatlabCommand
         at = MatlabCommand()
         at.inputs.script = script
@@ -17,5 +17,3 @@ class matlab_MatlabCommand:
         self.res = at.run()
 
 ###############################################################################
-
-

@@ -10,7 +10,7 @@ class ants_AI:
                  moving_image="path",
                  metric="enumerate(('Mattes','GC','MI','Regular','Random','None'))",
                  **options):
-                 
+
         from nipype.interfaces.ants.utils import AI
         at = AI()
         at.inputs.fixed_image = fixed_image
@@ -85,7 +85,7 @@ class ants_AffineInitializer:
                  fixed_image="path",
                  moving_image="path",
                  **options):
-                 
+
         from nipype.interfaces.ants.utils import AffineInitializer
         at = AffineInitializer()
         at.inputs.fixed_image = fixed_image
@@ -112,7 +112,7 @@ class ants_AntsJointFusion:
                  atlas_image=[["path"]],
                  atlas_segmentation_image=["path"],
                  **options):
-                 
+
         from nipype.interfaces.ants.segmentation import AntsJointFusion
         at = AntsJointFusion()
         at.inputs.target_image = target_image
@@ -149,7 +149,7 @@ class ants_ApplyTransforms:
                  reference_image="path",
                  transforms=["path"],
                  **options):
-                 
+
         from nipype.interfaces.ants.resampling import ApplyTransforms
         at = ApplyTransforms()
         at.inputs.input_image = input_image
@@ -176,7 +176,7 @@ class ants_ApplyTransformsToPoints:
                  input_file="path",
                  transforms=["path"],
                  **options):
-                 
+
         from nipype.interfaces.ants.resampling import ApplyTransformsToPoints
         at = ApplyTransformsToPoints()
         at.inputs.input_file = input_file
@@ -204,7 +204,7 @@ class ants_Atropos:
                  initialization="enumerate(('Random','Otsu','KMeans','PriorProbabilityImages','PriorLabelImage'))",
                  number_of_tissue_classes=0,
                  **options):
-                 
+
         from nipype.interfaces.ants.segmentation import Atropos
         at = Atropos()
         at.inputs.intensity_images = intensity_images
@@ -236,7 +236,7 @@ class ants_AverageAffineTransform:
                  output_affine_transform="path",
                  transforms=["path"],
                  **options):
-                 
+
         from nipype.interfaces.ants.utils import AverageAffineTransform
         at = AverageAffineTransform()
         at.inputs.dimension = dimension
@@ -264,7 +264,7 @@ class ants_AverageImages:
                  normalize=True,
                  images=["path"],
                  **options):
-                 
+
         from nipype.interfaces.ants.utils import AverageImages
         at = AverageImages()
         at.inputs.dimension = dimension
@@ -292,7 +292,7 @@ class ants_BrainExtraction:
                  brain_template="path",
                  brain_probability_mask="path",
                  **options):
-                 
+
         from nipype.interfaces.ants.segmentation import BrainExtraction
         at = BrainExtraction()
         at.inputs.anatomical_image = anatomical_image
@@ -369,7 +369,7 @@ class ants_ComposeMultiTransform:
     def __init__(self,
                  transforms=["path"],
                  **options):
-                 
+
         from nipype.interfaces.ants.utils import ComposeMultiTransform
         at = ComposeMultiTransform()
         at.inputs.transforms = transforms
@@ -393,7 +393,7 @@ class ants_CompositeTransformUtil:
     def __init__(self,
                  in_file=["path"],
                  **options):
-                 
+
         from nipype.interfaces.ants.registration import CompositeTransformUtil
         at = CompositeTransformUtil()
         at.inputs.in_file = in_file
@@ -427,7 +427,7 @@ class ants_ConvertScalarImageToRGB:
                  minimum_input=0,
                  maximum_input=0,
                  **options):
-                 
+
         from nipype.interfaces.ants.visualization import ConvertScalarImageToRGB
         at = ConvertScalarImageToRGB()
         at.inputs.dimension = dimension
@@ -459,7 +459,7 @@ class ants_CorticalThickness:
                  segmentation_priors=["path"],
                  t1_registration_template="path",
                  **options):
-                 
+
         from nipype.interfaces.ants.segmentation import CorticalThickness
         at = CorticalThickness()
         at.inputs.anatomical_image = anatomical_image
@@ -525,7 +525,7 @@ class ants_CreateJacobianDeterminantImage:
                  deformationField="path",
                  outputImage="path",
                  **options):
-                 
+
         from nipype.interfaces.ants.utils import CreateJacobianDeterminantImage
         at = CreateJacobianDeterminantImage()
         at.inputs.imageDimension = imageDimension
@@ -552,7 +552,7 @@ class ants_CreateTiledMosaic:
                  input_image="path",
                  rgb_image="path",
                  **options):
-                 
+
         from nipype.interfaces.ants.visualization import CreateTiledMosaic
         at = CreateTiledMosaic()
         at.inputs.input_image = input_image
@@ -577,7 +577,7 @@ class ants_DenoiseImage:
     def __init__(self,
                  input_image="path",
                  **options):
-                 
+
         from nipype.interfaces.ants.segmentation import DenoiseImage
         at = DenoiseImage()
         at.inputs.input_image = input_image
@@ -605,7 +605,7 @@ class ants_ImageMath:
                  operation="enumerate(('m','vm','+','v+','-','v-','/','^','max','exp','addtozero','overadd','abs','total','mean','vtotal','Decision','Neg','Project','G','MD','ME','MO','MC','GD','GE','GO','GC','ExtractContours','Translate','4DTensorTo3DTensor','ExtractVectorComponent','TensorColor','TensorFA','TensorFADenominator','TensorFANumerator','TensorMeanDiffusion','TensorRadialDiffusion','TensorAxialDiffusion','TensorEigenvalue','TensorToVector','TensorToVectorComponent','TensorMask','Byte','CorruptImage','D','MaurerDistance','ExtractSlice','FillHoles','Convolve','Finite','FlattenImage','GetLargestComponent','Grad','RescaleImage','WindowImage','NeighborhoodStats','ReplicateDisplacement','ReplicateImage','LabelStats','Laplacian','Canny','Lipschitz','MTR','Normalize','PadImage','SigmoidImage','Sharpen','UnsharpMask','PValueImage','ReplaceVoxelValue','SetTimeSpacing','SetTimeSpacingWarp','stack','ThresholdAtMean','TriPlanarView','TruncateImageIntensity'))",
                  op1="path",
                  **options):
-                 
+
         from nipype.interfaces.ants.utils import ImageMath
         at = ImageMath()
         at.inputs.operation = operation
@@ -632,7 +632,7 @@ class ants_JointFusion:
                  atlas_image=[["path"]],
                  atlas_segmentation_image=["path"],
                  **options):
-                 
+
         from nipype.interfaces.ants.segmentation import JointFusion
         at = JointFusion()
         at.inputs.target_image = target_image
@@ -667,7 +667,7 @@ class ants_KellyKapowski:
     def __init__(self,
                  segmentation_image="path",
                  **options):
-                 
+
         from nipype.interfaces.ants.segmentation import KellyKapowski
         at = KellyKapowski()
         at.inputs.segmentation_image = segmentation_image
@@ -677,7 +677,7 @@ class ants_KellyKapowski:
 
     def cortical_thickness(self) -> None:
         return self.res.outputs.cortical_thickness
-    
+
     def warped_white_matter(self) -> None:
         return self.res.outputs.warped_white_matter
 
@@ -695,7 +695,7 @@ class ants_LabelGeometry:
                  label_image="path",
                  intensity_image="path",
                  **options):
-                 
+
         from nipype.interfaces.ants.utils import LabelGeometry
         at = LabelGeometry()
         at.inputs.label_image = label_image
@@ -721,7 +721,7 @@ class ants_LaplacianThickness:
                  input_wm="path",
                  input_gm="path",
                  **options):
-                 
+
         from nipype.interfaces.ants.segmentation import LaplacianThickness
         at = LaplacianThickness()
         at.inputs.input_wm = input_wm
@@ -750,7 +750,7 @@ class ants_MeasureImageSimilarity:
                  radius_or_number_of_bins=0,
                  sampling_percentage=0.0,
                  **options):
-                 
+
         from nipype.interfaces.ants.registration import MeasureImageSimilarity
         at = MeasureImageSimilarity()
         at.inputs.fixed_image = fixed_image
@@ -781,7 +781,7 @@ class ants_MultiplyImages:
                  second_input="path",
                  output_product_image="path",
                  **options):
-                 
+
         from nipype.interfaces.ants.utils import MultiplyImages
         at = MultiplyImages()
         at.inputs.dimension = dimension
@@ -809,7 +809,7 @@ class ants_N4BiasFieldCorrection:
                  input_image="path",
                  copy_header=True,
                  **options):
-                 
+
         from nipype.interfaces.ants.segmentation import N4BiasFieldCorrection
         at = N4BiasFieldCorrection()
         at.inputs.input_image = input_image
@@ -841,7 +841,7 @@ class ants_Registration:
                  metric_weight=[0.0],
                  transforms="enumerate(('Rigid','Affine','CompositeAffine','Similarity','Translation','BSpline','GaussianDisplacementField','TimeVaryingVelocityField','TimeVaryingBSplineVelocityField','SyN','BSplineSyN','Exponential','BSplineExponential'))",
                  smoothing_sigmas=[[0.0]],
-                 shrink_factors=[[2,1], [3,2,1]],
+                 shrink_factors=[[2, 1], [3, 2, 1]],
                  **options):
 
         from nipype.interfaces.ants.registration import Registration
@@ -910,7 +910,7 @@ class ants_RegistrationSynQuick:
                  fixed_image=["path"],
                  moving_image=["path"],
                  **options):
-                 
+
         from nipype.interfaces.ants.registration import RegistrationSynQuick
         at = RegistrationSynQuick()
         at.inputs.fixed_image = fixed_image
@@ -948,7 +948,7 @@ class ants_ResampleImageBySpacing:
                  input_image="path",
                  out_spacing=(0,),
                  **options):
-                 
+
         from nipype.interfaces.ants.utils import ResampleImageBySpacing
         at = ResampleImageBySpacing()
         at.inputs.input_image = input_image
@@ -974,7 +974,7 @@ class ants_ThresholdImage:
                  input_image="path",
                  copy_header=True,
                  **options):
-                 
+
         from nipype.interfaces.ants.utils import ThresholdImage
         at = ThresholdImage()
         at.inputs.input_image = input_image
@@ -1000,7 +1000,7 @@ class ants_WarpImageMultiTransform:
                  input_image="path",
                  transformation_series=["path"],
                  **options):
-                 
+
         from nipype.interfaces.ants.resampling import WarpImageMultiTransform
         at = WarpImageMultiTransform()
         at.inputs.input_image = input_image
@@ -1026,7 +1026,7 @@ class ants_WarpTimeSeriesImageMultiTransform:
                  input_image="path",
                  transformation_series=["path"],
                  **options):
-                 
+
         from nipype.interfaces.ants.resampling import WarpTimeSeriesImageMultiTransform
         at = WarpTimeSeriesImageMultiTransform()
         at.inputs.input_image = input_image
@@ -1039,5 +1039,3 @@ class ants_WarpTimeSeriesImageMultiTransform:
         return self.res.outputs.output_image
 
 ###############################################################################
-
-

@@ -9,7 +9,7 @@ class elastix_AnalyzeWarp:
                  transform_file="path",
                  output_path="path",
                  **options):
-                 
+
         from nipype.interfaces.elastix.registration import AnalyzeWarp
         at = AnalyzeWarp()
         at.inputs.transform_file = transform_file
@@ -42,7 +42,7 @@ class elastix_ApplyWarp:
                  moving_image="path",
                  output_path="path",
                  **options):
-                 
+
         from nipype.interfaces.elastix.registration import ApplyWarp
         at = ApplyWarp()
         at.inputs.transform_file = transform_file
@@ -68,7 +68,7 @@ class elastix_EditTransform:
     def __init__(self,
                  transform_file="path",
                  **options):
-                 
+
         from nipype.interfaces.elastix.utils import EditTransform
         at = EditTransform()
         at.inputs.transform_file = transform_file
@@ -94,7 +94,7 @@ class elastix_PointsWarp:
                  transform_file="path",
                  output_path="path",
                  **options):
-                 
+
         from nipype.interfaces.elastix.registration import PointsWarp
         at = PointsWarp()
         at.inputs.points_file = points_file
@@ -123,7 +123,7 @@ class elastix_Registration:
                  parameters=["path"],
                  output_path="path",
                  **options):
-                 
+
         from nipype.interfaces.elastix.registration import Registration
         at = Registration()
         at.inputs.fixed_image = fixed_image
@@ -147,5 +147,3 @@ class elastix_Registration:
         return self.res.outputs.warped_files_flags
 
 ###############################################################################
-
-

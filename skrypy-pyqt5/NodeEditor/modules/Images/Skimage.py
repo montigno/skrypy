@@ -341,15 +341,3 @@ class skimage_resize():
         return self.a
 
 ##############################################################################
-
-
-# class skimage_Canny_Edge():
-#     def __init__(self,
-                 image=[[0.0]],
-                 **options):
-
-#         from skimage import feature
-#         self.a = feature.canny(image, **options)
-#
-#     def canny_edge(self) -> list[list[float]]:
-#         return self.a

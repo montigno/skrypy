@@ -8,7 +8,7 @@ class cmtk_AverageNetworks:
     def __init__(self,
                  in_files=["path"],
                  **options):
-                 
+
         from nipype.interfaces.cmtk.nx import AverageNetworks
         at = AverageNetworks()
         at.inputs.in_files = in_files
@@ -37,7 +37,7 @@ class cmtk_CFFConverter:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.cmtk.convert import CFFConverter
         at = CFFConverter()
         for ef in options:
@@ -62,7 +62,7 @@ class cmtk_CreateMatrix:
                  tract_file="path",
                  resolution_network_file="path",
                  **options):
-                 
+
         from nipype.interfaces.cmtk.cmtk import CreateMatrix
         at = CreateMatrix()
         at.inputs.roi_file = roi_file
@@ -140,7 +140,7 @@ class cmtk_CreateNodes:
                  roi_file="path",
                  resolution_network_file="path",
                  **options):
-                 
+
         from nipype.interfaces.cmtk.cmtk import CreateNodes
         at = CreateNodes()
         at.inputs.roi_file = roi_file
@@ -165,7 +165,7 @@ class cmtk_MergeCNetworks:
     def __init__(self,
                  in_files=["path"],
                  **options):
-                 
+
         from nipype.interfaces.cmtk.convert import MergeCNetworks
         at = MergeCNetworks()
         at.inputs.in_files = in_files
@@ -190,7 +190,7 @@ class cmtk_NetworkBasedStatistic:
                  in_group1=["path"],
                  in_group2=["path"],
                  **options):
-                 
+
         from nipype.interfaces.cmtk.nbs import NetworkBasedStatistic
         at = NetworkBasedStatistic()
         at.inputs.in_group1 = in_group1
@@ -221,7 +221,7 @@ class cmtk_NetworkXMetrics:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.cmtk.nx import NetworkXMetrics
         at = NetworkXMetrics()
         at.inputs.in_file = in_file
@@ -281,7 +281,7 @@ class cmtk_Parcellate:
     def __init__(self,
                  subject_id='',
                  **options):
-                 
+
         from nipype.interfaces.cmtk.parcellation import Parcellate
         at = Parcellate()
         at.inputs.subject_id = subject_id
@@ -326,7 +326,7 @@ class cmtk_ROIGen:
     def __init__(self,
                  aparc_aseg_file="path",
                  **options):
-                 
+
         from nipype.interfaces.cmtk.cmtk import ROIGen
         at = ROIGen()
         at.inputs.aparc_aseg_file = aparc_aseg_file
@@ -341,5 +341,3 @@ class cmtk_ROIGen:
         return self.res.outputs.dict_file
 
 ###############################################################################
-
-

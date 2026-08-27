@@ -42,5 +42,3 @@ class c3_C3dAffineTool:
         return self.res.outputs.itk_transform
 
 ###############################################################################
-
-

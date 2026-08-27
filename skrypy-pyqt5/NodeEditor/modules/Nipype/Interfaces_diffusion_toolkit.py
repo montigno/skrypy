@@ -10,7 +10,7 @@ class diffusion_toolkit_DTIRecon:
                  bvecs="path",
                  bvals="path",
                  **options):
-                 
+
         from nipype.interfaces.diffusion_toolkit.dti import DTIRecon
         at = DTIRecon()
         at.inputs.DWI = DWI
@@ -69,7 +69,7 @@ class diffusion_toolkit_DTITracker:
     def __init__(self,
                  mask1_file="path",
                  **options):
-                 
+
         from nipype.interfaces.diffusion_toolkit.dti import DTITracker
         at = DTITracker()
         at.inputs.mask1_file = mask1_file
@@ -97,7 +97,7 @@ class diffusion_toolkit_HARDIMat:
                  bvecs="path",
                  bvals="path",
                  **options):
-                 
+
         from nipype.interfaces.diffusion_toolkit.odf import HARDIMat
         at = HARDIMat()
         at.inputs.bvecs = bvecs
@@ -126,7 +126,7 @@ class diffusion_toolkit_ODFRecon:
                  matrix="path",
                  n_b0=0,
                  **options):
-                 
+
         from nipype.interfaces.diffusion_toolkit.odf import ODFRecon
         at = ODFRecon()
         at.inputs.DWI = DWI
@@ -168,7 +168,7 @@ class diffusion_toolkit_ODFTracker:
                  ODF="path",
                  mask1_file="path",
                  **options):
-                 
+
         from nipype.interfaces.diffusion_toolkit.odf import ODFTracker
         at = ODFTracker()
         at.inputs.max = max
@@ -195,7 +195,7 @@ class diffusion_toolkit_SplineFilter:
                  track_file="path",
                  step_length=0.0,
                  **options):
-                 
+
         from nipype.interfaces.diffusion_toolkit.postproc import SplineFilter
         at = SplineFilter()
         at.inputs.track_file = track_file
@@ -220,7 +220,7 @@ class diffusion_toolkit_TrackMerge:
     def __init__(self,
                  track_files=["path"],
                  **options):
-                 
+
         from nipype.interfaces.diffusion_toolkit.postproc import TrackMerge
         at = TrackMerge()
         at.inputs.track_files = track_files
@@ -232,5 +232,3 @@ class diffusion_toolkit_TrackMerge:
         return self.res.outputs.track_file
 
 ###############################################################################
-
-

@@ -8,7 +8,7 @@ class dtitk_AffScalarVol:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.dtitk.registration import AffScalarVol
         at = AffScalarVol()
         at.inputs.in_file = in_file
@@ -32,7 +32,7 @@ class dtitk_AffSymTensor3DVol:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.dtitk.registration import AffSymTensor3DVol
         at = AffSymTensor3DVol()
         at.inputs.in_file = in_file
@@ -60,7 +60,7 @@ class dtitk_Affine:
                  sampling_xyz=(0,),
                  ftol=0.0,
                  **options):
-                 
+
         from nipype.interfaces.dtitk.registration import Affine
         at = Affine()
         at.inputs.fixed_file = fixed_file
@@ -95,7 +95,7 @@ class dtitk_BinThresh:
                  inside_value=0.0,
                  outside_value=0.0,
                  **options):
-                 
+
         from nipype.interfaces.dtitk.utils import BinThresh
         at = BinThresh()
         at.inputs.in_file = in_file
@@ -124,7 +124,7 @@ class dtitk_ComposeXfm:
                  in_df="path",
                  in_aff="path",
                  **options):
-                 
+
         from nipype.interfaces.dtitk.registration import ComposeXfm
         at = ComposeXfm()
         at.inputs.in_df = in_df
@@ -151,7 +151,7 @@ class dtitk_Diffeo:
                  n_iters=0,
                  ftol=0.0,
                  **options):
-                 
+
         from nipype.interfaces.dtitk.registration import Diffeo
         at = Diffeo()
         at.inputs.legacy = legacy
@@ -181,7 +181,7 @@ class dtitk_DiffeoScalarVol:
                  in_file="path",
                  transform="path",
                  **options):
-                 
+
         from nipype.interfaces.dtitk.registration import DiffeoScalarVol
         at = DiffeoScalarVol()
         at.inputs.in_file = in_file
@@ -207,7 +207,7 @@ class dtitk_DiffeoSymTensor3DVol:
                  in_file="path",
                  transform="path",
                  **options):
-                 
+
         from nipype.interfaces.dtitk.registration import DiffeoSymTensor3DVol
         at = DiffeoSymTensor3DVol()
         at.inputs.in_file = in_file
@@ -236,7 +236,7 @@ class dtitk_Rigid:
                  sampling_xyz=(0,),
                  ftol=0.0,
                  **options):
-                 
+
         from nipype.interfaces.dtitk.registration import Rigid
         at = Rigid()
         at.inputs.fixed_file = fixed_file
@@ -267,7 +267,7 @@ class dtitk_SVAdjustVoxSp:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.dtitk.utils import SVAdjustVoxSp
         at = SVAdjustVoxSp()
         at.inputs.in_file = in_file
@@ -291,7 +291,7 @@ class dtitk_SVResample:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.dtitk.utils import SVResample
         at = SVResample()
         at.inputs.in_file = in_file
@@ -315,7 +315,7 @@ class dtitk_TVAdjustVoxSp:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.dtitk.utils import TVAdjustVoxSp
         at = TVAdjustVoxSp()
         at.inputs.in_file = in_file
@@ -339,7 +339,7 @@ class dtitk_TVResample:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.dtitk.utils import TVResample
         at = TVResample()
         at.inputs.in_file = in_file
@@ -363,7 +363,7 @@ class dtitk_TVtool:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.dtitk.utils import TVtool
         at = TVtool()
         at.inputs.in_file = in_file
@@ -375,5 +375,3 @@ class dtitk_TVtool:
         return self.res.outputs.out_file
 
 ###############################################################################
-
-

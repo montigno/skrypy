@@ -8,7 +8,7 @@ class vista_Vnifti2Image:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.vista.vista import Vnifti2Image
         at = Vnifti2Image()
         at.inputs.in_file = in_file
@@ -32,7 +32,7 @@ class vista_VtoMat:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.vista.vista import VtoMat
         at = VtoMat()
         at.inputs.in_file = in_file
@@ -44,5 +44,3 @@ class vista_VtoMat:
         return self.res.outputs.out_file
 
 ###############################################################################
-
-

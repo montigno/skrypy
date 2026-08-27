@@ -153,5 +153,3 @@ class dcmstack_SplitNifti:
         return self.res.outputs.out_list
 
 ###############################################################################
-
-

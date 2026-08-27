@@ -645,7 +645,6 @@ class search_files_pattern:
                  list_files=['path'],
                  pattern=''):
 
-
         self.list_f = []
 
         for file in list_files:

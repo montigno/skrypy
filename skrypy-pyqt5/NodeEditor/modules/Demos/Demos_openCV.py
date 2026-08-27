@@ -27,8 +27,8 @@ class openCV_camera():
         def __moveWindow(event, x, y, flags, param):
             if event == cv2.EVENT_LBUTTONDOWN:
                 if (
-                    x >= self.upper_left[0] and x <= self.bottom_right[0]
-                    and y >= self.upper_left[1] and y <= self.bottom_right[1]
+                    x >= self.upper_left[0] and x <= self.bottom_right[0] and
+                    y >= self.upper_left[1] and y <= self.bottom_right[1]
                 ):
                     self.click_hold = True
             elif event == cv2.EVENT_MOUSEMOVE:

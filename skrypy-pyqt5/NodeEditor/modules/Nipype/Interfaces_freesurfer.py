@@ -9,7 +9,7 @@ class freesurfer_AddXFormToHeader:
                  in_file="path",
                  transform="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.utils import AddXFormToHeader
         at = AddXFormToHeader()
         at.inputs.in_file = in_file
@@ -44,7 +44,7 @@ class freesurfer_Aparc2Aseg:
                  lh_annotation="path",
                  rh_annotation="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.utils import Aparc2Aseg
         at = Aparc2Aseg()
         at.inputs.subject_id = subject_id
@@ -79,7 +79,7 @@ class freesurfer_Apas2Aseg:
                  in_file="path",
                  out_file="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.utils import Apas2Aseg
         at = Apas2Aseg()
         at.inputs.in_file = in_file
@@ -105,7 +105,7 @@ class freesurfer_ApplyMask:
                  in_file="path",
                  mask_file="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.utils import ApplyMask
         at = ApplyMask()
         at.inputs.in_file = in_file
@@ -130,7 +130,7 @@ class freesurfer_ApplyVolTransform:
     def __init__(self,
                  source_file="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.preprocess import ApplyVolTransform
         at = ApplyVolTransform()
         at.inputs.source_file = source_file
@@ -156,7 +156,7 @@ class freesurfer_BBRegister:
                  source_file="path",
                  contrast_type="enumerate(('t1','t2','bold','dti'))",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.preprocess import BBRegister
         at = BBRegister()
         at.inputs.subject_id = subject_id
@@ -197,7 +197,7 @@ class freesurfer_Binarize:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.model import Binarize
         at = Binarize()
         at.inputs.in_file = in_file
@@ -227,7 +227,7 @@ class freesurfer_CALabel:
                  transform="path",
                  template="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.preprocess import CALabel
         at = CALabel()
         at.inputs.in_file = in_file
@@ -256,7 +256,7 @@ class freesurfer_CANormalize:
                  atlas="path",
                  transform="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.preprocess import CANormalize
         at = CANormalize()
         at.inputs.in_file = in_file
@@ -285,7 +285,7 @@ class freesurfer_CARegister:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.preprocess import CARegister
         at = CARegister()
         at.inputs.in_file = in_file
@@ -308,7 +308,7 @@ class freesurfer_CheckTalairachAlignment:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.utils import CheckTalairachAlignment
         at = CheckTalairachAlignment()
         for ef in options:
@@ -331,7 +331,7 @@ class freesurfer_Concatenate:
     def __init__(self,
                  in_files=["path"],
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.model import Concatenate
         at = Concatenate()
         at.inputs.in_files = in_files
@@ -356,7 +356,7 @@ class freesurfer_ConcatenateLTA:
                  in_lta1="path",
                  in_lta2="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.preprocess import ConcatenateLTA
         at = ConcatenateLTA()
         at.inputs.in_lta1 = in_lta1
@@ -388,7 +388,7 @@ class freesurfer_Contrast:
                  orig="path",
                  rawavg="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.utils import Contrast
         at = Contrast()
         at.inputs.subject_id = subject_id
@@ -425,7 +425,7 @@ class freesurfer_Curvature:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.utils import Curvature
         at = Curvature()
         at.inputs.in_file = in_file
@@ -455,7 +455,7 @@ class freesurfer_CurvatureStats:
                  hemisphere="enumerate(('lh','rh'))",
                  subject_id='',
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.utils import CurvatureStats
         at = CurvatureStats()
         at.inputs.curvfile1 = curvfile1
@@ -483,7 +483,7 @@ class freesurfer_DICOMConvert:
                  dicom_dir="path",
                  base_output_dir="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.preprocess import DICOMConvert
         at = DICOMConvert()
         at.inputs.dicom_dir = dicom_dir
@@ -506,7 +506,7 @@ class freesurfer_EMRegister:
                  in_file="path",
                  template="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.registration import EMRegister
         at = EMRegister()
         at.inputs.in_file = in_file
@@ -534,7 +534,7 @@ class freesurfer_EditWMwithAseg:
                  seg_file="path",
                  out_file="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.preprocess import EditWMwithAseg
         at = EditWMwithAseg()
         at.inputs.in_file = in_file
@@ -561,7 +561,7 @@ class freesurfer_EulerNumber:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.utils import EulerNumber
         at = EulerNumber()
         at.inputs.in_file = in_file
@@ -588,7 +588,7 @@ class freesurfer_ExtractMainComponent:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.utils import ExtractMainComponent
         at = ExtractMainComponent()
         at.inputs.in_file = in_file
@@ -612,7 +612,7 @@ class freesurfer_FitMSParams:
     def __init__(self,
                  in_files=["path"],
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.preprocess import FitMSParams
         at = FitMSParams()
         at.inputs.in_files = in_files
@@ -648,7 +648,7 @@ class freesurfer_FixTopology:
                  subject_id='',
                  copy_inputs=True,
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.utils import FixTopology
         at = FixTopology()
         at.inputs.in_orig = in_orig
@@ -682,7 +682,7 @@ class freesurfer_FuseSegmentations:
                  in_segmentations_noCC=["path"],
                  in_norms=["path"],
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.longitudinal import FuseSegmentations
         at = FuseSegmentations()
         at.inputs.timepoints = timepoints
@@ -710,7 +710,7 @@ class freesurfer_GLMFit:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.model import GLMFit
         at = GLMFit()
         at.inputs.in_file = in_file
@@ -789,7 +789,7 @@ class freesurfer_GTMPVC:
                  in_file="path",
                  segmentation="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.petsurfer import GTMPVC
         at = GTMPVC()
         at.inputs.in_file = in_file
@@ -889,7 +889,7 @@ class freesurfer_GTMSeg:
     def __init__(self,
                  subject_id='',
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.petsurfer import GTMSeg
         at = GTMSeg()
         at.inputs.subject_id = subject_id
@@ -914,7 +914,7 @@ class freesurfer_Jacobian:
                  in_origsurf="path",
                  in_mappedsurf="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.utils import Jacobian
         at = Jacobian()
         at.inputs.in_origsurf = in_origsurf
@@ -943,7 +943,7 @@ class freesurfer_Label2Annot:
                  out_annot='',
                  orig="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.model import Label2Annot
         at = Label2Annot()
         at.inputs.hemisphere = hemisphere
@@ -978,7 +978,7 @@ class freesurfer_Label2Label:
                  source_label="path",
                  source_subject='',
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.model import Label2Label
         at = Label2Label()
         at.inputs.hemisphere = hemisphere
@@ -1009,7 +1009,7 @@ class freesurfer_Label2Vol:
     def __init__(self,
                  template_file="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.model import Label2Vol
         at = Label2Vol()
         at.inputs.template_file = template_file
@@ -1033,7 +1033,7 @@ class freesurfer_MNIBiasCorrection:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.preprocess import MNIBiasCorrection
         at = MNIBiasCorrection()
         at.inputs.in_file = in_file
@@ -1058,7 +1058,7 @@ class freesurfer_MPRtoMNI305:
                  reference_dir="path",
                  target='',
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.registration import MPRtoMNI305
         at = MPRtoMNI305()
         at.inputs.reference_dir = reference_dir
@@ -1086,7 +1086,7 @@ class freesurfer_MRIConvert:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.preprocess import MRIConvert
         at = MRIConvert()
         at.inputs.in_file = in_file
@@ -1110,7 +1110,7 @@ class freesurfer_MRICoreg:
     def __init__(self,
                  source_file="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.registration import MRICoreg
         at = MRICoreg()
         at.inputs.source_file = source_file
@@ -1141,7 +1141,7 @@ class freesurfer_MRIFill:
                  in_file="path",
                  out_file="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.utils import MRIFill
         at = MRIFill()
         at.inputs.in_file = in_file
@@ -1170,7 +1170,7 @@ class freesurfer_MRIMarchingCubes:
                  in_file="path",
                  label_value=0,
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.utils import MRIMarchingCubes
         at = MRIMarchingCubes()
         at.inputs.in_file = in_file
@@ -1197,7 +1197,7 @@ class freesurfer_MRIPretess:
                  label=0,
                  in_norm="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.utils import MRIPretess
         at = MRIPretess()
         at.inputs.in_filled = in_filled
@@ -1224,7 +1224,7 @@ class freesurfer_MRISPreproc:
                  target='',
                  hemi="enumerate(('lh','rh'))",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.model import MRISPreproc
         at = MRISPreproc()
         at.inputs.target = target
@@ -1250,7 +1250,7 @@ class freesurfer_MRISPreprocReconAll:
                  target='',
                  hemi="enumerate(('lh','rh'))",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.model import MRISPreprocReconAll
         at = MRISPreprocReconAll()
         at.inputs.target = target
@@ -1276,7 +1276,7 @@ class freesurfer_MRITessellate:
                  in_file="path",
                  label_value=0,
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.utils import MRITessellate
         at = MRITessellate()
         at.inputs.in_file = in_file
@@ -1307,7 +1307,7 @@ class freesurfer_MRIsCALabel:
                  curv="path",
                  sulc="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.preprocess import MRIsCALabel
         at = MRIsCALabel()
         at.inputs.subject_id = subject_id
@@ -1339,7 +1339,7 @@ class freesurfer_MRIsCalc:
                  action='',
                  out_file="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.utils import MRIsCalc
         at = MRIsCalc()
         at.inputs.in_file1 = in_file1
@@ -1366,7 +1366,7 @@ class freesurfer_MRIsCombine:
                  in_files="path",
                  out_file="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.utils import MRIsCombine
         at = MRIsCombine()
         at.inputs.in_files = in_files
@@ -1391,7 +1391,7 @@ class freesurfer_MRIsConvert:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.utils import MRIsConvert
         at = MRIsConvert()
         at.inputs.in_file = in_file
@@ -1416,7 +1416,7 @@ class freesurfer_MRIsExpand:
                  in_file="path",
                  distance=0.0,
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.utils import MRIsExpand
         at = MRIsExpand()
         at.inputs.in_file = in_file
@@ -1441,7 +1441,7 @@ class freesurfer_MRIsInflate:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.utils import MRIsInflate
         at = MRIsInflate()
         at.inputs.in_file = in_file
@@ -1471,7 +1471,7 @@ class freesurfer_MS_LDA:
                  vol_synth_file="path",
                  images=["path"],
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.model import MS_LDA
         at = MS_LDA()
         at.inputs.lda_labels = lda_labels
@@ -1501,7 +1501,7 @@ class freesurfer_MakeAverageSubject:
     def __init__(self,
                  subjects_ids=[''],
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.utils import MakeAverageSubject
         at = MakeAverageSubject()
         at.inputs.subjects_ids = subjects_ids
@@ -1529,7 +1529,7 @@ class freesurfer_MakeSurfaces:
                  in_wm="path",
                  in_filled="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.utils import MakeSurfaces
         at = MakeSurfaces()
         at.inputs.hemisphere = hemisphere
@@ -1572,7 +1572,7 @@ class freesurfer_Normalize:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.preprocess import Normalize
         at = Normalize()
         at.inputs.in_file = in_file
@@ -1596,7 +1596,7 @@ class freesurfer_OneSampleTTest:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.model import OneSampleTTest
         at = OneSampleTTest()
         at.inputs.in_file = in_file
@@ -1675,7 +1675,7 @@ class freesurfer_Paint:
                  in_surf="path",
                  template="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.registration import Paint
         at = Paint()
         at.inputs.in_surf = in_surf
@@ -1711,7 +1711,7 @@ class freesurfer_ParcellationStats:
                  aseg="path",
                  ribbon="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.utils import ParcellationStats
         at = ParcellationStats()
         at.inputs.subject_id = subject_id
@@ -1749,7 +1749,7 @@ class freesurfer_ParseDICOMDir:
     def __init__(self,
                  dicom_dir="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.preprocess import ParseDICOMDir
         at = ParseDICOMDir()
         at.inputs.dicom_dir = dicom_dir
@@ -1772,7 +1772,7 @@ class freesurfer_ReconAll:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.preprocess import ReconAll
         at = ReconAll()
         for ef in options:
@@ -1911,7 +1911,7 @@ class freesurfer_Register:
                  target="path",
                  in_sulc="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.registration import Register
         at = Register()
         at.inputs.in_surf = in_surf
@@ -1939,7 +1939,7 @@ class freesurfer_RegisterAVItoTalairach:
                  target="path",
                  vox2vox="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.registration import RegisterAVItoTalairach
         at = RegisterAVItoTalairach()
         at.inputs.in_file = in_file
@@ -1970,7 +1970,7 @@ class freesurfer_RelabelHypointensities:
                  rh_white="path",
                  aseg="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.utils import RelabelHypointensities
         at = RelabelHypointensities()
         at.inputs.lh_white = lh_white
@@ -1996,7 +1996,7 @@ class freesurfer_RemoveIntersection:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.utils import RemoveIntersection
         at = RemoveIntersection()
         at.inputs.in_file = in_file
@@ -2022,7 +2022,7 @@ class freesurfer_RemoveNeck:
                  transform="path",
                  template="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.utils import RemoveNeck
         at = RemoveNeck()
         at.inputs.in_file = in_file
@@ -2049,7 +2049,7 @@ class freesurfer_Resample:
                  in_file="path",
                  voxel_size=(0,),
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.preprocess import Resample
         at = Resample()
         at.inputs.in_file = in_file
@@ -2075,7 +2075,7 @@ class freesurfer_RobustRegister:
                  source_file="path",
                  target_file="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.preprocess import RobustRegister
         at = RobustRegister()
         at.inputs.source_file = source_file
@@ -2122,7 +2122,7 @@ class freesurfer_RobustTemplate:
                  in_files=["path"],
                  out_file="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.longitudinal import RobustTemplate
         at = RobustTemplate()
         at.inputs.in_files = in_files
@@ -2154,7 +2154,7 @@ class freesurfer_SampleToSurface:
                  source_file="path",
                  hemi="enumerate(('lh','rh'))",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.utils import SampleToSurface
         at = SampleToSurface()
         at.inputs.source_file = source_file
@@ -2184,7 +2184,7 @@ class freesurfer_SegStats:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.model import SegStats
         at = SegStats()
         for ef in options:
@@ -2224,7 +2224,7 @@ class freesurfer_SegStatsReconAll:
                  lh_pial="path",
                  rh_pial="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.model import SegStatsReconAll
         at = SegStatsReconAll()
         at.inputs.subject_id = subject_id
@@ -2268,7 +2268,7 @@ class freesurfer_SegmentCC:
                  out_rotation="path",
                  subject_id='',
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.preprocess import SegmentCC
         at = SegmentCC()
         at.inputs.in_file = in_file
@@ -2299,7 +2299,7 @@ class freesurfer_SegmentWM:
                  in_file="path",
                  out_file="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.preprocess import SegmentWM
         at = SegmentWM()
         at.inputs.in_file = in_file
@@ -2325,7 +2325,7 @@ class freesurfer_Smooth:
                  in_file="path",
                  reg_file="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.preprocess import Smooth
         at = Smooth()
         at.inputs.in_file = in_file
@@ -2350,7 +2350,7 @@ class freesurfer_SmoothTessellation:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.utils import SmoothTessellation
         at = SmoothTessellation()
         at.inputs.in_file = in_file
@@ -2374,7 +2374,7 @@ class freesurfer_Sphere:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.utils import Sphere
         at = Sphere()
         at.inputs.in_file = in_file
@@ -2402,7 +2402,7 @@ class freesurfer_SphericalAverage:
                  which="enumerate(('coords','label','vals','curv','area'))",
                  subject_id='',
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.model import SphericalAverage
         at = SphericalAverage()
         at.inputs.in_surf = in_surf
@@ -2430,7 +2430,7 @@ class freesurfer_Surface2VolTransform:
     def __init__(self,
                  hemi='',
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.utils import Surface2VolTransform
         at = Surface2VolTransform()
         at.inputs.hemi = hemi
@@ -2459,7 +2459,7 @@ class freesurfer_SurfaceSmooth:
                  subject_id='',
                  hemi="enumerate(('lh','rh'))",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.utils import SurfaceSmooth
         at = SurfaceSmooth()
         at.inputs.in_file = in_file
@@ -2487,7 +2487,7 @@ class freesurfer_SurfaceSnapshots:
                  hemi="enumerate(('lh','rh'))",
                  surface='',
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.utils import SurfaceSnapshots
         at = SurfaceSnapshots()
         at.inputs.subject_id = subject_id
@@ -2515,7 +2515,7 @@ class freesurfer_SurfaceTransform:
                  hemi="enumerate(('lh','rh'))",
                  target_subject='',
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.utils import SurfaceTransform
         at = SurfaceTransform()
         at.inputs.source_subject = source_subject
@@ -2545,7 +2545,7 @@ class freesurfer_SynthesizeFLASH:
                  t1_image="path",
                  pd_image="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.preprocess import SynthesizeFLASH
         at = SynthesizeFLASH()
         at.inputs.tr = tr
@@ -2574,7 +2574,7 @@ class freesurfer_TalairachAVI:
                  in_file="path",
                  out_file="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.utils import TalairachAVI
         at = TalairachAVI()
         at.inputs.in_file = in_file
@@ -2605,7 +2605,7 @@ class freesurfer_TalairachQC:
     def __init__(self,
                  log_file="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.utils import TalairachQC
         at = TalairachQC()
         at.inputs.log_file = log_file
@@ -2630,7 +2630,7 @@ class freesurfer_Tkregister2:
                  moving_image="path",
                  reg_file="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.utils import Tkregister2
         at = Tkregister2()
         at.inputs.moving_image = moving_image
@@ -2661,7 +2661,7 @@ class freesurfer_UnpackSDICOMDir:
     def __init__(self,
                  source_dir="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.preprocess import UnpackSDICOMDir
         at = UnpackSDICOMDir()
         at.inputs.source_dir = source_dir
@@ -2690,7 +2690,7 @@ class freesurfer_VolumeMask:
                  rh_white="path",
                  subject_id='',
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.utils import VolumeMask
         at = VolumeMask()
         at.inputs.left_whitelabel = left_whitelabel
@@ -2729,7 +2729,7 @@ class freesurfer_WatershedSkullStrip:
                  in_file="path",
                  out_file="path",
                  **options):
-                 
+
         from nipype.interfaces.freesurfer.preprocess import WatershedSkullStrip
         at = WatershedSkullStrip()
         at.inputs.in_file = in_file
@@ -2742,5 +2742,3 @@ class freesurfer_WatershedSkullStrip:
         return self.res.outputs.out_file
 
 ###############################################################################
-
-

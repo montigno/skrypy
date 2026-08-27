@@ -7,7 +7,7 @@ class utility_AssertEqual:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.utility.base import AssertEqual
         at = AssertEqual()
         for ef in options:
@@ -27,7 +27,7 @@ class utility_CSVReader:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.utility.csv import CSVReader
         at = CSVReader()
         at.inputs.in_file = in_file
@@ -47,7 +47,7 @@ class utility_Merge:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.utility.base import Merge
         at = Merge()
         for ef in options:
@@ -71,7 +71,7 @@ class utility_Rename:
                  in_file="path",
                  format_string='',
                  **options):
-                 
+
         from nipype.interfaces.utility.base import Rename
         at = Rename()
         at.inputs.in_file = in_file
@@ -95,7 +95,7 @@ class utility_Select:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.utility.base import Select
         at = Select()
         for ef in options:
@@ -119,7 +119,7 @@ class utility_Split:
                  inlist=[''],
                  splits=[0],
                  **options):
-                 
+
         from nipype.interfaces.utility.base import Split
         at = Split()
         at.inputs.inlist = inlist
@@ -129,5 +129,3 @@ class utility_Split:
         self.res = at.run()
 
 ###############################################################################
-
-

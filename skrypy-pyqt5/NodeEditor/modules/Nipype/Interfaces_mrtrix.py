@@ -9,7 +9,7 @@ class mrtrix_ConstrainedSphericalDeconvolution:
                  in_file="path",
                  response_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix.tensors import ConstrainedSphericalDeconvolution
         at = ConstrainedSphericalDeconvolution()
         at.inputs.in_file = in_file
@@ -35,7 +35,7 @@ class mrtrix_DWI2SphericalHarmonicsImage:
                  in_file="path",
                  encoding_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix.tensors import DWI2SphericalHarmonicsImage
         at = DWI2SphericalHarmonicsImage()
         at.inputs.in_file = in_file
@@ -60,7 +60,7 @@ class mrtrix_DWI2Tensor:
     def __init__(self,
                  in_file=["path"],
                  **options):
-                 
+
         from nipype.interfaces.mrtrix.preprocess import DWI2Tensor
         at = DWI2Tensor()
         at.inputs.in_file = in_file
@@ -85,7 +85,7 @@ class mrtrix_DiffusionTensorStreamlineTrack:
                  gradient_encoding_file="path",
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix.tracking import DiffusionTensorStreamlineTrack
         at = DiffusionTensorStreamlineTrack()
         at.inputs.gradient_encoding_file = gradient_encoding_file
@@ -110,7 +110,7 @@ class mrtrix_Directions2Amplitude:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix.tensors import Directions2Amplitude
         at = Directions2Amplitude()
         at.inputs.in_file = in_file
@@ -134,7 +134,7 @@ class mrtrix_Erode:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix.preprocess import Erode
         at = Erode()
         at.inputs.in_file = in_file
@@ -160,7 +160,7 @@ class mrtrix_EstimateResponseForSH:
                  mask_image="path",
                  encoding_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix.tensors import EstimateResponseForSH
         at = EstimateResponseForSH()
         at.inputs.in_file = in_file
@@ -187,7 +187,7 @@ class mrtrix_FSL2MRTrix:
                  bvec_file="path",
                  bval_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix.tensors import FSL2MRTrix
         at = FSL2MRTrix()
         at.inputs.bvec_file = bvec_file
@@ -212,7 +212,7 @@ class mrtrix_FilterTracks:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix.tracking import FilterTracks
         at = FilterTracks()
         at.inputs.in_file = in_file
@@ -237,7 +237,7 @@ class mrtrix_FindShPeaks:
                  in_file="path",
                  directions_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix.tensors import FindShPeaks
         at = FindShPeaks()
         at.inputs.in_file = in_file
@@ -262,7 +262,7 @@ class mrtrix_GenerateDirections:
     def __init__(self,
                  num_dirs=0,
                  **options):
-                 
+
         from nipype.interfaces.mrtrix.tensors import GenerateDirections
         at = GenerateDirections()
         at.inputs.num_dirs = num_dirs
@@ -288,7 +288,7 @@ class mrtrix_GenerateWhiteMatterMask:
                  binary_mask="path",
                  encoding_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix.preprocess import GenerateWhiteMatterMask
         at = GenerateWhiteMatterMask()
         at.inputs.in_file = in_file
@@ -314,7 +314,7 @@ class mrtrix_MRConvert:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix.preprocess import MRConvert
         at = MRConvert()
         at.inputs.in_file = in_file
@@ -338,7 +338,7 @@ class mrtrix_MRMultiply:
     def __init__(self,
                  in_files=["path"],
                  **options):
-                 
+
         from nipype.interfaces.mrtrix.preprocess import MRMultiply
         at = MRMultiply()
         at.inputs.in_files = in_files
@@ -362,7 +362,7 @@ class mrtrix_MRTrix2TrackVis:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix.convert import MRTrix2TrackVis
         at = MRTrix2TrackVis()
         at.inputs.in_file = in_file
@@ -386,7 +386,7 @@ class mrtrix_MRTrixInfo:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix.preprocess import MRTrixInfo
         at = MRTrixInfo()
         at.inputs.in_file = in_file
@@ -407,7 +407,7 @@ class mrtrix_MRTrixViewer:
     def __init__(self,
                  in_files=["path"],
                  **options):
-                 
+
         from nipype.interfaces.mrtrix.preprocess import MRTrixViewer
         at = MRTrixViewer()
         at.inputs.in_files = in_files
@@ -428,7 +428,7 @@ class mrtrix_MedianFilter3D:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix.preprocess import MedianFilter3D
         at = MedianFilter3D()
         at.inputs.in_file = in_file
@@ -452,7 +452,7 @@ class mrtrix_ProbabilisticSphericallyDeconvolutedStreamlineTrack:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix.tracking import ProbabilisticSphericallyDeconvolutedStreamlineTrack
         at = ProbabilisticSphericallyDeconvolutedStreamlineTrack()
         at.inputs.in_file = in_file
@@ -476,7 +476,7 @@ class mrtrix_SphericallyDeconvolutedStreamlineTrack:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix.tracking import SphericallyDeconvolutedStreamlineTrack
         at = SphericallyDeconvolutedStreamlineTrack()
         at.inputs.in_file = in_file
@@ -500,7 +500,7 @@ class mrtrix_StreamlineTrack:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix.tracking import StreamlineTrack
         at = StreamlineTrack()
         at.inputs.in_file = in_file
@@ -524,7 +524,7 @@ class mrtrix_Tensor2ApparentDiffusion:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix.preprocess import Tensor2ApparentDiffusion
         at = Tensor2ApparentDiffusion()
         at.inputs.in_file = in_file
@@ -548,7 +548,7 @@ class mrtrix_Tensor2FractionalAnisotropy:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix.preprocess import Tensor2FractionalAnisotropy
         at = Tensor2FractionalAnisotropy()
         at.inputs.in_file = in_file
@@ -572,7 +572,7 @@ class mrtrix_Tensor2Vector:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix.preprocess import Tensor2Vector
         at = Tensor2Vector()
         at.inputs.in_file = in_file
@@ -596,7 +596,7 @@ class mrtrix_Threshold:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix.preprocess import Threshold
         at = Threshold()
         at.inputs.in_file = in_file
@@ -620,7 +620,7 @@ class mrtrix_Tracks2Prob:
     def __init__(self,
                  in_file="path",
                  **options):
-                 
+
         from nipype.interfaces.mrtrix.tracking import Tracks2Prob
         at = Tracks2Prob()
         at.inputs.in_file = in_file
@@ -632,5 +632,3 @@ class mrtrix_Tracks2Prob:
         return self.res.outputs.tract_image
 
 ###############################################################################
-
-

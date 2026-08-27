@@ -6,7 +6,8 @@ class openCV_fastNlMeansDenoising():
                  src=[[0.0]],
                  dst='path',
                  h=3,
-                 templateWindowSize=7,searchWindowSize=21):
+                 templateWindowSize=7,
+                 searchWindowSize=21):
 
         import cv2 as cv
         import os

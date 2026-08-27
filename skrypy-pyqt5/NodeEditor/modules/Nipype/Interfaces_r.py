@@ -8,7 +8,7 @@ class r_RCommand:
     def __init__(self,
                  script='',
                  **options):
-                 
+
         from nipype.interfaces.r import RCommand
         at = RCommand()
         at.inputs.script = script
@@ -17,5 +17,3 @@ class r_RCommand:
         self.res = at.run()
 
 ###############################################################################
-
-

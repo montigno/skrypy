@@ -7,7 +7,7 @@ class nitime_CoherenceAnalyzer:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.nitime.analysis import CoherenceAnalyzer
         at = CoherenceAnalyzer()
         for ef in options:
@@ -33,5 +33,3 @@ class nitime_CoherenceAnalyzer:
         return self.res.outputs.timedelay_fig
 
 ###############################################################################
-
-

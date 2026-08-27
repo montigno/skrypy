@@ -8,7 +8,7 @@ class spm_Analyze2nii:
     def __init__(self,
                  analyze_file="path",
                  **options):
-                 
+
         from nipype.interfaces.spm.utils import Analyze2nii
         at = Analyze2nii()
         at.inputs.analyze_file = analyze_file
@@ -47,7 +47,7 @@ class spm_ApplyInverseDeformation:
     def __init__(self,
                  in_files=["path"],
                  **options):
-                 
+
         from nipype.interfaces.spm.utils import ApplyInverseDeformation
         at = ApplyInverseDeformation()
         at.inputs.in_files = in_files
@@ -72,7 +72,7 @@ class spm_ApplyTransform:
                  in_file="path",
                  mat="path",
                  **options):
-                 
+
         from nipype.interfaces.spm.utils import ApplyTransform
         at = ApplyTransform()
         at.inputs.in_file = in_file
@@ -98,7 +98,7 @@ class spm_ApplyVDM:
                  in_files=["path"],
                  vdmfile="path",
                  **options):
-                 
+
         from nipype.interfaces.spm.preprocess import ApplyVDM
         at = ApplyVDM()
         at.inputs.in_files = in_files
@@ -127,7 +127,7 @@ class spm_CalcCoregAffine:
                  target="path",
                  moving="path",
                  **options):
-                 
+
         from nipype.interfaces.spm.utils import CalcCoregAffine
         at = CalcCoregAffine()
         at.inputs.target = target
@@ -156,7 +156,7 @@ class spm_Coregister:
                  target="path",
                  source=["path"],
                  **options):
-                 
+
         from nipype.interfaces.spm.preprocess import Coregister
         at = Coregister()
         at.inputs.target = target
@@ -185,7 +185,7 @@ class spm_CreateWarped:
                  image_files=["path"],
                  flowfield_files=["path"],
                  **options):
-                 
+
         from nipype.interfaces.spm.preprocess import CreateWarped
         at = CreateWarped()
         at.inputs.image_files = image_files
@@ -210,7 +210,7 @@ class spm_DARTEL:
     def __init__(self,
                  image_files=[["path"]],
                  **options):
-                 
+
         from nipype.interfaces.spm.preprocess import DARTEL
         at = DARTEL()
         at.inputs.image_files = image_files
@@ -242,7 +242,7 @@ class spm_DARTELNorm2MNI:
                  flowfield_files=["path"],
                  apply_to_files=["path"],
                  **options):
-                 
+
         from nipype.interfaces.spm.preprocess import DARTELNorm2MNI
         at = DARTELNorm2MNI()
         at.inputs.template_file = template_file
@@ -271,7 +271,7 @@ class spm_DicomImport:
     def __init__(self,
                  in_files=["path"],
                  **options):
-                 
+
         from nipype.interfaces.spm.utils import DicomImport
         at = DicomImport()
         at.inputs.in_files = in_files
@@ -298,7 +298,7 @@ class spm_EstimateContrast:
                  beta_images=["path"],
                  residual_image="path",
                  **options):
-                 
+
         from nipype.interfaces.spm.model import EstimateContrast
         at = EstimateContrast()
         at.inputs.spm_mat_file = spm_mat_file
@@ -338,7 +338,7 @@ class spm_EstimateModel:
                  spm_mat_file="path",
                  estimation_method="enumerate(('Classical','Bayesian2','Bayesian'))",
                  **options):
-                 
+
         from nipype.interfaces.spm.model import EstimateModel
         at = EstimateModel()
         at.inputs.spm_mat_file = spm_mat_file
@@ -410,7 +410,7 @@ class spm_FieldMap:
                  total_readout_time=0.0,
                  epi_file="path",
                  **options):
-                 
+
         from nipype.interfaces.spm.preprocess import FieldMap
         at = FieldMap()
         at.inputs.phase_file = phase_file
@@ -442,7 +442,7 @@ class spm_Level1Design:
                  session_info='',
                  bases="enumerate(('hrf','fourier','fourier_han','gamma','fir'))",
                  **options):
-                 
+
         from nipype.interfaces.spm.model import Level1Design
         at = Level1Design()
         at.inputs.timing_units = timing_units
@@ -468,7 +468,7 @@ class spm_MultiChannelNewSegment:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.spm.preprocess import MultiChannelNewSegment
         at = MultiChannelNewSegment()
         for ef in options:
@@ -515,7 +515,7 @@ class spm_MultipleRegressionDesign:
     def __init__(self,
                  in_files="path",
                  **options):
-                 
+
         from nipype.interfaces.spm.model import MultipleRegressionDesign
         at = MultipleRegressionDesign()
         at.inputs.in_files = in_files
@@ -539,7 +539,7 @@ class spm_NewSegment:
     def __init__(self,
                  channel_files=["path"],
                  **options):
-                 
+
         from nipype.interfaces.spm.preprocess import NewSegment
         at = NewSegment()
         at.inputs.channel_files = channel_files
@@ -586,7 +586,7 @@ class spm_Normalize:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.spm.preprocess import Normalize
         at = Normalize()
         for ef in options:
@@ -614,7 +614,7 @@ class spm_Normalize12:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.spm.preprocess import Normalize12
         at = Normalize12()
         for ef in options:
@@ -643,7 +643,7 @@ class spm_OneSampleTTestDesign:
     def __init__(self,
                  in_files="path",
                  **options):
-                 
+
         from nipype.interfaces.spm.model import OneSampleTTestDesign
         at = OneSampleTTestDesign()
         at.inputs.in_files = in_files
@@ -667,7 +667,7 @@ class spm_PairedTTestDesign:
     def __init__(self,
                  paired_files="path",
                  **options):
-                 
+
         from nipype.interfaces.spm.model import PairedTTestDesign
         at = PairedTTestDesign()
         at.inputs.paired_files = paired_files
@@ -691,7 +691,7 @@ class spm_Realign:
     def __init__(self,
                  in_files=["path"],
                  **options):
-                 
+
         from nipype.interfaces.spm.preprocess import Realign
         at = Realign()
         at.inputs.in_files = in_files
@@ -724,7 +724,7 @@ class spm_RealignUnwarp:
     def __init__(self,
                  in_files=["path"],
                  **options):
-                 
+
         from nipype.interfaces.spm.preprocess import RealignUnwarp
         at = RealignUnwarp()
         at.inputs.in_files = in_files
@@ -758,7 +758,7 @@ class spm_Reslice:
                  in_file="path",
                  space_defining="path",
                  **options):
-                 
+
         from nipype.interfaces.spm.utils import Reslice
         at = Reslice()
         at.inputs.in_file = in_file
@@ -783,7 +783,7 @@ class spm_ResliceToReference:
     def __init__(self,
                  in_files=["path"],
                  **options):
-                 
+
         from nipype.interfaces.spm.utils import ResliceToReference
         at = ResliceToReference()
         at.inputs.in_files = in_files
@@ -806,7 +806,7 @@ class spm_SPMCommand:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.spm.base import SPMCommand
         at = SPMCommand()
         for ef in options:
@@ -826,7 +826,7 @@ class spm_Segment:
     def __init__(self,
                  data=["path"],
                  **options):
-                 
+
         from nipype.interfaces.spm.preprocess import Segment
         at = Segment()
         at.inputs.data = data
@@ -891,7 +891,7 @@ class spm_SliceTiming:
                  slice_order=[0.0],
                  ref_slice=0.0,
                  **options):
-                 
+
         from nipype.interfaces.spm.preprocess import SliceTiming
         at = SliceTiming()
         at.inputs.in_files = in_files
@@ -920,7 +920,7 @@ class spm_Smooth:
     def __init__(self,
                  in_files=["path"],
                  **options):
-                 
+
         from nipype.interfaces.spm.preprocess import Smooth
         at = Smooth()
         at.inputs.in_files = in_files
@@ -946,7 +946,7 @@ class spm_Threshold:
                  stat_image="path",
                  contrast_index=0,
                  **options):
-                 
+
         from nipype.interfaces.spm.model import Threshold
         at = Threshold()
         at.inputs.spm_mat_file = spm_mat_file
@@ -988,7 +988,7 @@ class spm_TwoSampleTTestDesign:
                  group1_files="path",
                  group2_files="path",
                  **options):
-                 
+
         from nipype.interfaces.spm.model import TwoSampleTTestDesign
         at = TwoSampleTTestDesign()
         at.inputs.group1_files = group1_files
@@ -1013,7 +1013,7 @@ class spm_VBMSegment:
     def __init__(self,
                  in_files=["path"],
                  **options):
-                 
+
         from nipype.interfaces.spm.preprocess import VBMSegment
         at = VBMSegment()
         at.inputs.in_files = in_files
@@ -1061,5 +1061,3 @@ class spm_VBMSegment:
         return self.res.outputs.jacobian_determinant_images
 
 ###############################################################################
-
-

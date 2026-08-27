@@ -1,5 +1,7 @@
 class Logging():
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+
         from nipype import config, logging
         config_logging = {}
         config_logging['logging'] = options
@@ -10,7 +12,9 @@ class Logging():
 
 
 class Execution():
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+
         from nipype import config
         config_execution = {}
         config_execution['execution'] = options

@@ -7,7 +7,7 @@ class minc_Average:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.minc.minc import Average
         at = Average()
         for ef in options:
@@ -30,7 +30,7 @@ class minc_BBox:
     def __init__(self,
                  input_file="path",
                  **options):
-                 
+
         from nipype.interfaces.minc.minc import BBox
         at = BBox()
         at.inputs.input_file = input_file
@@ -55,7 +55,7 @@ class minc_Beast:
                  library_dir="path",
                  input_file="path",
                  **options):
-                 
+
         from nipype.interfaces.minc.minc import Beast
         at = Beast()
         at.inputs.library_dir = library_dir
@@ -81,7 +81,7 @@ class minc_BestLinReg:
                  source="path",
                  target="path",
                  **options):
-                 
+
         from nipype.interfaces.minc.minc import BestLinReg
         at = BestLinReg()
         at.inputs.source = source
@@ -109,7 +109,7 @@ class minc_BigAverage:
     def __init__(self,
                  input_files=["path"],
                  **options):
-                 
+
         from nipype.interfaces.minc.minc import BigAverage
         at = BigAverage()
         at.inputs.input_files = input_files
@@ -136,7 +136,7 @@ class minc_Blob:
     def __init__(self,
                  input_file="path",
                  **options):
-                 
+
         from nipype.interfaces.minc.minc import Blob
         at = Blob()
         at.inputs.input_file = input_file
@@ -160,7 +160,7 @@ class minc_Blur:
     def __init__(self,
                  input_file="path",
                  **options):
-                 
+
         from nipype.interfaces.minc.minc import Blur
         at = Blur()
         at.inputs.input_file = input_file
@@ -199,7 +199,7 @@ class minc_Calc:
     def __init__(self,
                  input_files=["path"],
                  **options):
-                 
+
         from nipype.interfaces.minc.minc import Calc
         at = Calc()
         at.inputs.input_files = input_files
@@ -223,7 +223,7 @@ class minc_Convert:
     def __init__(self,
                  input_file="path",
                  **options):
-                 
+
         from nipype.interfaces.minc.minc import Convert
         at = Convert()
         at.inputs.input_file = input_file
@@ -247,7 +247,7 @@ class minc_Copy:
     def __init__(self,
                  input_file="path",
                  **options):
-                 
+
         from nipype.interfaces.minc.minc import Copy
         at = Copy()
         at.inputs.input_file = input_file
@@ -271,7 +271,7 @@ class minc_Dump:
     def __init__(self,
                  input_file="path",
                  **options):
-                 
+
         from nipype.interfaces.minc.minc import Dump
         at = Dump()
         at.inputs.input_file = input_file
@@ -295,7 +295,7 @@ class minc_Extract:
     def __init__(self,
                  input_file="path",
                  **options):
-                 
+
         from nipype.interfaces.minc.minc import Extract
         at = Extract()
         at.inputs.input_file = input_file
@@ -318,7 +318,7 @@ class minc_Gennlxfm:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.minc.minc import Gennlxfm
         at = Gennlxfm()
         for ef in options:
@@ -343,7 +343,7 @@ class minc_Math:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.minc.minc import Math
         at = Math()
         for ef in options:
@@ -370,7 +370,7 @@ class minc_NlpFit:
                  init_xfm="path",
                  source_mask="path",
                  **options):
-                 
+
         from nipype.interfaces.minc.minc import NlpFit
         at = NlpFit()
         at.inputs.source = source
@@ -401,7 +401,7 @@ class minc_Norm:
     def __init__(self,
                  input_file="path",
                  **options):
-                 
+
         from nipype.interfaces.minc.minc import Norm
         at = Norm()
         at.inputs.input_file = input_file
@@ -428,7 +428,7 @@ class minc_Pik:
     def __init__(self,
                  input_file="path",
                  **options):
-                 
+
         from nipype.interfaces.minc.minc import Pik
         at = Pik()
         at.inputs.input_file = input_file
@@ -452,7 +452,7 @@ class minc_Resample:
     def __init__(self,
                  input_file="path",
                  **options):
-                 
+
         from nipype.interfaces.minc.minc import Resample
         at = Resample()
         at.inputs.input_file = input_file
@@ -476,7 +476,7 @@ class minc_Reshape:
     def __init__(self,
                  input_file="path",
                  **options):
-                 
+
         from nipype.interfaces.minc.minc import Reshape
         at = Reshape()
         at.inputs.input_file = input_file
@@ -500,7 +500,7 @@ class minc_ToEcat:
     def __init__(self,
                  input_file="path",
                  **options):
-                 
+
         from nipype.interfaces.minc.minc import ToEcat
         at = ToEcat()
         at.inputs.input_file = input_file
@@ -524,7 +524,7 @@ class minc_ToRaw:
     def __init__(self,
                  input_file="path",
                  **options):
-                 
+
         from nipype.interfaces.minc.minc import ToRaw
         at = ToRaw()
         at.inputs.input_file = input_file
@@ -548,7 +548,7 @@ class minc_VolSymm:
     def __init__(self,
                  input_file="path",
                  **options):
-                 
+
         from nipype.interfaces.minc.minc import VolSymm
         at = VolSymm()
         at.inputs.input_file = input_file
@@ -578,7 +578,7 @@ class minc_Volcentre:
     def __init__(self,
                  input_file="path",
                  **options):
-                 
+
         from nipype.interfaces.minc.minc import Volcentre
         at = Volcentre()
         at.inputs.input_file = input_file
@@ -602,7 +602,7 @@ class minc_Voliso:
     def __init__(self,
                  input_file="path",
                  **options):
-                 
+
         from nipype.interfaces.minc.minc import Voliso
         at = Voliso()
         at.inputs.input_file = input_file
@@ -626,7 +626,7 @@ class minc_Volpad:
     def __init__(self,
                  input_file="path",
                  **options):
-                 
+
         from nipype.interfaces.minc.minc import Volpad
         at = Volpad()
         at.inputs.input_file = input_file
@@ -650,7 +650,7 @@ class minc_XfmAvg:
     def __init__(self,
                  input_files=["path"],
                  **options):
-                 
+
         from nipype.interfaces.minc.minc import XfmAvg
         at = XfmAvg()
         at.inputs.input_files = input_files
@@ -677,7 +677,7 @@ class minc_XfmConcat:
     def __init__(self,
                  input_files=["path"],
                  **options):
-                 
+
         from nipype.interfaces.minc.minc import XfmConcat
         at = XfmConcat()
         at.inputs.input_files = input_files
@@ -704,7 +704,7 @@ class minc_XfmInvert:
     def __init__(self,
                  input_file="path",
                  **options):
-                 
+
         from nipype.interfaces.minc.minc import XfmInvert
         at = XfmInvert()
         at.inputs.input_file = input_file
@@ -719,5 +719,3 @@ class minc_XfmInvert:
         return self.res.outputs.output_grid
 
 ###############################################################################
-
-

@@ -9,7 +9,7 @@ class mne_WatershedBEM:
                  subject_id='',
                  subjects_dir="path",
                  **options):
-                 
+
         from nipype.interfaces.mne.base import WatershedBEM
         at = WatershedBEM()
         at.inputs.subject_id = subject_id
@@ -40,5 +40,3 @@ class mne_WatershedBEM:
         return self.res.outputs.cor_files
 
 ###############################################################################
-
-

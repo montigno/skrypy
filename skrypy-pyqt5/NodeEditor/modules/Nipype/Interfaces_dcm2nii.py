@@ -5,7 +5,9 @@ class dcm2nii_Dcm2nii:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+
         from nipype.interfaces.dcm2nii import Dcm2nii
         at = Dcm2nii()
         for ef in options:
@@ -37,7 +39,9 @@ class dcm2nii_Dcm2niix:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+
         from nipype.interfaces.dcm2nii import Dcm2niix
         at = Dcm2niix()
         for ef in options:
@@ -60,5 +64,3 @@ class dcm2nii_Dcm2niix:
         return self.res.outputs.bids
 
 ###############################################################################
-
-

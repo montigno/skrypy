@@ -13,7 +13,7 @@ class workbench_CiftiSmooth:
                  left_surf="path",
                  right_surf="path",
                  **options):
-                 
+
         from nipype.interfaces.workbench.cifti import CiftiSmooth
         at = CiftiSmooth()
         at.inputs.in_file = in_file
@@ -45,7 +45,7 @@ class workbench_MetricResample:
                  new_sphere="path",
                  method="enumerate(('ADAP_BARY_AREA','BARYCENTRIC'))",
                  **options):
-                 
+
         from nipype.interfaces.workbench.metric import MetricResample
         at = MetricResample()
         at.inputs.in_file = in_file
@@ -63,5 +63,3 @@ class workbench_MetricResample:
         return self.res.outputs.roi_file
 
 ###############################################################################
-
-

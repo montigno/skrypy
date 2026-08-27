@@ -8,7 +8,7 @@ class nipy_ComputeMask:
     def __init__(self,
                  mean_volume="path",
                  **options):
-                 
+
         from nipype.interfaces.nipy.preprocess import ComputeMask
         at = ComputeMask()
         at.inputs.mean_volume = mean_volume
@@ -39,7 +39,7 @@ class nipy_EstimateContrast:
                  axis='',
                  reg_names=[''],
                  **options):
-                 
+
         from nipype.interfaces.nipy.model import EstimateContrast
         at = EstimateContrast()
         at.inputs.contrasts = contrasts
@@ -77,7 +77,7 @@ class nipy_FitGLM:
                  session_info='',
                  TR=0.0,
                  **options):
-                 
+
         from nipype.interfaces.nipy.model import FitGLM
         at = FitGLM()
         at.inputs.session_info = session_info
@@ -127,7 +127,7 @@ class nipy_Similarity:
                  volume1="path",
                  volume2="path",
                  **options):
-                 
+
         from nipype.interfaces.nipy.utils import Similarity
         at = Similarity()
         at.inputs.volume1 = volume1
@@ -152,7 +152,7 @@ class nipy_SpaceTimeRealigner:
     def __init__(self,
                  in_file=["path"],
                  **options):
-                 
+
         from nipype.interfaces.nipy.preprocess import SpaceTimeRealigner
         at = SpaceTimeRealigner()
         at.inputs.in_file = in_file
@@ -167,5 +167,3 @@ class nipy_SpaceTimeRealigner:
         return self.res.outputs.par_file
 
 ###############################################################################
-
-

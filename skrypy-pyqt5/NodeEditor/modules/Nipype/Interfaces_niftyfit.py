@@ -9,7 +9,7 @@ class niftyfit_DwiTool:
                  source_file="path",
                  bval_file="path",
                  **options):
-                 
+
         from nipype.interfaces.niftyfit.dwi import DwiTool
         at = DwiTool()
         at.inputs.source_file = source_file
@@ -52,7 +52,7 @@ class niftyfit_FitAsl:
     def __init__(self,
                  source_file="path",
                  **options):
-                 
+
         from nipype.interfaces.niftyfit.asl import FitAsl
         at = FitAsl()
         at.inputs.source_file = source_file
@@ -84,7 +84,7 @@ class niftyfit_FitDwi:
                  bval_file="path",
                  bvec_file="path",
                  **options):
-                 
+
         from nipype.interfaces.niftyfit.dwi import FitDwi
         at = FitDwi()
         at.inputs.source_file = source_file
@@ -143,7 +143,7 @@ class niftyfit_FitQt1:
     def __init__(self,
                  source_file="path",
                  **options):
-                 
+
         from nipype.interfaces.niftyfit.qt1 import FitQt1
         at = FitQt1()
         at.inputs.source_file = source_file
@@ -173,5 +173,3 @@ class niftyfit_FitQt1:
         return self.res.outputs.res_file
 
 ###############################################################################
-
-

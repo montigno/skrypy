@@ -8,7 +8,7 @@ class meshfix_MeshFix:
     def __init__(self,
                  in_file1="path",
                  **options):
-                 
+
         from nipype.interfaces.meshfix import MeshFix
         at = MeshFix()
         at.inputs.in_file1 = in_file1
@@ -20,5 +20,3 @@ class meshfix_MeshFix:
         return self.res.outputs.mesh_file
 
 ###############################################################################
-
-

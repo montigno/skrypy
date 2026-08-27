@@ -7,7 +7,7 @@ class slicer_ACPCTransform:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.registration.specialized import ACPCTransform
         at = ACPCTransform()
         for ef in options:
@@ -29,7 +29,7 @@ class slicer_AddScalarVolumes:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.filtering.arithmetic import AddScalarVolumes
         at = AddScalarVolumes()
         for ef in options:
@@ -51,7 +51,7 @@ class slicer_AffineRegistration:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.legacy.registration import AffineRegistration
         at = AffineRegistration()
         for ef in options:
@@ -76,7 +76,7 @@ class slicer_BRAINSDemonWarp:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.registration.specialized import BRAINSDemonWarp
         at = BRAINSDemonWarp()
         for ef in options:
@@ -104,7 +104,7 @@ class slicer_BRAINSFit:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.registration.brainsfit import BRAINSFit
         at = BRAINSFit()
         for ef in options:
@@ -144,7 +144,7 @@ class slicer_BRAINSROIAuto:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.segmentation.specialized import BRAINSROIAuto
         at = BRAINSROIAuto()
         for ef in options:
@@ -169,7 +169,7 @@ class slicer_BRAINSResample:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.registration.brainsresample import BRAINSResample
         at = BRAINSResample()
         for ef in options:
@@ -191,7 +191,7 @@ class slicer_BSplineDeformableRegistration:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.legacy.registration import BSplineDeformableRegistration
         at = BSplineDeformableRegistration()
         for ef in options:
@@ -219,7 +219,7 @@ class slicer_BSplineToDeformationField:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.legacy.converters import BSplineToDeformationField
         at = BSplineToDeformationField()
         for ef in options:
@@ -241,7 +241,7 @@ class slicer_CastScalarVolume:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.filtering.arithmetic import CastScalarVolume
         at = CastScalarVolume()
         for ef in options:
@@ -263,7 +263,7 @@ class slicer_CheckerBoardFilter:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.filtering.checkerboardfilter import CheckerBoardFilter
         at = CheckerBoardFilter()
         for ef in options:
@@ -285,7 +285,7 @@ class slicer_CurvatureAnisotropicDiffusion:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.filtering.denoising import CurvatureAnisotropicDiffusion
         at = CurvatureAnisotropicDiffusion()
         for ef in options:
@@ -307,7 +307,7 @@ class slicer_DTIexport:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.diffusion.diffusion import DTIexport
         at = DTIexport()
         for ef in options:
@@ -329,7 +329,7 @@ class slicer_DTIimport:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.diffusion.diffusion import DTIimport
         at = DTIimport()
         for ef in options:
@@ -351,7 +351,7 @@ class slicer_DWIJointRicianLMMSEFilter:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.diffusion.diffusion import DWIJointRicianLMMSEFilter
         at = DWIJointRicianLMMSEFilter()
         for ef in options:
@@ -373,7 +373,7 @@ class slicer_DWIRicianLMMSEFilter:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.diffusion.diffusion import DWIRicianLMMSEFilter
         at = DWIRicianLMMSEFilter()
         for ef in options:
@@ -395,7 +395,7 @@ class slicer_DWIToDTIEstimation:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.diffusion.diffusion import DWIToDTIEstimation
         at = DWIToDTIEstimation()
         for ef in options:
@@ -420,7 +420,7 @@ class slicer_DWIUnbiasedNonLocalMeansFilter:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.legacy.diffusion.denoising import DWIUnbiasedNonLocalMeansFilter
         at = DWIUnbiasedNonLocalMeansFilter()
         for ef in options:
@@ -442,7 +442,7 @@ class slicer_DicomToNrrdConverter:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.converters import DicomToNrrdConverter
         at = DicomToNrrdConverter()
         for ef in options:
@@ -464,7 +464,7 @@ class slicer_DiffusionTensorScalarMeasurements:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.diffusion.diffusion import DiffusionTensorScalarMeasurements
         at = DiffusionTensorScalarMeasurements()
         for ef in options:
@@ -486,7 +486,7 @@ class slicer_DiffusionWeightedVolumeMasking:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.diffusion.diffusion import DiffusionWeightedVolumeMasking
         at = DiffusionWeightedVolumeMasking()
         for ef in options:
@@ -511,7 +511,7 @@ class slicer_EMSegmentCommandLine:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.segmentation.specialized import EMSegmentCommandLine
         at = EMSegmentCommandLine()
         for ef in options:
@@ -539,7 +539,7 @@ class slicer_EMSegmentTransformToNewFormat:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.utilities import EMSegmentTransformToNewFormat
         at = EMSegmentTransformToNewFormat()
         for ef in options:
@@ -561,7 +561,7 @@ class slicer_ExpertAutomatedRegistration:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.legacy.registration import ExpertAutomatedRegistration
         at = ExpertAutomatedRegistration()
         for ef in options:
@@ -586,7 +586,7 @@ class slicer_ExtractSkeleton:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.filtering.extractskeleton import ExtractSkeleton
         at = ExtractSkeleton()
         for ef in options:
@@ -608,7 +608,7 @@ class slicer_FiducialRegistration:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.registration.specialized import FiducialRegistration
         at = FiducialRegistration()
         for ef in options:
@@ -630,7 +630,7 @@ class slicer_GaussianBlurImageFilter:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.filtering.denoising import GaussianBlurImageFilter
         at = GaussianBlurImageFilter()
         for ef in options:
@@ -652,7 +652,7 @@ class slicer_GradientAnisotropicDiffusion:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.filtering.denoising import GradientAnisotropicDiffusion
         at = GradientAnisotropicDiffusion()
         for ef in options:
@@ -674,7 +674,7 @@ class slicer_GrayscaleFillHoleImageFilter:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.filtering.morphology import GrayscaleFillHoleImageFilter
         at = GrayscaleFillHoleImageFilter()
         for ef in options:
@@ -696,7 +696,7 @@ class slicer_GrayscaleGrindPeakImageFilter:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.filtering.morphology import GrayscaleGrindPeakImageFilter
         at = GrayscaleGrindPeakImageFilter()
         for ef in options:
@@ -718,7 +718,7 @@ class slicer_GrayscaleModelMaker:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.surface import GrayscaleModelMaker
         at = GrayscaleModelMaker()
         for ef in options:
@@ -740,7 +740,7 @@ class slicer_HistogramMatching:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.filtering.histogrammatching import HistogramMatching
         at = HistogramMatching()
         for ef in options:
@@ -762,7 +762,7 @@ class slicer_ImageLabelCombine:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.filtering.imagelabelcombine import ImageLabelCombine
         at = ImageLabelCombine()
         for ef in options:
@@ -784,7 +784,7 @@ class slicer_IntensityDifferenceMetric:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.quantification.changequantification import IntensityDifferenceMetric
         at = IntensityDifferenceMetric()
         for ef in options:
@@ -809,7 +809,7 @@ class slicer_LabelMapSmoothing:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.surface import LabelMapSmoothing
         at = LabelMapSmoothing()
         for ef in options:
@@ -831,7 +831,7 @@ class slicer_LinearRegistration:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.legacy.registration import LinearRegistration
         at = LinearRegistration()
         for ef in options:
@@ -856,7 +856,7 @@ class slicer_MaskScalarVolume:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.filtering.arithmetic import MaskScalarVolume
         at = MaskScalarVolume()
         for ef in options:
@@ -878,7 +878,7 @@ class slicer_MedianImageFilter:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.filtering.denoising import MedianImageFilter
         at = MedianImageFilter()
         for ef in options:
@@ -900,7 +900,7 @@ class slicer_MergeModels:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.surface import MergeModels
         at = MergeModels()
         for ef in options:
@@ -922,7 +922,7 @@ class slicer_ModelMaker:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.surface import ModelMaker
         at = ModelMaker()
         for ef in options:
@@ -944,7 +944,7 @@ class slicer_ModelToLabelMap:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.surface import ModelToLabelMap
         at = ModelToLabelMap()
         for ef in options:
@@ -966,7 +966,7 @@ class slicer_MultiResolutionAffineRegistration:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.legacy.registration import MultiResolutionAffineRegistration
         at = MultiResolutionAffineRegistration()
         for ef in options:
@@ -991,7 +991,7 @@ class slicer_MultiplyScalarVolumes:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.filtering.arithmetic import MultiplyScalarVolumes
         at = MultiplyScalarVolumes()
         for ef in options:
@@ -1013,7 +1013,7 @@ class slicer_N4ITKBiasFieldCorrection:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.filtering.n4itkbiasfieldcorrection import N4ITKBiasFieldCorrection
         at = N4ITKBiasFieldCorrection()
         for ef in options:
@@ -1038,7 +1038,7 @@ class slicer_OrientScalarVolume:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.converters import OrientScalarVolume
         at = OrientScalarVolume()
         for ef in options:
@@ -1060,7 +1060,7 @@ class slicer_OtsuThresholdImageFilter:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.legacy.filtering import OtsuThresholdImageFilter
         at = OtsuThresholdImageFilter()
         for ef in options:
@@ -1082,7 +1082,7 @@ class slicer_OtsuThresholdSegmentation:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.legacy.segmentation import OtsuThresholdSegmentation
         at = OtsuThresholdSegmentation()
         for ef in options:
@@ -1104,7 +1104,7 @@ class slicer_PETStandardUptakeValueComputation:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.quantification.petstandarduptakevaluecomputation import PETStandardUptakeValueComputation
         at = PETStandardUptakeValueComputation()
         for ef in options:
@@ -1126,7 +1126,7 @@ class slicer_ProbeVolumeWithModel:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.surface import ProbeVolumeWithModel
         at = ProbeVolumeWithModel()
         for ef in options:
@@ -1148,7 +1148,7 @@ class slicer_ResampleDTIVolume:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.diffusion.diffusion import ResampleDTIVolume
         at = ResampleDTIVolume()
         for ef in options:
@@ -1170,7 +1170,7 @@ class slicer_ResampleScalarVectorDWIVolume:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.filtering.resamplescalarvectordwivolume import ResampleScalarVectorDWIVolume
         at = ResampleScalarVectorDWIVolume()
         for ef in options:
@@ -1192,7 +1192,7 @@ class slicer_ResampleScalarVolume:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.legacy.filtering import ResampleScalarVolume
         at = ResampleScalarVolume()
         for ef in options:
@@ -1214,7 +1214,7 @@ class slicer_RigidRegistration:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.legacy.registration import RigidRegistration
         at = RigidRegistration()
         for ef in options:
@@ -1239,7 +1239,7 @@ class slicer_RobustStatisticsSegmenter:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.segmentation.specialized import RobustStatisticsSegmenter
         at = RobustStatisticsSegmenter()
         for ef in options:
@@ -1261,7 +1261,7 @@ class slicer_SimpleRegionGrowingSegmentation:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.segmentation.simpleregiongrowingsegmentation import SimpleRegionGrowingSegmentation
         at = SimpleRegionGrowingSegmentation()
         for ef in options:
@@ -1283,7 +1283,7 @@ class slicer_SubtractScalarVolumes:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.filtering.arithmetic import SubtractScalarVolumes
         at = SubtractScalarVolumes()
         for ef in options:
@@ -1305,7 +1305,7 @@ class slicer_ThresholdScalarVolume:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.filtering.thresholdscalarvolume import ThresholdScalarVolume
         at = ThresholdScalarVolume()
         for ef in options:
@@ -1327,7 +1327,7 @@ class slicer_TractographyLabelMapSeeding:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.diffusion.diffusion import TractographyLabelMapSeeding
         at = TractographyLabelMapSeeding()
         for ef in options:
@@ -1352,7 +1352,7 @@ class slicer_VBRAINSDemonWarp:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.registration.specialized import VBRAINSDemonWarp
         at = VBRAINSDemonWarp()
         for ef in options:
@@ -1380,7 +1380,7 @@ class slicer_VotingBinaryHoleFillingImageFilter:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.slicer.filtering.votingbinaryholefillingimagefilter import VotingBinaryHoleFillingImageFilter
         at = VotingBinaryHoleFillingImageFilter()
         for ef in options:
@@ -1391,5 +1391,3 @@ class slicer_VotingBinaryHoleFillingImageFilter:
         return self.res.outputs.outputVolume
 
 ###############################################################################
-
-

@@ -7,7 +7,7 @@ class nilearn_NilearnBaseInterface:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.nilearn import NilearnBaseInterface
         at = NilearnBaseInterface()
         for ef in options:
@@ -29,7 +29,7 @@ class nilearn_SignalExtraction:
                  label_files=["path"],
                  class_labels=[''],
                  **options):
-                 
+
         from nipype.interfaces.nilearn import SignalExtraction
         at = SignalExtraction()
         at.inputs.in_file = in_file
@@ -54,7 +54,7 @@ class nilearn_SimpleInterface:
     """
     def __init__(self,
                  **options):
-                 
+
         from nipype.interfaces.base.core import SimpleInterface
         at = SimpleInterface()
         for ef in options:
@@ -62,5 +62,3 @@ class nilearn_SimpleInterface:
         self.res = at.run()
 
 ###############################################################################
-
-
