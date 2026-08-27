@@ -13,8 +13,11 @@ class box_dialog_file:
     Note:
         GUI: yes
     """
-    def __init__(self, fileDefault='path',
-                 extension='*', title='Select a file'):
+    def __init__(self,
+                 fileDefault='path',
+                 extension='*',
+                 title='Select a file'):
+
         import os.path
         from PyQt5.QtWidgets import QApplication
         from PyQt5.Qt import QFileDialog
@@ -44,8 +47,12 @@ class box_dialog_file:
 
 class compare_two_files:
     """
+    docstring to be completed
     """
-    def __init__(self, file1='path', file2='path'):
+    def __init__(self,
+                 file1='path',
+                 file2='path'):
+
         from subprocess import Popen, PIPE
 
         p = Popen(['diff', '--normal', file1, file2], stdout=PIPE)
@@ -73,8 +80,11 @@ class box_dialog_files:
     Note:
         GUI: yes
     """
-    def __init__(self, filesDefault='path',
-                 extension='*', title='Open files'):
+    def __init__(self,
+                 filesDefault='path',
+                 extension='*',
+                 title='Open files'):
+
         import os.path
         from PyQt5.QtWidgets import QApplication
         from PyQt5.Qt import QFileDialog
@@ -121,7 +131,10 @@ class box_dialog_directory:
     Note:
         GUI: yes
     """
-    def __init__(self, RepDefault='path', title='Select a directory'):
+    def __init__(self,
+                 RepDefault='path',
+                 title='Select a directory'):
+
         import os.path
         from PyQt5.QtWidgets import QFileDialog, QApplication
 
@@ -155,7 +168,10 @@ class copy_file():
         GUI: no
     """
 
-    def __init__(self, src_file='path', dest_file='path'):
+    def __init__(self,
+                 src_file='path',
+                 dest_file='path'):
+
         import shutil
         import os
         self.cf = None
@@ -180,7 +196,12 @@ class copy_file():
 
 
 class create_directory:
-    def __init__(self, dir_in='path'):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 dir_in='path'):
+
         import os
         self.dir_out = ''
         if not os.path.exists(dir_in):
@@ -194,7 +215,12 @@ class create_directory:
 
 
 class create_directory_recursive:
-    def __init__(self, dir_in='path'):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 dir_in='path'):
+
         import os
         self.dir_out = ''
         path = dir_in
@@ -216,8 +242,13 @@ class create_directory_recursive:
 
 
 class delete_file:
+    """
+    docstring to be completed
+    """
 
-    def __init__(self, input_file='path'):
+    def __init__(self,
+                 input_file='path'):
+
         import os
         try:
             os.remove(input_file)
@@ -228,8 +259,13 @@ class delete_file:
 
 
 class delete_files:
+    """
+    docstring to be completed
+    """
 
-    def __init__(self, input_files=['path']):
+    def __init__(self,
+                 input_files=['path']):
+
         import os
         for lst_f in input_files:
             try:
@@ -241,8 +277,14 @@ class delete_files:
 
 
 class delete_files_model:
+    """
+    docstring to be completed
+    """
 
-    def __init__(self, input_dir='path', model='*.txt'):
+    def __init__(self,
+                 input_dir='path',
+                 model='*.txt'):
+
         import os
         import glob
 
@@ -258,8 +300,14 @@ class delete_files_model:
 
 
 class delete_folder:
+    """
+    docstring to be completed
+    """
 
-    def __init__(self, input_folder='path', ignore_errors=False):
+    def __init__(self,
+                 input_folder='path',
+                 ignore_errors=False):
+
         import shutil
         shutil.rmtree(input_folder, ignore_errors=ignore_errors)
 
@@ -267,7 +315,9 @@ class delete_folder:
 
 
 class filter_directory_files_pattern:
-
+    """
+    docstring to be completed
+    """
     def __init__(self,
                  directory='path',
                  operator='enumerate(("==",\
@@ -306,7 +356,9 @@ class filter_directory_files_pattern:
 
 
 class filter_input_files_pattern:
-
+    """
+    docstring to be completed
+    """
     def __init__(self,
                  input_files=['path'],
                  operator='enumerate(("==",\
@@ -345,8 +397,13 @@ class filter_input_files_pattern:
 
 
 class filter_files_extension:
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 input_files=['path'],
+                 extension='.nii .json'):
 
-    def __init__(self, input_files=['path'], extension='.nii .json'):
         self.outfiles = []
         for filePath in input_files:
             if filePath.endswith(tuple(extension.split(' '))):
@@ -359,8 +416,14 @@ class filter_files_extension:
 
 
 class filter_directory_files_extension:
+    """
+    docstring to be completed
+    """
 
-    def __init__(self, directory='path', extension='.nii .json'):
+    def __init__(self,
+                 directory='path',
+                 extension='.nii .json'):
+
         import os
         self.outfiles = []
         for filePath in os.listdir(directory):
@@ -386,7 +449,11 @@ class list_files_in_directory:
     Note:
         GUI: no
     """
-    def __init__(self, RepDefault='path', filter="*", recursive=False):
+    def __init__(self,
+                 RepDefault='path',
+                 filter="*",
+                 recursive=False):
+
         import os
         import glob
         self.lstfiles = []
@@ -404,7 +471,12 @@ class list_files_in_directory:
 
 
 class list_directories_in_directory:
-    def __init__(self, RepDefault='path'):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 RepDefault='path'):
+
         import os
         import glob
         self.lstdir = []
@@ -419,7 +491,13 @@ class list_directories_in_directory:
 
 
 class move_files:
-    def __init__(self, files_input=['path'], move_to_dir='path'):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 files_input=['path'],
+                 move_to_dir='path'):
+
         import shutil
         import os
         self.listfiles_moved = []
@@ -439,7 +517,12 @@ class move_files:
 
 
 class numberOfFiles():
-    def __init__(self, list_files=['path']):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 list_files=['path']):
+
         self.nb = len(list_files)
 
     def number_files(self) -> int:
@@ -449,7 +532,13 @@ class numberOfFiles():
 
 
 class rename_file:
-    def __init__(self, file_origin='path', file_new_name=''):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 file_origin='path',
+                 file_new_name=''):
+
         import shutil
         import os
         dirt = os.path.dirname(file_origin)
@@ -475,7 +564,10 @@ class rename_file_options:
     Note:
         GUI: no
     """
-    def __init__(self, file_origin='path', **options):
+    def __init__(self,
+                 file_origin='path',
+                 **options):
+
         import shutil
         import os
         dirt = os.path.dirname(file_origin)
@@ -502,7 +594,14 @@ class rename_file_options:
 
 
 class search_files:
-    def __init__(self, directory_path='path', file_to_find='', recursive=False):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 directory_path='path',
+                 file_to_find='',
+                 recursive=False):
+
         from glob import glob
         import os
 
@@ -521,7 +620,12 @@ class search_files:
 
 
 class get_file_most_recently:
-    def __init__(self, files_list=['path']):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 files_list=['path']):
+
         import os
 
         files_list.sort(key=lambda x: os.path.getmtime(x))
@@ -534,7 +638,13 @@ class get_file_most_recently:
 
 
 class search_files_pattern:
-    def __init__(self, list_files=['path'], pattern=''):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 list_files=['path'],
+                 pattern=''):
+
 
         self.list_f = []
 
@@ -549,7 +659,15 @@ class search_files_pattern:
 
 
 class search_files_patterns_dyn:
-    def __init__(self, list_files=['path'], compare_type="enumerate(('OR', 'AND'))", pattern='', **dynamicsInputs):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 list_files=['path'],
+                 compare_type="enumerate(('OR', 'AND'))",
+                 pattern='',
+                 **dynamicsInputs):
+
         import re
         import os
 
@@ -577,7 +695,13 @@ class search_files_patterns_dyn:
 
 
 class wait_file_exists():
-    def __init__(self, file_in='path', **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 file_in='path',
+                 **options):
+
         import os.path
         import time
 
@@ -602,7 +726,11 @@ class wait_file_exists():
 
 
 class get_temporary_folder():
+    """
+    docstring to be completed
+    """
     def __init__(self):
+
         import tempfile
         self.temp_f = tempfile.gettempdir()
 

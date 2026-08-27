@@ -1,7 +1,14 @@
 class BrukerInformationParser():
+    """
+    docstring to be completed
+    """
 
-    def __init__(self, methodFileName='path', acqpFileName='path', visuParsFileName='path',
+    def __init__(self,
+                 methodFileName='path',
+                 acqpFileName='path',
+                 visuParsFileName='path',
                  applyVisuCoreTransformation=True):
+
         import math
 
         global math

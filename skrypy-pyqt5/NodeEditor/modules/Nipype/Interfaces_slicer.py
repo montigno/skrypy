@@ -5,7 +5,9 @@ class slicer_ACPCTransform:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.registration.specialized import ACPCTransform
         at = ACPCTransform()
         for ef in options:
@@ -25,7 +27,9 @@ class slicer_AddScalarVolumes:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.filtering.arithmetic import AddScalarVolumes
         at = AddScalarVolumes()
         for ef in options:
@@ -45,7 +49,9 @@ class slicer_AffineRegistration:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.legacy.registration import AffineRegistration
         at = AffineRegistration()
         for ef in options:
@@ -68,7 +74,9 @@ class slicer_BRAINSDemonWarp:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.registration.specialized import BRAINSDemonWarp
         at = BRAINSDemonWarp()
         for ef in options:
@@ -94,7 +102,9 @@ class slicer_BRAINSFit:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.registration.brainsfit import BRAINSFit
         at = BRAINSFit()
         for ef in options:
@@ -132,7 +142,9 @@ class slicer_BRAINSROIAuto:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.segmentation.specialized import BRAINSROIAuto
         at = BRAINSROIAuto()
         for ef in options:
@@ -155,7 +167,9 @@ class slicer_BRAINSResample:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.registration.brainsresample import BRAINSResample
         at = BRAINSResample()
         for ef in options:
@@ -175,7 +189,9 @@ class slicer_BSplineDeformableRegistration:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.legacy.registration import BSplineDeformableRegistration
         at = BSplineDeformableRegistration()
         for ef in options:
@@ -201,7 +217,9 @@ class slicer_BSplineToDeformationField:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.legacy.converters import BSplineToDeformationField
         at = BSplineToDeformationField()
         for ef in options:
@@ -221,7 +239,9 @@ class slicer_CastScalarVolume:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.filtering.arithmetic import CastScalarVolume
         at = CastScalarVolume()
         for ef in options:
@@ -241,7 +261,9 @@ class slicer_CheckerBoardFilter:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.filtering.checkerboardfilter import CheckerBoardFilter
         at = CheckerBoardFilter()
         for ef in options:
@@ -261,7 +283,9 @@ class slicer_CurvatureAnisotropicDiffusion:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.filtering.denoising import CurvatureAnisotropicDiffusion
         at = CurvatureAnisotropicDiffusion()
         for ef in options:
@@ -281,7 +305,9 @@ class slicer_DTIexport:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.diffusion.diffusion import DTIexport
         at = DTIexport()
         for ef in options:
@@ -301,7 +327,9 @@ class slicer_DTIimport:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.diffusion.diffusion import DTIimport
         at = DTIimport()
         for ef in options:
@@ -321,7 +349,9 @@ class slicer_DWIJointRicianLMMSEFilter:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.diffusion.diffusion import DWIJointRicianLMMSEFilter
         at = DWIJointRicianLMMSEFilter()
         for ef in options:
@@ -341,7 +371,9 @@ class slicer_DWIRicianLMMSEFilter:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.diffusion.diffusion import DWIRicianLMMSEFilter
         at = DWIRicianLMMSEFilter()
         for ef in options:
@@ -361,7 +393,9 @@ class slicer_DWIToDTIEstimation:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.diffusion.diffusion import DWIToDTIEstimation
         at = DWIToDTIEstimation()
         for ef in options:
@@ -384,7 +418,9 @@ class slicer_DWIUnbiasedNonLocalMeansFilter:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.legacy.diffusion.denoising import DWIUnbiasedNonLocalMeansFilter
         at = DWIUnbiasedNonLocalMeansFilter()
         for ef in options:
@@ -404,7 +440,9 @@ class slicer_DicomToNrrdConverter:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.converters import DicomToNrrdConverter
         at = DicomToNrrdConverter()
         for ef in options:
@@ -424,7 +462,9 @@ class slicer_DiffusionTensorScalarMeasurements:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.diffusion.diffusion import DiffusionTensorScalarMeasurements
         at = DiffusionTensorScalarMeasurements()
         for ef in options:
@@ -444,7 +484,9 @@ class slicer_DiffusionWeightedVolumeMasking:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.diffusion.diffusion import DiffusionWeightedVolumeMasking
         at = DiffusionWeightedVolumeMasking()
         for ef in options:
@@ -467,7 +509,9 @@ class slicer_EMSegmentCommandLine:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.segmentation.specialized import EMSegmentCommandLine
         at = EMSegmentCommandLine()
         for ef in options:
@@ -493,7 +537,9 @@ class slicer_EMSegmentTransformToNewFormat:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.utilities import EMSegmentTransformToNewFormat
         at = EMSegmentTransformToNewFormat()
         for ef in options:
@@ -513,7 +559,9 @@ class slicer_ExpertAutomatedRegistration:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.legacy.registration import ExpertAutomatedRegistration
         at = ExpertAutomatedRegistration()
         for ef in options:
@@ -536,7 +584,9 @@ class slicer_ExtractSkeleton:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.filtering.extractskeleton import ExtractSkeleton
         at = ExtractSkeleton()
         for ef in options:
@@ -556,7 +606,9 @@ class slicer_FiducialRegistration:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.registration.specialized import FiducialRegistration
         at = FiducialRegistration()
         for ef in options:
@@ -576,7 +628,9 @@ class slicer_GaussianBlurImageFilter:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.filtering.denoising import GaussianBlurImageFilter
         at = GaussianBlurImageFilter()
         for ef in options:
@@ -596,7 +650,9 @@ class slicer_GradientAnisotropicDiffusion:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.filtering.denoising import GradientAnisotropicDiffusion
         at = GradientAnisotropicDiffusion()
         for ef in options:
@@ -616,7 +672,9 @@ class slicer_GrayscaleFillHoleImageFilter:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.filtering.morphology import GrayscaleFillHoleImageFilter
         at = GrayscaleFillHoleImageFilter()
         for ef in options:
@@ -636,7 +694,9 @@ class slicer_GrayscaleGrindPeakImageFilter:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.filtering.morphology import GrayscaleGrindPeakImageFilter
         at = GrayscaleGrindPeakImageFilter()
         for ef in options:
@@ -656,7 +716,9 @@ class slicer_GrayscaleModelMaker:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.surface import GrayscaleModelMaker
         at = GrayscaleModelMaker()
         for ef in options:
@@ -676,7 +738,9 @@ class slicer_HistogramMatching:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.filtering.histogrammatching import HistogramMatching
         at = HistogramMatching()
         for ef in options:
@@ -696,7 +760,9 @@ class slicer_ImageLabelCombine:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.filtering.imagelabelcombine import ImageLabelCombine
         at = ImageLabelCombine()
         for ef in options:
@@ -716,7 +782,9 @@ class slicer_IntensityDifferenceMetric:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.quantification.changequantification import IntensityDifferenceMetric
         at = IntensityDifferenceMetric()
         for ef in options:
@@ -739,7 +807,9 @@ class slicer_LabelMapSmoothing:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.surface import LabelMapSmoothing
         at = LabelMapSmoothing()
         for ef in options:
@@ -759,7 +829,9 @@ class slicer_LinearRegistration:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.legacy.registration import LinearRegistration
         at = LinearRegistration()
         for ef in options:
@@ -782,7 +854,9 @@ class slicer_MaskScalarVolume:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.filtering.arithmetic import MaskScalarVolume
         at = MaskScalarVolume()
         for ef in options:
@@ -802,7 +876,9 @@ class slicer_MedianImageFilter:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.filtering.denoising import MedianImageFilter
         at = MedianImageFilter()
         for ef in options:
@@ -822,7 +898,9 @@ class slicer_MergeModels:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.surface import MergeModels
         at = MergeModels()
         for ef in options:
@@ -842,7 +920,9 @@ class slicer_ModelMaker:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.surface import ModelMaker
         at = ModelMaker()
         for ef in options:
@@ -862,7 +942,9 @@ class slicer_ModelToLabelMap:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.surface import ModelToLabelMap
         at = ModelToLabelMap()
         for ef in options:
@@ -882,7 +964,9 @@ class slicer_MultiResolutionAffineRegistration:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.legacy.registration import MultiResolutionAffineRegistration
         at = MultiResolutionAffineRegistration()
         for ef in options:
@@ -905,7 +989,9 @@ class slicer_MultiplyScalarVolumes:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.filtering.arithmetic import MultiplyScalarVolumes
         at = MultiplyScalarVolumes()
         for ef in options:
@@ -925,7 +1011,9 @@ class slicer_N4ITKBiasFieldCorrection:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.filtering.n4itkbiasfieldcorrection import N4ITKBiasFieldCorrection
         at = N4ITKBiasFieldCorrection()
         for ef in options:
@@ -948,7 +1036,9 @@ class slicer_OrientScalarVolume:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.converters import OrientScalarVolume
         at = OrientScalarVolume()
         for ef in options:
@@ -968,7 +1058,9 @@ class slicer_OtsuThresholdImageFilter:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.legacy.filtering import OtsuThresholdImageFilter
         at = OtsuThresholdImageFilter()
         for ef in options:
@@ -988,7 +1080,9 @@ class slicer_OtsuThresholdSegmentation:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.legacy.segmentation import OtsuThresholdSegmentation
         at = OtsuThresholdSegmentation()
         for ef in options:
@@ -1008,7 +1102,9 @@ class slicer_PETStandardUptakeValueComputation:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.quantification.petstandarduptakevaluecomputation import PETStandardUptakeValueComputation
         at = PETStandardUptakeValueComputation()
         for ef in options:
@@ -1028,7 +1124,9 @@ class slicer_ProbeVolumeWithModel:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.surface import ProbeVolumeWithModel
         at = ProbeVolumeWithModel()
         for ef in options:
@@ -1048,7 +1146,9 @@ class slicer_ResampleDTIVolume:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.diffusion.diffusion import ResampleDTIVolume
         at = ResampleDTIVolume()
         for ef in options:
@@ -1068,7 +1168,9 @@ class slicer_ResampleScalarVectorDWIVolume:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.filtering.resamplescalarvectordwivolume import ResampleScalarVectorDWIVolume
         at = ResampleScalarVectorDWIVolume()
         for ef in options:
@@ -1088,7 +1190,9 @@ class slicer_ResampleScalarVolume:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.legacy.filtering import ResampleScalarVolume
         at = ResampleScalarVolume()
         for ef in options:
@@ -1108,7 +1212,9 @@ class slicer_RigidRegistration:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.legacy.registration import RigidRegistration
         at = RigidRegistration()
         for ef in options:
@@ -1131,7 +1237,9 @@ class slicer_RobustStatisticsSegmenter:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.segmentation.specialized import RobustStatisticsSegmenter
         at = RobustStatisticsSegmenter()
         for ef in options:
@@ -1151,7 +1259,9 @@ class slicer_SimpleRegionGrowingSegmentation:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.segmentation.simpleregiongrowingsegmentation import SimpleRegionGrowingSegmentation
         at = SimpleRegionGrowingSegmentation()
         for ef in options:
@@ -1171,7 +1281,9 @@ class slicer_SubtractScalarVolumes:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.filtering.arithmetic import SubtractScalarVolumes
         at = SubtractScalarVolumes()
         for ef in options:
@@ -1191,7 +1303,9 @@ class slicer_ThresholdScalarVolume:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.filtering.thresholdscalarvolume import ThresholdScalarVolume
         at = ThresholdScalarVolume()
         for ef in options:
@@ -1211,7 +1325,9 @@ class slicer_TractographyLabelMapSeeding:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.diffusion.diffusion import TractographyLabelMapSeeding
         at = TractographyLabelMapSeeding()
         for ef in options:
@@ -1234,7 +1350,9 @@ class slicer_VBRAINSDemonWarp:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.registration.specialized import VBRAINSDemonWarp
         at = VBRAINSDemonWarp()
         for ef in options:
@@ -1260,7 +1378,9 @@ class slicer_VotingBinaryHoleFillingImageFilter:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.slicer.filtering.votingbinaryholefillingimagefilter import VotingBinaryHoleFillingImageFilter
         at = VotingBinaryHoleFillingImageFilter()
         for ef in options:

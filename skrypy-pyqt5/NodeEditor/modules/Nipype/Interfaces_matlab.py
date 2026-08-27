@@ -5,7 +5,10 @@ class matlab_MatlabCommand:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, script='', **options):
+    def __init__(self,
+                 script='',
+                 **options):
+                 
         from nipype.interfaces.matlab import MatlabCommand
         at = MatlabCommand()
         at.inputs.script = script

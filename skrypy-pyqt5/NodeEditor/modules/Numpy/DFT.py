@@ -21,7 +21,10 @@ class numpy_fft_1d():
         link_web:  https://numpy.org/doc/stable/reference/generated/numpy.fft.fft.html
                     (click Ctrl + U)
     '''
-    def __init__(self, data=[0.0], **options):
+    def __init__(self,
+                 data=[0.0],
+                 **options):
+
         import numpy as np
         self.out = np.fft.fft(data, **options)
 
@@ -64,7 +67,10 @@ class numpy_ifft_1d():
         link_web:  https://numpy.org/doc/stable/reference/generated/numpy.fft.ifft.html
                     (click Ctrl + U)
     '''
-    def __init__(self, data=[0.0], **options):
+    def __init__(self,
+                 data=[0.0],
+                 **options):
+
         import numpy as np
         self.out = np.fft.ifft(data, **options)
 
@@ -75,7 +81,13 @@ class numpy_ifft_1d():
 
 
 class numpy_fft_freq():
-    def __init__(self, n=0, d=1.0):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 n=0,
+                 d=1.0):
+
         import numpy as np
         self.out = np.fft.fftfreq(n, d)
 
@@ -86,7 +98,12 @@ class numpy_fft_freq():
 
 
 class numpy_fft_shift():
-    def __init__(self, array_like=[[0.0]]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 array_like=[[0.0]]):
+
         import numpy as np
         self.out = np.fft.fftshift(array_like)
 

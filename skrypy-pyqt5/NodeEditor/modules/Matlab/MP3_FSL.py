@@ -1,10 +1,14 @@
 class MP3_FLIRT():
+    """
+    docstring to be completed
+    """
     def __init__(self,
                  mat_eng='',
                  reference='path',
                  file_in='path',
                  file_out='path',
                  **options):
+
         import matlab.engine
         files_in, files_out = {}, {}
         options['flag_test'] = 0

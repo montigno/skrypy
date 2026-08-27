@@ -1,5 +1,10 @@
 class json_open_file():
-    def __init__(self, json_file='path'):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 json_file='path'):
+
         import json
         with open(json_file) as f:
             self.outJson = json.load(f)
@@ -11,7 +16,13 @@ class json_open_file():
 
 
 class json_save_file():
-    def __init__(self, data={}, json_file_out='path'):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 data={},
+                 json_file_out='path'):
+
         import json
         with open(json_file_out, 'w') as outfile:
             json.dump(data, outfile)
@@ -24,7 +35,13 @@ class json_save_file():
 
 
 class json_add_element():
-    def __init__(self, json_file='path', data={}):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 json_file='path',
+                 data={}):
+
         import json
         with open(json_file, 'r') as outfile:
             data_raw = json.load(outfile)

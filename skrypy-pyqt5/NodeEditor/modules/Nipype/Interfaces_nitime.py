@@ -5,7 +5,9 @@ class nitime_CoherenceAnalyzer:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.nitime.analysis import CoherenceAnalyzer
         at = CoherenceAnalyzer()
         for ef in options:

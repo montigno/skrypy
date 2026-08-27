@@ -1,5 +1,11 @@
 class nifti_display:
-    def __init__(self, image='path', title=''):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image='path',
+                 title=''):
+
         import os
         import sys
         import subprocess
@@ -15,8 +21,13 @@ class nifti_display:
 
 
 class nifti_get_header():
+    """
+    docstring to be completed
+    """
 
-    def __init__(self, nii_image='path'):
+    def __init__(self,
+                 nii_image='path'):
+
         import nibabel as nib
         img = nib.load(nii_image)
         self.hdr = img.header
@@ -31,7 +42,9 @@ class nifti_get_header():
 
 
 class nifti_change_header():
-
+    """
+    docstring to be completed
+    """
     def __init__(self,
                  nifti_file='path',
                  structarr="enumerate(('sizeof_hdr',\
@@ -94,7 +107,12 @@ class nifti_change_header():
 
 
 class nifti_open_file:
-    def __init__(self, nifti_file='path'):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 nifti_file='path'):
+
         import os.path
         import nibabel as nib
         import numpy as np
@@ -123,7 +141,14 @@ class nifti_open_file:
 
 
 class nifti_save_file:
-    def __init__(self, image=[[0.0]], nifti_path='path', **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image=[[0.0]],
+                 nifti_path='path',
+                 **options):
+
         import nibabel as nib
         import numpy as np
         import os
@@ -157,7 +182,12 @@ class nifti_save_file:
 
 
 class nifti_get_slope_inter():
-    def __init__(self, nifti_file='path'):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 nifti_file='path'):
+
         import nibabel as nib
         img = nib.load(nifti_file)
         hdr = img.header.copy()
@@ -170,7 +200,15 @@ class nifti_get_slope_inter():
 
 
 class nifti_set_slope_inter():
-    def __init__(self, nifti_file='path', slope=1.0, intercept=0.0, outfile='path'):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 nifti_file='path',
+                 slope=1.0,
+                 intercept=0.0,
+                 outfile='path'):
+
         import nibabel as nib
         img = nib.load(nifti_file)
         hdr = img.header.copy()
@@ -187,7 +225,12 @@ class nifti_set_slope_inter():
 
 
 class nifti_get_cal_max_min():
-    def __init__(self, nifti_file='path'):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 nifti_file='path'):
+
         import nibabel as nib
         img = nib.load(nifti_file)
         hdr = img.header.copy()
@@ -200,7 +243,15 @@ class nifti_get_cal_max_min():
 
 
 class nifti_set_cal_max_min():
-    def __init__(self, nifti_file='path', cal_max=100.0, cal_min=0.0, outfile='path'):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 nifti_file='path',
+                 cal_max=100.0,
+                 cal_min=0.0,
+                 outfile='path'):
+
         import nibabel as nib
         img = nib.load(nifti_file)
         hdr = img.header.copy()
@@ -217,7 +268,14 @@ class nifti_set_cal_max_min():
 
 
 class nifti_set_affine():
-    def __init__(self, nifti_file='path', matrix=[[1., 0., 0., 0.], [0., 1., 0., 0.], [0., 0., 1., 0.]], outfile='path'):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 nifti_file='path',
+                 matrix=[[1., 0., 0., 0.], [0., 1., 0., 0.], [0., 0., 1., 0.]],
+                 outfile='path'):
+
         import nibabel as nib
         img = nib.load(nifti_file)
         hdr = img.header.copy()
@@ -233,12 +291,16 @@ class nifti_set_affine():
 
 
 class nifti_binarize_threshold():
+    """
+    docstring to be completed
+    """
     def __init__(self,
                  image='path',
                  threshold=1.0,
                  val_below=0.0,
                  val_equal_above=1.0,
                  output_file='path'):
+
         import nibabel
         self.outFile = output_file
         localizer_img = nibabel.load(image)
@@ -255,7 +317,13 @@ class nifti_binarize_threshold():
 
 
 class nifti_four_to_three:
-    def __init__(self, image_nii_4D='path', out_directory='path'):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image_nii_4D='path',
+                 out_directory='path'):
+
         import nibabel as nib
         import os
         imgs = nib.four_to_three(nib.load(image_nii_4D))
@@ -274,7 +342,9 @@ class nifti_four_to_three:
 
 
 class Nifti_rawInfo():
-
+    """
+    docstring to be completed
+    """
     def __init__(self,
                  nii_image='path',
                  structarr="enumerate(('sizeof_hdr', 'data_type', 'db_name', 'extents',\
@@ -301,7 +371,13 @@ class Nifti_rawInfo():
 
 
 class Nifti_orientations_aff2axcodes():
-    def __init__(self, nii_image='path', **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 nii_image='path',
+                 **options):
+
         import nibabel as nib
         img = nib.load(nii_image)
         self.axcodes = nib.orientations.aff2axcodes(img.affine, **options)
@@ -313,7 +389,13 @@ class Nifti_orientations_aff2axcodes():
 
 
 class Nifti_orientations_axcodes2ornt():
-    def __init__(self, axcodes=('F', 'L', 'U'), **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 axcodes=('F', 'L', 'U'),
+                 **options):
+
         import nibabel as nib
         self.ornt = nib.orientations.axcodes2ornt(axcodes, **options)
 
@@ -324,7 +406,13 @@ class Nifti_orientations_axcodes2ornt():
 
 
 class Nifti_orientations_apply_orientation():
-    def __init__(self, nii_image='path', ornt=[[0.0]]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 nii_image='path',
+                 ornt=[[0.0]]):
+
         import nibabel as nib
         nii_img = nib.load(nii_image)
         nii_data = nii_img.get_fdata()
@@ -337,7 +425,15 @@ class Nifti_orientations_apply_orientation():
 
 
 class Nifti_resize():
-    def __init__(self, nii_image='path', out_image='path', new_size=[128, 128, 32], center_correction=False):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 nii_image='path',
+                 out_image='path',
+                 new_size=[128, 128, 32],
+                 center_correction=False):
+
         import SimpleITK as sitk
         img = sitk.ReadImage(nii_image)
         old_spacing = img.GetSpacing()
@@ -383,7 +479,15 @@ class Nifti_resize():
 
 
 class Nifti_resize_4d():
-    def __init__(self, nii_image='path', out_image='path', new_size=[128, 128, 32, 4], interpolation="enumerate(('linear', 'NearestNeighbor', 'BSpline'))"):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 nii_image='path',
+                 out_image='path',
+                 new_size=[128, 128, 32, 4],
+                 interpolation="enumerate(('linear', 'NearestNeighbor', 'BSpline'))"):
+
         import SimpleITK as sitk
         img = sitk.ReadImage(nii_image)
 

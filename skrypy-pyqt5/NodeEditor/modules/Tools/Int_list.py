@@ -1,5 +1,12 @@
 class int_list_add_element_dyn:
-    def __init__(self, list_int_in=[0], int_in=0, **dynamicsInputs):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 list_int_in=[0],
+                 int_in=0,
+                 **dynamicsInputs):
+
         self.outList = list_int_in
         self.outList.append(int_in)
         for di in dynamicsInputs:
@@ -12,7 +19,13 @@ class int_list_add_element_dyn:
 
 
 class int_list_extend_dyn():
-    def __init__(self, list_int_in=[0], **dynamicsInputs):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 list_int_in=[0],
+                 **dynamicsInputs):
+
         self.listConcat = [list_int_in.copy()]
         for di in dynamicsInputs:
             self.listConcat.append(dynamicsInputs[di].copy())
@@ -24,7 +37,13 @@ class int_list_extend_dyn():
 
 
 class int_list_getElement:
-    def __init__(self, list_int_in=[0], index=0):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 list_int_in=[0],
+                 index=0):
+
         self.outVal = list_int_in[index]
 
     def out_list_indexed(self) -> int:
@@ -34,7 +53,12 @@ class int_list_getElement:
 
 
 class int_list_length():
-    def __init__(self, list_int_in=[0]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 list_int_in=[0]):
+
         self.len = len(list_int_in)
 
     def length(self) -> int:
@@ -44,8 +68,14 @@ class int_list_length():
 
 
 class int_list_operations_dyn():
-    def __init__(self, operation="enumerate(('add', 'sub', 'mul', 'div'))",
-                 list_float_in=[0], **dynamicsInputs):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 operation="enumerate(('add', 'sub', 'mul', 'div'))",
+                 list_float_in=[0],
+                 **dynamicsInputs):
+
         self.result = list_float_in.copy()
         self.remain = [0 for i in self.result]
         if operation == 'add':
@@ -72,7 +102,12 @@ class int_list_operations_dyn():
 
 
 class int_list_reverse():
-    def __init__(self, list_int_in=[0]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 list_int_in=[0]):
+
         self.rev = list(reversed(list_int_in))
 
     def list_reversed(self) -> list[int]:
@@ -95,7 +130,9 @@ class int_list_to_float_list():
     Note:
         GUI: no
     """
-    def __init__(self, list_int_in=[0]):
+    def __init__(self,
+                 list_int_in=[0]):
+
         self.outlistfloat = [float(i) for i in list_int_in]
 
     def outListFloat(self) -> list[float]:

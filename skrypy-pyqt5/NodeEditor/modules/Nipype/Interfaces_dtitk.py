@@ -5,7 +5,10 @@ class dtitk_AffScalarVol:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", **options):
+    def __init__(self,
+                 in_file="path",
+                 **options):
+                 
         from nipype.interfaces.dtitk.registration import AffScalarVol
         at = AffScalarVol()
         at.inputs.in_file = in_file
@@ -26,7 +29,10 @@ class dtitk_AffSymTensor3DVol:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", **options):
+    def __init__(self,
+                 in_file="path",
+                 **options):
+                 
         from nipype.interfaces.dtitk.registration import AffSymTensor3DVol
         at = AffSymTensor3DVol()
         at.inputs.in_file = in_file
@@ -47,7 +53,14 @@ class dtitk_Affine:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, fixed_file="path", moving_file="path", similarity_metric="enumerate(('EDS','GDS','DDS','NMI'))", sampling_xyz=(0,), ftol=0.0, **options):
+    def __init__(self,
+                 fixed_file="path",
+                 moving_file="path",
+                 similarity_metric="enumerate(('EDS','GDS','DDS','NMI'))",
+                 sampling_xyz=(0,),
+                 ftol=0.0,
+                 **options):
+                 
         from nipype.interfaces.dtitk.registration import Affine
         at = Affine()
         at.inputs.fixed_file = fixed_file
@@ -75,7 +88,14 @@ class dtitk_BinThresh:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", lower_bound=0.0, upper_bound=0.0, inside_value=0.0, outside_value=0.0, **options):
+    def __init__(self,
+                 in_file="path",
+                 lower_bound=0.0,
+                 upper_bound=0.0,
+                 inside_value=0.0,
+                 outside_value=0.0,
+                 **options):
+                 
         from nipype.interfaces.dtitk.utils import BinThresh
         at = BinThresh()
         at.inputs.in_file = in_file
@@ -100,7 +120,11 @@ class dtitk_ComposeXfm:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_df="path", in_aff="path", **options):
+    def __init__(self,
+                 in_df="path",
+                 in_aff="path",
+                 **options):
+                 
         from nipype.interfaces.dtitk.registration import ComposeXfm
         at = ComposeXfm()
         at.inputs.in_df = in_df
@@ -122,7 +146,12 @@ class dtitk_Diffeo:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, legacy='', n_iters=0, ftol=0.0, **options):
+    def __init__(self,
+                 legacy='',
+                 n_iters=0,
+                 ftol=0.0,
+                 **options):
+                 
         from nipype.interfaces.dtitk.registration import Diffeo
         at = Diffeo()
         at.inputs.legacy = legacy
@@ -148,7 +177,11 @@ class dtitk_DiffeoScalarVol:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", transform="path", **options):
+    def __init__(self,
+                 in_file="path",
+                 transform="path",
+                 **options):
+                 
         from nipype.interfaces.dtitk.registration import DiffeoScalarVol
         at = DiffeoScalarVol()
         at.inputs.in_file = in_file
@@ -170,7 +203,11 @@ class dtitk_DiffeoSymTensor3DVol:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", transform="path", **options):
+    def __init__(self,
+                 in_file="path",
+                 transform="path",
+                 **options):
+                 
         from nipype.interfaces.dtitk.registration import DiffeoSymTensor3DVol
         at = DiffeoSymTensor3DVol()
         at.inputs.in_file = in_file
@@ -192,7 +229,14 @@ class dtitk_Rigid:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, fixed_file="path", moving_file="path", similarity_metric="enumerate(('EDS','GDS','DDS','NMI'))", sampling_xyz=(0,), ftol=0.0, **options):
+    def __init__(self,
+                 fixed_file="path",
+                 moving_file="path",
+                 similarity_metric="enumerate(('EDS','GDS','DDS','NMI'))",
+                 sampling_xyz=(0,),
+                 ftol=0.0,
+                 **options):
+                 
         from nipype.interfaces.dtitk.registration import Rigid
         at = Rigid()
         at.inputs.fixed_file = fixed_file
@@ -220,7 +264,10 @@ class dtitk_SVAdjustVoxSp:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", **options):
+    def __init__(self,
+                 in_file="path",
+                 **options):
+                 
         from nipype.interfaces.dtitk.utils import SVAdjustVoxSp
         at = SVAdjustVoxSp()
         at.inputs.in_file = in_file
@@ -241,7 +288,10 @@ class dtitk_SVResample:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", **options):
+    def __init__(self,
+                 in_file="path",
+                 **options):
+                 
         from nipype.interfaces.dtitk.utils import SVResample
         at = SVResample()
         at.inputs.in_file = in_file
@@ -262,7 +312,10 @@ class dtitk_TVAdjustVoxSp:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", **options):
+    def __init__(self,
+                 in_file="path",
+                 **options):
+                 
         from nipype.interfaces.dtitk.utils import TVAdjustVoxSp
         at = TVAdjustVoxSp()
         at.inputs.in_file = in_file
@@ -283,7 +336,10 @@ class dtitk_TVResample:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", **options):
+    def __init__(self,
+                 in_file="path",
+                 **options):
+                 
         from nipype.interfaces.dtitk.utils import TVResample
         at = TVResample()
         at.inputs.in_file = in_file
@@ -304,7 +360,10 @@ class dtitk_TVtool:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", **options):
+    def __init__(self,
+                 in_file="path",
+                 **options):
+                 
         from nipype.interfaces.dtitk.utils import TVtool
         at = TVtool()
         at.inputs.in_file = in_file

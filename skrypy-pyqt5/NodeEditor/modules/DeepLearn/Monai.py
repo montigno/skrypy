@@ -1,5 +1,10 @@
 class monai_config_print_config():
-    def __init__(self, **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 **options):
+
         from monai.config import print_config
         self.print_out = print_config()
 
@@ -7,7 +12,13 @@ class monai_config_print_config():
 
 
 class monai_transforms_LoadImaged():
-    def __init__(self, keys=["image", "label"], **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 keys=["image", "label"],
+                 **options):
+
         from monai.transforms import LoadImaged
         self.loadImg = LoadImaged(keys, **options)
 
@@ -68,7 +79,10 @@ class monai_transforms_compose():
         dependencies: monai
         GUI: no
     """
-    def __init__(self, transforms=[''], **options):
+    def __init__(self,
+                 transforms=[''],
+                 **options):
+
         from monai.transforms import compose
         self.comp = compose(*transforms, **options)
 
@@ -95,7 +109,10 @@ class monai_transforms_EnsureChannelFirstd():
         dependencies: monai
         GUI: no
     """
-    def __init__(self, keys=['image'], **options):
+    def __init__(self,
+                 keys=['image'],
+                 **options):
+
         from monai.transforms import EnsureChannelFirstd
         self.ens = EnsureChannelFirstd(keys, **options)
 
@@ -106,6 +123,11 @@ class monai_transforms_EnsureChannelFirstd():
 
 
 class monai_utils_set_determinism():
-    def __init__(self, **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 **options):
+
         from monai.utils import set_determinism
         set_determinism(**options)

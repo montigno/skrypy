@@ -1,5 +1,10 @@
 class clean_RAM():
-    def __init__(self, sudo_password=''):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 sudo_password=''):
+
         # from NodeEditor.modules.Environment.authentification import passwd_dialog
         from subprocess import Popen, PIPE
 
@@ -21,7 +26,12 @@ class clean_RAM():
 
 
 class clean_SWAP():
-    def __init__(self, sudo_password=''):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 sudo_password=''):
+
         # from NodeEditor.modules.Environment.authentification import passwd_dialog
         from subprocess import Popen, PIPE
 

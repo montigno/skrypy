@@ -46,5 +46,13 @@ class antspy_create_warped_grid():
     >>> mywarpedgrid = ants.create_warped_grid( mygr, grid_directions=(False,True),
                             transform=mytx['fwdtransforms'], fixed_reference_image=fi )
     """
-    def __init__(self, image='path', grid_step=10, grid_width=2, grid_directions=(True, True), foreground=1, background=0, **options):
+    def __init__(self,
+                 image='path',
+                 grid_step=10,
+                 grid_width=2,
+                 grid_directions=(True, True),
+                 foreground=1,
+                 background=0,
+                 **options):
+
         pass

@@ -4,6 +4,7 @@ class mri_conv_bruker_to_nifti:
                  naming='PatientName/StudyName/CreationDate-SeqNumber-Protocol-SequenceName-AcquisitionTime',
                  path_export='path',
                  bvals_bvecs=False):
+
         from subprocess import Popen, PIPE
 
         self.output = []
@@ -38,6 +39,7 @@ class mri_conv_philips_to_nifti:
                  naming='PatientName/StudyName/CreationDate-SeqNumber-Protocol-SequenceName-AcquisitionTime',
                  path_export='path',
                  bvals_bvecs=False):
+
         from subprocess import Popen, PIPE
 
         self.output = []
@@ -77,6 +79,7 @@ class mri_conv_bids_to_nifti:
                  naming='PatientName/StudyName/CreationDate-SeqNumber-Protocol-SequenceName-AcquisitionTime',
                  path_export='path',
                  bvals_bvecs=False):
+
         from subprocess import Popen, PIPE
 
         self.output = []
@@ -114,6 +117,7 @@ class mri_conv_dicom_to_nifti:
                  naming='PatientName/StudyName/CreationDate-SeqNumber-Protocol-SequenceName-AcquisitionTime',
                  path_export='path',
                  bvals_bvecs=False):
+
         from subprocess import Popen, PIPE
 
         self.output = []
@@ -147,7 +151,10 @@ class mri_conv_dicom_to_nifti:
 
 
 class mri_conv_GUI:
-    def __init__(self, export_path='path', nifti_naming='PatientName/StudyName/Protocol-SerialNumber-SequenceName'):
+    def __init__(self,
+                 export_path='path',
+                 nifti_naming='PatientName/StudyName/Protocol-SerialNumber-SequenceName'):
+
         import subprocess
         import os
         from glob import glob

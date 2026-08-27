@@ -5,7 +5,10 @@ class r_RCommand:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, script='', **options):
+    def __init__(self,
+                 script='',
+                 **options):
+                 
         from nipype.interfaces.r import RCommand
         at = RCommand()
         at.inputs.script = script

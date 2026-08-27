@@ -1,5 +1,10 @@
 class path_root():
-    def __init__(self, path_in='path'):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 path_in='path'):
+
         import os
         self.dir = os.path.dirname(os.path.abspath(path_in))
 
@@ -10,7 +15,12 @@ class path_root():
 
 
 class path_exists():
-    def __init__(self, path_in='path'):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 path_in='path'):
+
         import os
         self.file_exists = False
         if path_in != 'path':
@@ -23,7 +33,12 @@ class path_exists():
 
 
 class path_get_fileName():
-    def __init__(self, path_in='path'):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 path_in='path'):
+
         import os
 
         self.filename = None
@@ -39,7 +54,12 @@ class path_get_fileName():
 
 
 class path_separate():
-    def __init__(self, path_in="path"):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 path_in="path"):
+
         import os
         self.dir = os.path.dirname(path_in)
         tmp = os.path.basename(path_in)
@@ -60,7 +80,12 @@ class path_separate():
 
 
 class path_separate_2ext():
-    def __init__(self, path_in="path"):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 path_in="path"):
+
         import os
         self.dir = os.path.dirname(path_in)
         tmp = os.path.basename(path_in)
@@ -81,7 +106,14 @@ class path_separate_2ext():
 
 
 class path_join_dyn():
-    def __init__(self, path_in='path', path_name='', **dynamicsInputs):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 path_in='path',
+                 path_name='',
+                 **dynamicsInputs):
+
         import os
         self.outputFile = os.path.join(path_in, str(path_name))
         for di in dynamicsInputs:
@@ -94,7 +126,13 @@ class path_join_dyn():
 
 
 class path_to_list_dyn():
-    def __init__(self, path_in='path', **dynamicsInputs):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 path_in='path',
+                 **dynamicsInputs):
+
         self.outListPath = [path_in]
         for di in dynamicsInputs:
             self.outListPath.append(dynamicsInputs[di])
@@ -106,7 +144,13 @@ class path_to_list_dyn():
 
 
 class path_rstrip:
-    def __init__(self, path_in='path', chr=''):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 path_in='path',
+                 chr=''):
+
         self.outPath = path_in.rstrip(chr)
 
     def newPath(self) -> None:
@@ -116,7 +160,13 @@ class path_rstrip:
 
 
 class path_change_extension:
-    def __init__(self, path_in='path', new_extension='.txt'):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 path_in='path',
+                 new_extension='.txt'):
+
         import os
         pre, ext = os.path.splitext(path_in)
         self.outPath = os.path.join(pre + new_extension)
@@ -128,7 +178,13 @@ class path_change_extension:
 
 
 class path_change_extension_2ext:
-    def __init__(self, path_in='path', new_extension='.txt'):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 path_in='path',
+                 new_extension='.txt'):
+
         import os
         pre, ext1 = os.path.splitext(path_in)
         pre, ext2 = os.path.splitext(pre)
@@ -141,10 +197,14 @@ class path_change_extension_2ext:
 
 
 class path_add_suffixprefix:
+    """
+    docstring to be completed
+    """
     def __init__(self,
                  path_in='path',
                  new_str='_new',
                  place="enumerate(('suffix','prefix'))"):
+
         import os
         from datetime import datetime
         dir = os.path.dirname(path_in)
@@ -165,10 +225,14 @@ class path_add_suffixprefix:
 
 
 class path_add_suffixprefix_2ext:
+    """
+    docstring to be completed
+    """
     def __init__(self,
                  path_in='path',
                  new_str='_new',
                  place="enumerate(('suffix','prefix'))"):
+
         import os
         from datetime import datetime
         dir = os.path.dirname(path_in)
@@ -190,7 +254,13 @@ class path_add_suffixprefix_2ext:
 
 
 class path_change_name:
-    def __init__(self, path_in='path', new_name='myname.txt'):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 path_in='path',
+                 new_name='myname.txt'):
+
         import os
         dir = os.path.dirname(path_in)
         self.newPath = os.path.join(dir, new_name)
@@ -202,7 +272,12 @@ class path_change_name:
 
 
 class path_last_path:
-    def __init__(self, path_in='path'):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 path_in='path'):
+
         import os
         self.last_path = os.path.basename(os.path.normpath(path_in))
 

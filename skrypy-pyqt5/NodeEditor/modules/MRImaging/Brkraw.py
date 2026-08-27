@@ -14,7 +14,10 @@ class brkraw_tonii():
         link_web:  https://brkraw.github.io/
                     (click Ctrl + U)
     """
-    def __init__(self, raw_data='path', **options):
+    def __init__(self,
+                 raw_data='path',
+                 **options):
+
         import subprocess
         lso = ["brkraw tonii"]
         for ef, ev in options.items():

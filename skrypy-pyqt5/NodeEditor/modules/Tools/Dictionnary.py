@@ -1,5 +1,8 @@
 class dict_new_value():
-    def __init__(self, key='', value=0.0):
+    def __init__(self,
+                 key='',
+                 value=0.0):
+
         self.new_dict = {}
         self.new_dict[key] = value
 
@@ -10,7 +13,11 @@ class dict_new_value():
 
 
 class dict_get_value_dyn():
-    def __init__(self, input_dict={}, tag='', **dynamicsInputs):
+    def __init__(self,
+                 input_dict={},
+                 tag='',
+                 **dynamicsInputs):
+
         if tag in input_dict:
             self.outValue = input_dict[tag]
             for di, vi in dynamicsInputs.items():
@@ -35,7 +42,11 @@ class dict_get_value_dyn():
 
 
 class dict_set_value_dyn():
-    def __init__(self, input_dict={}, key_value={}, **dynamicsInputs):
+    def __init__(self,
+                 input_dict={},
+                 key_value={},
+                 **dynamicsInputs):
+
         self.outValue = input_dict.copy()
         self.outValue.update(key_value)
         for di, vi in dynamicsInputs.items():
@@ -48,7 +59,9 @@ class dict_set_value_dyn():
 
 
 class dict_to_string():
-    def __init__(self, input_dict={}):
+    def __init__(self,
+                 input_dict={}):
+
         self.outValue = str(input_dict.copy())
 
     def dict_str(self) -> str:
@@ -58,7 +71,10 @@ class dict_to_string():
 
 
 class dict_zip_keys_values():
-    def __init__(self, coord=[''], value=['']):
+    def __init__(self,
+                 coord=[''],
+                 value=['']):
+
         self.setzip = zip(coord, value)
 
     def out_zipped(self) -> dict:
@@ -68,7 +84,9 @@ class dict_zip_keys_values():
 
 
 class dict_to_array():
-    def __init__(self, dict_in={}):
+    def __init__(self,
+                 dict_in={}):
+
         self.dictlist = []
         for key, value in dict_in.items():
             temp = [key, value]
@@ -81,7 +99,9 @@ class dict_to_array():
 
 
 class dict_list_keys_values():
-    def __init__(self, dict_in={}):
+    def __init__(self,
+                 dict_in={}):
+
         self.keyslist, self.valueslist = [], []
         for key, value in dict_in.items():
             self.keyslist.append(key)

@@ -1,5 +1,9 @@
 class os_environ:
+    """
+    docstring to be completed
+    """
     def __init__(self):
+
         import os
         self.dict_env = os.environ
 
@@ -22,6 +26,7 @@ class projet_path:
         GUI: no
     """
     def __init__(self):
+
         from NodeEditor.python.Diagram_Editor import getPathWork
         self.proj_path = getPathWork().pathWork()
         print("current projet path = ", self.proj_path)
@@ -33,7 +38,11 @@ class projet_path:
 
 
 class separator_path:
+    """
+    docstring to be completed
+    """
     def __init__(self):
+
         import os
         self.separator = os.sep
 

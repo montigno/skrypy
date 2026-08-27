@@ -1,5 +1,11 @@
 class dcm2niix():
-    def __init__(self, sourcedir='path', **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 sourcedir='path',
+                 **options):
+
         from subprocess import run
         import os
         if 'o' in options.keys():

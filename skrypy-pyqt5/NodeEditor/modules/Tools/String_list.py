@@ -1,5 +1,11 @@
 class string_list_to_array_dyn:
-    def __init__(self, string_list_in=[''], **dynamicsInputs):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 string_list_in=[''],
+                 **dynamicsInputs):
+
         self.stringArray = [string_list_in]
         for di in dynamicsInputs:
             self.stringArray.append(dynamicsInputs[di])
@@ -11,7 +17,12 @@ class string_list_to_array_dyn:
 
 
 class string_list_to_float_list():
-    def __init__(self, listStr=['']):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 listStr=['']):
+
         import numpy as np
         listStr = np.array(listStr)
         self.outlistfloat = list(listStr.astype(float))
@@ -23,7 +34,12 @@ class string_list_to_float_list():
 
 
 class string_list_to_int_list():
-    def __init__(self, ListString=['']):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 ListString=['']):
+
         from NodeEditor.api.defineTypeVariable import DefineTypeVariable
         typ, val = DefineTypeVariable(ListString).returntype()
         if typ == 'liststr':
@@ -40,7 +56,12 @@ class string_list_to_int_list():
 
 
 class string_list_to_tuple():
-    def __init__(self, ListString=['']):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 ListString=['']):
+
         from NodeEditor.api.defineTypeVariable import DefineTypeVariable
         typ, val = DefineTypeVariable(ListString).returntype()
         if typ == 'liststr':
@@ -55,7 +76,14 @@ class string_list_to_tuple():
 
 
 class string_list_add_element_dyn:
-    def __init__(self, list_stringIn=[''], elem='', **dynamicsInputs):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 list_stringIn=[''],
+                 elem='',
+                 **dynamicsInputs):
+
         self.stringList1 = list_stringIn.copy()
         self.stringList1.append(elem)
         for di in dynamicsInputs:
@@ -68,7 +96,12 @@ class string_list_add_element_dyn:
 
 
 class string_list_length():
-    def __init__(self, list_string_In=['']):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 list_string_In=['']):
+
         self.str_length = len(list_string_In)
 
     def file_length(self) -> int:
@@ -78,7 +111,13 @@ class string_list_length():
 
 
 class string_list_extend_dyn:
-    def __init__(self, list_string_In=[''], **dynamicsInputs):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 list_string_In=[''],
+                 **dynamicsInputs):
+
         self.stringList2 = list_string_In.copy()
         for di in dynamicsInputs:
             self.stringList2.extend(dynamicsInputs[di])
@@ -90,7 +129,14 @@ class string_list_extend_dyn:
 
 
 class string_list_index_sublist:
-    def __init__(self, in_string_list=[''], index_start=0, index_end=1):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 in_string_list=[''],
+                 index_start=0,
+                 index_end=1):
+
         self.res = in_string_list[index_start:index_end]
 
     def out_subarray(self) -> list[str]:
@@ -100,7 +146,13 @@ class string_list_index_sublist:
 
 
 class string_list_index:
-    def __init__(self, in_string_list=[''], index=0):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 in_string_list=[''],
+                 index=0):
+
         self.res = in_string_list[index]
 
     def out_element(self) -> str:
@@ -110,7 +162,13 @@ class string_list_index:
 
 
 class string_list_join:
-    def __init__(self, in_string_list=[''], separator=', '):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 in_string_list=[''],
+                 separator=', '):
+
         self.str_join = separator.join(in_string_list)
 
     def join_string(self) -> str:
@@ -120,7 +178,12 @@ class string_list_join:
 
 
 class string_list_remove_duplicate:
-    def __init__(self, in_string_list=['']):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 in_string_list=['']):
+
         self.new_list = list(set(in_string_list))
 
     def new_string_list(self) -> list[str]:
@@ -130,7 +193,13 @@ class string_list_remove_duplicate:
 
 
 class string_list_sort:
-    def __init__(self, in_string_list=[''], reverse=False):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 in_string_list=[''],
+                 reverse=False):
+
         self.new_list = sorted(in_string_list, reverse=reverse)
 
     def sorted_string_list(self) -> list[str]:
@@ -140,7 +209,13 @@ class string_list_sort:
 
 
 class string_get_index:
-    def __init__(self, in_string_list=[''], element_to_search=''):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 in_string_list=[''],
+                 element_to_search=''):
+
         self.indexf = in_string_list.index(element_to_search)
 
     def index_element(self) -> int:

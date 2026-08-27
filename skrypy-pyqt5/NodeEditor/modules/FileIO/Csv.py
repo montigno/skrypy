@@ -13,7 +13,11 @@ class csv_open_file:
         link_web: https://docs.python.org/3/library/csv.html
                         (click Ctrl + U)
     """
-    def __init__(self, file='path', access="enumerate(('row', 'column'))", **options):
+    def __init__(self,
+                 file='path',
+                 access="enumerate(('row', 'column'))",
+                 **options):
+
         import csv
         self.res = []
         if 'quoting' in options.keys():
@@ -52,7 +56,12 @@ class csv_save_file:
         link_web: https://docs.python.org/3/library/csv.html
                         (click Ctrl + U)
     """
-    def __init__(self, file_output='path', header=[''], data=[['']], **options):
+    def __init__(self,
+                 file_output='path',
+                 header=[''],
+                 data=[['']],
+                 **options):
+
         import csv
         delimiter = ','
         if 'transpose' in options:
@@ -88,7 +97,10 @@ class csv_reader_text:
         link_web: https://docs.python.org/3/library/csv.html
                         (click Ctrl + U)
     """
-    def __init__(self, txt='', **options):
+    def __init__(self,
+                 txt='',
+                 **options):
+
         import csv
         self.res = []
         if 'quoting' in options.keys():
@@ -107,7 +119,12 @@ class csv_reader_text:
 
 
 class csv_txt_to_array():
-    def __init__(self, csv_in=''):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 csv_in=''):
+
         import csv
         reader = csv.reader(csv_in, quoting=csv.QUOTE_NONNUMERIC)
         for row in reader:  # each row is a list

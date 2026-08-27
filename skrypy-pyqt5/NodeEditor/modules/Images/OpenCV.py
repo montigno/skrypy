@@ -1,5 +1,13 @@
 class openCV_fastNlMeansDenoising():
-    def __init__(self, src=[[0.0]], dst='path', h=3, templateWindowSize=7, searchWindowSize=21):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 src=[[0.0]],
+                 dst='path',
+                 h=3,
+                 templateWindowSize=7,searchWindowSize=21):
+
         import cv2 as cv
         import os
 
@@ -45,7 +53,10 @@ class openCV_imread():
         link_web: https://docs.opencv.org/3.4/d4/da8/group__imgcodecs.html#ga288b8b3da0892bd651fce07b3bbd3a56
                                 (click Ctrl + U)
     """
-    def __init__(self, filename='path', **options):
+    def __init__(self,
+                 filename='path',
+                 **options):
+
         import cv2
 
         flags = 0  # grayscale by default

@@ -1,9 +1,13 @@
 class MP3_Brain_Mask_PCNN3D():
+    """
+    docstring to be completed
+    """
     def __init__(self,
                  mat_eng='',
                  file_in='path',
                  file_out='path',
                  **options):
+
         import matlab.engine
         files_in, files_out = {}, {}
         options['flag_test'] = 0
@@ -23,12 +27,16 @@ class MP3_Brain_Mask_PCNN3D():
 
 
 class MP3_Arithmetic():
+    """
+    docstring to be completed
+    """
     def __init__(self,
                  mat_eng='',
                  img1='path',
                  img2='path',
                  file_out='path',
                  **options):
+
         import matlab.engine
         files_in, files_out = {}, {}
         options['flag_test'] = 0
@@ -50,11 +58,15 @@ class MP3_Arithmetic():
 
 
 class MP3_Reshape():
+    """
+    docstring to be completed
+    """
     def __init__(self,
                  mat_eng='',
                  img='path',
                  file_out='path',
                  **options):
+
         import matlab.engine
         files_in, files_out = {}, {}
         options['flag_test'] = 0
@@ -75,12 +87,16 @@ class MP3_Reshape():
 
 
 class MP3_MICO_BIAS_Estimation():
+    """
+    docstring to be completed
+    """
     def __init__(self,
                  mat_eng='',
                  img='path',
                  file_out='path',
                  folder_out='path',
                  **options):
+
         import matlab.engine
         from NodeEditor.modules.Tools.Path import path_add_suffixprefix
         files_in, files_out = {}, {}

@@ -1,5 +1,10 @@
 class follow_dict():
-    def __init__(self, inDict={}):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 inDict={}):
+
         self.inDict = inDict
 
     def outDict(self) -> dict:
@@ -9,7 +14,12 @@ class follow_dict():
 
 
 class follow_int_simple():
-    def __init__(self, inInt=0):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 inInt=0):
+
         self.inInt = inInt
 
     def outIn(self) -> int:
@@ -19,7 +29,12 @@ class follow_int_simple():
 
 
 class follow_float_simple():
-    def __init__(self, inFloat=0.0):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 inFloat=0.0):
+
         self.inFloat = inFloat
 
     def outFloat(self) -> float:
@@ -29,7 +44,12 @@ class follow_float_simple():
 
 
 class follow_string_simple():
-    def __init__(self, inString=''):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 inString=''):
+
         self.inString = inString
 
     def outString(self) -> str:
@@ -39,7 +59,12 @@ class follow_string_simple():
 
 
 class follow_boolean_simple():
-    def __init__(self, inBool=True):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 inBool=True):
+
         self.inBool = inBool
 
     def outBool(self) -> bool:
@@ -49,7 +74,12 @@ class follow_boolean_simple():
 
 
 class follow_int_list():
-    def __init__(self, listInt=[0]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 listInt=[0]):
+
         self.listInt = listInt
 
     def outListInt(self) -> list[int]:
@@ -59,7 +89,12 @@ class follow_int_list():
 
 
 class follow_float_list():
-    def __init__(self, listFloat=[0.0]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 listFloat=[0.0]):
+
         self.listFloat = listFloat
 
     def outListFloat(self) -> list[float]:
@@ -69,7 +104,12 @@ class follow_float_list():
 
 
 class follow_string_list():
-    def __init__(self, listString=['']):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 listString=['']):
+
         self.listString = listString
 
     def outListString(self) -> list[str]:
@@ -79,7 +119,12 @@ class follow_string_list():
 
 
 class follow_boolean_list():
-    def __init__(self, listBool=[True]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 listBool=[True]):
+
         self.listBool = listBool
 
     def outListBool(self) -> list[bool]:
@@ -89,7 +134,12 @@ class follow_boolean_list():
 
 
 class follow_int_array():
-    def __init__(self, arrayInt=[[0]]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 arrayInt=[[0]]):
+
         self.arrayInt = arrayInt
 
     def outArrayInt(self) -> list[list[int]]:
@@ -99,7 +149,12 @@ class follow_int_array():
 
 
 class follow_float_array():
-    def __init__(self, arrayFloat=[[0.0]]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 arrayFloat=[[0.0]]):
+
         self.arrayFloat = arrayFloat
 
     def outArrayFloat(self) -> list[list[float]]:
@@ -109,7 +164,12 @@ class follow_float_array():
 
 
 class follow_string_array():
-    def __init__(self, arrayString=[['']]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 arrayString=[['']]):
+
         self.arrayString = arrayString
 
     def outArrayString(self) -> list[list[str]]:
@@ -119,7 +179,12 @@ class follow_string_array():
 
 
 class follow_boolean_array():
-    def __init__(self, arrayBool=[[True]]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 arrayBool=[[True]]):
+
         self.arrayBool = arrayBool
 
     def outArrayBool(self) -> list[list[bool]]:
@@ -129,7 +194,12 @@ class follow_boolean_array():
 
 
 class follow_path_simple():
-    def __init__(self, in_path='path'):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 in_path='path'):
+
         self.outputPath = in_path
 
     def out_path(self) -> None:
@@ -139,7 +209,12 @@ class follow_path_simple():
 
 
 class follow_path_list():
-    def __init__(self, in_path=['path']):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 in_path=['path']):
+
         self.outputPath = in_path
 
     def out_path(self) -> list[None]:

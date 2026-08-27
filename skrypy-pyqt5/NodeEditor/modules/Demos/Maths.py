@@ -3,7 +3,13 @@ from typing import Tuple
 
 
 class CerclePlot:
-    def __init__(self, rayon=1.0, centre=(0.0, 0.0)) -> None:
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 rayon=1.0,
+                 centre=(0.0, 0.0)):
+
         self.rayon: float = rayon
         self.centre: Tuple[float, float] = centre
         self.__tracer()

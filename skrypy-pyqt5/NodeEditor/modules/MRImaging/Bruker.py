@@ -11,7 +11,10 @@ class bruker_search_value():
     Note:
         GUI: no
     """
-    def __init__(self, file='path', param=''):
+    def __init__(self,
+                 file='path',
+                 param=''):
+
         import os
         if '=' not in param:
             param += '='
@@ -69,7 +72,10 @@ class bruker_get_value():
     Note:
         GUI: no
     """
-    def __init__(self, file='path', param=''):
+    def __init__(self,
+                 file='path',
+                 param=''):
+
         import os
         import numpy as np
 
@@ -161,7 +167,13 @@ class bruker_get_value():
 
 
 class bruker_get_value2():
-    def __init__(self, file='path', param=''):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 file='path',
+                 param=''):
+
         import os
 
         if '=' not in param:
@@ -222,7 +234,11 @@ class bruker_normalize_image:
     Note:
         GUI: no
     """
-    def __init__(self, image=[[0.0]], slope=[0.0], offsets=[0.0]):
+    def __init__(self,
+                 image=[[0.0]],
+                 slope=[0.0],
+                 offsets=[0.0]):
+
         import numpy as np
         dim = image.shape
         if len(dim) == 3:
@@ -266,7 +282,9 @@ class bruker_get_metadata_files:
     Note:
         GUI: no
     """
-    def __init__(self, bruker_file='path'):
+    def __init__(self,
+                 bruker_file='path'):
+
         import os
         if bruker_file.endswith('2dseq'):
             dirt = os.path.dirname(bruker_file)

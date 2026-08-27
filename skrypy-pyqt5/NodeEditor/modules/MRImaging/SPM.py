@@ -1,5 +1,14 @@
 class spm_imcalc():
-    def __init__(self, mat_eng='', Vi=['path'], Vo='path', f='', **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 mat_eng='',
+                 Vi=['path'],
+                 Vo='path',
+                 f='',
+                 **options):
+
         import matlab.engine
         # list_opt_arg = ['dmtx', 'mask', 'interp', 'dtype']
         # list_opt_val = [0, 0, 0.0, 4]
@@ -19,7 +28,14 @@ class spm_imcalc():
 
 
 class spm_reslice():
-    def __init__(self, mat_eng='', P=['path'], **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 mat_eng='',
+                 P=['path'],
+                 **options):
+
         import matlab.engine
         mat_eng.spm_reslice(P, options)
         self.mat_eng = mat_eng

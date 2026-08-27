@@ -1,5 +1,9 @@
 class Scipy_statLoogiddtic:
+    """
+    docstring to be completed
+    """
     def __init__(self):
+
         from scipy.interpolate import interp1d
         import matplotlib.pyplot as plt
         import numpy as np
@@ -17,7 +21,17 @@ class Scipy_statLoogiddtic:
 
 
 class Fit_T1:
-    def __init__(self, x=[0.0], y=[0.0], Mo=100.0, T1=1.0, C=1.0, n=20):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 x=[0.0],
+                 y=[0.0],
+                 Mo=100.0,
+                 T1=1.0,
+                 C=1.0,
+                 n=20):
+
         import numpy as np
         import scipy.optimize as opt
         import matplotlib.pyplot as plt
@@ -55,7 +69,17 @@ class Fit_T1:
 
 
 class Fit_T2:
-    def __init__(self, x=[0.0], y=[0.0], Mo=100.0, T2=1.0, C=1.0, n=20):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 x=[0.0],
+                 y=[0.0],
+                 Mo=100.0,
+                 T2=1.0,
+                 C=1.0,
+                 n=20):
+
         import numpy as np
         import scipy.optimize as opt
         import matplotlib.pyplot as plt

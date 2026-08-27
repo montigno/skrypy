@@ -1,5 +1,12 @@
 class path_array_getElement():
-    def __init__(self, array_path_in=[['path']], index_row=0, index_col=0):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 array_path_in=[['path']],
+                 index_row=0,
+                 index_col=0):
+
         self.outPath = array_path_in[index_row][index_col]
 
     def outPath(self) -> None:
@@ -9,7 +16,12 @@ class path_array_getElement():
 
 
 class path_array_flatten():
-    def __init__(self, array_path_in=[['path']]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 array_path_in=[['path']]):
+
         self.rt = self.__flatten(array_path_in)
 
     def __flatten(self, A):

@@ -1,5 +1,10 @@
 class openImageJ():
-    def __init__(self, files=['path']):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 files=['path']):
+
         from subprocess import Popen
         import os
 
@@ -32,7 +37,12 @@ class openImageJ():
 
 
 class openImagej_multiFiles():
-    def __init__(self, file=['path']):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 file=['path']):
+
         from subprocess import Popen
         import os
         list_files = '|||'.join(file)
@@ -52,7 +62,14 @@ class openImagej_multiFiles():
 
 
 class ImageJ_atlas():
-    def __init__(self, atlas_template='path', atlas_label='path', label_txt='path'):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 atlas_template='path',
+                 atlas_label='path',
+                 label_txt='path'):
+
         from subprocess import Popen
         import os
         import tempfile
@@ -79,7 +96,16 @@ class ImageJ_atlas():
 
 
 class ImageJ_atlas_reg():
-    def __init__(self, file_in='path', atlas_template='path', atlas_label='path', label_txt='path', other_files=['path']):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 file_in='path',
+                 atlas_template='path',
+                 atlas_label='path',
+                 label_txt='path',
+                 other_files=['path']):
+
         from subprocess import Popen
         import os
         import tempfile
@@ -118,7 +144,12 @@ class ImageJ_atlas_reg():
 
 
 class ImageJ_macro():
-    def __init__(self, file_macro='path'):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 file_macro='path'):
+
         from subprocess import Popen
         import os
         option = '-macro'
@@ -132,7 +163,13 @@ class ImageJ_macro():
 
 
 class ImageJ_macrofile():
-    def __init__(self, pathImage='path', filemsacro='path'):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 pathImage='path',
+                 filemsacro='path'):
+
         from subprocess import Popen
         import os
         option = '-macro'
@@ -146,7 +183,12 @@ class ImageJ_macrofile():
 
 
 class ImageJ_read_roi():
-    def __init__(self, roiIJ_file='path'):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 roiIJ_file='path'):
+
         import read_roi
 
         if roiIJ_file.endswith('.roi'):
@@ -161,7 +203,14 @@ class ImageJ_read_roi():
 
 
 class ImageJ_get_pixels_in_roi():
-    def __init__(self, image_in=[[0.0]], roiIJ_file='path', roi_name=''):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image_in=[[0.0]],
+                 roiIJ_file='path',
+                 roi_name=''):
+
         from NodeEditor.api.get_mask_ij import get_mask
         import read_roi
         import numpy as np
@@ -198,7 +247,14 @@ class ImageJ_get_pixels_in_roi():
 
 
 class ImageJ_get_coord_roi():
-    def __init__(self, image_in=[[0.0]], roiIJ_file='path', roi_name=''):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image_in=[[0.0]],
+                 roiIJ_file='path',
+                 roi_name=''):
+
         from NodeEditor.api.get_mask_ij import get_mask
         import read_roi
         import numpy as np
@@ -226,7 +282,13 @@ class ImageJ_get_coord_roi():
 
 
 class ImageJ_command():
-    def __init__(self, command='', verbose=True):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 command='',
+                 verbose=True):
+
         from subprocess import Popen
         import os
         # subprocess.Popen(['ImageJ', '-eval', command], shell=False)
@@ -252,6 +314,7 @@ class ImageJ_RelaxationTime_profil():
                  time_type="enumerate(('EchoTime',\
                                        'RepetitionTime',\
                                        'InversionTime'))"):
+
         from subprocess import Popen
         import os
         import tempfile

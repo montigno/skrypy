@@ -1,5 +1,11 @@
 class signal_PWM:
-    def __init__(self, sig=[0.0], frequency=30.0):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 sig=[0.0],
+                 frequency=30.0):
+
         from scipy import signal
         import numpy as np
 
@@ -16,7 +22,13 @@ class signal_PWM:
 
 
 class signal_add_noise:
-    def __init__(self, x=[0.0], scale=1.0):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 x=[0.0],
+                 scale=1.0):
+
         import numpy as np
         x = np.array(x)
         self.noisy_sig = np.add(x, np.random.normal(size=len(x), scale=scale))

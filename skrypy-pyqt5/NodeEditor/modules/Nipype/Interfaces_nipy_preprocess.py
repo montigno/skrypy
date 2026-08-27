@@ -5,7 +5,11 @@ class nipy_FmriRealign4d():
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file=['path'], tr=1.0, **options):
+    def __init__(self,
+                 in_file=['path'],
+                 tr=1.0,
+                 **options):
+                 
         from nipype.interfaces.nipy.preprocess import FmriRealign4d
         realigner = FmriRealign4d()
         realigner.inputs.in_file = in_file
@@ -30,7 +34,10 @@ class nipy_SpaceTimeRealigner():
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file=['path'], **options):
+    def __init__(self,
+                 in_file=['path'],
+                 **options):
+                 
         from nipype.interfaces.nipy.preprocess import SpaceTimeRealigner
         realigner = SpaceTimeRealigner()
         realigner.inputs.in_file = in_file
@@ -48,7 +55,10 @@ class nipy_SpaceTimeRealigner():
 
 
 class nipy_Trim():
-    def __init__(self, in_file='path', **options):
+    def __init__(self,
+                 in_file='path',
+                 **options):
+                 
         from nipype.interfaces.nipy.preprocess import Trim
         trim = Trim()
         trim.inputs.in_file = in_file

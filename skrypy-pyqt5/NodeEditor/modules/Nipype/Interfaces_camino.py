@@ -5,7 +5,11 @@ class camino_AnalyzeHeader:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", datatype="enumerate(('byte','char','[u]short','[u]int','float','complex','double'))", **options):
+    def __init__(self,
+                 in_file="path",
+                 datatype="enumerate(('byte','char','[u]short','[u]int','float','complex','double'))",
+                 **options):
+                 
         from nipype.interfaces.camino.convert import AnalyzeHeader
         at = AnalyzeHeader()
         at.inputs.in_file = in_file
@@ -27,7 +31,10 @@ class camino_ComputeEigensystem:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", **options):
+    def __init__(self,
+                 in_file="path",
+                 **options):
+                 
         from nipype.interfaces.camino.dti import ComputeEigensystem
         at = ComputeEigensystem()
         at.inputs.in_file = in_file
@@ -48,7 +55,10 @@ class camino_ComputeFractionalAnisotropy:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", **options):
+    def __init__(self,
+                 in_file="path",
+                 **options):
+                 
         from nipype.interfaces.camino.dti import ComputeFractionalAnisotropy
         at = ComputeFractionalAnisotropy()
         at.inputs.in_file = in_file
@@ -69,7 +79,10 @@ class camino_ComputeMeanDiffusivity:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", **options):
+    def __init__(self,
+                 in_file="path",
+                 **options):
+                 
         from nipype.interfaces.camino.dti import ComputeMeanDiffusivity
         at = ComputeMeanDiffusivity()
         at.inputs.in_file = in_file
@@ -90,7 +103,10 @@ class camino_ComputeTensorTrace:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", **options):
+    def __init__(self,
+                 in_file="path",
+                 **options):
+                 
         from nipype.interfaces.camino.dti import ComputeTensorTrace
         at = ComputeTensorTrace()
         at.inputs.in_file = in_file
@@ -111,7 +127,11 @@ class camino_Conmat:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", target_file="path", **options):
+    def __init__(self,
+                 in_file="path",
+                 target_file="path",
+                 **options):
+                 
         from nipype.interfaces.camino.connectivity import Conmat
         at = Conmat()
         at.inputs.in_file = in_file
@@ -136,7 +156,11 @@ class camino_DT2NIfTI:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", header_file="path", **options):
+    def __init__(self,
+                 in_file="path",
+                 header_file="path",
+                 **options):
+                 
         from nipype.interfaces.camino.convert import DT2NIfTI
         at = DT2NIfTI()
         at.inputs.in_file = in_file
@@ -164,7 +188,11 @@ class camino_DTIFit:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", scheme_file="path", **options):
+    def __init__(self,
+                 in_file="path",
+                 scheme_file="path",
+                 **options):
+                 
         from nipype.interfaces.camino.dti import DTIFit
         at = DTIFit()
         at.inputs.in_file = in_file
@@ -186,7 +214,10 @@ class camino_DTLUTGen:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, scheme_file="path", **options):
+    def __init__(self,
+                 scheme_file="path",
+                 **options):
+                 
         from nipype.interfaces.camino.dti import DTLUTGen
         at = DTLUTGen()
         at.inputs.scheme_file = scheme_file
@@ -207,7 +238,11 @@ class camino_DTMetric:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, eigen_data="path", metric="enumerate(('fa','md','rd','l1','l2','l3','tr','ra','2dfa','cl','cp','cs'))", **options):
+    def __init__(self,
+                 eigen_data="path",
+                 metric="enumerate(('fa','md','rd','l1','l2','l3','tr','ra','2dfa','cl','cp','cs'))",
+                 **options):
+                 
         from nipype.interfaces.camino.dti import DTMetric
         at = DTMetric()
         at.inputs.eigen_data = eigen_data
@@ -229,7 +264,11 @@ class camino_FSL2Scheme:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, bvec_file="path", bval_file="path", **options):
+    def __init__(self,
+                 bvec_file="path",
+                 bval_file="path",
+                 **options):
+                 
         from nipype.interfaces.camino.convert import FSL2Scheme
         at = FSL2Scheme()
         at.inputs.bvec_file = bvec_file
@@ -251,7 +290,10 @@ class camino_Image2Voxel:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", **options):
+    def __init__(self,
+                 in_file="path",
+                 **options):
+                 
         from nipype.interfaces.camino.convert import Image2Voxel
         at = Image2Voxel()
         at.inputs.in_file = in_file
@@ -272,7 +314,12 @@ class camino_ImageStats:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_files=["path"], stat="enumerate(('min','max','mean','median','sum','std','var'))", output_root="path", **options):
+    def __init__(self,
+                 in_files=["path"],
+                 stat="enumerate(('min','max','mean','median','sum','std','var'))",
+                 output_root="path",
+                 **options):
+                 
         from nipype.interfaces.camino.utils import ImageStats
         at = ImageStats()
         at.inputs.in_files = in_files
@@ -295,7 +342,12 @@ class camino_LinRecon:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", scheme_file="path", qball_mat="path", **options):
+    def __init__(self,
+                 in_file="path",
+                 scheme_file="path",
+                 qball_mat="path",
+                 **options):
+                 
         from nipype.interfaces.camino.odf import LinRecon
         at = LinRecon()
         at.inputs.in_file = in_file
@@ -318,7 +370,14 @@ class camino_MESD:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", inverter="enumerate(('SPIKE','PAS'))", inverter_param=0.0, scheme_file="path", **options):
+    def __init__(self,
+                 in_file="path",
+                 inverter="enumerate(('SPIKE','PAS'))",
+                 inverter_param=0.0,
+                 scheme_file="path",
+                 **options):
+                 
+                 
         from nipype.interfaces.camino.odf import MESD
         at = MESD()
         at.inputs.in_file = in_file
@@ -342,7 +401,13 @@ class camino_ModelFit:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, model="enumerate(('dt','restore','algdt','nldt_pos','nldt','ldt_wtd','adc','ball_stick','cylcyl dt','cylcyl restore','cylcyl algdt','cylcyl nldt_pos','cylcyl nldt','cylcyl ldt_wtd','cylcyl adc','cylcyl ball_stick','cylcyl_eq dt','cylcyl_eq restore','cylcyl_eq algdt','cylcyl_eq nldt_pos','cylcyl_eq nldt','cylcyl_eq ldt_wtd','cylcyl_eq adc','cylcyl_eq ball_stick','pospos dt','pospos restore','pospos algdt','pospos nldt_pos','pospos nldt','pospos ldt_wtd','pospos adc','pospos ball_stick','pospos_eq dt','pospos_eq restore','pospos_eq algdt','pospos_eq nldt_pos','pospos_eq nldt','pospos_eq ldt_wtd','pospos_eq adc','pospos_eq ball_stick','poscyl dt','poscyl restore','poscyl algdt','poscyl nldt_pos','poscyl nldt','poscyl ldt_wtd','poscyl adc','poscyl ball_stick','poscyl_eq dt','poscyl_eq restore','poscyl_eq algdt','poscyl_eq nldt_pos','poscyl_eq nldt','poscyl_eq ldt_wtd','poscyl_eq adc','poscyl_eq ball_stick','cylcylcyl dt','cylcylcyl restore','cylcylcyl algdt','cylcylcyl nldt_pos','cylcylcyl nldt','cylcylcyl ldt_wtd','cylcylcyl adc','cylcylcyl ball_stick','cylcylcyl_eq dt','cylcylcyl_eq restore','cylcylcyl_eq algdt','cylcylcyl_eq nldt_pos','cylcylcyl_eq nldt','cylcylcyl_eq ldt_wtd','cylcylcyl_eq adc','cylcylcyl_eq ball_stick','pospospos dt','pospospos restore','pospospos algdt','pospospos nldt_pos','pospospos nldt','pospospos ldt_wtd','pospospos adc','pospospos ball_stick','pospospos_eq dt','pospospos_eq restore','pospospos_eq algdt','pospospos_eq nldt_pos','pospospos_eq nldt','pospospos_eq ldt_wtd','pospospos_eq adc','pospospos_eq ball_stick','posposcyl dt','posposcyl restore','posposcyl algdt','posposcyl nldt_pos','posposcyl nldt','posposcyl ldt_wtd','posposcyl adc','posposcyl ball_stick','posposcyl_eq dt','posposcyl_eq restore','posposcyl_eq algdt','posposcyl_eq nldt_pos','posposcyl_eq nldt','posposcyl_eq ldt_wtd','posposcyl_eq adc','posposcyl_eq ball_stick','poscylcyl dt','poscylcyl restore','poscylcyl algdt','poscylcyl nldt_pos','poscylcyl nldt','poscylcyl ldt_wtd','poscylcyl adc','poscylcyl ball_stick','poscylcyl_eq dt','poscylcyl_eq restore','poscylcyl_eq algdt','poscylcyl_eq nldt_pos','poscylcyl_eq nldt','poscylcyl_eq ldt_wtd','poscylcyl_eq adc','poscylcyl_eq ball_stick'))", in_file="path", scheme_file="path", **options):
+    def __init__(self,
+                 model="enumerate(('dt','restore','algdt','nldt_pos','nldt','ldt_wtd','adc','ball_stick','cylcyl dt','cylcyl restore','cylcyl algdt','cylcyl nldt_pos','cylcyl nldt','cylcyl ldt_wtd','cylcyl adc','cylcyl ball_stick','cylcyl_eq dt','cylcyl_eq restore','cylcyl_eq algdt','cylcyl_eq nldt_pos','cylcyl_eq nldt','cylcyl_eq ldt_wtd','cylcyl_eq adc','cylcyl_eq ball_stick','pospos dt','pospos restore','pospos algdt','pospos nldt_pos','pospos nldt','pospos ldt_wtd','pospos adc','pospos ball_stick','pospos_eq dt','pospos_eq restore','pospos_eq algdt','pospos_eq nldt_pos','pospos_eq nldt','pospos_eq ldt_wtd','pospos_eq adc','pospos_eq ball_stick','poscyl dt','poscyl restore','poscyl algdt','poscyl nldt_pos','poscyl nldt','poscyl ldt_wtd','poscyl adc','poscyl ball_stick','poscyl_eq dt','poscyl_eq restore','poscyl_eq algdt','poscyl_eq nldt_pos','poscyl_eq nldt','poscyl_eq ldt_wtd','poscyl_eq adc','poscyl_eq ball_stick','cylcylcyl dt','cylcylcyl restore','cylcylcyl algdt','cylcylcyl nldt_pos','cylcylcyl nldt','cylcylcyl ldt_wtd','cylcylcyl adc','cylcylcyl ball_stick','cylcylcyl_eq dt','cylcylcyl_eq restore','cylcylcyl_eq algdt','cylcylcyl_eq nldt_pos','cylcylcyl_eq nldt','cylcylcyl_eq ldt_wtd','cylcylcyl_eq adc','cylcylcyl_eq ball_stick','pospospos dt','pospospos restore','pospospos algdt','pospospos nldt_pos','pospospos nldt','pospospos ldt_wtd','pospospos adc','pospospos ball_stick','pospospos_eq dt','pospospos_eq restore','pospospos_eq algdt','pospospos_eq nldt_pos','pospospos_eq nldt','pospospos_eq ldt_wtd','pospospos_eq adc','pospospos_eq ball_stick','posposcyl dt','posposcyl restore','posposcyl algdt','posposcyl nldt_pos','posposcyl nldt','posposcyl ldt_wtd','posposcyl adc','posposcyl ball_stick','posposcyl_eq dt','posposcyl_eq restore','posposcyl_eq algdt','posposcyl_eq nldt_pos','posposcyl_eq nldt','posposcyl_eq ldt_wtd','posposcyl_eq adc','posposcyl_eq ball_stick','poscylcyl dt','poscylcyl restore','poscylcyl algdt','poscylcyl nldt_pos','poscylcyl nldt','poscylcyl ldt_wtd','poscylcyl adc','poscylcyl ball_stick','poscylcyl_eq dt','poscylcyl_eq restore','poscylcyl_eq algdt','poscylcyl_eq nldt_pos','poscylcyl_eq nldt','poscylcyl_eq ldt_wtd','poscylcyl_eq adc','poscylcyl_eq ball_stick'))",
+                 in_file="path",
+                 scheme_file="path",
+                 **options):
+                 
+                 
         from nipype.interfaces.camino.dti import ModelFit
         at = ModelFit()
         at.inputs.model = model
@@ -365,7 +430,11 @@ class camino_NIfTIDT2Camino:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", **options):
+    def __init__(self,
+                 in_file="path",
+                 **options):
+                 
+                 
         from nipype.interfaces.camino.convert import NIfTIDT2Camino
         at = NIfTIDT2Camino()
         at.inputs.in_file = in_file
@@ -386,7 +455,12 @@ class camino_PicoPDFs:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", luts=["path"], **options):
+    def __init__(self,
+                 in_file="path",
+                 luts=["path"],
+                 **options):
+                 
+                 
         from nipype.interfaces.camino.dti import PicoPDFs
         at = PicoPDFs()
         at.inputs.in_file = in_file
@@ -408,7 +482,10 @@ class camino_ProcStreamlines:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", **options):
+    def __init__(self,
+                 in_file="path",
+                 **options):
+                 
         from nipype.interfaces.camino.convert import ProcStreamlines
         at = ProcStreamlines()
         at.inputs.in_file = in_file
@@ -432,7 +509,10 @@ class camino_QBallMX:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, scheme_file="path", **options):
+    def __init__(self,
+                 scheme_file="path",
+                 **options):
+                 
         from nipype.interfaces.camino.odf import QBallMX
         at = QBallMX()
         at.inputs.scheme_file = scheme_file
@@ -453,7 +533,11 @@ class camino_SFLUTGen:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", info_file="path", **options):
+    def __init__(self,
+                 in_file="path",
+                 info_file="path",
+                 **options):
+                 
         from nipype.interfaces.camino.calib import SFLUTGen
         at = SFLUTGen()
         at.inputs.in_file = in_file
@@ -478,7 +562,11 @@ class camino_SFPICOCalibData:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, scheme_file="path", info_file="path", **options):
+    def __init__(self,
+                 scheme_file="path",
+                 info_file="path",
+                 **options):
+                 
         from nipype.interfaces.camino.calib import SFPICOCalibData
         at = SFPICOCalibData()
         at.inputs.scheme_file = scheme_file
@@ -503,7 +591,11 @@ class camino_SFPeaks:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", inputmodel="enumerate(('sh','maxent','rbf'))", **options):
+    def __init__(self,
+                 in_file="path",
+                 inputmodel="enumerate(('sh','maxent','rbf'))",
+                 **options):
+                 
         from nipype.interfaces.camino.odf import SFPeaks
         at = SFPeaks()
         at.inputs.in_file = in_file
@@ -525,7 +617,10 @@ class camino_Shredder:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", **options):
+    def __init__(self,
+                 in_file="path",
+                 **options):
+                 
         from nipype.interfaces.camino.convert import Shredder
         at = Shredder()
         at.inputs.in_file = in_file
@@ -546,7 +641,9 @@ class camino_Track:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.camino.dti import Track
         at = Track()
         for ef in options:
@@ -566,7 +663,9 @@ class camino_TrackBallStick:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.camino.dti import TrackBallStick
         at = TrackBallStick()
         for ef in options:
@@ -586,7 +685,10 @@ class camino_TrackBayesDirac:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, scheme_file="path", **options):
+    def __init__(self,
+                 scheme_file="path",
+                 **options):
+                 
         from nipype.interfaces.camino.dti import TrackBayesDirac
         at = TrackBayesDirac()
         at.inputs.scheme_file = scheme_file
@@ -607,7 +709,10 @@ class camino_TrackBedpostxDeter:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, bedpostxdir="path", **options):
+    def __init__(self,
+                 bedpostxdir="path",
+                 **options):
+                 
         from nipype.interfaces.camino.dti import TrackBedpostxDeter
         at = TrackBedpostxDeter()
         at.inputs.bedpostxdir = bedpostxdir
@@ -628,7 +733,10 @@ class camino_TrackBedpostxProba:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, bedpostxdir="path", **options):
+    def __init__(self,
+                 bedpostxdir="path",
+                 **options):
+                 
         from nipype.interfaces.camino.dti import TrackBedpostxProba
         at = TrackBedpostxProba()
         at.inputs.bedpostxdir = bedpostxdir
@@ -649,7 +757,11 @@ class camino_TrackBootstrap:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, scheme_file="path", bsdatafiles=["path"], **options):
+    def __init__(self,
+                 scheme_file="path",
+                 bsdatafiles=["path"],
+                 **options):
+                 
         from nipype.interfaces.camino.dti import TrackBootstrap
         at = TrackBootstrap()
         at.inputs.scheme_file = scheme_file
@@ -671,7 +783,9 @@ class camino_TrackDT:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.camino.dti import TrackDT
         at = TrackDT()
         for ef in options:
@@ -691,7 +805,9 @@ class camino_TrackPICo:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.camino.dti import TrackPICo
         at = TrackPICo()
         for ef in options:
@@ -711,7 +827,10 @@ class camino_TractShredder:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", **options):
+    def __init__(self,
+                 in_file="path",
+                 **options):
+                 
         from nipype.interfaces.camino.convert import TractShredder
         at = TractShredder()
         at.inputs.in_file = in_file
@@ -732,7 +851,10 @@ class camino_VtkStreamlines:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", **options):
+    def __init__(self,
+                 in_file="path",
+                 **options):
+                 
         from nipype.interfaces.camino.convert import VtkStreamlines
         at = VtkStreamlines()
         at.inputs.in_file = in_file

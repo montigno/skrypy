@@ -1,5 +1,11 @@
 class numpy_append_dyn():
-    def __init__(self, a1=[0.0], **dynamicsInputs):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 a1=[0.0],
+                 **dynamicsInputs):
+
         import numpy as np
         self.res = a1
         for di in dynamicsInputs:
@@ -12,7 +18,12 @@ class numpy_append_dyn():
 
 
 class numpy_arange():
-    def __init__(self, x=(1, 8)):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 x=(1, 8)):
+
         import numpy as np
         self.res = np.arange(x[0], x[1])
 
@@ -23,7 +34,15 @@ class numpy_arange():
 
 
 class numpy_interp():
-    def __init__(self, x=0.0, xp=[0.0], yp=[0.0], **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 x=0.0,
+                 xp=[0.0],
+                 yp=[0.0],
+                 **options):
+
         import numpy as np
         self.value = np.interp(x, xp, yp)
 
@@ -34,7 +53,12 @@ class numpy_interp():
 
 
 class numpy_transpose():
-    def __init__(self, a=[[0.0]]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 a=[[0.0]]):
+
         import numpy as np
         self.p = np.transpose(a)
 
@@ -78,7 +102,10 @@ class numpy_unique():
         dependencies: Numpy
         GUI: no
     """
-    def __init__(self, ar=[[0.0]], **options):
+    def __init__(self,
+                 ar=[[0.0]],
+                 **options):
+
         import numpy as np
         self.indices, self.inverse, self.counts = None, None, None
         self.unique = np.unique(ar, **options)

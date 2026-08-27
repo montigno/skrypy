@@ -19,7 +19,10 @@ class function_exponential:
         dependencies: Numpy
         GUI: no
     """
-    def __init__(self, amplitude=50.0, decay=1.0, shift=1.0,
+    def __init__(self,
+                 amplitude=50.0,
+                 decay=1.0,
+                 shift=1.0,
                  function="enumerate(('a*exp(-bx)',\
                                       'a*exp(-bx)+c',\
                                       'a*(1-exp(-bx))',\
@@ -27,6 +30,7 @@ class function_exponential:
                                       'a*(1-2*exp(-bx))',\
                                       'a*(1-2*c*exp(-bx))'))",
                  x=[0.0]):
+
         import numpy as np
         self.y = []
         x = np.asarray(x)
@@ -69,7 +73,8 @@ class function_trigonometric:
         dependencies: Numpy
         GUI: no
     """
-    def __init__(self, angle=0.0,
+    def __init__(self,
+                 angle=0.0,
                  function="enumerate(('sin(x)',\
                                       'cos(x)',\
                                       'tan(x)',\
@@ -77,6 +82,7 @@ class function_trigonometric:
                                       'arccos(x)',\
                                       'arctan(x)'))",
                  x_degree=[0.0]):
+
         import numpy as np
         self.y = []
 #         x = np.asarray(x_degree * np.pi / 180.0)
@@ -104,13 +110,16 @@ class function_trigonometric:
 
 class function_multiple:
     def __init__(self,
-                 amplitude=10.0, frequency=5.0, sample=500,
+                 amplitude=10.0,
+                 frequency=5.0,
+                 sample=500,
                  functions="enumerate(('ramp',\
                                       'sinus',\
                                       'cosinus',\
                                       'square',\
                                       'triangle'))",
                  peak_to_peak=True):
+
         from scipy import signal
         import numpy as np
 

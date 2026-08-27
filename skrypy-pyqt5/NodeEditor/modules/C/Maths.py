@@ -12,7 +12,9 @@ class fact:
         dependencies: Numpy
         GUI: no
     """
-    def __init__(self, enter_int=0):
+    def __init__(self,
+                 enter_int=0):
+
         import os
         from numpy.ctypeslib import load_library
         path_so = os.path.dirname(os.path.realpath(__file__))

@@ -5,7 +5,15 @@ class petpvc_PETPVC:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", mask_file="path", pvc="enumerate(('GTM','IY','IY+RL','IY+VC','LABBE','LABBE+MTC','LABBE+MTC+RL','LABBE+MTC+VC','LABBE+RBV','LABBE+RBV+RL','LABBE+RBV+VC','MG','MG+RL','MG+VC','MTC','MTC+RL','MTC+VC','RBV','RBV+RL','RBV+VC','RL','VC','STC'))", fwhm_x=0.0, fwhm_y=0.0, fwhm_z=0.0, **options):
+    def __init__(self,
+                 in_file="path",
+                 mask_file="path",
+                 pvc="enumerate(('GTM','IY','IY+RL','IY+VC','LABBE','LABBE+MTC','LABBE+MTC+RL','LABBE+MTC+VC','LABBE+RBV','LABBE+RBV+RL','LABBE+RBV+VC','MG','MG+RL','MG+VC','MTC','MTC+RL','MTC+VC','RBV','RBV+RL','RBV+VC','RL','VC','STC'))",
+                 fwhm_x=0.0,
+                 fwhm_y=0.0,
+                 fwhm_z=0.0,
+                 **options):
+                 
         from nipype.interfaces.petpvc import PETPVC
         at = PETPVC()
         at.inputs.in_file = in_file

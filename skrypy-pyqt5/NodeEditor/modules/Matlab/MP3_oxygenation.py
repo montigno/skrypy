@@ -1,10 +1,14 @@
 class MP3_CMRO2():
+    """
+    docstring to be completed
+    """
     def __init__(self,
                  mat_eng='',
                  file_CBF='path',
                  file_SO2='path',
                  file_out='path',
                  **options):
+
         import matlab.engine
         files_in, files_out = {}, {}
         options['flag_test'] = 0
@@ -25,12 +29,16 @@ class MP3_CMRO2():
 
 
 class MP3_R2Prim():
+    """
+    docstring to be completed
+    """
     def __init__(self,
                  mat_eng='',
                  file_T2Map='path',
                  file_T2StarCorr3D='path',
                  file_out='path',
                  **options):
+
         import matlab.engine
         files_in, files_out = {}, {}
         options['flag_test'] = 0
@@ -51,12 +59,16 @@ class MP3_R2Prim():
 
 
 class MP3_SO2():
+    """
+    docstring to be completed
+    """
     def __init__(self,
                  mat_eng='',
                  file_R2Prim='path',
                  file_BVf='path',
                  file_out='path',
                  **options):
+
         import matlab.engine
         files_in, files_out = {}, {}
         options['flag_test'] = 0

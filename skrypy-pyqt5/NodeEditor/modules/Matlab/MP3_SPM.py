@@ -1,9 +1,13 @@
 class MP3_SPM_reorient():
+    """
+    docstring to be completed
+    """
     def __init__(self,
                  mat_eng='',
                  file_in='path',
                  file_out='path',
                  **options):
+
         import matlab.engine
         files_in, files_out = {}, {}
         options['flag_test'] = 0
@@ -23,6 +27,9 @@ class MP3_SPM_reorient():
 
 
 class MP3_SPM_Coreg_Est_Res():
+    """
+    docstring to be completed
+    """
     def __init__(self,
                  mat_eng='',
                  file_ref='path',
@@ -31,6 +38,7 @@ class MP3_SPM_Coreg_Est_Res():
                  file_out='path',
                  files_out_other=['path'],
                  **options):
+
         import matlab.engine
         files_in, files_out = {}, {}
         options['flag_test'] = 0

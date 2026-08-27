@@ -1,5 +1,11 @@
 class keras_gpu_options:
-    def __init__(self, allow_growth=True, **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 allow_growth=True,
+                 **options):
+
         import tensorflow as tf
         from keras.backend.tensorflow_backend import set_session
         config = tf.ConfigProto()
@@ -25,7 +31,9 @@ class keras_to_numpy():
     Note:
         GUI: no
     """
-    def __init__(self, tensor_in=[[0.0]]):
+    def __init__(self,
+                 tensor_in=[[0.0]]):
+
         # import tensorflow.keras.backend as K
         # self.nump = K.eval(tensor_in(session=tf.compat.v1.Session()))
         import tensorflow as tf
@@ -40,8 +48,12 @@ class keras_to_numpy():
 
 
 class keras_datasets_mnist():
+    """
+    docstring to be completed
+    """
 
     def __init__(self):
+
         from keras.datasets import mnist
         (self.X_train, self.Y_train), (self.X_test, self.Y_test) = mnist.load_data()
 
@@ -74,7 +86,10 @@ class keras_layers_Activation():
         dependencies: keras, tensorflow
         GUI: no
     """
-    def __init__(self, tensorflow_in=[[0.0]], **options):
+    def __init__(self,
+                 tensorflow_in=[[0.0]],
+                 **options):
+
         from tensorflow.keras.layers import Activation
         self.act = Activation(**options)(tensorflow_in)
 
@@ -108,7 +123,10 @@ class keras_layers_Input():
         dependencies: keras, tensorflow
         GUI: no
     """
-    def __init__(self, shape=(0,), **options):
+    def __init__(self,
+                 shape=(0,),
+                 **options):
+
         from tensorflow.keras.layers import Input
         self.lay_input = Input(shape, **options)
 
@@ -148,7 +166,12 @@ class keras_layers_Conv3D():
         dependencies: keras, tensorflow
         GUI: no
     """
-    def __init__(self, tensorflow_in=[[0.0]], filters=3, kernel_size=(3, 3, 3), **options):
+    def __init__(self,
+                 tensorflow_in=[[0.0]],
+                 filters=3,
+                 kernel_size=(3, 3, 3),
+                 **options):
+
         from tensorflow.keras.layers import Conv3D
         self.tf_out = Conv3D(filters, kernel_size, **options)(tensorflow_in)
 
@@ -191,7 +214,12 @@ class keras_layers_Conv3DTranspose():
         dependencies: keras, tensorflow
         GUI: no
     """
-    def __init__(self, tensorflow_in=[[0.0]], filters=3, kernel_size=(3, 3, 3), **options):
+    def __init__(self,
+                 tensorflow_in=[[0.0]],
+                 filters=3,
+                 kernel_size=(3, 3, 3),
+                 **options):
+
         from tensorflow.keras.layers import Conv3DTranspose
         self.tf_out = Conv3DTranspose(filters, kernel_size, **options)(tensorflow_in)
 
@@ -231,7 +259,10 @@ class keras_layers_Dense():
         dependencies: keras, tensorflow
         GUI: no
     """
-    def __init__(self, units=32, **options):
+    def __init__(self,
+                 units=32,
+                 **options):
+
         from tensorflow.keras.layers import Dense
         self.tf_out = Dense(units, **options)
         print('dense : ', self.tf_out)
@@ -273,7 +304,11 @@ class keras_layers_MaxPooling3D():
         dependencies: keras, tensorflow
         GUI: no
     """
-    def __init__(self, tensorflow_in=[[0.0]], pool_size=(2, 2, 2), **options):
+    def __init__(self,
+                 tensorflow_in=[[0.0]],
+                 pool_size=(2, 2, 2),
+                 **options):
+
         from tensorflow.keras.layers import MaxPooling3D
         self.tf_out = MaxPooling3D(pool_size, **options)(tensorflow_in)
 
@@ -284,7 +319,14 @@ class keras_layers_MaxPooling3D():
 
 
 class keras_layers_Concatenate():
-    def __init__(self, tf_in1=[[0.0]], tf_in2=[[0.0]], axis=-1):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 tf_in1=[[0.0]],
+                 tf_in2=[[0.0]],
+                 axis=-1):
+
         from tensorflow.keras.layers import concatenate
         self.tf_out = concatenate([tf_in1, tf_in2], axis=axis)
         # self.tf_out = Concatenate(axis=axis)([tf_in1, tf_in2])
@@ -322,7 +364,11 @@ class keras_layers_AveragePooling3D():
         dependencies: keras, tensorflow
         GUI: no
     """
-    def __init__(self, tensorflow_in=[[0.0]], pool_size=(2, 2, 2), **options):
+    def __init__(self,
+                 tensorflow_in=[[0.0]],
+                 pool_size=(2, 2, 2),
+                 **options):
+
         from tensorflow.keras.layers import AveragePooling3D
         self.tf_out = AveragePooling3D(pool_size, **options)(tensorflow_in)
 
@@ -370,7 +416,11 @@ class keras_layers_ZeroPadding3D():
         dependencies: keras, tensorflow
         GUI: no
     """
-    def __init__(self, tensorflow_in=[[0.0]], padding=(1, 1, 1), **options):
+    def __init__(self,
+                 tensorflow_in=[[0.0]],
+                 padding=(1, 1, 1),
+                 **options):
+
         from tensorflow.keras.layers import ZeroPadding3D
         self.tf_out = ZeroPadding3D(padding, **options)(tensorflow_in)
 
@@ -399,7 +449,10 @@ class keras_layers_BatchNormalization():
         dependencies: keras, tensorflow
         GUI: no
     """
-    def __init__(self, tensorflow_in=[[0.0]], **options):
+    def __init__(self,
+                 tensorflow_in=[[0.0]],
+                 **options):
+
         from tensorflow.keras.layers import BatchNormalization
         self.tf_out = BatchNormalization(**options)(tensorflow_in)
 
@@ -410,7 +463,13 @@ class keras_layers_BatchNormalization():
 
 
 class keras_layers_UpSampling3D():
-    def __init__(self, tensorflow_in=[[0.0]], **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 tensorflow_in=[[0.0]],
+                 **options):
+
         from tensorflow.keras.layers import UpSampling3D
         self.upSamp = UpSampling3D(**options)(tensorflow_in)
 
@@ -437,7 +496,11 @@ class keras_models_Model():
         dependencies: keras, tensorflow
         GUI: no
     """
-    def __init__(self, inputs=[[0.0]], outputs=[[0.0]], **options):
+    def __init__(self,
+                 inputs=[[0.0]],
+                 outputs=[[0.0]],
+                 **options):
+
         from tensorflow.keras.models import Model
         self.model = Model(inputs=[inputs], outputs=[outputs], **options)
 
@@ -462,7 +525,10 @@ class keras_models_Model_compile():
         dependencies: keras, tensorflow
         GUI: no
     """
-    def __init__(self, model_in=[[0.0]], **options):
+    def __init__(self,
+                 model_in=[[0.0]],
+                 **options):
+
         # from keras.models import Model
         self.model_comp = model_in.compile(**options)
         self.model = model_in
@@ -491,7 +557,10 @@ class keras_models_Model_summary():
         dependencies: keras, tensorflow
         GUI: no
     """
-    def __init__(self, model_in=[[0.0]], **options):
+    def __init__(self,
+                 model_in=[[0.0]],
+                 **options):
+
         from tensorflow.keras.models import Model
         self.model = model_in.summary(**options)
 
@@ -538,7 +607,12 @@ class keras_models_Model_predict():
         dependencies: keras, tensorflow
         GUI: no
     """
-    def __init__(self, model_in=[[0.0]], x=[[0.0]], batch_size=1, verbose=0):
+    def __init__(self,
+                 model_in=[[0.0]],
+                 x=[[0.0]],
+                 batch_size=1,
+                 verbose=0):
+
         import numpy as np
         # from keras.models import Model
         self.pred = model_in.predict(np.array(x), batch_size, verbose)
@@ -590,7 +664,12 @@ class keras_models_Model_fit():
         dependencies: keras, tensorflow
         GUI: no
     """
-    def __init__(self, model_in=[[0.0]], x=[[0.0]], y=[[0.0]], **options):
+    def __init__(self,
+                 model_in=[[0.0]],
+                 x=[[0.0]],
+                 y=[[0.0]],
+                 **options):
+
         # from keras.models import Model
         self.fit = model_in.fit(x, y, **options)
         self.model = model_in
@@ -605,7 +684,13 @@ class keras_models_Model_fit():
 
 
 class keras_models_Model_load_model():
-    def __init__(self, filepath='path', **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 filepath='path',
+                 **options):
+
         from keras.models import load_model
         self.loaded_model = load_model(filepath, **options)
 
@@ -631,7 +716,10 @@ class keras_Sequential_dyn():
         dependencies: keras, tensorflow
         GUI: no
     """
-    def __init__(self, layer='', **dynamicsInputs):
+    def __init__(self,
+                 layer='',
+                 **dynamicsInputs):
+
         from tensorflow.keras import Sequential
         list_layer = [layer]
         for di in dynamicsInputs:
@@ -665,7 +753,10 @@ class keras_optimizers_Adam():
         dependencies: keras, tensorflow
         GUI: no
     """
-    def __init__(self, learning_rate=1e-5, **options):
+    def __init__(self,
+                 learning_rate=1e-5,
+                 **options):
+
         from keras.optimizers import Adam
         self.adam = Adam(lr=learning_rate, **options)
 
@@ -676,7 +767,13 @@ class keras_optimizers_Adam():
 
 
 class keras_utils_to_categorical():
-    def __init__(self, y=[[0.0]], **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 y=[[0.0]],
+                 **options):
+
         from tensorflow.keras.utils import to_categorical
         self.to_cat = to_categorical(y, **options)
 

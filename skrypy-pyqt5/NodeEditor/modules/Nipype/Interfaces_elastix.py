@@ -5,7 +5,11 @@ class elastix_AnalyzeWarp:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, transform_file="path", output_path="path", **options):
+    def __init__(self,
+                 transform_file="path",
+                 output_path="path",
+                 **options):
+                 
         from nipype.interfaces.elastix.registration import AnalyzeWarp
         at = AnalyzeWarp()
         at.inputs.transform_file = transform_file
@@ -33,7 +37,12 @@ class elastix_ApplyWarp:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, transform_file="path", moving_image="path", output_path="path", **options):
+    def __init__(self,
+                 transform_file="path",
+                 moving_image="path",
+                 output_path="path",
+                 **options):
+                 
         from nipype.interfaces.elastix.registration import ApplyWarp
         at = ApplyWarp()
         at.inputs.transform_file = transform_file
@@ -56,7 +65,10 @@ class elastix_EditTransform:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, transform_file="path", **options):
+    def __init__(self,
+                 transform_file="path",
+                 **options):
+                 
         from nipype.interfaces.elastix.utils import EditTransform
         at = EditTransform()
         at.inputs.transform_file = transform_file
@@ -77,7 +89,12 @@ class elastix_PointsWarp:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, points_file="path", transform_file="path", output_path="path", **options):
+    def __init__(self,
+                 points_file="path",
+                 transform_file="path",
+                 output_path="path",
+                 **options):
+                 
         from nipype.interfaces.elastix.registration import PointsWarp
         at = PointsWarp()
         at.inputs.points_file = points_file
@@ -100,7 +117,13 @@ class elastix_Registration:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, fixed_image="path", moving_image="path", parameters=["path"], output_path="path", **options):
+    def __init__(self,
+                 fixed_image="path",
+                 moving_image="path",
+                 parameters=["path"],
+                 output_path="path",
+                 **options):
+                 
         from nipype.interfaces.elastix.registration import Registration
         at = Registration()
         at.inputs.fixed_image = fixed_image

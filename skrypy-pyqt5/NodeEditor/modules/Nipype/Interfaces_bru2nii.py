@@ -5,7 +5,10 @@ class bru2nii_Bru2:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, input_dir="path", **options):
+    def __init__(self,
+                 input_dir="path",
+                 **options):
+
         from nipype.interfaces.bru2nii import Bru2
         at = Bru2()
         at.inputs.input_dir = input_dir

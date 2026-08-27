@@ -5,7 +5,9 @@ class semtools_BRAINSABC:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.segmentation.specialized import BRAINSABC
         at = BRAINSABC()
         for ef in options:
@@ -46,7 +48,9 @@ class semtools_BRAINSAlignMSP:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.utilities.brains import BRAINSAlignMSP
         at = BRAINSAlignMSP()
         for ef in options:
@@ -69,7 +73,9 @@ class semtools_BRAINSClipInferior:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.utilities.brains import BRAINSClipInferior
         at = BRAINSClipInferior()
         for ef in options:
@@ -89,7 +95,9 @@ class semtools_BRAINSConstellationDetector:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.segmentation.specialized import BRAINSConstellationDetector
         at = BRAINSConstellationDetector()
         for ef in options:
@@ -136,7 +144,9 @@ class semtools_BRAINSConstellationModeler:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.utilities.brains import BRAINSConstellationModeler
         at = BRAINSConstellationModeler()
         for ef in options:
@@ -159,7 +169,9 @@ class semtools_BRAINSCreateLabelMapFromProbabilityMaps:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.segmentation.specialized import BRAINSCreateLabelMapFromProbabilityMaps
         at = BRAINSCreateLabelMapFromProbabilityMaps()
         for ef in options:
@@ -182,7 +194,9 @@ class semtools_BRAINSCut:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.segmentation.specialized import BRAINSCut
         at = BRAINSCut()
         for ef in options:
@@ -199,7 +213,9 @@ class semtools_BRAINSDemonWarp:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.registration.specialized import BRAINSDemonWarp
         at = BRAINSDemonWarp()
         for ef in options:
@@ -225,7 +241,9 @@ class semtools_BRAINSEyeDetector:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.utilities.brains import BRAINSEyeDetector
         at = BRAINSEyeDetector()
         for ef in options:
@@ -245,7 +263,9 @@ class semtools_BRAINSFit:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.registration.brainsfit import BRAINSFit
         at = BRAINSFit()
         for ef in options:
@@ -286,7 +306,9 @@ class semtools_BRAINSInitializedControlPoints:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.utilities.brains import BRAINSInitializedControlPoints
         at = BRAINSInitializedControlPoints()
         for ef in options:
@@ -306,7 +328,9 @@ class semtools_BRAINSLandmarkInitializer:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.utilities.brains import BRAINSLandmarkInitializer
         at = BRAINSLandmarkInitializer()
         for ef in options:
@@ -326,7 +350,9 @@ class semtools_BRAINSLinearModelerEPCA:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.utilities.brains import BRAINSLinearModelerEPCA
         at = BRAINSLinearModelerEPCA()
         for ef in options:
@@ -343,7 +369,9 @@ class semtools_BRAINSLmkTransform:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.utilities.brains import BRAINSLmkTransform
         at = BRAINSLmkTransform()
         for ef in options:
@@ -366,7 +394,9 @@ class semtools_BRAINSMultiSTAPLE:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.segmentation.specialized import BRAINSMultiSTAPLE
         at = BRAINSMultiSTAPLE()
         for ef in options:
@@ -389,7 +419,9 @@ class semtools_BRAINSMush:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.utilities.brains import BRAINSMush
         at = BRAINSMush()
         for ef in options:
@@ -415,7 +447,9 @@ class semtools_BRAINSPosteriorToContinuousClass:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.brains.classify import BRAINSPosteriorToContinuousClass
         at = BRAINSPosteriorToContinuousClass()
         for ef in options:
@@ -435,7 +469,9 @@ class semtools_BRAINSROIAuto:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.segmentation.specialized import BRAINSROIAuto
         at = BRAINSROIAuto()
         for ef in options:
@@ -458,7 +494,9 @@ class semtools_BRAINSResample:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.registration.brainsresample import BRAINSResample
         at = BRAINSResample()
         for ef in options:
@@ -478,7 +516,9 @@ class semtools_BRAINSResize:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.registration.brainsresize import BRAINSResize
         at = BRAINSResize()
         for ef in options:
@@ -498,7 +538,9 @@ class semtools_BRAINSSnapShotWriter:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.utilities.brains import BRAINSSnapShotWriter
         at = BRAINSSnapShotWriter()
         for ef in options:
@@ -518,7 +560,9 @@ class semtools_BRAINSTalairach:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.brains.segmentation import BRAINSTalairach
         at = BRAINSTalairach()
         for ef in options:
@@ -541,7 +585,9 @@ class semtools_BRAINSTalairachMask:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.brains.segmentation import BRAINSTalairachMask
         at = BRAINSTalairachMask()
         for ef in options:
@@ -561,7 +607,9 @@ class semtools_BRAINSTransformConvert:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.utilities.brains import BRAINSTransformConvert
         at = BRAINSTransformConvert()
         for ef in options:
@@ -584,7 +632,9 @@ class semtools_BRAINSTransformFromFiducials:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.registration.specialized import BRAINSTransformFromFiducials
         at = BRAINSTransformFromFiducials()
         for ef in options:
@@ -604,7 +654,9 @@ class semtools_BRAINSTrimForegroundInDirection:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.utilities.brains import BRAINSTrimForegroundInDirection
         at = BRAINSTrimForegroundInDirection()
         for ef in options:
@@ -624,7 +676,9 @@ class semtools_BinaryMaskEditorBasedOnLandmarks:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.segmentation.specialized import BinaryMaskEditorBasedOnLandmarks
         at = BinaryMaskEditorBasedOnLandmarks()
         for ef in options:
@@ -644,7 +698,9 @@ class semtools_CannyEdge:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.filtering.featuredetection import CannyEdge
         at = CannyEdge()
         for ef in options:
@@ -664,7 +720,9 @@ class semtools_CannySegmentationLevelSetImageFilter:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.filtering.featuredetection import CannySegmentationLevelSetImageFilter
         at = CannySegmentationLevelSetImageFilter()
         for ef in options:
@@ -687,7 +745,9 @@ class semtools_CleanUpOverlapLabels:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.utilities.brains import CleanUpOverlapLabels
         at = CleanUpOverlapLabels()
         for ef in options:
@@ -707,7 +767,9 @@ class semtools_DWICompare:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.converters import DWICompare
         at = DWICompare()
         for ef in options:
@@ -724,7 +786,9 @@ class semtools_DWIConvert:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.diffusion.diffusion import DWIConvert
         at = DWIConvert()
         for ef in options:
@@ -756,7 +820,9 @@ class semtools_DWISimpleCompare:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.converters import DWISimpleCompare
         at = DWISimpleCompare()
         for ef in options:
@@ -773,7 +839,9 @@ class semtools_DilateImage:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.filtering.featuredetection import DilateImage
         at = DilateImage()
         for ef in options:
@@ -793,7 +861,9 @@ class semtools_DilateMask:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.filtering.featuredetection import DilateMask
         at = DilateMask()
         for ef in options:
@@ -813,7 +883,9 @@ class semtools_DistanceMaps:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.filtering.featuredetection import DistanceMaps
         at = DistanceMaps()
         for ef in options:
@@ -833,7 +905,9 @@ class semtools_DumpBinaryTrainingVectors:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.filtering.featuredetection import DumpBinaryTrainingVectors
         at = DumpBinaryTrainingVectors()
         for ef in options:
@@ -850,7 +924,9 @@ class semtools_ESLR:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.segmentation.specialized import ESLR
         at = ESLR()
         for ef in options:
@@ -870,7 +946,9 @@ class semtools_ErodeImage:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.filtering.featuredetection import ErodeImage
         at = ErodeImage()
         for ef in options:
@@ -890,7 +968,9 @@ class semtools_FlippedDifference:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.filtering.featuredetection import FlippedDifference
         at = FlippedDifference()
         for ef in options:
@@ -910,7 +990,9 @@ class semtools_GenerateAverageLmkFile:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.testing.generateaveragelmkfile import GenerateAverageLmkFile
         at = GenerateAverageLmkFile()
         for ef in options:
@@ -930,7 +1012,9 @@ class semtools_GenerateBrainClippedImage:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.filtering.featuredetection import GenerateBrainClippedImage
         at = GenerateBrainClippedImage()
         for ef in options:
@@ -950,7 +1034,9 @@ class semtools_GenerateCsfClippedFromClassifiedImage:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.featurecreator import GenerateCsfClippedFromClassifiedImage
         at = GenerateCsfClippedFromClassifiedImage()
         for ef in options:
@@ -970,7 +1056,9 @@ class semtools_GenerateEdgeMapImage:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.brains.utilities import GenerateEdgeMapImage
         at = GenerateEdgeMapImage()
         for ef in options:
@@ -993,7 +1081,9 @@ class semtools_GenerateLabelMapFromProbabilityMap:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.utilities.brains import GenerateLabelMapFromProbabilityMap
         at = GenerateLabelMapFromProbabilityMap()
         for ef in options:
@@ -1013,7 +1103,9 @@ class semtools_GeneratePurePlugMask:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.brains.utilities import GeneratePurePlugMask
         at = GeneratePurePlugMask()
         for ef in options:
@@ -1033,7 +1125,9 @@ class semtools_GenerateSummedGradientImage:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.filtering.featuredetection import GenerateSummedGradientImage
         at = GenerateSummedGradientImage()
         for ef in options:
@@ -1053,7 +1147,9 @@ class semtools_GenerateTestImage:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.filtering.featuredetection import GenerateTestImage
         at = GenerateTestImage()
         for ef in options:
@@ -1073,7 +1169,9 @@ class semtools_GradientAnisotropicDiffusionImageFilter:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.filtering.featuredetection import GradientAnisotropicDiffusionImageFilter
         at = GradientAnisotropicDiffusionImageFilter()
         for ef in options:
@@ -1093,7 +1191,9 @@ class semtools_HammerAttributeCreator:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.filtering.featuredetection import HammerAttributeCreator
         at = HammerAttributeCreator()
         for ef in options:
@@ -1110,7 +1210,9 @@ class semtools_HistogramMatchingFilter:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.brains.utilities import HistogramMatchingFilter
         at = HistogramMatchingFilter()
         for ef in options:
@@ -1130,7 +1232,9 @@ class semtools_ImageRegionPlotter:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.utilities.brains import ImageRegionPlotter
         at = ImageRegionPlotter()
         for ef in options:
@@ -1147,7 +1251,9 @@ class semtools_JointHistogram:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.utilities.brains import JointHistogram
         at = JointHistogram()
         for ef in options:
@@ -1164,7 +1270,9 @@ class semtools_LandmarksCompare:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.testing.landmarkscompare import LandmarksCompare
         at = LandmarksCompare()
         for ef in options:
@@ -1181,7 +1289,9 @@ class semtools_NeighborhoodMean:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.filtering.featuredetection import NeighborhoodMean
         at = NeighborhoodMean()
         for ef in options:
@@ -1201,7 +1311,9 @@ class semtools_NeighborhoodMedian:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.filtering.featuredetection import NeighborhoodMedian
         at = NeighborhoodMedian()
         for ef in options:
@@ -1221,7 +1333,9 @@ class semtools_STAPLEAnalysis:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.filtering.featuredetection import STAPLEAnalysis
         at = STAPLEAnalysis()
         for ef in options:
@@ -1241,7 +1355,9 @@ class semtools_ShuffleVectorsModule:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.utilities.brains import ShuffleVectorsModule
         at = ShuffleVectorsModule()
         for ef in options:
@@ -1261,7 +1377,9 @@ class semtools_SimilarityIndex:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.brains.segmentation import SimilarityIndex
         at = SimilarityIndex()
         for ef in options:
@@ -1278,7 +1396,9 @@ class semtools_SphericalCoordinateGeneration:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.testing.featuredetection import SphericalCoordinateGeneration
         at = SphericalCoordinateGeneration()
         for ef in options:
@@ -1295,7 +1415,9 @@ class semtools_TextureFromNoiseImageFilter:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.filtering.featuredetection import TextureFromNoiseImageFilter
         at = TextureFromNoiseImageFilter()
         for ef in options:
@@ -1315,7 +1437,9 @@ class semtools_TextureMeasureFilter:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.filtering.featuredetection import TextureMeasureFilter
         at = TextureMeasureFilter()
         for ef in options:
@@ -1335,7 +1459,9 @@ class semtools_UKFTractography:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.diffusion.tractography.ukftractography import UKFTractography
         at = UKFTractography()
         for ef in options:
@@ -1358,7 +1484,9 @@ class semtools_UnbiasedNonLocalMeans:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.filtering.denoising import UnbiasedNonLocalMeans
         at = UnbiasedNonLocalMeans()
         for ef in options:
@@ -1378,7 +1506,9 @@ class semtools_VBRAINSDemonWarp:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.registration.specialized import VBRAINSDemonWarp
         at = VBRAINSDemonWarp()
         for ef in options:
@@ -1404,7 +1534,9 @@ class semtools_compareTractInclusion:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.diffusion.gtract import compareTractInclusion
         at = compareTractInclusion()
         for ef in options:
@@ -1421,7 +1553,9 @@ class semtools_dtiaverage:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.diffusion.diffusion import dtiaverage
         at = dtiaverage()
         for ef in options:
@@ -1441,7 +1575,9 @@ class semtools_dtiestim:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.diffusion.diffusion import dtiestim
         at = dtiestim()
         for ef in options:
@@ -1470,7 +1606,9 @@ class semtools_dtiprocess:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.diffusion.diffusion import dtiprocess
         at = dtiprocess()
         for ef in options:
@@ -1532,7 +1670,9 @@ class semtools_extractNrrdVectorIndex:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.diffusion.gtract import extractNrrdVectorIndex
         at = extractNrrdVectorIndex()
         for ef in options:
@@ -1552,7 +1692,9 @@ class semtools_fiberprocess:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.diffusion.tractography.fiberprocess import fiberprocess
         at = fiberprocess()
         for ef in options:
@@ -1575,7 +1717,9 @@ class semtools_fiberstats:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.diffusion.tractography.commandlineonly import fiberstats
         at = fiberstats()
         for ef in options:
@@ -1592,7 +1736,9 @@ class semtools_fibertrack:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.diffusion.tractography.fibertrack import fibertrack
         at = fibertrack()
         for ef in options:
@@ -1612,7 +1758,9 @@ class semtools_gtractAnisotropyMap:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.diffusion.gtract import gtractAnisotropyMap
         at = gtractAnisotropyMap()
         for ef in options:
@@ -1632,7 +1780,9 @@ class semtools_gtractAverageBvalues:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.diffusion.gtract import gtractAverageBvalues
         at = gtractAverageBvalues()
         for ef in options:
@@ -1652,7 +1802,9 @@ class semtools_gtractClipAnisotropy:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.diffusion.gtract import gtractClipAnisotropy
         at = gtractClipAnisotropy()
         for ef in options:
@@ -1672,7 +1824,9 @@ class semtools_gtractCoRegAnatomy:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.diffusion.gtract import gtractCoRegAnatomy
         at = gtractCoRegAnatomy()
         for ef in options:
@@ -1692,7 +1846,9 @@ class semtools_gtractConcatDwi:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.diffusion.gtract import gtractConcatDwi
         at = gtractConcatDwi()
         for ef in options:
@@ -1712,7 +1868,9 @@ class semtools_gtractCopyImageOrientation:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.diffusion.gtract import gtractCopyImageOrientation
         at = gtractCopyImageOrientation()
         for ef in options:
@@ -1732,7 +1890,9 @@ class semtools_gtractCoregBvalues:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.diffusion.gtract import gtractCoregBvalues
         at = gtractCoregBvalues()
         for ef in options:
@@ -1755,7 +1915,9 @@ class semtools_gtractCostFastMarching:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.diffusion.gtract import gtractCostFastMarching
         at = gtractCostFastMarching()
         for ef in options:
@@ -1778,7 +1940,9 @@ class semtools_gtractCreateGuideFiber:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.diffusion.gtract import gtractCreateGuideFiber
         at = gtractCreateGuideFiber()
         for ef in options:
@@ -1798,7 +1962,9 @@ class semtools_gtractFastMarchingTracking:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.diffusion.gtract import gtractFastMarchingTracking
         at = gtractFastMarchingTracking()
         for ef in options:
@@ -1818,7 +1984,9 @@ class semtools_gtractFiberTracking:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.diffusion.gtract import gtractFiberTracking
         at = gtractFiberTracking()
         for ef in options:
@@ -1838,7 +2006,9 @@ class semtools_gtractImageConformity:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.diffusion.gtract import gtractImageConformity
         at = gtractImageConformity()
         for ef in options:
@@ -1858,7 +2028,9 @@ class semtools_gtractInvertBSplineTransform:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.diffusion.gtract import gtractInvertBSplineTransform
         at = gtractInvertBSplineTransform()
         for ef in options:
@@ -1878,7 +2050,9 @@ class semtools_gtractInvertDisplacementField:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.diffusion.gtract import gtractInvertDisplacementField
         at = gtractInvertDisplacementField()
         for ef in options:
@@ -1898,7 +2072,9 @@ class semtools_gtractInvertRigidTransform:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.diffusion.gtract import gtractInvertRigidTransform
         at = gtractInvertRigidTransform()
         for ef in options:
@@ -1918,7 +2094,9 @@ class semtools_gtractResampleAnisotropy:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.diffusion.gtract import gtractResampleAnisotropy
         at = gtractResampleAnisotropy()
         for ef in options:
@@ -1938,7 +2116,9 @@ class semtools_gtractResampleB0:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.diffusion.gtract import gtractResampleB0
         at = gtractResampleB0()
         for ef in options:
@@ -1958,7 +2138,9 @@ class semtools_gtractResampleCodeImage:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.diffusion.gtract import gtractResampleCodeImage
         at = gtractResampleCodeImage()
         for ef in options:
@@ -1978,7 +2160,9 @@ class semtools_gtractResampleDWIInPlace:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.diffusion.gtract import gtractResampleDWIInPlace
         at = gtractResampleDWIInPlace()
         for ef in options:
@@ -2001,7 +2185,9 @@ class semtools_gtractResampleFibers:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.diffusion.gtract import gtractResampleFibers
         at = gtractResampleFibers()
         for ef in options:
@@ -2021,7 +2207,9 @@ class semtools_gtractTensor:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.diffusion.gtract import gtractTensor
         at = gtractTensor()
         for ef in options:
@@ -2041,7 +2229,9 @@ class semtools_gtractTransformToDisplacementField:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.diffusion.gtract import gtractTransformToDisplacementField
         at = gtractTransformToDisplacementField()
         for ef in options:
@@ -2061,7 +2251,9 @@ class semtools_insertMidACPCpoint:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.utilities.brains import insertMidACPCpoint
         at = insertMidACPCpoint()
         for ef in options:
@@ -2081,7 +2273,9 @@ class semtools_landmarksConstellationAligner:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.utilities.brains import landmarksConstellationAligner
         at = landmarksConstellationAligner()
         for ef in options:
@@ -2101,7 +2295,9 @@ class semtools_landmarksConstellationWeights:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.utilities.brains import landmarksConstellationWeights
         at = landmarksConstellationWeights()
         for ef in options:
@@ -2121,7 +2317,9 @@ class semtools_maxcurvature:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.diffusion.maxcurvature import maxcurvature
         at = maxcurvature()
         for ef in options:
@@ -2141,7 +2339,9 @@ class semtools_scalartransform:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.semtools.legacy.registration import scalartransform
         at = scalartransform()
         for ef in options:

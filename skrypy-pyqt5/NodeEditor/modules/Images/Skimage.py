@@ -1,5 +1,12 @@
 class skimage_active_contour():
-    def __init__(self, image=[[0.0]], snake=[[0.0]], **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image=[[0.0]],
+                 snake=[[0.0]],
+                 **options):
+
         from skimage.segmentation import active_contour
         self.a = active_contour(image, snake, **options)
 
@@ -10,7 +17,12 @@ class skimage_active_contour():
 
 
 class skimage_ball:
-    def __init__(self, radius=1):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 radius=1):
+
         from skimage.morphology import ball
         self.ball = ball(radius)
 
@@ -21,7 +33,13 @@ class skimage_ball:
 
 
 class skimage_Canny_Edge():
-    def __init__(self, image=[[0.0]], **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image=[[0.0]],
+                 **options):
+
         from skimage import feature
         import numpy as np
         self.img = np.array(image)
@@ -46,7 +64,13 @@ class skimage_Canny_Edge():
 
 
 class skimage_closing:
-    def __init__(self, image=[[0.0]], **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image=[[0.0]],
+                 **options):
+
         from skimage.morphology import closing
         import numpy as np
         self.cl = closing(np.array(image), **options)
@@ -76,7 +100,10 @@ class skimage_convex_hull_image:
         dependencies: skimage
         GUI: no
     """
-    def __init__(self, image=[[0.0]], **options):
+    def __init__(self,
+                 image=[[0.0]],
+                 **options):
+
         from skimage.morphology import convex_hull_image
         import numpy as np
         self.ch = convex_hull_image(image, **options)
@@ -88,7 +115,13 @@ class skimage_convex_hull_image:
 
 
 class skimage_remove_small_holes:
-    def __init__(self, image=[[0.0]], **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image=[[0.0]],
+                 **options):
+
         from skimage import morphology
         import numpy as np
         self.a = np.array(image, dtype=bool)
@@ -102,7 +135,13 @@ class skimage_remove_small_holes:
 
 
 class skimage_remove_small_objects:
-    def __init__(self, image=[[0.0]], **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image=[[0.0]],
+                 **options):
+
         from skimage import morphology
         import numpy as np
         self.a = np.array(image, dtype=bool)
@@ -134,7 +173,10 @@ class skimage_erosion:
         dependencies: skimage
         GUI: no
     """
-    def __init__(self, image=[[0.0]], **options):
+    def __init__(self,
+                 image=[[0.0]],
+                 **options):
+
         from skimage.morphology import erosion
         import numpy as np
         self.eroded = erosion(np.array(image), **options)
@@ -164,7 +206,10 @@ class skimage_dilation:
         dependencies: skimage
         GUI: no
     """
-    def __init__(self, image=[[0.0]], **options):
+    def __init__(self,
+                 image=[[0.0]],
+                 **options):
+
         from skimage.morphology import dilation
         import numpy as np
         self.dilated = dilation(np.array(image), **options)
@@ -195,7 +240,10 @@ class skimage_white_tophat:
         dependencies: skimage
         GUI: no
     """
-    def __init__(self, image=[[0.0]], **options):
+    def __init__(self,
+                 image=[[0.0]],
+                 **options):
+
         from skimage.morphology import white_tophat
         import numpy as np
         self.wt = white_tophat(np.array(image), **options)
@@ -228,7 +276,10 @@ class skimage_black_tophat:
         dependencies: skimage
         GUI: no
     """
-    def __init__(self, image=[[0.0]], **options):
+    def __init__(self,
+                 image=[[0.0]],
+                 **options):
+
         from skimage.morphology import black_tophat
         import numpy as np
         self.bt = black_tophat(np.array(image), **options)
@@ -240,7 +291,13 @@ class skimage_black_tophat:
 
 
 class skimage_opening:
-    def __init__(self, image=[[0.0]], **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image=[[0.0]],
+                 **options):
+
         from skimage.morphology import opening
         import numpy as np
         self.op = opening(np.array(image), **options)
@@ -252,7 +309,13 @@ class skimage_opening:
 
 
 class skimage_threshold_multiotsu:
-    def __init__(self, image=[[0.0]], **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image=[[0.0]],
+                 **options):
+
         from skimage.filters import threshold_multiotsu
         self.thresholds = threshold_multiotsu(image)
 
@@ -263,7 +326,14 @@ class skimage_threshold_multiotsu:
 
 
 class skimage_resize():
-    def __init__(self, image=[[0.0]], output_shape=(128, 128, 64), **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image=[[0.0]],
+                 output_shape=(128, 128, 64),
+                 **options):
+
         from skimage import transform
         self.a = transform.resize(image, output_shape, **options)
 
@@ -274,7 +344,10 @@ class skimage_resize():
 
 
 # class skimage_Canny_Edge():
-#     def __init__(self, image=[[0.0]], **options):
+#     def __init__(self,
+                 image=[[0.0]],
+                 **options):
+
 #         from skimage import feature
 #         self.a = feature.canny(image, **options)
 #

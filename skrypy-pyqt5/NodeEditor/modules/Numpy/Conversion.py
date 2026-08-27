@@ -11,7 +11,10 @@ class numpy_array_str():
     Note:
         GUI: no
     """
-    def __init__(self, arr=[[0.0]], **options):
+    def __init__(self,
+                 arr=[[0.0]],
+                 **options):
+
         import numpy as np
         self.out = np.array_str(arr, **options)
 
@@ -34,7 +37,9 @@ class numpy_array_bool_to_array_int():
     Note:
         GUI: no
     """
-    def __init__(self, array_bool=[[True]]):
+    def __init__(self,
+                 array_bool=[[True]]):
+
         self.output = array_bool.astype(int)
 
     def out_ndarray(self) -> list[list[int]]:
@@ -56,7 +61,9 @@ class numpy_array_float_to_ndarray():
     Note:
         GUI: no
     """
-    def __init__(self, array_float=[[0.0]]):
+    def __init__(self,
+                 array_float=[[0.0]]):
+
         import numpy as np
         self.output = np.array(array_float)
 
@@ -67,7 +74,12 @@ class numpy_array_float_to_ndarray():
 
 
 class numpy_ndarray_to_float_list():
-    def __init__(self, ndarray_list=[0.0]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 ndarray_list=[0.0]):
+
         self.out = list(ndarray_list)
 
     def outList(self) -> list[float]:
@@ -77,7 +89,12 @@ class numpy_ndarray_to_float_list():
 
 
 class numpy_ndarray_to_float_array():
-    def __init__(self, array_in=[[0.0]]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 array_in=[[0.0]]):
+
         self.out_array = array_in.tolist()
 
     def out_array(self) -> list[list[float]]:
@@ -87,7 +104,12 @@ class numpy_ndarray_to_float_array():
 
 
 class numpy_str_list_to_float_Array():
-    def __init__(self, list_str=['']):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 list_str=['']):
+
         import numpy as np
         x = np.array(list_str)
         self.output = x.astype(np.float)
@@ -99,7 +121,12 @@ class numpy_str_list_to_float_Array():
 
 
 class numpy_float_list_to_ndarray():
-    def __init__(self, list_float=[0.0]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 list_float=[0.0]):
+
         import numpy as np
         self.output = np.array(list_float)
 
@@ -110,7 +137,14 @@ class numpy_float_list_to_ndarray():
 
 
 class numpy_float_list_to_array():
-    def __init__(self, list_float=[0.0], x=0, y=0):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 list_float=[0.0],
+                 x=0,
+                 y=0):
+
         import numpy as np
         self.output = np.reshape(list_float, (x, y))
 
@@ -144,6 +178,7 @@ class numpy_flatten():
     def __init__(self,
                  array_in=[[0.0]],
                  order="enumerate(('C', 'F', 'A', 'K'))"):
+
         import numpy as np
         a = np.array(array_in)
         self.output = a.flatten(order)
@@ -155,9 +190,13 @@ class numpy_flatten():
 
 
 class numpy_ravel():
+    """
+    docstring to be completed
+    """
     def __init__(self,
                  array_in=[[0.0]],
                  order="enumerate(('C','F', 'A', 'K'))"):
+
         import numpy as np
         a = np.array(array_in)
         self.output = a.ravel(order)
@@ -169,7 +208,12 @@ class numpy_ravel():
 
 
 class numpy_new_axis():
-    def __init__(self, image_nd_array=[[0.0]]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image_nd_array=[[0.0]]):
+
         import numpy as np
         self.new_img = image_nd_array[:, :, np.newaxis]
 
@@ -180,7 +224,13 @@ class numpy_new_axis():
 
 
 class numpy_reshape():
-    def __init__(self, a=[[0.0]], newshape=(3,)):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 a=[[0.0]],
+                 newshape=(3,)):
+
         self.reshaped_arr = a.reshape(newshape)
 
     def reshaped(self) -> list[list[float]]:

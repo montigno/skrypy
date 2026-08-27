@@ -1,5 +1,12 @@
 class float_list_add_element_dyn():
-    def __init__(self, list_float_in=[0.0], float_in=0.0, **dynamicsInputs):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 list_float_in=[0.0],
+                 float_in=0.0,
+                 **dynamicsInputs):
+
         self.out = list_float_in.copy()
         self.out.append(float_in)
         for di in dynamicsInputs:
@@ -12,7 +19,13 @@ class float_list_add_element_dyn():
 
 
 class float_list_extend_dyn():
-    def __init__(self, list_float_in=[0.0], **dynamicsInputs):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 list_float_in=[0.0],
+                 **dynamicsInputs):
+
         self.listConcat = [list_float_in.copy()]
         for di in dynamicsInputs:
             self.listConcat.append(dynamicsInputs[di].copy())
@@ -24,7 +37,13 @@ class float_list_extend_dyn():
 
 
 class float_list_getElement():
-    def __init__(self, list_float_in=[0.0], index=0):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 list_float_in=[0.0],
+                 index=0):
+
         self.outVal = list_float_in[index]
 
     def out_list_indexed(self) -> float:
@@ -34,7 +53,14 @@ class float_list_getElement():
 
 
 class float_list_get_sublist:
-    def __init__(self, list_float_in=[0.0], index_start=0, index_end=1):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 list_float_in=[0.0],
+                 index_start=0,
+                 index_end=1):
+
         if index_end < 0:
             index_end = len(list_float_in) + index_end + 1
         self.sublist = list_float_in[index_start:index_end]
@@ -46,7 +72,12 @@ class float_list_get_sublist:
 
 
 class float_list_length():
-    def __init__(self, list_float_in=[0.0]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 list_float_in=[0.0]):
+
         self.len = len(list_float_in)
 
     def length(self) -> int:
@@ -56,8 +87,13 @@ class float_list_length():
 
 
 class float_list_mean:
+    """
+    docstring to be completed
+    """
 
-    def __init__(self, list_float_in=[0.0]):
+    def __init__(self,
+                 list_float_in=[0.0]):
+
         import numpy as np
         self.result = np.mean(list_float_in)
 
@@ -68,6 +104,9 @@ class float_list_mean:
 
 
 class float_list_operations_dyn():
+    """
+    docstring to be completed
+    """
     def __init__(self, operation="enumerate(('add', 'sub', 'mul', 'div'))",
                  list_float_in=[0.0], **dynamicsInputs):
         self.result = list_float_in.copy()
@@ -103,7 +142,12 @@ class float_list_operations_dyn():
 
 
 class float_list_reverse():
-    def __init__(self, list_float_in=[0.0]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 list_float_in=[0.0]):
+
         self.rev = list(reversed(list_float_in))
 
     def list_reversed(self) -> list[float]:
@@ -113,7 +157,13 @@ class float_list_reverse():
 
 
 class float_list_to_array_dyn():
-    def __init__(self, list_float_in=[0.0], **dynamicsInputs):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 list_float_in=[0.0],
+                 **dynamicsInputs):
+
         self.out = [list_float_in.copy()]
         for di in dynamicsInputs:
             self.out.append(dynamicsInputs[di])
@@ -138,7 +188,9 @@ class float_list_to_int_list():
     Note:
         GUI: no
     """
-    def __init__(self, list_float_in=[0.0]):
+    def __init__(self,
+                 list_float_in=[0.0]):
+
         self.outlistint = [int(i) for i in list_float_in]
 
     def outListInt(self) -> list[int]:
@@ -148,8 +200,13 @@ class float_list_to_int_list():
 
 
 class float_list_to_negative:
+    """
+    docstring to be completed
+    """
 
-    def __init__(self, list_float_in=[0.0]):
+    def __init__(self,
+                 list_float_in=[0.0]):
+
         import numpy as np
         self.result = np.negative(list_float_in)
 
@@ -160,7 +217,12 @@ class float_list_to_negative:
 
 
 class float_list_to_string_list():
-    def __init__(self, list_float_in=[0.0]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 list_float_in=[0.0]):
+
         self.outStr = [str(x) for x in list_float_in]
 
     def outString(self) -> list[str]:
@@ -170,7 +232,12 @@ class float_list_to_string_list():
 
 
 class float_list_to_tuple():
-    def __init__(self, list_float_in=[0.0]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 list_float_in=[0.0]):
+
         self.outTuple = tuple(list_float_in)
 
     def outTuple(self) -> tuple:

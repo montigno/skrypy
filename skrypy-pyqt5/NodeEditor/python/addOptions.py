@@ -17,8 +17,10 @@ from PyQt5.QtWidgets import QDialog, QCheckBox, QVBoxLayout, QHBoxLayout, \
     QPushButton, QScrollArea, QWidget, QMenuBar, QAction, QTextEdit
 import importlib
 import os
-import yaml
+# import yaml
 import ast
+import re
+from ruamel.yaml import YAML
 
 
 class chOptions(QDialog):
@@ -55,9 +57,10 @@ class chOptions(QDialog):
 
         _ss = ports
 
-        self.list1 = []
-        self.list2 = []
-        self.list3 = []
+        self.list1 = [] #  port list
+        self.list2 = [] # 
+        self.list3 = [] # 
+        self.list_excl, self.list_req = {}, {}
 
         for tr in _ss[0]:
             self.list1.append(tr)
@@ -93,10 +96,13 @@ class chOptions(QDialog):
 
         hbox2 = QHBoxLayout()
         vbox2 = QVBoxLayout()
+        yaml = YAML()
 
-        with open(pathYaml, 'r', encoding='utf8') as stream:
+        with open(pathYaml, 'r', encoding='utf-8') as stream:
             try:
-                self.dicts = yaml.load(stream, yaml.FullLoader)
+                # self.dicts = yaml.load(stream, yaml.FullLoader)
+                self.dicts = yaml.load(stream)
+                self.get_excl_req_inputs(self.dicts[nameclass])
                 for el in self.dicts[nameclass]:
                     checkedTo = False
                     enableTo = True
@@ -111,6 +117,7 @@ class chOptions(QDialog):
                     b = QCheckBox(el, self)
                     b.setChecked(checkedTo)
                     b.setEnabled(enableTo)
+                    # b.clicked.connect(self.manageOptions)
                     self.listCh.append(b)
                     listLabels.append(b.text())
                     vbox2.addWidget(self.listCh[-1])
@@ -172,6 +179,61 @@ class chOptions(QDialog):
         buttonOk.clicked.connect(self.go)
         buttonCancel.clicked.connect(self.CANCEL)
 
+    def manageOptions(self):
+        for checkbox in self.listCh:
+            print(checkbox.text(), checkbox.isChecked())
+
+    def get_excl_req_inputs(self, list_options):
+        
+        for key, value in list_options.items():
+            
+            if key in list_options.ca.items:
+                comment = list_options.ca.items[key]
+
+                if comment and comment[2]:
+                    list_excl = self.get_list_in_comments(comment[2].value.strip())
+                    if list_excl[0]:
+                        self.list_excl[key] = list_excl[0]
+                    if list_excl[1]:
+                        self.list_req[key] = list_excl[1]
+                        
+        # print(self.list_excl)
+        # print(self.list_req)
+
+    def get_list_in_comments(self, line):
+
+        match_excl = re.search(
+            r'#\s*(Optional|Mandatory)\s+Mutually exclusive with:\s*\[([^\]]*)\]',
+            line
+        )
+
+        match_req = re.search(
+            r'requires:\s*\[([^\]]*)\]',
+            line
+        )
+
+        list_excl, list_req = [], []
+        
+        if match_excl:
+            type_option = match_excl.group(1)
+        
+            list_excl = [
+                item.strip()
+                for item in match_excl.group(2).split(',')
+                if item.strip()
+            ]
+
+        if match_req:
+            type_option = match_req.group(1)
+        
+            list_req = [
+                item.strip()
+                for item in match_req.group(1).split(',')
+                if item.strip()
+            ]
+
+        return (list_excl, list_req)
+        
     def CANCEL(self):
         self.answer = "cancel"
         self.close()

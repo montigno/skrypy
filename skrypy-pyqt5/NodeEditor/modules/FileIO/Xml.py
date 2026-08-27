@@ -1,5 +1,10 @@
 class ElementTree_parse:
-    def __init__(self, input_file='path'):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 input_file='path'):
+
         import xml.etree.ElementTree as ET
         tree = ET.parse(input_file)
         self.root = tree.getroot()
@@ -11,7 +16,12 @@ class ElementTree_parse:
 
 
 class ElementTree_tag_attrib:
-    def __init__(self, root_in={}):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 root_in={}):
+
         # import xml.etree.ElementTree as ET
         self.root_tag = root_in.tag
         self.root_attrib = root_in.attrib
@@ -26,7 +36,13 @@ class ElementTree_tag_attrib:
 
 
 class ElementTree_iter:
-    def __init__(self, root_in={}, tag=''):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 root_in={},
+                 tag=''):
+
         root_iter = []
         for idf in root_in.iter(tag):
             root_iter.append(idf.attrib)

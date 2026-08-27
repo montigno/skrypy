@@ -1,5 +1,13 @@
 class interpolate_cubic_spline():
-    def __init__(self, x=[0.0], y=[0.0], n=50, **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 x=[0.0],
+                 y=[0.0],
+                 n=50,
+                 **options):
+
         import numpy as np
         from scipy.interpolate import CubicSpline
         f = CubicSpline(x, y, **options)
@@ -16,7 +24,16 @@ class interpolate_cubic_spline():
 
 
 class interpolate_polynomial():
-    def __init__(self, x=[0.0], y=[0.0], n=10, deg=1, **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 x=[0.0],
+                 y=[0.0],
+                 n=10,
+                 deg=1,
+                 **options):
+
         import numpy as np
         coeff = np.polyfit(x, y, deg)
         yn = np.poly1d(coeff)
@@ -39,7 +56,14 @@ class interpolate_polynomial():
 
 
 class interpolate_interp1d():
-    def __init__(self, x=[0.0], y=[0.0], **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 x=[0.0],
+                 y=[0.0],
+                 **options):
+
         from scipy import interpolate
         self.ax = interpolate.interp1d(x, y, **options)
 

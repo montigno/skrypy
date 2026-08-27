@@ -5,7 +5,12 @@ class diffusion_toolkit_DTIRecon:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, DWI="path", bvecs="path", bvals="path", **options):
+    def __init__(self,
+                 DWI="path",
+                 bvecs="path",
+                 bvals="path",
+                 **options):
+                 
         from nipype.interfaces.diffusion_toolkit.dti import DTIRecon
         at = DTIRecon()
         at.inputs.DWI = DWI
@@ -61,7 +66,10 @@ class diffusion_toolkit_DTITracker:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, mask1_file="path", **options):
+    def __init__(self,
+                 mask1_file="path",
+                 **options):
+                 
         from nipype.interfaces.diffusion_toolkit.dti import DTITracker
         at = DTITracker()
         at.inputs.mask1_file = mask1_file
@@ -85,7 +93,11 @@ class diffusion_toolkit_HARDIMat:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, bvecs="path", bvals="path", **options):
+    def __init__(self,
+                 bvecs="path",
+                 bvals="path",
+                 **options):
+                 
         from nipype.interfaces.diffusion_toolkit.odf import HARDIMat
         at = HARDIMat()
         at.inputs.bvecs = bvecs
@@ -107,7 +119,14 @@ class diffusion_toolkit_ODFRecon:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, DWI="path", n_directions=0, n_output_directions=0, matrix="path", n_b0=0, **options):
+    def __init__(self,
+                 DWI="path",
+                 n_directions=0,
+                 n_output_directions=0,
+                 matrix="path",
+                 n_b0=0,
+                 **options):
+                 
         from nipype.interfaces.diffusion_toolkit.odf import ODFRecon
         at = ODFRecon()
         at.inputs.DWI = DWI
@@ -144,7 +163,12 @@ class diffusion_toolkit_ODFTracker:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, max="path", ODF="path", mask1_file="path", **options):
+    def __init__(self,
+                 max="path",
+                 ODF="path",
+                 mask1_file="path",
+                 **options):
+                 
         from nipype.interfaces.diffusion_toolkit.odf import ODFTracker
         at = ODFTracker()
         at.inputs.max = max
@@ -167,7 +191,11 @@ class diffusion_toolkit_SplineFilter:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, track_file="path", step_length=0.0, **options):
+    def __init__(self,
+                 track_file="path",
+                 step_length=0.0,
+                 **options):
+                 
         from nipype.interfaces.diffusion_toolkit.postproc import SplineFilter
         at = SplineFilter()
         at.inputs.track_file = track_file
@@ -189,7 +217,10 @@ class diffusion_toolkit_TrackMerge:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, track_files=["path"], **options):
+    def __init__(self,
+                 track_files=["path"],
+                 **options):
+                 
         from nipype.interfaces.diffusion_toolkit.postproc import TrackMerge
         at = TrackMerge()
         at.inputs.track_files = track_files

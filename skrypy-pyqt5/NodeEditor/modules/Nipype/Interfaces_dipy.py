@@ -5,7 +5,12 @@ class dipy_APMQball:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", in_bval="path", in_bvec="path", **options):
+    def __init__(self,
+                 in_file="path",
+                 in_bval="path",
+                 in_bvec="path",
+                 **options):
+
         from nipype.interfaces.dipy.anisotropic_power import APMQball
         at = APMQball()
         at.inputs.in_file = in_file
@@ -28,7 +33,12 @@ class dipy_CSD:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", in_bval="path", in_bvec="path", **options):
+    def __init__(self,
+                 in_file="path",
+                 in_bval="path",
+                 in_bvec="path",
+                 **options):
+
         from nipype.interfaces.dipy.reconstruction import CSD
         at = CSD()
         at.inputs.in_file = in_file
@@ -54,7 +64,12 @@ class dipy_DTI:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", in_bval="path", in_bvec="path", **options):
+    def __init__(self,
+                 in_file="path",
+                 in_bval="path",
+                 in_bvec="path",
+                 **options):
+
         from nipype.interfaces.dipy.tensors import DTI
         at = DTI()
         at.inputs.in_file = in_file
@@ -92,7 +107,11 @@ class dipy_Denoise:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", noise_model="enumerate(('rician','gaussian'))", **options):
+    def __init__(self,
+                 in_file="path",
+                 noise_model="enumerate(('rician','gaussian'))",
+                 **options):
+
         from nipype.interfaces.dipy.preprocess import Denoise
         at = Denoise()
         at.inputs.in_file = in_file
@@ -114,7 +133,13 @@ class dipy_EstimateResponseSH:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_evals="path", in_file="path", in_bval="path", in_bvec="path", **options):
+    def __init__(self,
+                 in_evals="path",
+                 in_file="path",
+                 in_bval="path",
+                 in_bvec="path",
+                 **options):
+
         from nipype.interfaces.dipy.reconstruction import EstimateResponseSH
         at = EstimateResponseSH()
         at.inputs.in_evals = in_evals
@@ -141,7 +166,12 @@ class dipy_RESTORE:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", in_bval="path", in_bvec="path", **options):
+    def __init__(self,
+                 in_file="path",
+                 in_bval="path",
+                 in_bvec="path",
+                 **options):
+
         from nipype.interfaces.dipy.reconstruction import RESTORE
         at = RESTORE()
         at.inputs.in_file = in_file
@@ -182,7 +212,11 @@ class dipy_Resample:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", interp=0, **options):
+    def __init__(self,
+                 in_file="path",
+                 interp=0,
+                 **options):
+
         from nipype.interfaces.dipy.preprocess import Resample
         at = Resample()
         at.inputs.in_file = in_file
@@ -204,7 +238,13 @@ class dipy_SimulateMultiTensor:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_dirs=["path"], in_frac=["path"], in_vfms=["path"], baseline="path", **options):
+    def __init__(self,
+                 in_dirs=["path"],
+                 in_frac=["path"],
+                 in_vfms=["path"],
+                 baseline="path",
+                 **options):
+
         from nipype.interfaces.dipy.simulate import SimulateMultiTensor
         at = SimulateMultiTensor()
         at.inputs.in_dirs = in_dirs
@@ -237,7 +277,16 @@ class dipy_StreamlineTractography:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", gfa_thresh=0.2, peak_threshold=0.5, min_angle=25.0, multiprocess=True, save_seeds=True, num_seeds=1000, **options):
+    def __init__(self,
+                 in_file="path",
+                 gfa_thresh=0.2,
+                 peak_threshold=0.5,
+                 min_angle=25.0,
+                 multiprocess=True,
+                 save_seeds=True,
+                 num_seeds=1000,
+                 **options):
+
         from nipype.interfaces.dipy.tracks import StreamlineTractography
         at = StreamlineTractography()
         at.inputs.in_file = in_file
@@ -273,7 +322,12 @@ class dipy_TensorMode:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", in_bval="path", in_bvec="path", **options):
+    def __init__(self,
+                 in_file="path",
+                 in_bval="path",
+                 in_bvec="path",
+                 **options):
+
         from nipype.interfaces.dipy.tensors import TensorMode
         at = TensorMode()
         at.inputs.in_file = in_file
@@ -296,7 +350,10 @@ class dipy_TrackDensityMap:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", **options):
+    def __init__(self,
+                 in_file="path",
+                 **options):
+
         from nipype.interfaces.dipy.tracks import TrackDensityMap
         at = TrackDensityMap()
         at.inputs.in_file = in_file

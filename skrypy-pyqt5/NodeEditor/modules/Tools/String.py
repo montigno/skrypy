@@ -1,8 +1,12 @@
 class string_compare:
+    """
+    docstring to be completed
+    """
     def __init__(self,
                  in_string='',
                  compareTo='',
                  type_compare="enumerate(('equal','contains'))"):
+
         if type_compare == 'equal':
             self.res = in_string == compareTo
         else:
@@ -15,7 +19,12 @@ class string_compare:
 
 
 class string_concatenat_dyn:
-    def __init__(self, stringIn='', **dynamicsInputs):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 stringIn='',
+                 **dynamicsInputs):
 
         self.stringConc = stringIn
         for di in dynamicsInputs:
@@ -28,7 +37,14 @@ class string_concatenat_dyn:
 
 
 class string_replace:
-    def __init__(self, string_in='', charactToreplace='', newCharact=''):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 string_in='',
+                 charactToreplace='',
+                 newCharact=''):
+
         self.newString = string_in.replace(charactToreplace, newCharact)
 
     def newString(self) -> str:
@@ -38,7 +54,13 @@ class string_replace:
 
 
 class string_split:
-    def __init__(self, in_string='', expr=''):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 in_string='',
+                 expr=''):
+
         self.listString = in_string.split(expr)
 
     def list_string(self) -> list[str]:
@@ -48,7 +70,14 @@ class string_split:
 
 
 class string_substring:
-    def __init__(self, in_string='', start=0, end=0):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 in_string='',
+                 start=0,
+                 end=0):
+
         if end == -1:
             self.substr = in_string[start:]
         else:
@@ -61,7 +90,14 @@ class string_substring:
 
 
 class string_substring_2:
-    def __init__(self, in_string='', begin='', end=''):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 in_string='',
+                 begin='',
+                 end=''):
+
         tmp = str(in_string)
         tmp = tmp[tmp.index(begin):]
         self.substr = tmp[0:tmp.index(end)]
@@ -73,7 +109,12 @@ class string_substring_2:
 
 
 class string_to_float_list():
-    def __init__(self, inString=''):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 inString=''):
+
         import numpy as np
         tmp = np.array(inString.split(' '))
         tmp = tmp.astype(np.float64)
@@ -86,7 +127,12 @@ class string_to_float_list():
 
 
 class string_to_float_array():
-    def __init__(self, inString=''):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 inString=''):
+
         from NodeEditor.api.defineTypeVariable import DefineTypeVariable
         typ, val = DefineTypeVariable(inString).returntype()
         if typ == 'arrayfloat':
@@ -101,7 +147,12 @@ class string_to_float_array():
 
 
 class string_to_int():
-    def __init__(self, inString=''):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 inString=''):
+
         from NodeEditor.api.defineTypeVariable import DefineTypeVariable
         typ, val = DefineTypeVariable(inString).returntype()
         if typ == 'int':
@@ -116,7 +167,12 @@ class string_to_int():
 
 
 class string_to_int_list():
-    def __init__(self, inString=''):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 inString=''):
+
         import numpy as np
         tmp = np.array(inString.split(' '))
         tmp = tmp.astype(np.int64)
@@ -129,7 +185,12 @@ class string_to_int_list():
 
 
 class string_to_int_array():
-    def __init__(self, inString=''):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 inString=''):
+
         from NodeEditor.api.defineTypeVariable import DefineTypeVariable
         typ, val = DefineTypeVariable(inString).returntype()
         if typ == 'arrayint':
@@ -144,7 +205,13 @@ class string_to_int_array():
 
 
 class string_to_list_dyn:
-    def __init__(self, string_in='', **dynamicsInputs):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 string_in='',
+                 **dynamicsInputs):
+
         self.stringList = [string_in]
         for di in dynamicsInputs:
             self.stringList.append(dynamicsInputs[di])
@@ -156,7 +223,12 @@ class string_to_list_dyn:
 
 
 class string_to_float():
-    def __init__(self, inString=''):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 inString=''):
+
         self.outval = float(inString)
 
     def outFloat(self) -> float:
@@ -166,7 +238,12 @@ class string_to_float():
 
 
 class string_to_boolean():
-    def __init__(self, inString=''):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 inString=''):
+
         from NodeEditor.api.defineTypeVariable import DefineTypeVariable
         typ, val = DefineTypeVariable(inString).returntype()
         if typ == 'bool':
@@ -181,7 +258,12 @@ class string_to_boolean():
 
 
 class string_to_boolean_list():
-    def __init__(self, inString=''):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 inString=''):
+
         from NodeEditor.api.defineTypeVariable import DefineTypeVariable
         typ, val = DefineTypeVariable(inString).returntype()
         if typ == 'listbool':
@@ -196,7 +278,12 @@ class string_to_boolean_list():
 
 
 class string_to_boolean_array():
-    def __init__(self, inString=''):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 inString=''):
+
         from NodeEditor.api.defineTypeVariable import DefineTypeVariable
         typ, val = DefineTypeVariable(inString).returntype()
         if typ == 'arraybool':
@@ -211,7 +298,12 @@ class string_to_boolean_array():
 
 
 class string_to_path():
-    def __init__(self, inString=''):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 inString=''):
+
         from NodeEditor.api.defineTypeVariable import DefineTypeVariable
         typ, val = DefineTypeVariable(inString).returntype()
         if typ == 'path':
@@ -226,7 +318,12 @@ class string_to_path():
 
 
 class string_to_path_list():
-    def __init__(self, inString=''):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 inString=''):
+
         self.outval = eval(inString)
 
     def outPath(self) -> list[None]:
@@ -236,7 +333,12 @@ class string_to_path_list():
 
 
 class string_to_path_array():
-    def __init__(self, inString=''):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 inString=''):
+
         from NodeEditor.api.defineTypeVariable import DefineTypeVariable
         typ, val = DefineTypeVariable(inString).returntype()
         if typ == 'arraypath':
@@ -251,7 +353,12 @@ class string_to_path_array():
 
 
 class string_to_dict():
-    def __init__(self, inString=''):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 inString=''):
+
         from NodeEditor.api.defineTypeVariable import DefineTypeVariable
         typ, val = DefineTypeVariable(inString).returntype()
         if typ == 'dict':
@@ -266,7 +373,13 @@ class string_to_dict():
 
 
 class string_to_tuple_dyn:
-    def __init__(self, inString='', **dynamicsInputs):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 inString='',
+                 **dynamicsInputs):
+
         self.tupleAppen = (inString,)
         for di in dynamicsInputs:
             self.tupleAppen = (*self.tupleAppen, dynamicsInputs[di])
@@ -278,7 +391,12 @@ class string_to_tuple_dyn:
 
 
 class String_eval():
-    def __init__(self, inString=''):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 inString=''):
+
         from NodeEditor.api.defineTypeVariable import DefineTypeVariable
         listType = ['float',
                     'int',

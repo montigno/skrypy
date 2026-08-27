@@ -1,5 +1,10 @@
 class yaml_open_file():
-    def __init__(self, yaml_file='path'):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 yaml_file='path'):
+
         import yaml
         with open(yaml_file, 'r') as stream:
             self.outYaml = yaml.load(stream, yaml.FullLoader)
@@ -11,7 +16,13 @@ class yaml_open_file():
 
 
 class yaml_save_file():
-    def __init__(self, yaml_file='path', values_dict={}):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 yaml_file='path',
+                 values_dict={}):
+
         import yaml
         with open(yaml_file, 'w') as stream:
             self.outYaml = yaml.dump(values_dict, stream)

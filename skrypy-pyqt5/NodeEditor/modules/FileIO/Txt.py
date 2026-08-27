@@ -1,5 +1,10 @@
 class open_text_file():
-    def __init__(self, text_file_in='path'):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 text_file_in='path'):
+
         from pathlib import Path
         self.txt = Path(text_file_in).read_text()
 
@@ -10,7 +15,12 @@ class open_text_file():
 
 
 class read_text_lines():
-    def __init__(self, text_file='path'):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 text_file='path'):
+
         with open(text_file) as f:
             self.lines = f.readlines()
 
@@ -21,8 +31,14 @@ class read_text_lines():
 
 
 class save_file_text:
+    """
+    docstring to be completed
+    """
 
-    def __init__(self, text_in='', file_name='path'):
+    def __init__(self,
+                 text_in='',
+                 file_name='path'):
+
         text_file = open(file_name, "w")
         text_file.write(text_in)
         text_file.close()

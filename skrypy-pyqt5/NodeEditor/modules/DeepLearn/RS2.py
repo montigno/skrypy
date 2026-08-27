@@ -6,7 +6,12 @@ class RS2_predict():
         link_web:  https://github.com/VitoLin21/Rodent-Skull-Stripping
                         (click Ctrl + U)
     '''
-    def __init__(self, input_folder='path', output_folder='path', pretrained_model_path='path', **options):
+    def __init__(self,
+                 input_folder='path',
+                 output_folder='path',
+                 pretrained_model_path='path',
+                 **options):
+
         import subprocess
 
         lso = ["RS2_predict", "-i", input_folder, '-o', output_folder, '-m', pretrained_model_path]
@@ -43,7 +48,12 @@ class RS2_predict_datamanagement():
         link_web:  https://github.com/VitoLin21/Rodent-Skull-Stripping
                         (click Ctrl + U)
     '''
-    def __init__(self, list_files=['path'], output_folder='path', pretrained_model_path='path', **options):
+    def __init__(self,
+                 list_files=['path'],
+                 output_folder='path',
+                 pretrained_model_path='path',
+                 **options):
+
         import subprocess
         import shutil
         import gzip

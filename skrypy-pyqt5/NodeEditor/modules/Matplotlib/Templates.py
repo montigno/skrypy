@@ -2,7 +2,10 @@ class matplotlib_coherence_of_two_signals:
     '''
     https://matplotlib.org/stable/gallery/lines_bars_and_markers/cohere.html#sphx-glr-gallery-lines-bars-and-markers-cohere-py
     '''
-    def __init__(self, s1=[0.0], s2=[0.0]):
+    def __init__(self,
+                 s1=[0.0],
+                 s2=[0.0]):
+
         import matplotlib.pyplot as plt
         import numpy as np
 

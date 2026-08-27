@@ -1,5 +1,12 @@
 class numpy_threshold():
-    def __init__(self, image=[[0.0]], threshold=10.0, direction="enumerate(('low', 'high'))"):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image=[[0.0]],
+                 threshold=10.0,
+                 direction="enumerate(('low', 'high'))"):
+
         import numpy as np
         self.img = np.array(image)
         if direction == 'low':

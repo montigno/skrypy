@@ -40,7 +40,12 @@ class numpy_arange():
         dependencies: numpy
         GUI: 'no'
     """
-    def __init__(self, start=0.0, stop=5.0, step=1.0, **options):
+    def __init__(self,
+                 start=0.0,
+                 stop=5.0,
+                 step=1.0,
+                 **options):
+
         import numpy as np
         self.arange = np.arange(start, stop, step, **options)
 

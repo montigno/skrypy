@@ -12,7 +12,9 @@ class int_array_to_float_array():
     Note:
         GUI: no
     """
-    def __init__(self, array_int_in=[[0]]):
+    def __init__(self,
+                 array_int_in=[[0]]):
+
         import numpy as np
         self.outarrayfloat = np.array(array_int_in)
         self.outarrayfloat = self.outarrayfloat.astype(float)

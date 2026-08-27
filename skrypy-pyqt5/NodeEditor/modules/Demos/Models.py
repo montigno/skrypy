@@ -1,12 +1,26 @@
 class AllTypes():
-
+    """
+    docstring to be completed
+    """
     def __init__(self,
-                 inInt=0, inFloat=0.0, inString='', inBool=True,
-                 inPath='path', listInt=[0], listFloat=[0.0],
-                 listString=[''], listBool=[False], listPath=['path'],
-                 arrayInt=[[0]], arrayFloat=[[0.0]], arrayString=[['']],
-                 arrayBool=[[False]], arrayPath=[['path']],
-                 inDict={}, inTuple=('',), inTuple2=(32,)):
+                 inInt=0,
+                 inFloat=0.0,
+                 inString='',
+                 inBool=True,
+                 inPath='path',
+                 listInt=[0],
+                 listFloat=[0.0],
+                 listString=[''],
+                 listBool=[False],
+                 listPath=['path'],
+                 arrayInt=[[0]],
+                 arrayFloat=[[0.0]],
+                 arrayString=[['']],
+                 arrayBool=[[False]],
+                 arrayPath=[['path']],
+                 inDict={},
+                 inTuple=('',),
+                 inTuple2=(32,)):
 
         self.inInt = inInt
         self.inFloat = inFloat
@@ -88,15 +102,25 @@ class AllTypes():
 
 
 class only_options:
-    def __init__(self, **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 **options):
+
         print(options)
 
 #############################################################################
 
 
 class Fibonacci:
+    """
+    docstring to be completed
+    """
 
-    def __init__(self, n=0):
+    def __init__(self,
+                 n=0):
+
         a = 0
         b = 1
         if n < 0:
@@ -126,7 +150,14 @@ class Fibonacci:
 
 
 class comboBox_example:
-    def __init__(self, input1="enumerate(('Item1', 'Item2', 'Item3'))", input2="enumerate(('Gauss', 'Laplace', 'Sobel'))", **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 input1="enumerate(('Item1', 'Item2', 'Item3'))",
+                 input2="enumerate(('Gauss', 'Laplace', 'Sobel'))",
+                 **options):
+
         self.resp1 = input1
         self.resp2 = input2
         self.resp3 = None

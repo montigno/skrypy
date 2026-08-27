@@ -5,7 +5,11 @@ class quickshear_Quickshear:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", mask_file="path", **options):
+    def __init__(self,
+                 in_file="path",
+                 mask_file="path",
+                 **options):
+                 
         from nipype.interfaces.quickshear import Quickshear
         at = Quickshear()
         at.inputs.in_file = in_file

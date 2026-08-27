@@ -1,5 +1,11 @@
 class addImage():
-    def __init__(self, image1=[[0.0]], image2=[[0.0]]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image1=[[0.0]],
+                 image2=[[0.0]]):
+
         import numpy as np
         image1 = np.array(image1)
         image2 = np.array(image2)
@@ -12,7 +18,13 @@ class addImage():
 
 
 class subtractImage:
-    def __init__(self, image1=[[0.0]], image2=[[0.0]]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image1=[[0.0]],
+                 image2=[[0.0]]):
+
         import numpy as np
         image1 = np.array(image1)
         image2 = np.array(image2)
@@ -29,7 +41,13 @@ class subtractImage:
 
 
 class MultiplyImage:
-    def __init__(self, image1=[[0.0]], image2=[[0.0]]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image1=[[0.0]],
+                 image2=[[0.0]]):
+
         import numpy as np
         image1 = np.array(image1)
         image2 = np.array(image2)
@@ -46,7 +64,13 @@ class MultiplyImage:
 
 
 class DivideImage:
-    def __init__(self, image1=[[0.0]], image2=[[0.0]]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image1=[[0.0]],
+                 image2=[[0.0]]):
+
         import numpy as np
         image1 = np.array(image1)
         image2 = np.array(image2)

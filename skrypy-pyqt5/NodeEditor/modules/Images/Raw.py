@@ -12,7 +12,10 @@ class raw_display:
         dependencies: Numpy, Nibabel
         GUI: yes
     """
-    def __init__(self, image=[[0.0]], title=''):
+    def __init__(self,
+                 image=[[0.0]],
+                 title=''):
+
         import os
         import sys
         import subprocess
@@ -42,11 +45,15 @@ class raw_display:
 
 
 class raw_open_image():
+    """
+    docstring to be completed
+    """
     def __init__(self,
                  raw_file='path',
                  imageSize=(128, 128, 9),
                  byteorder="enumerate(('little-endian', 'big-endian'))",
                  data_type="enumerate(('int8', 'int16', 'int32', 'uint8', 'uint16', 'uint32', 'float16', 'float32'))"):
+
         import numpy as np
         if 'little' in byteorder:
             typeImg = '<'

@@ -5,7 +5,10 @@ class vista_Vnifti2Image:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", **options):
+    def __init__(self,
+                 in_file="path",
+                 **options):
+                 
         from nipype.interfaces.vista.vista import Vnifti2Image
         at = Vnifti2Image()
         at.inputs.in_file = in_file
@@ -26,7 +29,10 @@ class vista_VtoMat:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", **options):
+    def __init__(self,
+                 in_file="path",
+                 **options):
+                 
         from nipype.interfaces.vista.vista import VtoMat
         at = VtoMat()
         at.inputs.in_file = in_file

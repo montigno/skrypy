@@ -1,5 +1,12 @@
 class addImage_dyn():
-    def __init__(self, image1=[[0.0]], image2=[[0.0]], **dynamicsInputs):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image1=[[0.0]],
+                 image2=[[0.0]],
+                 **dynamicsInputs):
+
         import numpy as np
         image1 = np.array(image1)
         image2 = np.array(image2)
@@ -14,7 +21,14 @@ class addImage_dyn():
 
 
 class subtractImage_dyn:
-    def __init__(self, image1=[[0.0]], image2=[[0.0]], **dynamicsInputs):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image1=[[0.0]],
+                 image2=[[0.0]],
+                 **dynamicsInputs):
+
         import numpy as np
         image1 = np.array(image1)
         image2 = np.array(image2)
@@ -29,7 +43,14 @@ class subtractImage_dyn:
 
 
 class MultiplyImage_dyn:
-    def __init__(self, image1=[[0.0]], image2=[[0.0]], **dynamicsInputs):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image1=[[0.0]],
+                 image2=[[0.0]],
+                 **dynamicsInputs):
+
         import numpy as np
         image1 = np.array(image1)
         image2 = np.array(image2)
@@ -44,7 +65,14 @@ class MultiplyImage_dyn:
 
 
 class DivideImage_dyn:
-    def __init__(self, image1=[[0.0]], image2=[[0.0]], **dynamicsInputs):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image1=[[0.0]],
+                 image2=[[0.0]],
+                 **dynamicsInputs):
+
         import numpy as np
         image1 = np.array(image1)
         image2 = np.array(image2)
@@ -62,7 +90,12 @@ class DivideImage_dyn:
 
 
 class AbsImage:
-    def __init__(self, image=[[0.0]]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image=[[0.0]]):
+
         import numpy as np
         self.imageAbs = np.absolute(image)
 
@@ -73,7 +106,12 @@ class AbsImage:
 
 
 class Invert_image:
-    def __init__(self, image=[[0.0]]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image=[[0.0]]):
+
         import numpy as np
         self.imageInv = -np.array(image)
 
@@ -84,7 +122,14 @@ class Invert_image:
 
 
 class MaxPool3D:
-    def __init__(self, image=[[0.0]], size_filter=1, stride=1):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image=[[0.0]],
+                 size_filter=1,
+                 stride=1):
+
         import numpy as np
         image_height, image_width, image_depth = image.shape
         print(image_height, image_width, image_depth)
@@ -103,7 +148,12 @@ class MaxPool3D:
 
 
 class min_max_normalization:
-    def __init__(self, image=[[0.0]]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image=[[0.0]]):
+
         import numpy as np
         self.new_img = image.copy()
         self.new_img = self.new_img.astype(np.float32)

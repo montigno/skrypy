@@ -15,7 +15,11 @@ class gen_abscissa:
         dependencies: Numpy
         GUI: no
     """
-    def __init__(self, xmin=0.0, xmax=10.0, delta_x=1.0):
+    def __init__(self,
+                 xmin=0.0,
+                 xmax=10.0,
+                 delta_x=1.0):
+
         import numpy as np
         self.x = list(np.linspace(xmin,
                                   xmax,
@@ -40,7 +44,9 @@ class gen_list_of_integer:
     Note:
       GUI: no
     """
-    def __init__(self, n=10):
+    def __init__(self,
+                 n=10):
+
         self.serie = range(0, n)
 
     def serie_int(self) -> list[int]:
@@ -63,7 +69,10 @@ class gen_list_of_integer_2():
     Note:
       GUI: no
     """
-    def __init__(self, start=0, end=10):
+    def __init__(self,
+                 start=0,
+                 end=10):
+
         self.serie = range(start, end + 1)
 
     def serie_int(self) -> list[int]:
@@ -73,7 +82,12 @@ class gen_list_of_integer_2():
 
 
 class gen_list_of_zero_float:
-    def __init__(self, n=10):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 n=10):
+
         self.serie = [0.0 for x in range(0, n)]
 
     def serie_float(self) -> list[float]:
@@ -83,7 +97,13 @@ class gen_list_of_zero_float:
 
 
 class gen_noise:
-    def __init__(self, size=5, scale=1.0):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 size=5,
+                 scale=1.0):
+
         import numpy as np
         self.noise = np.random.normal(size=size, scale=scale)
 
@@ -94,7 +114,11 @@ class gen_noise:
 
 
 class gen_random_float():
+    """
+    docstring to be completed
+    """
     def __init__(self):
+
         import numpy as np
         self.randout = float(np.random.rand(1, 1)[0][0])
 
@@ -105,7 +129,12 @@ class gen_random_float():
 
 
 class gen_random_list_float():
-    def __init__(self, n=10):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 n=10):
+
         import numpy as np
         self.randout = np.random.rand(1, n)[0].tolist()
 
@@ -130,7 +159,10 @@ class gen_random_float_2D():
         dependencies: Numpy
         GUI: no
     '''
-    def __init__(self, row=10, col=10):
+    def __init__(self,
+                 row=10,
+                 col=10):
+
         import numpy as np
         self.randout = np.random.rand(row, col).tolist()
 
@@ -156,7 +188,11 @@ class gen_random_float_3D():
         dependencies: Numpy
         GUI: no
     """
-    def __init__(self, row=10, col=10, slice=10):
+    def __init__(self,
+                 row=10,
+                 col=10,
+                 slice=10):
+
         import numpy as np
         self.randout = np.random.rand(row, col, slice).tolist()
 
@@ -183,7 +219,12 @@ class gen_random_float_4D():
         dependencies: Numpy
         GUI: no
     """
-    def __init__(self, row=10, col=10, slice=10, temporal=10):
+    def __init__(self,
+                 row=10,
+                 col=10,
+                 slice=10,
+                 temporal=10):
+
         import numpy as np
         self.randout = np.random.rand(row, col, slice, temporal).tolist()
 
@@ -211,7 +252,13 @@ class gen_random_float_5D():
         dependencies: Numpy
         GUI: no
     """
-    def __init__(self, row=10, col=10, slice=10, temporal=10, canal=10):
+    def __init__(self,
+                 row=10,
+                 col=10,
+                 slice=10,
+                 temporal=10,
+                 canal=10):
+
         import numpy as np
         self.randout = np.random.rand(row,
                                       col,

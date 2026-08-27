@@ -1,5 +1,12 @@
 class matplotlib_plot():
-    def __init__(self, y_data=[0.0], x=[0.0], **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 y_data=[0.0],
+                 x=[0.0],
+                 **options):
+
         import matplotlib.pyplot as plt
         from PyQt5.QtWidgets import QApplication
 
@@ -38,7 +45,14 @@ class matplotlib_plot():
 
 
 class matplotlib_multiple_curves():
-    def __init__(self, y_data=[[0.0]], x=[[0.0]], **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 y_data=[[0.0]],
+                 x=[[0.0]],
+                 **options):
+
         import matplotlib.pyplot as plt
         from PyQt5.QtWidgets import QApplication
 
@@ -87,7 +101,14 @@ class matplotlib_multiple_curves():
 
 
 class matplotlib_multiple_plots():
-    def __init__(self, y_data=[[0.0]], x=[[0.0]], **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 y_data=[[0.0]],
+                 x=[[0.0]],
+                 **options):
+
         import matplotlib.pyplot as plt
         from PyQt5.QtWidgets import QApplication
 

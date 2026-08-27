@@ -1,5 +1,10 @@
 class numpy_reverse_list():
-    def __init__(self, list_ndarray=[0.0]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 list_ndarray=[0.0]):
+
         import numpy as np
         self.rev = np.flipud(list_ndarray)
 
@@ -10,7 +15,12 @@ class numpy_reverse_list():
 
 
 class numpy_negative_list():
-    def __init__(self, list_ndarray=[0.0]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 list_ndarray=[0.0]):
+
         import numpy as np
         self.rev = np.negative(list_ndarray)
 

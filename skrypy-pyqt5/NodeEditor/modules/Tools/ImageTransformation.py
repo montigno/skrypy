@@ -1,5 +1,11 @@
 class reslice():
-    def __init__(self, image=[[0.0]], order=[0]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image=[[0.0]],
+                 order=[0]):
+
         import numpy as np
         self.image = np.transpose(image, order)
 

@@ -5,7 +5,15 @@ class workbench_CiftiSmooth:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", sigma_surf=0.0, sigma_vol=0.0, direction="enumerate(('ROW','COLUMN'))", left_surf="path", right_surf="path", **options):
+    def __init__(self,
+                 in_file="path",
+                 sigma_surf=0.0,
+                 sigma_vol=0.0,
+                 direction="enumerate(('ROW','COLUMN'))",
+                 left_surf="path",
+                 right_surf="path",
+                 **options):
+                 
         from nipype.interfaces.workbench.cifti import CiftiSmooth
         at = CiftiSmooth()
         at.inputs.in_file = in_file
@@ -31,7 +39,13 @@ class workbench_MetricResample:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", current_sphere="path", new_sphere="path", method="enumerate(('ADAP_BARY_AREA','BARYCENTRIC'))", **options):
+    def __init__(self,
+                 in_file="path",
+                 current_sphere="path",
+                 new_sphere="path",
+                 method="enumerate(('ADAP_BARY_AREA','BARYCENTRIC'))",
+                 **options):
+                 
         from nipype.interfaces.workbench.metric import MetricResample
         at = MetricResample()
         at.inputs.in_file = in_file

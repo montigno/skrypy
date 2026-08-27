@@ -17,8 +17,14 @@ class scp_transfert():
     Note:
         GUI: no
     """
-    def __init__(self, data_type="enumerate(('file', 'directory'))", direction="enumerate(('local_to_host', 'host_to_local'))",
-                 host_name='', host_password='', host_path='path', local_path='path'):
+    def __init__(self,
+                 data_type="enumerate(('file', 'directory'))",
+                 direction="enumerate(('local_to_host', 'host_to_local'))",
+                 host_name='',
+                 host_password='',
+                 host_path='path',
+                 local_path='path'):
+
         from subprocess import Popen, PIPE
         import os
 
@@ -94,8 +100,15 @@ class scp_transfert_via_bastion():
     Note:
         GUI: no
     """
-    def __init__(self, data_type="enumerate(('file', 'directory'))", direction="enumerate(('local_to_host', 'host_to_local'))",
-                 host_bastion_name='', host_name='', host_password='', host_path='path', local_path='path'):
+    def __init__(self,
+                 data_type="enumerate(('file', 'directory'))",
+                 direction="enumerate(('local_to_host', 'host_to_local'))",
+                 host_bastion_name='',
+                 host_name='',
+                 host_password='',
+                 host_path='path',
+                 local_path='path'):
+
         from subprocess import Popen, PIPE
         import os
 
@@ -167,8 +180,14 @@ class scp_transfert_multifiles():
     Note:
         GUI: no
     """
-    def __init__(self, data_type="enumerate(('file', 'directory'))", direction="enumerate(('local_to_host', 'host_to_local'))",
-                 host_name='', host_password='', host_path='path', local_path='path'):
+    def __init__(self,
+                 data_type="enumerate(('file', 'directory'))",
+                 direction="enumerate(('local_to_host', 'host_to_local'))",
+                 host_name='',
+                 host_password='',
+                 host_path='path',
+                 local_path='path'):
+
         from subprocess import Popen, PIPE
         import os
 
@@ -222,8 +241,16 @@ class scp_transfert_multifiles():
 
 
 class rsync_network():
-    def __init__(self, direction="enumerate(('local_to_host', 'host_to_local'))",
-                 host_name='', host_password='', host_path='path', local_path='path'):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 direction="enumerate(('local_to_host', 'host_to_local'))",
+                 host_name='',
+                 host_password='',
+                 host_path='path',
+                 local_path='path'):
+
         from subprocess import Popen, PIPE
 
         if not host_password or host_password == 'None':
@@ -252,7 +279,13 @@ class rsync_network():
 
 
 class rsync_local():
-    def __init__(self, source='path', dest='path'):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 source='path',
+                 dest='path'):
+
         from subprocess import Popen, PIPE
 
         cmd = ['rsync', '-av', source, dest]

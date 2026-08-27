@@ -1,5 +1,11 @@
 class dicomifier_bruker_to_nifti:
-    def __init__(self, rep_data_bruker='path', rep_out='path'):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 rep_data_bruker='path',
+                 rep_out='path'):
+
         import subprocess
         import os
         listRep1 = os.listdir(rep_out)
@@ -21,8 +27,14 @@ class dicomifier_bruker_to_nifti:
 
 
 class dicomifier_dicom_to_nifti():
+    """
+    docstring to be completed
+    """
 
-    def __init__(self, rep_data_dicom='path', rep_out='path'):
+    def __init__(self,
+                 rep_data_dicom='path',
+                 rep_out='path'):
+
         import subprocess
         import os
         # listRep1 = os.listdir(rep_out)
@@ -43,8 +55,14 @@ class dicomifier_dicom_to_nifti():
 
 
 class dicomifier_bruker_to_dicom():
+    """
+    docstring to be completed
+    """
 
-    def __init__(self, rep_data_bruker='path', rep_out='path'):
+    def __init__(self,
+                 rep_data_bruker='path',
+                 rep_out='path'):
+
         import subprocess
         import os
         listRep1 = os.listdir(rep_out)
@@ -65,7 +83,16 @@ class dicomifier_bruker_to_dicom():
 
 
 class dicomifier_diffusion_scheme_fsl():
-    def __init__(self, source_img='path', source_json='path', out_bvecs='path', out_bvals='path', **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 source_img='path',
+                 source_json='path',
+                 out_bvecs='path',
+                 out_bvals='path',
+                 **options):
+
         import subprocess
         list_op = []
         for ef in options:
@@ -84,7 +111,14 @@ class dicomifier_diffusion_scheme_fsl():
 
 
 class dicomifier_diffusion_scheme_mrtrix():
-    def __init__(self, source_json='path', destination='path', **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 source_json='path',
+                 destination='path',
+                 **options):
+
         import subprocess
         list_op = []
         for ef in options:

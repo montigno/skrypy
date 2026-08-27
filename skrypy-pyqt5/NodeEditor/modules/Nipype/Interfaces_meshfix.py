@@ -5,7 +5,10 @@ class meshfix_MeshFix:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file1="path", **options):
+    def __init__(self,
+                 in_file1="path",
+                 **options):
+                 
         from nipype.interfaces.meshfix import MeshFix
         at = MeshFix()
         at.inputs.in_file1 = in_file1

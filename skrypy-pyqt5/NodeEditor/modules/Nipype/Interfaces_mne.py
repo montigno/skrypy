@@ -5,7 +5,11 @@ class mne_WatershedBEM:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, subject_id='', subjects_dir="path", **options):
+    def __init__(self,
+                 subject_id='',
+                 subjects_dir="path",
+                 **options):
+                 
         from nipype.interfaces.mne.base import WatershedBEM
         at = WatershedBEM()
         at.inputs.subject_id = subject_id

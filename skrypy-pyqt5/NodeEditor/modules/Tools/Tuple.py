@@ -1,5 +1,12 @@
 class tuple_sub_tuple:
-    def __init__(self, tuple_in=(0, 1), index_start=0, index_end=1):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 tuple_in=(0, 1),
+                 index_start=0,
+                 index_end=1):
+
         if index_start == index_end:
             self.sub = tuple_in[index_start]
         else:
@@ -12,7 +19,13 @@ class tuple_sub_tuple:
 
 
 class tuple_concatenat_dyn:
-    def __init__(self, tuple_in=(0,), **dynamicsInputs):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 tuple_in=(0,),
+                 **dynamicsInputs):
+
         self.tupleList = list(tuple_in)
         for di in dynamicsInputs:
             self.tupleList.extend(list(dynamicsInputs[di]))
@@ -25,7 +38,13 @@ class tuple_concatenat_dyn:
 
 
 class tuple_getElement():
-    def __init__(self, tuple_in=(0,), index=0):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 tuple_in=(0,),
+                 index=0):
+
         self.out_tup = tuple_in[index]
 
     def tup_value_to_index(self) -> float:
@@ -35,7 +54,12 @@ class tuple_getElement():
 
 
 class tuple_length():
-    def __init__(self, tuple_in=(0,)):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 tuple_in=(0,)):
+
         self.len = len(tuple_in)
 
     def out_len(self) -> int:
@@ -45,7 +69,13 @@ class tuple_length():
 
 
 class tuple_create_dyn():
-    def __init__(self, element='', **dynamicsInputs):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 element='',
+                 **dynamicsInputs):
+
         elem_tuple = [element]
         for di, vi in dynamicsInputs.items():
             elem_tuple.append(vi)

@@ -1,5 +1,11 @@
 class scipy_binary_opening:
-    def __init__(self, image=[[0]], **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image=[[0]],
+                 **options):
+
         from scipy import ndimage
         import numpy as np
         self.img_op = ndimage.binary_opening(np.array(image), **options)
@@ -11,7 +17,13 @@ class scipy_binary_opening:
 
 
 class scipy_binary_closing:
-    def __init__(self, image=[[0]], **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image=[[0]],
+                 **options):
+
         from scipy import ndimage
         import numpy as np
         self.img_cl = ndimage.binary_closing(np.array(image), **options)
@@ -23,7 +35,13 @@ class scipy_binary_closing:
 
 
 class scipy_binary_propagation:
-    def __init__(self, image=[[0]], **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image=[[0]],
+                 **options):
+
         from scipy import ndimage
         import numpy as np
         self.img_pr = ndimage.binary_propagation(np.array(image), **options)
@@ -35,7 +53,13 @@ class scipy_binary_propagation:
 
 
 class scipy_binary_fill_holes:
-    def __init__(self, image=[[0]], **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image=[[0]],
+                 **options):
+
         from scipy import ndimage
         import numpy as np
         self.img_fh = ndimage.binary_fill_holes(np.array(image), **options)
@@ -47,7 +71,14 @@ class scipy_binary_fill_holes:
 
 
 class scipy_convolve2d():
-    def __init__(self, image=[[0.0]], kern=[[0.0]], **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image=[[0.0]],
+                 kern=[[0.0]],
+                 **options):
+
         from scipy import signal
         import numpy as np
         img = np.array(image)
@@ -78,7 +109,13 @@ class scipy_convolve2d():
 
 
 class scipy_convolve3d():
-    def __init__(self, image=[[0.0]], kern=[[0.0]]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image=[[0.0]],
+                 kern=[[0.0]]):
+
         import numpy as np
         from scipy import ndimage
         img = np.array(image)
@@ -100,7 +137,12 @@ class scipy_convolve3d():
 
 
 class scipy_fft():
-    def __init__(self, x=[0.0]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 x=[0.0]):
+
         from scipy import fft
         self.y = fft(x)
 
@@ -111,7 +153,13 @@ class scipy_fft():
 
 
 class scipy_filter_Sobel():
-    def __init__(self, image=[[0.0]], **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image=[[0.0]],
+                 **options):
+
         from scipy import ndimage
         self.ax = ndimage.sobel(image, **options)
 
@@ -122,7 +170,13 @@ class scipy_filter_Sobel():
 
 
 class scipy_filter_Prewitt():
-    def __init__(self, image=[[0.0]], **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image=[[0.0]],
+                 **options):
+
         from scipy import ndimage
         self.ax = ndimage.prewitt(image, **options)
 
@@ -133,7 +187,14 @@ class scipy_filter_Prewitt():
 
 
 class scipy_filter_Median():
-    def __init__(self, image=[[0.0]], size=1, **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image=[[0.0]],
+                 size=1,
+                 **options):
+
         from scipy import ndimage
         self.ax = ndimage.median_filter(image, size, **options)
 
@@ -144,7 +205,13 @@ class scipy_filter_Median():
 
 
 class scipy_filter_Laplace():
-    def __init__(self, image=[[0.0]], **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image=[[0.0]],
+                 **options):
+
         from scipy import ndimage
         self.ax = ndimage.laplace(image, **options)
 
@@ -155,7 +222,14 @@ class scipy_filter_Laplace():
 
 
 class scipy_filter_Gaussian():
-    def __init__(self, image=[[0.0]], sigma=1, **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image=[[0.0]],
+                 sigma=1,
+                 **options):
+
         from scipy import ndimage
         self.ax = ndimage.gaussian_filter(image, sigma=sigma, **options)
 
@@ -166,7 +240,14 @@ class scipy_filter_Gaussian():
 
 
 class scipy_filter_Gaussian_laplace():
-    def __init__(self, image=[[0.0]], sigma=1, **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image=[[0.0]],
+                 sigma=1,
+                 **options):
+
         from scipy import ndimage
         self.ax = ndimage.gaussian_laplace(image, sigma=sigma, **options)
 
@@ -177,7 +258,13 @@ class scipy_filter_Gaussian_laplace():
 
 
 class scipy_rotate():
-    def __init__(self, image=[[0.0]], angle=0):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image=[[0.0]],
+                 angle=0):
+
         from scipy import ndimage
         self.rot_img = ndimage.rotate(image, angle)
 

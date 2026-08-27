@@ -462,8 +462,15 @@ class TIMap_LevenbergM():
 
 
 class CEST():
-    def __init__(self, y=[0.0], x=[0.0], center_freq=0.0,
-                 mapping_ppm=1.0, delta_mapping=0.1, cest_center=False, **options):
+    def __init__(self,
+                 y=[0.0],
+                 x=[0.0],
+                 center_freq=0.0,
+                 mapping_ppm=1.0,
+                 delta_mapping=0.1,
+                 cest_center=False,
+                 **options):
+
         import numpy as np
         from scipy.interpolate import interp1d
 
@@ -541,8 +548,15 @@ class CEST():
 
 
 class CEST_2():
-    def __init__(self, y=[0.0], x=[0.0], center_freq=0.0,
-                 mapping_ppm=1.0, delta_mapping=0.1, cest_center=False, **options):
+    def __init__(self,
+                 y=[0.0],
+                 x=[0.0],
+                 center_freq=0.0,
+                 mapping_ppm=1.0,
+                 delta_mapping=0.1,
+                 cest_center=False,
+                 **options):
+
         import numpy as np
         from scipy.interpolate import interp1d
 
@@ -621,7 +635,10 @@ class CEST_2():
 
 
 class WASSR():
-    def __init__(self, y=[0.0], x=[0.0]):
+    def __init__(self,
+                 y=[0.0],
+                 x=[0.0]):
+
         import numpy as np
         import scipy.optimize as opt
         from scipy.interpolate import interp1d
@@ -920,7 +937,12 @@ class Non_linear_registration_multiple_images:
 
 
 class Seg_conv3D:
-    def __init__(self, file_in='path', file_out_name='path', threshold=5.0, radius=9):
+    def __init__(self,
+                 file_in='path',
+                 file_out_name='path',
+                 threshold=5.0,
+                 radius=9):
+
         from NodeEditor.modules.Images.Nifti import nifti_open_file
         from NodeEditor.modules.Images.Nifti import nifti_get_header
         from NodeEditor.modules.Images.Scipy import scipy_convolve3d

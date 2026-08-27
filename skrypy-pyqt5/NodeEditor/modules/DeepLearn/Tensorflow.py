@@ -1,5 +1,10 @@
 class tensorflow_to_numpy():
-    def __init__(self, tensor_in=[[0.0]]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 tensor_in=[[0.0]]):
+
         import tensorflow as tf
         self.nump = tensor_in.numpy()
 
@@ -10,7 +15,11 @@ class tensorflow_to_numpy():
 
 
 class tensorflow_gpus_config:
+    """
+    docstring to be completed
+    """
     def __init__(self):
+
         import tensorflow as tf
         self.gpus = tf.config.list_physical_devices('GPU')
         if self.gpus:
@@ -33,7 +42,16 @@ class tensorflow_gpus_config:
 
 
 class tensorflow_nn_conv3d():
-    def __init__(self, input=[[0.0]], filters=[[0.0]], strides=[1, 1, 1, 1, 1], padding="enumerate(('SAME', 'VALID'))", **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 input=[[0.0]],
+                 filters=[[0.0]],
+                 strides=[1, 1, 1, 1, 1],
+                 padding="enumerate(('SAME', 'VALID'))",
+                 **options):
+
         import tensorflow as tf
         self.conv = tf.nn.conv3d(input, filters, strides, padding, **options)
 

@@ -5,7 +5,10 @@ class c3_C3d:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file=["path"], **options):
+    def __init__(self,
+                 in_file=["path"],
+                 **options):
+
         from nipype.interfaces.c3 import C3d
         at = C3d()
         at.inputs.in_file = in_file
@@ -26,7 +29,9 @@ class c3_C3dAffineTool:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+
         from nipype.interfaces.c3 import C3dAffineTool
         at = C3dAffineTool()
         for ef in options:

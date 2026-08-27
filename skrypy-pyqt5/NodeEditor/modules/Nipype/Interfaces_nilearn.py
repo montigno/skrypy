@@ -5,7 +5,9 @@ class nilearn_NilearnBaseInterface:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.nilearn import NilearnBaseInterface
         at = NilearnBaseInterface()
         for ef in options:
@@ -22,7 +24,12 @@ class nilearn_SignalExtraction:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", label_files=["path"], class_labels=[''], **options):
+    def __init__(self,
+                 in_file="path",
+                 label_files=["path"],
+                 class_labels=[''],
+                 **options):
+                 
         from nipype.interfaces.nilearn import SignalExtraction
         at = SignalExtraction()
         at.inputs.in_file = in_file
@@ -45,7 +52,9 @@ class nilearn_SimpleInterface:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.base.core import SimpleInterface
         at = SimpleInterface()
         for ef in options:

@@ -5,7 +5,9 @@ class mipav_JistBrainMgdmSegmentation:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.mipav.developer import JistBrainMgdmSegmentation
         at = JistBrainMgdmSegmentation()
         for ef in options:
@@ -34,7 +36,9 @@ class mipav_JistBrainMp2rageDuraEstimation:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.mipav.developer import JistBrainMp2rageDuraEstimation
         at = JistBrainMp2rageDuraEstimation()
         for ef in options:
@@ -54,7 +58,9 @@ class mipav_JistBrainMp2rageSkullStripping:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.mipav.developer import JistBrainMp2rageSkullStripping
         at = JistBrainMp2rageSkullStripping()
         for ef in options:
@@ -83,7 +89,9 @@ class mipav_JistBrainPartialVolumeFilter:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.mipav.developer import JistBrainPartialVolumeFilter
         at = JistBrainPartialVolumeFilter()
         for ef in options:
@@ -103,7 +111,9 @@ class mipav_JistCortexSurfaceMeshInflation:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.mipav.developer import JistCortexSurfaceMeshInflation
         at = JistCortexSurfaceMeshInflation()
         for ef in options:
@@ -126,7 +136,9 @@ class mipav_JistIntensityMp2rageMasking:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.mipav.developer import JistIntensityMp2rageMasking
         at = JistIntensityMp2rageMasking()
         for ef in options:
@@ -155,7 +167,9 @@ class mipav_JistLaminarProfileCalculator:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.mipav.developer import JistLaminarProfileCalculator
         at = JistLaminarProfileCalculator()
         for ef in options:
@@ -175,7 +189,9 @@ class mipav_JistLaminarProfileGeometry:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.mipav.developer import JistLaminarProfileGeometry
         at = JistLaminarProfileGeometry()
         for ef in options:
@@ -195,7 +211,9 @@ class mipav_JistLaminarProfileSampling:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.mipav.developer import JistLaminarProfileSampling
         at = JistLaminarProfileSampling()
         for ef in options:
@@ -218,7 +236,9 @@ class mipav_JistLaminarROIAveraging:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.mipav.developer import JistLaminarROIAveraging
         at = JistLaminarROIAveraging()
         for ef in options:
@@ -238,7 +258,9 @@ class mipav_JistLaminarVolumetricLayering:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.mipav.developer import JistLaminarVolumetricLayering
         at = JistLaminarVolumetricLayering()
         for ef in options:
@@ -264,7 +286,9 @@ class mipav_MedicAlgorithmImageCalculator:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.mipav.developer import MedicAlgorithmImageCalculator
         at = MedicAlgorithmImageCalculator()
         for ef in options:
@@ -284,7 +308,9 @@ class mipav_MedicAlgorithmLesionToads:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.mipav.developer import MedicAlgorithmLesionToads
         at = MedicAlgorithmLesionToads()
         for ef in options:
@@ -328,7 +354,9 @@ class mipav_MedicAlgorithmMipavReorient:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.mipav.developer import MedicAlgorithmMipavReorient
         at = MedicAlgorithmMipavReorient()
         for ef in options:
@@ -345,7 +373,9 @@ class mipav_MedicAlgorithmN3:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.mipav.developer import MedicAlgorithmN3
         at = MedicAlgorithmN3()
         for ef in options:
@@ -368,7 +398,9 @@ class mipav_MedicAlgorithmSPECTRE2010:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.mipav.developer import MedicAlgorithmSPECTRE2010
         at = MedicAlgorithmSPECTRE2010()
         for ef in options:
@@ -412,7 +444,9 @@ class mipav_MedicAlgorithmThresholdToBinaryMask:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.mipav.developer import MedicAlgorithmThresholdToBinaryMask
         at = MedicAlgorithmThresholdToBinaryMask()
         for ef in options:
@@ -429,7 +463,9 @@ class mipav_RandomVol:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.mipav.developer import RandomVol
         at = RandomVol()
         for ef in options:

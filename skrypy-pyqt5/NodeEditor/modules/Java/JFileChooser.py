@@ -1,5 +1,9 @@
 class ChooseRepertories:
+    """
+    docstring to be completed
+    """
     def __init__(self):
+
         from subprocess import Popen, PIPE
         import os
         dir_path = os.path.dirname(os.path.realpath(__file__))

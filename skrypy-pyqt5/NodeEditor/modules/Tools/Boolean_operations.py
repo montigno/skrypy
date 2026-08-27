@@ -12,7 +12,10 @@ class x_Greater_y:
     Note:
         GUI: no
     """
-    def __init__(self, x=0.0, y=0.0):
+    def __init__(self,
+                 x=0.0,
+                 y=0.0):
+
         self.res = x > y
 
     def out(self) -> bool:
@@ -35,7 +38,10 @@ class x_Equal_y:
     Note:
         GUI: no
     """
-    def __init__(self, x=0.0, y=0.0):
+    def __init__(self,
+                 x=0.0,
+                 y=0.0):
+
         self.res = x == y
 
     def out(self) -> bool:
@@ -58,7 +64,10 @@ class x_Less_y:
     Note:
         GUI: no
     """
-    def __init__(self, x=0.0, y=0.0):
+    def __init__(self,
+                 x=0.0,
+                 y=0.0):
+
         self.res = x < y
 
     def out(self) -> bool:
@@ -81,7 +90,10 @@ class x_Not_Equal_y:
     Note:
         GUI: no
     """
-    def __init__(self, x=0.0, y=0.0):
+    def __init__(self,
+                 x=0.0,
+                 y=0.0):
+
         self.res = x != y
 
     def out(self) -> bool:
@@ -104,7 +116,10 @@ class x_GreaterOrEqual_y:
     Note:
         GUI: no
     """
-    def __init__(self, x=0.0, y=0.0):
+    def __init__(self,
+                 x=0.0,
+                 y=0.0):
+
         self.res = x >= y
 
     def out(self) -> bool:
@@ -127,7 +142,10 @@ class x_LessOrEqual_y:
     Note:
         GUI: no
     """
-    def __init__(self, x=0.0, y=0.0):
+    def __init__(self,
+                 x=0.0,
+                 y=0.0):
+
         self.res = x <= y
 
     def out(self) -> bool:
@@ -149,7 +167,9 @@ class x_is_None:
     Note:
         GUI: no
     """
-    def __init__(self, x=0):
+    def __init__(self,
+                 x=0):
+
         self.res = x is None
 
     def out(self) -> bool:
@@ -172,7 +192,11 @@ class x_Equal_y_dyn:
     Note:
         GUI: no
     """
-    def __init__(self, x=0.0, y=0.0, **dynamicsInputs):
+    def __init__(self,
+                 x=0.0,
+                 y=0.0,
+                 **dynamicsInputs):
+
         self.res = x == y
         for di in dynamicsInputs:
             self.res = self.res and y == dynamicsInputs[di]
@@ -196,7 +220,9 @@ class all_iterable:
     Note:
         GUI: no
     """
-    def __init__(self, list_bool=[True]):
+    def __init__(self,
+                 list_bool=[True]):
+
         self.res = all(list_bool)
 
     def out(self) -> bool:
@@ -218,7 +244,9 @@ class any_iterable:
     Note:
         GUI: no
     """
-    def __init__(self, list_bool=[True]):
+    def __init__(self,
+                 list_bool=[True]):
+
         self.res = any(list_bool)
 
     def out(self) -> bool:
@@ -228,7 +256,10 @@ class any_iterable:
 
 
 class AND_dyn:
-    def __init__(self, bool_in=True, **dynamicsInputs):
+    def __init__(self,
+                 bool_in=True,
+                 **dynamicsInputs):
+
         self.res = bool_in
         for di in dynamicsInputs:
             self.res = self.res and dynamicsInputs[di]
@@ -240,7 +271,10 @@ class AND_dyn:
 
 
 class OR_dyn:
-    def __init__(self, bool_in=True, **dynamicsInputs):
+    def __init__(self,
+                 bool_in=True,
+                 **dynamicsInputs):
+
         self.res = bool_in
         for di in dynamicsInputs:
             self.res = self.res or dynamicsInputs[di]
@@ -252,7 +286,9 @@ class OR_dyn:
 
 
 class NOT:
-    def __init__(self, bool_in=True):
+    def __init__(self,
+                 bool_in=True):
+
         self.res = not bool_in
 
     def out(self) -> bool:
@@ -275,7 +311,10 @@ class isinstance_var:
     Note:
         GUI: no
     """
-    def __init__(self, var='', type_compare="enumerate(('int', 'float', 'list', 'complex', 'str', 'dict', 'tuple', 'set'))"):
+    def __init__(self,
+                 var='',
+                 type_compare="enumerate(('int', 'float', 'list', 'complex', 'str', 'dict', 'tuple', 'set'))"):
+
         known_types = {'int': int, 'float': float, 'list': list, 'complex': complex, 'str': str, 'dict': dict, 'tuple': tuple, 'set': set}
         if type_compare in known_types.keys():
             self.res = isinstance(var, known_types[type_compare])

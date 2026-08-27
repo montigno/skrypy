@@ -5,7 +5,10 @@ class cmtk_AverageNetworks:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_files=["path"], **options):
+    def __init__(self,
+                 in_files=["path"],
+                 **options):
+                 
         from nipype.interfaces.cmtk.nx import AverageNetworks
         at = AverageNetworks()
         at.inputs.in_files = in_files
@@ -32,7 +35,9 @@ class cmtk_CFFConverter:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.cmtk.convert import CFFConverter
         at = CFFConverter()
         for ef in options:
@@ -52,7 +57,12 @@ class cmtk_CreateMatrix:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, roi_file="path", tract_file="path", resolution_network_file="path", **options):
+    def __init__(self,
+                 roi_file="path",
+                 tract_file="path",
+                 resolution_network_file="path",
+                 **options):
+                 
         from nipype.interfaces.cmtk.cmtk import CreateMatrix
         at = CreateMatrix()
         at.inputs.roi_file = roi_file
@@ -126,7 +136,11 @@ class cmtk_CreateNodes:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, roi_file="path", resolution_network_file="path", **options):
+    def __init__(self,
+                 roi_file="path",
+                 resolution_network_file="path",
+                 **options):
+                 
         from nipype.interfaces.cmtk.cmtk import CreateNodes
         at = CreateNodes()
         at.inputs.roi_file = roi_file
@@ -148,7 +162,10 @@ class cmtk_MergeCNetworks:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_files=["path"], **options):
+    def __init__(self,
+                 in_files=["path"],
+                 **options):
+                 
         from nipype.interfaces.cmtk.convert import MergeCNetworks
         at = MergeCNetworks()
         at.inputs.in_files = in_files
@@ -169,7 +186,11 @@ class cmtk_NetworkBasedStatistic:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_group1=["path"], in_group2=["path"], **options):
+    def __init__(self,
+                 in_group1=["path"],
+                 in_group2=["path"],
+                 **options):
+                 
         from nipype.interfaces.cmtk.nbs import NetworkBasedStatistic
         at = NetworkBasedStatistic()
         at.inputs.in_group1 = in_group1
@@ -197,7 +218,10 @@ class cmtk_NetworkXMetrics:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", **options):
+    def __init__(self,
+                 in_file="path",
+                 **options):
+                 
         from nipype.interfaces.cmtk.nx import NetworkXMetrics
         at = NetworkXMetrics()
         at.inputs.in_file = in_file
@@ -254,7 +278,10 @@ class cmtk_Parcellate:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, subject_id='', **options):
+    def __init__(self,
+                 subject_id='',
+                 **options):
+                 
         from nipype.interfaces.cmtk.parcellation import Parcellate
         at = Parcellate()
         at.inputs.subject_id = subject_id
@@ -296,7 +323,10 @@ class cmtk_ROIGen:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, aparc_aseg_file="path", **options):
+    def __init__(self,
+                 aparc_aseg_file="path",
+                 **options):
+                 
         from nipype.interfaces.cmtk.cmtk import ROIGen
         at = ROIGen()
         at.inputs.aparc_aseg_file = aparc_aseg_file

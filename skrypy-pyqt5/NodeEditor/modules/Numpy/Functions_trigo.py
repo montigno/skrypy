@@ -1,7 +1,12 @@
 class numpy_trigonometry():
-    def __init__(self, x=0.0,
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 x=0.0,
                  op="enumerate(('sin', 'cos', 'tan', 'arcsin', 'arccos', 'arctan'))",
                  angle_type="enumerate(('degree','radian'))"):
+
         import numpy as np
         x = np.array(x)
         if op in ['sin', 'cos', 'tan']:
@@ -20,7 +25,12 @@ class numpy_trigonometry():
 
 
 class numpy_sinc():
-    def __init__(self, x=[0.0]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 x=[0.0]):
+
         import numpy as np
         self.sc = np.sinc(x)
 

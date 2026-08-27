@@ -1,4 +1,7 @@
 class MP3_Atlas_ANTS():
+    """
+    docstring to be completed
+    """
     def __init__(self,
                  mat_eng='',
                  Nifti_in='path',
@@ -7,6 +10,7 @@ class MP3_Atlas_ANTS():
                  file_Atlas_name='path',
                  file_Label_name='path',
                  **options):
+
         import matlab.engine
         import os
         files_in, files_out = {}, {}

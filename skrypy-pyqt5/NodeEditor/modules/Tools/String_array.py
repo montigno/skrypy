@@ -1,5 +1,10 @@
 class string_array_to_float_array():
-    def __init__(self, array_string_in=[['']]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 array_string_in=[['']]):
+
         import numpy as np
         array_string_in = np.array(array_string_in)
         self.outarrayfloat = array_string_in.astype(float)
@@ -11,7 +16,14 @@ class string_array_to_float_array():
 
 
 class string_array_concatenat_dyn:
-    def __init__(self, array_string_in=[['']], array_0=[['']], **dynamicsInputs):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 array_string_in=[['']],
+                 array_0=[['']],
+                 **dynamicsInputs):
+
         self.stringArray = array_string_in.copy()
         self.stringArray.extend(array_0)
         for di in dynamicsInputs:
@@ -24,7 +36,14 @@ class string_array_concatenat_dyn:
 
 
 class string_array_getElement():
-    def __init__(self, array_string_in=[['']], row=0, column=0):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 array_string_in=[['']],
+                 row=0,
+                 column=0):
+
         self.out = array_string_in[row][column]
 
     def out_subarray(self) -> str:
@@ -34,7 +53,14 @@ class string_array_getElement():
 
 
 class string_array_getSubarray():
-    def __init__(self, array_string_in=[['']], row=(0, 1), column=(0, 1)):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 array_string_in=[['']],
+                 row=(0, 1),
+                 column=(0, 1)):
+
         self.out = [i[column[0]:column[1]] for i in array_string_in[row[0]:row[1]]]
 
     def out_subarray(self) -> list[list[str]]:
@@ -44,7 +70,14 @@ class string_array_getSubarray():
 
 
 class string_array_merge_dyn:
-    def __init__(self, array_string_in=[['']], array_0=[['']], **dynamicsInputs):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 array_string_in=[['']],
+                 array_0=[['']],
+                 **dynamicsInputs):
+
         self.stringArray = []
         for i in range(len(array_string_in)):
             rowList = []
@@ -61,7 +94,14 @@ class string_array_merge_dyn:
 
 
 class string_array_index:
-    def __init__(self, array_string_in=[['']], index_start=0, index_end=1):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 array_string_in=[['']],
+                 index_start=0,
+                 index_end=1):
+
         if index_end == 0:
             self.res = array_string_in[index_start:]
         else:
@@ -74,7 +114,13 @@ class string_array_index:
 
 
 class string_array_getcolumn:
-    def __init__(self, array_string_in=[['']], index_column=0):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 array_string_in=[['']],
+                 index_column=0):
+
         self.res = [row[index_column] for row in array_string_in]
 
     def out_column(self) -> list[str]:
@@ -84,7 +130,13 @@ class string_array_getcolumn:
 
 
 class string_array_remove_column:
-    def __init__(self, array_string_in=[['']], index_column=0):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 array_string_in=[['']],
+                 index_column=0):
+
         import numpy as np
         self.out = np.delete(array_string_in, index_column, axis=1)
 
@@ -95,7 +147,13 @@ class string_array_remove_column:
 
 
 class string_array_remove_row:
-    def __init__(self, array_string_in=[['']], index_row=0):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 array_string_in=[['']],
+                 index_row=0):
+
         import numpy as np
         self.out = np.delete(array_string_in, index_row, axis=0)
 

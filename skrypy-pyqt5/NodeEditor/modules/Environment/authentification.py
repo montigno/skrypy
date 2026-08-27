@@ -1,5 +1,10 @@
 class login_passwd_dialog():
-    def __init__(self, message=''):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 message=''):
+
         import os
         import sys
         from subprocess import run
@@ -21,7 +26,12 @@ class login_passwd_dialog():
 
 
 class passwd_dialog():
-    def __init__(self, message=''):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 message=''):
+
         import os
         import sys
         from subprocess import run

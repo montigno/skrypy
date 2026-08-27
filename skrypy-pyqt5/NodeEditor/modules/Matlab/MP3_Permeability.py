@@ -1,9 +1,13 @@
 class MP3_DCE_phenomeno():
+    """
+    docstring to be completed
+    """
     def __init__(self,
                  mat_eng='',
                  file_in='path',
                  file_out='path',
                  **options):
+
         import matlab.engine
         from NodeEditor.modules.Tools.Path import path_add_suffixprefix
         files_in, files_out = {}, {}

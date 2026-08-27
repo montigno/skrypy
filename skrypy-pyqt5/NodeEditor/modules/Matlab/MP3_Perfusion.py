@@ -1,9 +1,13 @@
 class MP3_BVf():
+    """
+    docstring to be completed
+    """
     def __init__(self,
                  mat_eng='',
                  file_in='path',
                  file_out='path',
                  **options):
+
         import matlab.engine
         files_in, files_out = {}, {}
         options['flag_test'] = 0

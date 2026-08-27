@@ -1,5 +1,11 @@
 class gz_compress:
-    def __init__(self, file_in='path', delete_file=False):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 file_in='path',
+                 delete_file=False):
+
         import gzip
         import shutil
         import os
@@ -21,7 +27,12 @@ class gz_compress:
 
 
 class gz_decompress():
-    def __init__(self, input_gz='path'):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 input_gz='path'):
+
         import gzip
         import shutil
         import os

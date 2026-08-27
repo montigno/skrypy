@@ -1,6 +1,12 @@
 class float_operations_dyn():
-    def __init__(self, operation="enumerate(('add', 'sub', 'mul', 'div'))",
-                 list_float_in=0.0, **dynamicsInputs):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 operation="enumerate(('add', 'sub', 'mul', 'div'))",
+                 list_float_in=0.0,
+                 **dynamicsInputs):
+
         self.result = list_float_in
         if operation == 'add':
             for di, vi in dynamicsInputs.items():
@@ -22,7 +28,13 @@ class float_operations_dyn():
 
 
 class float_to_list_dyn():
-    def __init__(self, float_in=0.0, **dynamicsInputs):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 float_in=0.0,
+                 **dynamicsInputs):
+
         self.out = [float_in]
         for di in dynamicsInputs:
             self.out.append(dynamicsInputs[di])
@@ -47,7 +59,9 @@ class float_to_int():
     Note:
         GUI: no
     """
-    def __init__(self, float_in=0.0):
+    def __init__(self,
+                 float_in=0.0):
+
         self.outint = int(float_in)
 
     def outInt(self) -> int:
@@ -70,7 +84,9 @@ class float_to_string():
     Note:
         GUI: no
     """
-    def __init__(self, float_in=0.0):
+    def __init__(self,
+                 float_in=0.0):
+
         self.outStr = str(float_in)
 
     def outString(self) -> str:

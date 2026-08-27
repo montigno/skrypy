@@ -1,5 +1,12 @@
 class float_array_add_column():
-    def __init__(self, array_float_in=[[0.0]], new_column=[0.0], index=0):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 array_float_in=[[0.0]],
+                 new_column=[0.0],
+                 index=0):
+
         import numpy as np
         if index < 0:
             index = len(array_float_in[0]) + index + 1
@@ -14,7 +21,14 @@ class float_array_add_column():
 
 
 class float_array_add_row():
-    def __init__(self, array_float_in=[[0.0]], new_row=[0.0], index=0):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 array_float_in=[[0.0]],
+                 new_row=[0.0],
+                 index=0):
+
         import numpy as np
         if index < 0:
             index = len(array_float_in) + index + 1
@@ -29,7 +43,13 @@ class float_array_add_row():
 
 
 class float_array_append_dyn():
-    def __init__(self, array_float_in=[[0.0]], **dynamicsInputs):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 array_float_in=[[0.0]],
+                 **dynamicsInputs):
+
         self.arr = []
         self.arr.append(array_float_in)
         for di, vi in dynamicsInputs.items():
@@ -42,7 +62,13 @@ class float_array_append_dyn():
 
 
 class float_array_concatenate_dyn():
-    def __init__(self, array_float_in=[[0.0]], **dynamicsInputs):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 array_float_in=[[0.0]],
+                 **dynamicsInputs):
+
         import numpy as np
         self.arr = np.array(array_float_in)
         print(dynamicsInputs)
@@ -56,7 +82,12 @@ class float_array_concatenate_dyn():
 
 
 class float_array_get_dimension():
-    def __init__(self, array_float_in=[[0.0]]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 array_float_in=[[0.0]]):
+
         try:
             self.dim = (len(array_float_in[0]), len(array_float_in[0][0]), len(array_float_in))
         except Exception:
@@ -69,7 +100,14 @@ class float_array_get_dimension():
 
 
 class float_array_getElement():
-    def __init__(self, array_float_in=[[0.0]], index1=0, index2=0):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 array_float_in=[[0.0]],
+                 index1=0,
+                 index2=0):
+
         self.out = array_float_in[index1][index2]
 
     def outArray(self) -> float:
@@ -79,7 +117,13 @@ class float_array_getElement():
 
 
 class float_array_getRow():
-    def __init__(self, array_float_in=[[0.0]], row=0):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 array_float_in=[[0.0]],
+                 row=0):
+
         self.outList = array_float_in[row]
 
     def outList(self) -> list[float]:
@@ -89,7 +133,13 @@ class float_array_getRow():
 
 
 class float_array_getColumn():
-    def __init__(self, array_float_in=[[0.0]], column=0):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 array_float_in=[[0.0]],
+                 column=0):
+
         self.out = [row[column] for row in array_float_in]
 
     def outColumn(self) -> list[float]:
@@ -99,7 +149,14 @@ class float_array_getColumn():
 
 
 class float_array_getSubarray():
-    def __init__(self, array_float_in=[[0.0]], row=(0, 1), column=(0, 1)):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 array_float_in=[[0.0]],
+                 row=(0, 1),
+                 column=(0, 1)):
+
         self.out = [i[column[0]:column[1]] for i in array_float_in[row[0]:row[1]]]
 
     def out_subarray(self) -> list[list[float]]:
@@ -109,8 +166,13 @@ class float_array_getSubarray():
 
 
 class float_array_mean:
+    """
+    docstring to be completed
+    """
 
-    def __init__(self, array_float_in=[[0.0]]):
+    def __init__(self,
+                 array_float_in=[[0.0]]):
+
         import numpy as np
         self.result = np.mean(array_float_in)
 
@@ -134,7 +196,10 @@ class float_array_nlargest():
     Note:
         GUI: no
     """
-    def __init__(self, array_float_in=[[0.0]], n=2):
+    def __init__(self,
+                 array_float_in=[[0.0]],
+                 n=2):
+
         import numpy as np
         array_float_in = np.array(array_float_in)
         self.result_list = -np.sort(-array_float_in, axis=None)[0:n]
@@ -159,7 +224,10 @@ class float_array_nsmallest():
     Note:
         GUI: no
     """
-    def __init__(self, array_float_in=[[0.0]], n=2):
+    def __init__(self,
+                 array_float_in=[[0.0]],
+                 n=2):
+
         import numpy as np
         self.result_list = np.sort(array_float_in, axis=None)[0:n]
 
@@ -170,8 +238,14 @@ class float_array_nsmallest():
 
 
 class float_array_operations_dyn():
-    def __init__(self, operation="enumerate(('add', 'sub', 'mul', 'div'))",
-                 array_float_in=[[0.0]], **dynamicsInputs):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 operation="enumerate(('add', 'sub', 'mul', 'div'))",
+                 array_float_in=[[0.0]],
+                 **dynamicsInputs):
+
         import numpy as np
         self.result = np.array(array_float_in)
         if operation == 'add':
@@ -195,7 +269,12 @@ class float_array_operations_dyn():
 
 
 class float_array_transpose():
-    def __init__(self, array_float_in=[[0.0]]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 array_float_in=[[0.0]]):
+
         self.out = list(map(list, zip(*array_float_in)))
 
     def transp_out(self) -> list[list[float]]:
@@ -218,7 +297,9 @@ class float_array_to_int_array():
     Note:
         GUI: no
     """
-    def __init__(self, array_float_in=[[0.0]]):
+    def __init__(self,
+                 array_float_in=[[0.0]]):
+
         import numpy as np
         self.outarrayint = np.array(array_float_in)
         self.outarrayint = self.outarrayint.astype(int)
@@ -230,8 +311,13 @@ class float_array_to_int_array():
 
 
 class float_array_to_negative:
+    """
+    docstring to be completed
+    """
 
-    def __init__(self, array_float_in=[[0.0]]):
+    def __init__(self,
+                 array_float_in=[[0.0]]):
+
         import numpy as np
         self.result = np.negative(array_float_in)
 
@@ -242,7 +328,12 @@ class float_array_to_negative:
 
 
 class float_array_to_string_array():
-    def __init__(self, array_float_in=[[0.0]]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 array_float_in=[[0.0]]):
+
         self.outStr = []
         for y in array_float_in:
             self.outStr.append([str(x) for x in y])

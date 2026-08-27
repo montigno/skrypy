@@ -1,5 +1,10 @@
 class signal_rms():
-    def __init__(self, y=[0.0]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 y=[0.0]):
+
         import math
         ms = 0.0
         for i in range(0, len(y)):

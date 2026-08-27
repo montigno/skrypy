@@ -1,5 +1,9 @@
 class skimage_contour():
+    """
+    docstring to be completed
+    """
     def __init__(self):
+
         import numpy as np
         import matplotlib.pyplot as plt
         from skimage import data
@@ -89,7 +93,11 @@ class skimage_contour():
 
 
 class skimage_contour_2():
+    """
+    docstring to be completed
+    """
     def __init__(self):
+
         import numpy as np
         import matplotlib.pyplot as plt
         from skimage import measure

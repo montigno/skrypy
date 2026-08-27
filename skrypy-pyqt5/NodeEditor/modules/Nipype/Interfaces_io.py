@@ -5,7 +5,11 @@ class io_BIDSDataGrabber:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, base_dir="path", index_derivatives=True, **options):
+    def __init__(self,
+                 base_dir="path",
+                 index_derivatives=True,
+                 **options):
+                 
         from nipype.interfaces.io import BIDSDataGrabber
         at = BIDSDataGrabber()
         at.inputs.base_dir = base_dir
@@ -24,7 +28,9 @@ class io_BaseInterface:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.base.core import BaseInterface
         at = BaseInterface()
         for ef in options:
@@ -41,7 +47,10 @@ class io_DataFinder:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, root_paths=[''], **options):
+    def __init__(self,
+                 root_paths=[''],
+                 **options):
+                 
         from nipype.interfaces.io import DataFinder
         at = DataFinder()
         at.inputs.root_paths = root_paths
@@ -59,7 +68,11 @@ class io_DataGrabber:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, sort_filelist=True, template='', **options):
+    def __init__(self,
+                 sort_filelist=True,
+                 template='',
+                 **options):
+                 
         from nipype.interfaces.io import DataGrabber
         at = DataGrabber()
         at.inputs.sort_filelist = sort_filelist
@@ -78,7 +91,9 @@ class io_DataSink:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.io import DataSink
         at = DataSink()
         for ef in options:
@@ -98,7 +113,11 @@ class io_ExportFile:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file="path", out_file="path", **options):
+    def __init__(self,
+                 in_file="path",
+                 out_file="path",
+                 **options):
+                 
         from nipype.interfaces.io import ExportFile
         at = ExportFile()
         at.inputs.in_file = in_file
@@ -120,7 +139,11 @@ class io_FreeSurferSource:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, subjects_dir="path", subject_id='', **options):
+    def __init__(self,
+                 subjects_dir="path",
+                 subject_id='',
+                 **options):
+                 
         from nipype.interfaces.io import FreeSurferSource
         at = FreeSurferSource()
         at.inputs.subjects_dir = subjects_dir
@@ -250,7 +273,9 @@ class io_IOBase:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.io import IOBase
         at = IOBase()
         for ef in options:
@@ -267,7 +292,9 @@ class io_JSONFileGrabber:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.io import JSONFileGrabber
         at = JSONFileGrabber()
         for ef in options:
@@ -284,7 +311,9 @@ class io_JSONFileSink:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.io import JSONFileSink
         at = JSONFileSink()
         for ef in options:
@@ -304,7 +333,12 @@ class io_S3DataGrabber:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, bucket='', sort_filelist=True, template='', **options):
+    def __init__(self,
+                 bucket='',
+                 sort_filelist=True,
+                 template='',
+                 **options):
+                 
         from nipype.interfaces.io import S3DataGrabber
         at = S3DataGrabber()
         at.inputs.bucket = bucket
@@ -324,7 +358,13 @@ class io_SSHDataGrabber:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, hostname='', base_directory='', sort_filelist=True, template='', **options):
+    def __init__(self,
+                 hostname='',
+                 base_directory='',
+                 sort_filelist=True,
+                 template='',
+                 **options):
+                 
         from nipype.interfaces.io import SSHDataGrabber
         at = SSHDataGrabber()
         at.inputs.hostname = hostname
@@ -345,7 +385,9 @@ class io_SimpleInterface:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, **options):
+    def __init__(self,
+                 **options):
+                 
         from nipype.interfaces.base.core import SimpleInterface
         at = SimpleInterface()
         for ef in options:
@@ -362,7 +404,12 @@ class io_XNATSink:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, project_id='', subject_id='', experiment_id='', **options):
+    def __init__(self,
+                 project_id='',
+                 subject_id='',
+                 experiment_id='',
+                 **options):
+                 
         from nipype.interfaces.io import XNATSink
         at = XNATSink()
         at.inputs.project_id = project_id
@@ -382,7 +429,10 @@ class io_XNATSource:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, query_template='', **options):
+    def __init__(self,
+                 query_template='',
+                 **options):
+                 
         from nipype.interfaces.io import XNATSource
         at = XNATSource()
         at.inputs.query_template = query_template

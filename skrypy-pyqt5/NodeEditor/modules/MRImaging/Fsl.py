@@ -1,5 +1,12 @@
 class fsl_bet2:
-    def __init__(self, input_file='path', output_file='path', **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 input_file='path',
+                 output_file='path',
+                 **options):
+
         from subprocess import run
         list_options = []
         list_options.append(input_file)
@@ -21,7 +28,14 @@ class fsl_bet2:
 
 
 class fslsplit():
-    def __init__(self, input='path', output_basename='path', dimension="enumerate(('-t', '-x', '-y', '-z'))"):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 input='path',
+                 output_basename='path',
+                 dimension="enumerate(('-t', '-x', '-y', '-z'))"):
+
         from subprocess import run
         import glob
         list_options = []
@@ -42,7 +56,15 @@ class fslsplit():
 
 
 class fslmerge():
-    def __init__(self, dimension="enumerate(('-t', '-x', '-y', '-z', '-a', 'tr'))", output='path', in_files=['path'], **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 dimension="enumerate(('-t', '-x', '-y', '-z', '-a', 'tr'))",
+                 output='path',
+                 in_files=['path'],
+                 **options):
+
         from subprocess import run
         list_options = []
         list_options.append(dimension)
@@ -65,7 +87,13 @@ class fslmerge():
 
 
 class fsleyes():
-    def __init__(self, images=['path'], **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 images=['path'],
+                 **options):
+
         from subprocess import Popen
         list_options = []
         if images[0] != 'path':

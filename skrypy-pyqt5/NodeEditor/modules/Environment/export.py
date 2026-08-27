@@ -1,5 +1,10 @@
 class path_export():
-    def __init__(self, file_path='path'):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 file_path='path'):
+
         import os
         if file_path not in os.environ["PATH"]:
             os.environ["PATH"] += os.pathsep + file_path
@@ -10,7 +15,13 @@ class path_export():
 
 
 class param_export():
-    def __init__(self, param_name='', file_path='path'):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 param_name='',
+                 file_path='path'):
+
         import os
         # if file_path not in os.environ[param_name]:
         os.environ[param_name] = file_path
@@ -21,7 +32,13 @@ class param_export():
 
 
 class system_cmd_dyn():
-    def __init__(self, cmd='', **dynamicsInputs):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 cmd='',
+                 **dynamicsInputs):
+
         import subprocess
         command = cmd
         if dynamicsInputs:
@@ -34,7 +51,12 @@ class system_cmd_dyn():
 
 
 class sh_command():
-    def __init__(self, sh_file='path'):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 sh_file='path'):
+
         import os
         os.popen('sh ' + sh_file)
 
@@ -42,7 +64,14 @@ class sh_command():
 
 
 class system_activate_conda():
-    def __init__(self, source_conda='path', env='', **dynamicsInputs):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 source_conda='path',
+                 env='',
+                 **dynamicsInputs):
+
         import subprocess
         command = '. {} && conda activate {}'.format(source_conda, env)
         print(command)

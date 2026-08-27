@@ -5,7 +5,10 @@ class nipy_ComputeMask:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, mean_volume="path", **options):
+    def __init__(self,
+                 mean_volume="path",
+                 **options):
+                 
         from nipype.interfaces.nipy.preprocess import ComputeMask
         at = ComputeMask()
         at.inputs.mean_volume = mean_volume
@@ -26,7 +29,17 @@ class nipy_EstimateContrast:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, contrasts=[(0,)], beta="path", nvbeta='', s2="path", dof='', constants='', axis='', reg_names=[''], **options):
+    def __init__(self,
+                 contrasts=[(0,)],
+                 beta="path",
+                 nvbeta='',
+                 s2="path",
+                 dof='',
+                 constants='',
+                 axis='',
+                 reg_names=[''],
+                 **options):
+                 
         from nipype.interfaces.nipy.model import EstimateContrast
         at = EstimateContrast()
         at.inputs.contrasts = contrasts
@@ -60,7 +73,11 @@ class nipy_FitGLM:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, session_info='', TR=0.0, **options):
+    def __init__(self,
+                 session_info='',
+                 TR=0.0,
+                 **options):
+                 
         from nipype.interfaces.nipy.model import FitGLM
         at = FitGLM()
         at.inputs.session_info = session_info
@@ -106,7 +123,11 @@ class nipy_Similarity:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, volume1="path", volume2="path", **options):
+    def __init__(self,
+                 volume1="path",
+                 volume2="path",
+                 **options):
+                 
         from nipype.interfaces.nipy.utils import Similarity
         at = Similarity()
         at.inputs.volume1 = volume1
@@ -128,7 +149,10 @@ class nipy_SpaceTimeRealigner:
         GUI: no
         link_web: (click Ctrl + U)
     """
-    def __init__(self, in_file=["path"], **options):
+    def __init__(self,
+                 in_file=["path"],
+                 **options):
+                 
         from nipype.interfaces.nipy.preprocess import SpaceTimeRealigner
         at = SpaceTimeRealigner()
         at.inputs.in_file = in_file

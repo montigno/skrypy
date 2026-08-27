@@ -7,4 +7,4 @@ packages:
   matplotlib: matplotlib --prefer-binary
   psutil: psutil
   setuptools: setuptools
-version: 26.08.26a
+version: 26.08.27a

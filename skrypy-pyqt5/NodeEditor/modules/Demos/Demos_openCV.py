@@ -1,6 +1,12 @@
 class openCV_camera():
+    """
+    docstring to be completed
+    """
 
-    def __init__(self, rect=(100, 100, 300, 300), filter="enumerate(('Canny', 'Schtroumpf'))"):
+    def __init__(self,
+                 rect=(100, 100, 300, 300),
+                 filter="enumerate(('Canny', 'Schtroumpf'))"):
+
         import cv2
 
         self.rect = rect
@@ -63,8 +69,13 @@ class openCV_camera():
 
 
 class openCV_screen():
+    """
+    docstring to be completed
+    """
 
-    def __init__(self, rect=(100, 100, 300, 300), filter="enumerate(('NoFilter', 'Canny'))"):
+    def __init__(self,
+                 rect=(100, 100, 300, 300),
+                 filter="enumerate(('NoFilter', 'Canny'))"):
 
         import numpy as np
         import cv2

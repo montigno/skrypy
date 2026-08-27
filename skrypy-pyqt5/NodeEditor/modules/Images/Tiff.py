@@ -1,5 +1,10 @@
 class open_tif_file:
-    def __init__(self, file_tiff='path'):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 file_tiff='path'):
+
         from PIL import Image
         import numpy as np
         img = Image.open(file_tiff)
@@ -18,7 +23,14 @@ class open_tif_file:
 
 
 class tif_to_nii:
-    def __init__(self, Tif_file='path', output_nii='path', pixdim=[0.025, 0.025, 0.05]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 Tif_file='path',
+                 output_nii='path',
+                 pixdim=[0.025, 0.025, 0.05]):
+
         import numpy as np
         import tifffile as tiff
         import nibabel as nib
@@ -52,7 +64,14 @@ class tif_to_nii:
 
 
 class tif_to_nii_4d:
-    def __init__(self, Tif_file='path', output_nii='path', pixdim=[0.025, 0.025, 0.05, 1.0]):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 Tif_file='path',
+                 output_nii='path',
+                 pixdim=[0.025, 0.025, 0.05, 1.0]):
+
         import numpy as np
         import tifffile as tiff
         import nibabel as nib

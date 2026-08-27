@@ -1,5 +1,9 @@
 class mrtrix3_deGibbs3D:
-    def __init__(self, inImg='path', outImg='path', **options):
+    def __init__(self,
+                 inImg='path',
+                 outImg='path',
+                 **options):
+
         from subprocess import run
         list_options = []
         list_options.append(inImg)
@@ -27,6 +31,7 @@ class mrtrix3_dwi2fod:
                  response='path',
                  odf='path',
                  **options):
+
         from subprocess import run
         list_options = []
         list_options.append(algorithm)
@@ -49,7 +54,11 @@ class mrtrix3_dwi2fod:
 
 
 class mrtrix3_dwi2mask:
-    def __init__(self, mif_image='path', dwi2mask_out='path', **options):
+    def __init__(self,
+                 mif_image='path',
+                 dwi2mask_out='path',
+                 **options):
+
         from subprocess import run
         list_options = []
         list_options.append(mif_image)
@@ -80,6 +89,7 @@ class mrtrix3_dwi2response:
                  inputs=['path'],
                  outputs=['path'],
                  **options):
+
         from subprocess import run
         list_options = []
         list_options.append(algorithm)
@@ -109,7 +119,10 @@ class mrtrix3_dwi2response:
 
 
 class mrtrix3_dwi2tensor:
-    def __init__(self, dwi2tensor_out='path', **options):
+    def __init__(self,
+                 dwi2tensor_out='path',
+                 **options):
+
         from subprocess import run
         list_options = []
         for op in options:
@@ -132,7 +145,14 @@ class mrtrix3_dwi2tensor:
 
 
 class mrtrix3_dwi2tensor2:
-    def __init__(self, dwi_input='path', dwi2tensor_out='path', **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 dwi_input='path',
+                 dwi2tensor_out='path',
+                 **options):
+
         from subprocess import run
         list_options = []
         list_options.append(dwi_input)
@@ -157,7 +177,14 @@ class mrtrix3_dwi2tensor2:
 
 
 class mrtrix3_dwidenoise:
-    def __init__(self, mif_image='path', dwi_out='path', **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 mif_image='path',
+                 dwi_out='path',
+                 **options):
+
         from subprocess import run
         list_options = []
         list_options.append(mif_image)
@@ -178,7 +205,12 @@ class mrtrix3_dwidenoise:
 
 
 class mrtrix3_lmax:
-    def __init__(self, number_DWI_volumes=6):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 number_DWI_volumes=6):
+
         self.lmax = 2
         if number_DWI_volumes <= 14:
             self.lmax = 2
@@ -200,7 +232,14 @@ class mrtrix3_lmax:
 
 
 class mrtrix3_mrcalc:
-    def __init__(self, mif_images=['path'], mrcalc_out=['path'], **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 mif_images=['path'],
+                 mrcalc_out=['path'],
+                 **options):
+
         from subprocess import run
         list_options = []
         for ls in mif_images:
@@ -226,7 +265,14 @@ class mrtrix3_mrcalc:
 
 
 class mrtrix3_mrconvert:
-    def __init__(self, input='path', output='path', **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 input='path',
+                 output='path',
+                 **options):
+
         from subprocess import run
         list_options = []
         list_options.append(input)
@@ -254,7 +300,14 @@ class mrtrix3_mrconvert:
 
 
 class mrtrix3_mrdegibbs:
-    def __init__(self, mif_image='path', mrdegibbs_out='path', **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 mif_image='path',
+                 mrdegibbs_out='path',
+                 **options):
+
         from subprocess import run
         list_options = []
         list_options.append(mif_image)
@@ -275,7 +328,15 @@ class mrtrix3_mrdegibbs:
 
 
 class mrtrix3_mrgrid:
-    def __init__(self, mif_image='path', mrgrid_out='path', operation="enumerate(('regrid', 'crop', 'pad'))", **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 mif_image='path',
+                 mrgrid_out='path',
+                 operation="enumerate(('regrid', 'crop', 'pad'))",
+                 **options):
+
         from subprocess import run
         list_options = []
         list_options.append(mif_image)
@@ -297,7 +358,13 @@ class mrtrix3_mrgrid:
 
 
 class mrtrix3_mrinfo:
-    def __init__(self, mif_images=['path'], **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 mif_images=['path'],
+                 **options):
+
         from subprocess import Popen
         list_options = []
         list_options.extend(mif_images)
@@ -313,7 +380,14 @@ class mrtrix3_mrinfo:
 
 
 class mrtrix3_mrregister:
-    def __init__(self, image1_moving='path', image2_template='path', **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 image1_moving='path',
+                 image2_template='path',
+                 **options):
+
         from subprocess import run
         list_options = []
         list_options.append(image1_moving)
@@ -334,7 +408,13 @@ class mrtrix3_mrregister:
 
 
 class mrtrix3_mrview:
-    def __init__(self, list_images=['path'], **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 list_images=['path'],
+                 **options):
+
         from subprocess import Popen
         list_options = []
         list_options.extend(list_images)
@@ -350,7 +430,14 @@ class mrtrix3_mrview:
 
 
 class mrtrix3_mtnormalise:
-    def __init__(self, inputs=['path'], outputs=['path'], **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 inputs=['path'],
+                 outputs=['path'],
+                 **options):
+
         from subprocess import run
         list_options = []
         for ls in inputs:
@@ -379,7 +466,14 @@ class mrtrix3_mtnormalise:
 
 
 class mrtrix3_mrtransform:
-    def __init__(self, input='path', output='path', **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 input='path',
+                 output='path',
+                 **options):
+
         from subprocess import run
         list_options = []
         list_options.append(input)
@@ -400,7 +494,14 @@ class mrtrix3_mrtransform:
 ###############################################################################
 
 class mrtrix3_population_template:
-    def __init__(self, input_dir='path', template='path', **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 input_dir='path',
+                 template='path',
+                 **options):
+
         from subprocess import run
         list_options = []
         list_options.append(input_dir)
@@ -421,7 +522,14 @@ class mrtrix3_population_template:
 
 
 class mrtrix3_tckgen:
-    def __init__(self, mif_image='path', tracks='path', **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 mif_image='path',
+                 tracks='path',
+                 **options):
+
         from subprocess import run
         list_options = []
         list_options.append(mif_image)
@@ -439,7 +547,14 @@ class mrtrix3_tckgen:
 
 
 class mrtrix3_tensor2metric:
-    def __init__(self, mif_image='path', tensor2metric_out='path', **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 mif_image='path',
+                 tensor2metric_out='path',
+                 **options):
+
         from subprocess import run
         list_options = []
         list_options.append(mif_image)
@@ -459,7 +574,13 @@ class mrtrix3_tensor2metric:
 
 
 class mrtrix3_tensor2metric2:
-    def __init__(self, tensor='path', **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 tensor='path',
+                 **options):
+
         from subprocess import run
         list_options = []
         list_options.append(tensor)
@@ -475,7 +596,13 @@ class mrtrix3_tensor2metric2:
 
 
 class mrtrix3_warp2metric:
-    def __init__(self, deformation_input='path', **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 deformation_input='path',
+                 **options):
+
         from subprocess import run
         list_options = []
         list_options.append(deformation_input)

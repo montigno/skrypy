@@ -1,5 +1,9 @@
 class list_SharedMemory():
+    """
+    docstring to be completed
+    """
     def __init__(self):
+
         import os
         import yaml
 
@@ -18,7 +22,14 @@ class list_SharedMemory():
 
 
 class SharedMemory_create():
-    def __init__(self, memoryName='', data='', **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 memoryName='',
+                 data='',
+                 **options):
+
         import os
         import yaml
         import time
@@ -49,7 +60,13 @@ class SharedMemory_create():
 
 
 class SharedMemory_read():
-    def __init__(self, memoryName='', **options):
+    """
+    docstring to be completed
+    """
+    def __init__(self,
+                 memoryName='',
+                 **options):
+
         import os
         import yaml
 
