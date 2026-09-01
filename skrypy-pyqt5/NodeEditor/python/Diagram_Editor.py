@@ -18,18 +18,17 @@ from PyQt5.QtCore import QByteArray, QStringListModel, QLineF, QPointF, \
 from PyQt5.QtGui import QStandardItemModel, QPixmap, QPainterPath, QCursor, \
     QBrush, QStandardItem, QTransform, QColor, QPen, \
     QPolygonF, QLinearGradient, QKeySequence, QIcon, QFontMetrics, \
-    QPainterPathStroker, QDesktopServices
+    QPainterPathStroker, QDesktopServices, QTextCursor
 from PyQt5.QtWidgets import QMenuBar, QGraphicsScene, QDialog, \
     QGraphicsPathItem, QGraphicsPolygonItem, \
     QGraphicsRectItem, QSpinBox, QDoubleSpinBox, \
-    QTreeView, QWidget, QVBoxLayout, QSplitter, \
-    QMenu, QAction, \
+    QTreeView, QWidget, QVBoxLayout, QSplitter, QMenu, QAction, \
     QHBoxLayout, QLabel, QPushButton, QGraphicsProxyWidget, QGraphicsTextItem, \
     QGridLayout, QCheckBox, QLineEdit, QCompleter, QToolBar, \
     QProgressBar, QApplication, QScrollArea, QProgressDialog, \
     QMdiSubWindow, QTabWidget, QMainWindow, QTextEdit, QGraphicsDropShadowEffect, \
     QGraphicsWidget, QGraphicsLinearLayout, QFileSystemModel, QStyle, \
-    QAbstractItemView, QHeaderView
+    QAbstractItemView, QHeaderView, QListWidget, QListWidgetItem
 from PyQt5.Qt import Qt, QFont, QComboBox, QSizePolicy, QFileDialog, QPainter, \
     QGraphicsView, QPalette, QGraphicsItem, QImage, QMessageBox, QMdiArea
 
@@ -53,6 +52,7 @@ from random import randint
 from threading import Timer
 import math
 import types
+import jedi
 
 from . import Config, Plugin, AboutSoft
 from . import DefinitType, EditDialog
@@ -9191,21 +9191,7 @@ class ScriptItem(QGraphicsRectItem):
         self.nameUnit = QGraphicsTextItem(self.unit, self)
         self.nameUnit.setDefaultTextColor(ItemColor.DEFAULTTEXTCOLOR.value)
 
-        class TextEditPy(QTextEdit):
-
-            # def __init__(self):
-            #     super(TextEditPy, self).__init__(parent)
-            #     self.setTextInteractionFlags(Qt.NoTextInteraction)
-
-            def keyPressEvent(self, event):
-                if event.key() == (Qt.Key_Tab):
-                    self.insertPlainText(' ' * 4)
-                    return
-                super(TextEditPy, self).keyPressEvent(event)
-
-            def mousePressEvent(self, event):
-                editor.diagramScene[editor.currentTab].clearSelection()
-                return super().mousePressEvent(event)
+###########################################################################################
 
         if self.isMod:
             self.setFlags(self.ItemIsSelectable | self.ItemIsMovable | self.ItemIsFocusable | self.ItemSendsGeometryChanges)
@@ -9230,6 +9216,7 @@ class ScriptItem(QGraphicsRectItem):
             self.resize.setFlag(self.resize.ItemIsSelectable, True)
             self.resize.wmin = self.wmin
             self.resize.hmin = self.hmin
+
 
     def text_changed(self):
         if not self.loading:
@@ -10180,6 +10167,286 @@ class SubProcessItem():
 
     def getSubblocks(self):
         return self.subBlock
+
+
+class TextEditPy(QTextEdit):
+
+    def __init__(self, parent=None):
+
+        super().__init__(parent)
+
+        self.completion_popup = QListWidget()
+
+        self.completion_popup.installEventFilter(self)
+        QApplication.instance().installEventFilter(self)
+
+        self.completion_popup.setWindowFlags(Qt.Popup)
+        self.completion_popup.setFocusPolicy(Qt.StrongFocus)
+        self.completion_popup.setMouseTracking(True)
+        self.completion_popup.itemClicked.connect(self.insertCompletionItem)
+
+        self.completion_popup.hide()
+
+    def keyPressEvent(self, event):
+
+        popup = self.completion_popup
+
+        if popup.isVisible():
+
+            # ---------------------------------------------
+            # ENTER
+            # ---------------------------------------------
+            if event.key() == Qt.Key_Return or event.key() ==Qt.Key_Enter:
+                self.acceptCompletion()
+                event.accept()
+                return
+
+            # ---------------------------------------------
+            # TAB
+            # ---------------------------------------------
+
+            if event.key() == Qt.Key_Tab:
+                self.acceptCompletion()
+                event.accept()
+                return
+
+            # ---------------------------------------------
+            # ESC
+            # ---------------------------------------------
+
+            if event.key() == Qt.Key_Escape:
+                popup.hide()
+                event.accept()
+                return
+
+            # ---------------------------------------------
+            # DOWN
+            # ---------------------------------------------
+
+            if event.key() == Qt.Key_Down:
+                row = popup.currentRow()
+                if row < popup.count() - 1:
+                    popup.setCurrentRow(row + 1)
+                event.accept()
+                return
+
+            # ---------------------------------------------
+            # UP
+            # ---------------------------------------------
+
+            if event.key() == Qt.Key_Up:
+                row = popup.currentRow()
+                if row > 0:
+                    popup.setCurrentRow(row - 1)
+                event.accept()
+                return
+
+        # =================================================
+        # CTRL + SPACE
+        # =================================================
+
+        if (
+            event.key() == Qt.Key_Space
+            and event.modifiers() & Qt.ControlModifier
+        ):
+            self.showCompletion()
+            event.accept()
+            return
+
+        # =================================================
+        # TAB normal
+        # =================================================
+
+        if event.key() == Qt.Key_Tab:
+            self.insertPlainText("    ")
+            event.accept()
+            return
+
+        # =================================================
+        # Traitement normal
+        # =================================================
+
+        super().keyPressEvent(event)
+
+        # =================================================
+        # Complétion après "."
+        # =================================================
+
+        if event.text() == ".":    
+            self.showCompletion()
+
+    def acceptCompletion(self):
+    
+        popup = self.completion_popup
+    
+        if not popup.isVisible():
+            return
+    
+        item = popup.currentItem()
+    
+        if item is not None:
+            self.insertCompletionItem(item)
+    
+        popup.hide()
+    
+        self.setFocus()
+
+    # =====================================================
+    # COMPLETION JEDI
+    # =====================================================
+
+    def showCompletion(self):
+
+        cursor = self.textCursor()
+        code = self.toPlainText()
+        line = cursor.blockNumber() + 1
+        column = cursor.positionInBlock()
+        
+        try:
+            script = jedi.Script(code=code, path="skrypy_script.py")
+            completions = script.complete(
+                line=line,
+                column=column
+            )
+        except Exception as error:
+            print(
+                "Jedi completion error:",
+                error
+            )
+            self.completion_popup.hide()
+            return
+
+        if not completions:
+            self.completion_popup.hide()
+            return
+
+        # =================================================
+        # Fill the popup
+        # =================================================
+
+        popup = self.completion_popup
+        popup.clear()
+
+        for completion in completions:
+            item = QListWidgetItem(completion.name)
+            item.setData(
+                Qt.UserRole,
+                completion
+            )
+            popup.addItem(item)
+
+        if popup.count() == 0:
+            popup.hide()
+            return
+
+        popup.setCurrentRow(0)
+        popup.setMinimumWidth(250)
+        height = min(
+            popup.sizeHintForRow(0) * min(
+                popup.count(),
+                10
+            ) + 4,
+            250
+        )
+
+        popup.setFixedHeight(height)
+        rect = self.cursorRect()
+        pos = self.mapToGlobal(rect.bottomLeft())
+        popup.move(pos)
+        popup.show()
+        popup.setFocus()
+
+    def insertCompletionItem(self, item):
+
+        if item is None:
+            return
+
+        completion = item.text()
+
+        if not completion:
+            return
+
+        cursor = self.textCursor()
+        cursor.select(
+            QTextCursor.WordUnderCursor
+        )
+        cursor.insertText(completion)
+        self.setTextCursor(cursor)
+        self.completion_popup.hide()
+        self.setFocus()
+
+    def mousePressEvent(self, event):
+
+        self.completion_popup.hide()
+
+        editor.diagramScene[
+            editor.currentTab
+        ].clearSelection()
+
+        super().mousePressEvent(event)
+
+    # def focusOutEvent(self, event):
+    #
+    #     super().focusOutEvent(event)
+
+    def eventFilter(self, obj, event):
+
+        # =================================================
+        # EVENEMENTS CLAVIER
+        # =================================================
+
+        if event.type() == QEvent.KeyPress:
+    
+            if obj == self.completion_popup:
+
+                # ENTER
+                if event.key() in (
+                    Qt.Key_Return,
+                    Qt.Key_Enter
+                ):
+                    self.acceptCompletion()
+                    return True
+    
+                # TAB
+                if event.key() == Qt.Key_Tab:
+                    self.acceptCompletion()
+                    return True
+    
+                # ESCAPE
+                if event.key() == Qt.Key_Escape:
+                    self.completion_popup.hide()
+                    self.setFocus()
+                    return True
+    
+                # DOWN
+                if event.key() == Qt.Key_Down:
+                    row = self.completion_popup.currentRow()
+                    if row < self.completion_popup.count() - 1:
+                        self.completion_popup.setCurrentRow(row + 1)
+                    return True
+    
+                # UP
+                if event.key() == Qt.Key_Up:
+                    row = self.completion_popup.currentRow()
+                    if row > 0:
+                        self.completion_popup.setCurrentRow(row - 1)
+                    return True
+    
+        elif event.type() == QEvent.MouseButtonPress:
+            if self.completion_popup.isVisible():
+                mouse_pos = event.globalPos()
+                popup = self.completion_popup
+                rect = popup.rect()
+                top_left = popup.mapToGlobal(
+                    rect.topLeft()
+                )
+    
+                rect.moveTopLeft(top_left)
+                # Clic en dehors du popup
+                if not rect.contains(mouse_pos):
+                    popup.hide()
+    
+        return super().eventFilter(obj, event)
 
 
 class TextInfo(QTextEdit):

@@ -1,5 +1,5 @@
 [diagram]
-script=[S0] title=[Script_python] inputs=[] outputs=[] code=[your code] RectF=[(-253.0, -72.0, 760.0, 1170.0)]
+script=[S0] title=[Script_python] inputs=[] outputs=[] code=[your code] RectF=[(-260.0, -80.0, 760.0, 1160.0)]
 [source S0]
 []
 from PyQt5 import QtGui
