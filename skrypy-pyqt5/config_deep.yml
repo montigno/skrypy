@@ -47,7 +47,6 @@ packages:
   pyvistaqt: pyvistaqt
   ray: ray
   read_roi: read_roi
-  ruamel: ruamel.yaml
   scikit-image: scikit-image
   scikit-learn: scikit-learn
   scipy: scipy
