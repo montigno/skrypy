@@ -16,6 +16,11 @@ If you encounter problems with Skrypy, see [here](https://montigno.github.io/skr
 
 <p></p>
 
+	02/09/2026: version 26.09.02a
+	- Script item: bug with completion function fixed
+
+<p></p>
+
 	01/09/2026: version 26.09.01a
 	- Script item: completion function added
 
