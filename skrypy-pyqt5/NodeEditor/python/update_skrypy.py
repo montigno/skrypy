@@ -31,7 +31,8 @@ class skrypy_update(QDialog):
         if os.path.exists(self.skrypy_new_dir):
             shutil.rmtree(self.skrypy_new_dir, onerror=self.remove_readonly)
         try:
-            git.Git(dest).clone("https://github.com/montigno/skrypy-pyqt5.git")
+            # git.Git(dest).clone("https://github.com/montigno/skrypy-pyqt5.git")
+            git.Git(dest).clone("git@github.com:montigno/skrypy-pyqt5.git")
             self.skrypy_new = os.path.join(self.skrypy_new_dir, "skrypy-pyqt5")
             config_new = os.path.join(self.skrypy_new, 'config.yml')
             with open(config_new, 'r', encoding='utf8') as stream:
