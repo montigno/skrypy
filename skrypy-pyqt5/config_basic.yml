@@ -3,9 +3,11 @@ packages:
   cryptography: cryptography
   dirsync: dirsync
   gputil: GPUtil
+  jedi: jedi
   list_imports: list-imports
   matplotlib: matplotlib --prefer-binary
   psutil: psutil
+  ruamel: ruamel.yaml
   setuptools: setuptools
 version: 26.09.03a
 

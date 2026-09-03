@@ -14,6 +14,7 @@ packages:
   gitpython: GitPython
   gputil: GPUtil
   h5py: h5py
+  jedi: jedi
   list_imports: list-imports
   lmdb: lmdb
   lmfit: lmfit
@@ -43,6 +44,7 @@ packages:
   pyvistaqt: pyvistaqt
   ray: ray
   read_roi: read_roi
+  ruamel: ruamel.yaml
   scikit-image: scikit-image
   scikit-learn: scikit-learn
   scipy: scipy
