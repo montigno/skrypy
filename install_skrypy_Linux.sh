@@ -233,11 +233,95 @@ echo "=== Installing Python modules ==="
 
 python "$DEST/install_modules.py"
 
+
 # ============================================================
-# Creating the shortcut
+# Creating command line launcher
 # ============================================================
 
 echo
+
+echo "=== Creating terminal launcher ==="
+
+LOCAL_BIN="$HOME/.local/bin"
+LAUNCHER="$LOCAL_BIN/skrypy"
+
+mkdir -p "$LOCAL_BIN"
+
+cat > "$LAUNCHER" <<EOL
+#!/usr/bin/env bash
+
+SKRYPY_DIR="$DEST"
+PYTHON="$BASE/bin/python"
+MAIN="$DEST/main.py"
+
+cd "\$SKRYPY_DIR" || {
+    echo "========================================"
+    echo " ERROR : Unable to access Skrypy"
+    echo "========================================"
+    echo
+    echo "Directory : \$SKRYPY_DIR"
+    echo
+    read -r -p "Press Enter to close..."
+    exit 1
+}
+
+echo "========================================"
+echo "              SKRYPY"
+echo "========================================"
+echo
+echo "Python : \$PYTHON"
+echo "Script : \$MAIN"
+echo
+echo "----------------------------------------"
+echo
+
+"\$PYTHON" "\$MAIN" "\$@"
+STATUS=\$?
+
+echo
+echo "----------------------------------------"
+
+if [ \$STATUS -eq 0 ]; then
+    echo "Skrypy finished normally."
+else
+    echo
+    echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+    echo "        ERROR PYTHON - SKRYPY"
+    echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+    echo
+    echo "Error code : \$STATUS"
+fi
+
+echo
+read -r -p "Press Enter to close..."
+
+exit \$STATUS
+EOL
+
+chmod +x "$LAUNCHER"
+
+echo "Launcher created: $LAUNCHER"
+
+# Add ~/.local/bin to PATH if needed
+
+if ! grep -q 'HOME/.local/bin' "$HOME/.bashrc"; then
+
+    cat >> "$HOME/.bashrc" <<'EOF'
+
+# Skrypy
+export PATH="$HOME/.local/bin:$PATH"
+
+EOF
+
+fi
+
+
+# ============================================================
+# Creating the application shortcut
+# ============================================================
+
+echo
+
 echo "=== Creating application shortcut ==="
 
 DESKTOP_FILE="$HOME/.local/share/applications/skrypy.desktop"
@@ -249,7 +333,7 @@ cat > "$DESKTOP_FILE" <<EOL
 Version=1.0
 Name=Skrypy
 Comment=Skrypy Application
-Exec=bash -c "$BASE/bin/python $DEST/main.py; echo; read -p 'Press Enter to close...'"
+Exec=$LAUNCHER
 Path=$DEST
 Icon=$DEST/ressources/skrypy.png
 Terminal=true
@@ -261,11 +345,13 @@ chmod +x "$DESKTOP_FILE"
 
 echo "Shortcut created in application menu."
 
+
 # ============================================================
 # Desktop shortcut
 # ============================================================
 
 echo
+
 echo "=== Optional desktop shortcut ==="
 
 DESKTOP_SHORTCUT="$HOME/Desktop/Skrypy.desktop"
@@ -274,32 +360,6 @@ cp "$DESKTOP_FILE" "$DESKTOP_SHORTCUT" 2>/dev/null || true
 
 chmod +x "$DESKTOP_SHORTCUT" 2>/dev/null || true
 
-# ============================================================
-# Creating command line launcher
-# ============================================================
-
-echo
-echo "=== Creating terminal launcher ==="
-
-mkdir -p "$HOME/.local/bin"
-
-cat > "$HOME/.local/bin/skrypy" <<EOL
-#!/usr/bin/env bash
-exec "$BASE/bin/python" "$DEST/main.py" "\$@"
-EOL
-
-chmod +x "$HOME/.local/bin/skrypy"
-
-echo "Launcher created: ~/.local/bin/skrypy"
-
-# Add ~/.local/bin to PATH if needed
-if ! grep -q 'HOME/.local/bin' "$HOME/.bashrc"; then
-    cat >> "$HOME/.bashrc" <<'EOF'
-
-# Skrypy
-export PATH="$HOME/.local/bin:$PATH"
-EOF
-fi
 
 # ============================================================
 # End
