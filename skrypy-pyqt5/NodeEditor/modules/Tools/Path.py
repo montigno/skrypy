@@ -132,10 +132,14 @@ class path_to_list_dyn():
     def __init__(self,
                  path_in='path',
                  **dynamicsInputs):
-
-        self.outListPath = [path_in]
+        
+        if path_in:
+            self.outListPath = [path_in]
+        else:
+            self.outListPath = []
         for di in dynamicsInputs:
-            self.outListPath.append(dynamicsInputs[di])
+            if di:
+                self.outListPath.append(dynamicsInputs[di])
 
     def ListPath(self) -> list[None]:
         return self.outListPath
