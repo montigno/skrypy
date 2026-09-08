@@ -978,3 +978,28 @@ class Seg_conv3D:
 
     def output_file(self) -> None:
         return self.out_file
+
+##############################################################################
+
+
+class coregistration_display():
+    
+    def __init__(self,
+                 images=['path'],
+                 Interpolation="enumerate(('0 - Nearest neighbor', '1 - Linear', '2 - Quadratic spline', '3 - Cubic spline', '4 - Quartic spline', '5 - Quintic spline'))"):
+
+        import os
+        import sys
+        import subprocess
+        import json
+        from pathlib import Path
+        
+        # current_dir_path = os.path.abspath(os.path.join(__file__, "../../.."))
+        current_dir_path = Path(__file__).parents[2]
+        source_disp = os.path.join(current_dir_path, 'api', 'coregister_grid.py')
+        subprocess.Popen([sys.executable, source_disp, json.dumps(images), Interpolation[:1]],
+                         shell=False,
+                         stdin=None,
+                         stdout=subprocess.PIPE,
+                         stderr=subprocess.PIPE)
+        

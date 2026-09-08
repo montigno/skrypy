@@ -42,3 +42,4 @@ from NodeEditor.python.servers_config import servers_window
 from NodeEditor.python.textEditor import TextEditor
 from NodeEditor.python.update_skrypy import skrypy_update
 from NodeEditor.python.editPlaque import EditDialog
+from NodeEditor.python.codeEditor import TextEditPy

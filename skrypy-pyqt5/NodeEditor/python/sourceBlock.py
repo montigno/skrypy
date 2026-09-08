@@ -6,11 +6,14 @@
 # for details.
 ##########################################################################
 
-from NodeEditor.python.syntax import PythonHighlighter
-from PyQt5.QtGui import QFontMetrics
-from PyQt5.QtWidgets import QVBoxLayout, QDialog, QTextEdit
 import importlib
 import inspect
+
+from PyQt5.QtGui import QFontMetrics
+from PyQt5.QtWidgets import QVBoxLayout, QDialog, QTextEdit
+
+from NodeEditor.python.syntax import PythonHighlighter
+from NodeEditor.python.codeEditor import TextEditPy
 
 
 class seeCode(QDialog):
@@ -25,10 +28,10 @@ class seeCode(QDialog):
 
         self.setWindowTitle('Source code of ' + nameClass)
         layout = QVBoxLayout()
-        txt = QTextEdit()
+        txt = TextEditPy(None)
         txt.setReadOnly(True)
         txt.setPlainText(src)
-        PythonHighlighter(txt)
+        self.highlighter = PythonHighlighter(txt.document())
         font = txt.document().defaultFont()
         fontMetrics = QFontMetrics(font)
         textSize = fontMetrics.size(0, txt.toPlainText())

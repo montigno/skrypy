@@ -1,0 +1,15 @@
+[diagram]
+link=[N1] node=[A1:#Node#U0:Interpolation]
+link=[N0] node=[A0:#Node#U0:images]
+constant=[A1] value=['0 - Nearest neighbor'] format=[enumerate(('0 - Nearest neighbor', '1 - Linear', '2 - Quadratic spline', '3 - Cubic spline', '4 - Quartic spline', '5 - Quintic spline'))] label=[Interpolation] RectF=[(-140.0, 40.0, 160.0, 31.0)] 
+constant=[A0] value=[['path']] format=[list_path] label=[pathbox] RectF=[(-100.0, -100.0, 51.0, 35.0)] 
+block=[U0] category=[MRImaging.Irmage] class=[coregistration_display] valInputs=[(['images', 'Interpolation'], ['Node(N0)', 'Node(N1)'], [], [])] RectF=[(160.0, -60.0, 160.0, 80.0)] 
+[execution]
+[]
+['U0']
+{'U0': ('MRImaging.Irmage', 'coregistration_display', "(['images', 'Interpolation'], [['path'], '0 - Nearest neighbor'], [], [])")}
+[]
+{}
+[]
+[interlinks]
+[]

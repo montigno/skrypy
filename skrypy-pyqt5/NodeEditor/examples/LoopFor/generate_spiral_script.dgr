@@ -17,7 +17,7 @@ constant=[A15] value=[(-100000.0, 45.0, 100000.0)] format=[float] label=[xmin] R
 constant=[A16] value=[(-100000.0, 90.0, 100000.0)] format=[float] label=[delta_x] RectF=[(-720.0, -120.0, 131.0, 31.0)] 
 constant=[A17] value=[(-100000.0, 15000.0, 100000.0)] format=[float] label=[xmax] RectF=[(-720.0, -180.0, 131.0, 31.0)] 
 block=[U0] category=[Matplotlib.Plots] class=[matplotlib_plot] valInputs=[(['y_data', 'x', 'style_use', 'plot_linewidth', 'plot_color', 'plot_linestyle'], ['Node(N5)', 'Node(N6)', 'Node(N4)', 'Node(N3)', 'Node(N2)', 'Node(N1)'], [], [])] RectF=[(600.0, -100.0, 240.0, 300.0)] 
-script=[S0] title=[Script_editor] inputs=[['X', 'in', 'list_float']] outputs=[['y3', 'out', 'list_float'], ['y4', 'out', 'list_float']] code=[your code] RectF=[(-240.0, -280.0, 646.0, 252.0)]
+script=[S0] title=[Script_editor] inputs=[['X', 'in', 'list_float']] outputs=[['y3', 'out', 'list_float'], ['y4', 'out', 'list_float']] code=[your code] RectF=[(-240.0, -280.0, 580.0, 280.0)]
 block=[U7] category=[Signals.Generator] class=[gen_abscissa] valInputs=[(['xmin', 'xmax', 'delta_x'], ['Node(N33)', 'Node(N32)', 'Node(N31)'], ['outAbscissa'], ['list_float'])] RectF=[(-500.0, -200.0, 160.0, 80.0)] 
 [source S0]
 ['X=U7:outAbscissa']
